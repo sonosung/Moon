@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;

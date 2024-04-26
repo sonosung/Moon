@@ -49,15 +49,6 @@ public class ShCreatIDC extends JPanel {
 		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 20));
 		btnNewButton_1.setBounds(393, 477, 500, 50);
 		panel.add(btnNewButton_1);
-		
-		JButton btnNewButton_1_1 = new JButton("마이페이지");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
-		btnNewButton_1_1.setBounds(393, 380, 500, 50);
-		panel.add(btnNewButton_1_1);
 
 		this.setVisible(false);
 	}

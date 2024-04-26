@@ -22,7 +22,6 @@ public class ShLoginTest extends JPanel {
 	Color bg = new Color(0xdfeff0);
 	private JTextField txtId;
 	private JTextField txtPassword;
-	private JTextField txtCgving;
 	
 	public ShLoginTest(MainFrame mainFrame) {
 
@@ -45,6 +44,7 @@ public class ShLoginTest extends JPanel {
 		txtId.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("LOGIN");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 50));
 		lblNewLabel.setBounds(560, 163, 160, 50);
 		panel.add(lblNewLabel);
@@ -56,7 +56,7 @@ public class ShLoginTest extends JPanel {
 		panel.add(txtPassword);
 		
 		JButton btnNewButton = new JButton("로그인");
-		btnNewButton.setBackground(Color.WHITE);
+		btnNewButton.setBackground(Color.LIGHT_GRAY);
 		btnNewButton.setFont(new Font("굴림", Font.PLAIN, 20));
 		btnNewButton.setBounds(560, 361, 160, 50);
 		panel.add(btnNewButton);
@@ -70,13 +70,11 @@ public class ShLoginTest extends JPanel {
 		lblNewLabel_1.setBounds(560, 458, 160, 15);
 		panel.add(lblNewLabel_1);
 		
-		txtCgving = new JTextField();
-		txtCgving.setHorizontalAlignment(SwingConstants.CENTER);
-		txtCgving.setFont(new Font("푸라닭 젠틀 고딕", Font.BOLD, 30));
-		txtCgving.setText("CGVING에 오신 것을 환영합니다!");
-		txtCgving.setBounds(390, 35, 500, 60);
-		panel.add(txtCgving);
-		txtCgving.setColumns(10);
+		JLabel lblNewLabel_2 = new JLabel("CGVING에 오신 것을 환영합니다!");
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_2.setFont(new Font("푸라닭 젠틀 고딕", Font.BOLD, 30));
+		lblNewLabel_2.setBounds(390, 35, 500, 60);
+		panel.add(lblNewLabel_2);
 
 		this.setVisible(false);
 	}

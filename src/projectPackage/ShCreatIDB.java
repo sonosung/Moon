@@ -22,8 +22,8 @@ public class ShCreatIDB extends JPanel {
 	 */
 	Color bg = new Color(0xdfeff0);
 	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	private JTextField textField_id;
+	private JTextField textField_pw;
 	
 	public ShCreatIDB(MainFrame mainFrame) {
 
@@ -54,38 +54,37 @@ public class ShCreatIDB extends JPanel {
 		panel.add(btnNewButton_1);
 		
 		textField_1 = new JTextField();
-		textField_1.setHorizontalAlignment(SwingConstants.CENTER);
+		textField_1.setHorizontalAlignment(SwingConstants.LEFT);
 		textField_1.setColumns(10);
-		textField_1.setBounds(493, 187, 380, 30);
+		textField_1.setBounds(465, 187, 350, 30);
 		panel.add(textField_1);
 		
-		textField_2 = new JTextField();
-		textField_2.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_2.setColumns(10);
-		textField_2.setBounds(493, 239, 380, 30);
-		panel.add(textField_2);
+		textField_id = new JTextField();
+		textField_id.setHorizontalAlignment(SwingConstants.LEFT);
+		textField_id.setColumns(10);
+		textField_id.setBounds(465, 239, 350, 30);
+		panel.add(textField_id);
 		
-		textField_3 = new JTextField();
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setColumns(10);
-		textField_3.setBounds(493, 287, 380, 30);
-		panel.add(textField_3);
+		textField_pw = new JTextField();
+		textField_pw.setHorizontalAlignment(SwingConstants.LEFT);
+		textField_pw.setColumns(10);
+		textField_pw.setBounds(465, 287, 350, 30);
+		panel.add(textField_pw);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("비밀번호");
+		lblNewLabel_1_1_1_1.setLabelFor(textField_pw);
 		lblNewLabel_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
-		lblNewLabel_1_1_1_1.setBounds(400, 294, 60, 20);
+		lblNewLabel_1_1_1_1.setBounds(393, 291, 60, 20);
 		panel.add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("아이디");
-		lblNewLabel_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
-		lblNewLabel_1_1_1_1_1.setBounds(400, 243, 60, 20);
+		lblNewLabel_1_1_1_1_1.setBounds(393, 243, 60, 20);
 		panel.add(lblNewLabel_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("이  름");
-		lblNewLabel_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
-		lblNewLabel_1_1_1_1_1_1.setBounds(400, 194, 60, 20);
+		lblNewLabel_1_1_1_1_1_1.setBounds(393, 191, 60, 20);
 		panel.add(lblNewLabel_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("2. 회원정보 입력");
