@@ -8,8 +8,11 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
-public class OhtanisPanel extends JPanel {
+
+public class OhtanisPanel2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -17,7 +20,7 @@ public class OhtanisPanel extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public OhtanisPanel(MainFrame mainFrame) {
+	public OhtanisPanel2(MainFrame mainFrame) {
 		
 		this.mainFrame = mainFrame;
 		
@@ -28,6 +31,10 @@ public class OhtanisPanel extends JPanel {
 
 		try {
 			JButton btnNewButton = new JButton("");
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
 			btnNewButton.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/crimetown.jpg")));
 			btnNewButton.setBounds(88, 336, 150, 214);
 			add(btnNewButton);
