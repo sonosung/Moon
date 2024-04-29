@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 
 public class ShCreatIDC extends JPanel {
 
@@ -37,7 +39,7 @@ public class ShCreatIDC extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("회원가입이 완료되었습니다!");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 35));
+		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
 		lblNewLabel.setBounds(393, 187, 500, 50);
 		panel.add(lblNewLabel);
 		
@@ -46,9 +48,16 @@ public class ShCreatIDC extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		btnNewButton_1.setBounds(393, 477, 500, 50);
 		panel.add(btnNewButton_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setOpaque(false);
+		panel_1.setBorder(new LineBorder(new Color(255, 0, 0)));
+		panel_1.setBackground(new Color(224, 255, 255));
+		panel_1.setBounds(346, 75, 587, 512);
+		panel.add(panel_1);
 
 		this.setVisible(false);
 	}

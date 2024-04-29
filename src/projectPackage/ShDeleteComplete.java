@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class ShDeleteComplete extends JPanel {
 
@@ -40,15 +41,21 @@ public class ShDeleteComplete extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		btnNewButton_1.setBounds(390, 423, 500, 50);
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("그동안 CGVING을 이용해주셔서 감사합니다!");
 		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("굴림", Font.BOLD, 20));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(415, 214, 450, 20);
+		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(365, 214, 550, 50);
 		panel.add(lblNewLabel_1_1_1_1_1_1_1);
+		
+		JPanel panel_1 = new JPanel();
+		panel_1.setBorder(UIManager.getBorder("Menu.border"));
+		panel_1.setBackground(new Color(224, 255, 255));
+		panel_1.setBounds(346, 75, 587, 510);
+		panel.add(panel_1);
 		
 
 		this.setVisible(false);

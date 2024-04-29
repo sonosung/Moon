@@ -11,6 +11,9 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
+import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
 
 public class ShMyPage extends JPanel {
 
@@ -21,9 +24,9 @@ public class ShMyPage extends JPanel {
 	 * Create the panel.
 	 */
 	Color bg = new Color(0xdfeff0);
-	private JTextField textField;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	private JTextField myReservation;
+	private JTextField inputId;
+	private JTextField inputName;
 	
 	public ShMyPage(MainFrame mainFrame) {
 
@@ -44,8 +47,8 @@ public class ShMyPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 20));
-		btnNewButton_1.setBounds(647, 477, 240, 50);
+		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		btnNewButton_1.setBounds(647, 498, 285, 50);
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_1_1 = new JButton("홈으로");
@@ -53,51 +56,64 @@ public class ShMyPage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
-		btnNewButton_1_1.setBounds(393, 477, 240, 50);
+		btnNewButton_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		btnNewButton_1_1.setBounds(350, 498, 285, 50);
 		panel.add(btnNewButton_1_1);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("예매내역");
-		lblNewLabel_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
-		lblNewLabel_1_1_1_1.setBounds(393, 291, 60, 20);
-		panel.add(lblNewLabel_1_1_1_1);
+		JLabel myRes = new JLabel("예매내역");
+		myRes.setHorizontalAlignment(SwingConstants.LEFT);
+		myRes.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		myRes.setBounds(350, 368, 60, 20);
+		panel.add(myRes);
 		
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("아이디");
-		lblNewLabel_1_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
-		lblNewLabel_1_1_1_1_1.setBounds(393, 243, 60, 20);
-		panel.add(lblNewLabel_1_1_1_1_1);
+		JLabel myId = new JLabel("아이디");
+		myId.setHorizontalAlignment(SwingConstants.LEFT);
+		myId.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		myId.setBounds(350, 258, 60, 20);
+		panel.add(myId);
 		
-		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("이  름");
-		lblNewLabel_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.LEFT);
-		lblNewLabel_1_1_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
-		lblNewLabel_1_1_1_1_1_1.setBounds(393, 191, 60, 20);
-		panel.add(lblNewLabel_1_1_1_1_1_1);
+		JLabel myName = new JLabel("이  름");
+		myName.setHorizontalAlignment(SwingConstants.LEFT);
+		myName.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		myName.setBounds(350, 148, 60, 20);
+		panel.add(myName);
 		
-		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("마이페이지");
-		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("굴림", Font.BOLD, 20));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(70, 125, 120, 20);
-		panel.add(lblNewLabel_1_1_1_1_1_1_1);
+		JLabel myPage = new JLabel("마이페이지");
+		myPage.setHorizontalAlignment(SwingConstants.CENTER);
+		myPage.setFont(new Font("굴림", Font.BOLD, 20));
+		myPage.setBounds(70, 125, 120, 20);
+		panel.add(myPage);
 		
-		textField = new JTextField();
-		textField.setHorizontalAlignment(SwingConstants.LEFT);
-		textField.setColumns(10);
-		textField.setBounds(465, 287, 350, 30);
-		panel.add(textField);
+		myReservation = new JTextField();
+		myReservation.setHorizontalAlignment(SwingConstants.LEFT);
+		myReservation.setColumns(10);
+		myReservation.setBounds(400, 354, 480, 50);
+		panel.add(myReservation);
 		
-		textField_4 = new JTextField();
-		textField_4.setHorizontalAlignment(SwingConstants.LEFT);
-		textField_4.setColumns(10);
-		textField_4.setBounds(465, 239, 350, 30);
-		panel.add(textField_4);
+		inputId = new JTextField();
+		inputId.setHorizontalAlignment(SwingConstants.LEFT);
+		inputId.setColumns(10);
+		inputId.setBounds(400, 244, 480, 50);
+		panel.add(inputId);
 		
-		textField_5 = new JTextField();
-		textField_5.setHorizontalAlignment(SwingConstants.LEFT);
-		textField_5.setColumns(10);
-		textField_5.setBounds(465, 187, 350, 30);
-		panel.add(textField_5);
+		inputName = new JTextField();
+		inputName.setHorizontalAlignment(SwingConstants.LEFT);
+		inputName.setColumns(10);
+		inputName.setBounds(400, 134, 480, 50);
+		panel.add(inputName);
+		
+		JPanel border = new JPanel();
+		border.setVisible(false);
+		border.setOpaque(false);
+		border.setBorder(new LineBorder(Color.RED));
+		border.setBackground(new Color(224, 255, 255));
+		border.setBounds(346, 75, 587, 512);
+		panel.add(border);
+		
+		JLabel ProtLog = new JLabel("");
+		ProtLog.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인.png"));
+		ProtLog.setBounds(0, 0, 1280, 650);
+		panel.add(ProtLog);
 		
 
 		this.setVisible(false);

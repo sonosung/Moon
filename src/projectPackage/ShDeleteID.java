@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
+import javax.swing.border.LineBorder;
 
 public class ShDeleteID extends JPanel {
 
@@ -42,7 +44,7 @@ public class ShDeleteID extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 12));
 		btnNewButton_1.setBounds(393, 477, 500, 50);
 		panel.add(btnNewButton_1);
 		
@@ -51,7 +53,7 @@ public class ShDeleteID extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1_1.setFont(new Font("굴림", Font.PLAIN, 20));
+		btnNewButton_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		btnNewButton_1_1.setBounds(393, 380, 500, 50);
 		panel.add(btnNewButton_1_1);
 		
@@ -62,21 +64,28 @@ public class ShDeleteID extends JPanel {
 		panel.add(textField_3);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("비밀번호");
-		lblNewLabel_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
+		lblNewLabel_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lblNewLabel_1_1_1_1.setBounds(421, 274, 60, 20);
 		panel.add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("회원탈퇴를 위해 비밀번호를 입력해주세요");
 		lblNewLabel_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1.setFont(new Font("굴림", Font.PLAIN, 15));
+		lblNewLabel_1_1_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lblNewLabel_1_1_1_1_1_1.setBounds(490, 216, 300, 20);
 		panel.add(lblNewLabel_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("회원탈퇴");
 		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("굴림", Font.BOLD, 20));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(590, 125, 100, 20);
+		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(540, 125, 200, 50);
 		panel.add(lblNewLabel_1_1_1_1_1_1_1);
+		
+		JPanel panel_1_1 = new JPanel();
+		panel_1_1.setOpaque(false);
+		panel_1_1.setBorder(new LineBorder(new Color(255, 0, 0)));
+		panel_1_1.setBackground(new Color(224, 255, 255));
+		panel_1_1.setBounds(346, 75, 587, 512);
+		panel.add(panel_1_1);
 		
 
 		this.setVisible(false);
