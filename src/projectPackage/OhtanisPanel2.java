@@ -2,7 +2,6 @@ package projectPackage;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -60,7 +59,7 @@ public class OhtanisPanel2 extends JPanel {
 			add(btnNewButton_1_1_2);
 			
 			JButton btnNewButton_2 = new JButton("");
-			btnNewButton_2.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/birds.jpg")));
+			btnNewButton_2.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/birds.jpg")));
 			btnNewButton_2.setBounds(0, 0, 1280, 238);
 			add(btnNewButton_2);
 			

@@ -2,12 +2,14 @@ package projectPackage;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
 
 public class OhtanisPanel extends JPanel {
 
@@ -28,32 +30,36 @@ public class OhtanisPanel extends JPanel {
 
 		try {
 			JButton btnNewButton = new JButton("");
-			btnNewButton.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/crimetown.jpg")));
+			btnNewButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+			btnNewButton.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/crimetown.jpg")));
 			btnNewButton.setBounds(88, 336, 150, 214);
 			add(btnNewButton);
 
 			JButton btnNewButton_1 = new JButton("");
-			btnNewButton_1.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/stuntman.jpg")));
+			btnNewButton_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/stuntman.jpg")));
 			btnNewButton_1.setBounds(326, 336, 150, 214);
 			add(btnNewButton_1);
 
 			JButton btnNewButton_1_1 = new JButton("");
-			btnNewButton_1_1.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/challengers.jpg")));
+			btnNewButton_1_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/challengers.jpg")));
 			btnNewButton_1_1.setBounds(802, 336, 150, 214);
 			add(btnNewButton_1_1);
 
 			JButton btnNewButton_1_1_1 = new JButton("");
-			btnNewButton_1_1_1.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/kungfupanda.jpg")));
+			btnNewButton_1_1_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/kungfupanda.jpg")));
 			btnNewButton_1_1_1.setBounds(560, 336, 150, 214);
 			add(btnNewButton_1_1_1);
 
 			JButton btnNewButton_1_1_2 = new JButton("");
-			btnNewButton_1_1_2.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/monsterfriends.jpg")));
+			btnNewButton_1_1_2.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/monsterfriends.jpg")));
 			btnNewButton_1_1_2.setBounds(1040, 336, 150, 214);
 			add(btnNewButton_1_1_2);
 			
 			JButton btnNewButton_2 = new JButton("");
-			btnNewButton_2.setIcon(new ImageIcon(new URL("https://ohtanis.com/wp-content/uploads/2024/04/birds.jpg")));
+			btnNewButton_2.setIcon(new ImageIcon(OhtanisPanel.class.getResource("/image/ohtani/birds.jpg")));
 			btnNewButton_2.setBounds(0, 0, 1280, 238);
 			add(btnNewButton_2);
 			
