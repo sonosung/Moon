@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 
-public class ShDeleteID extends JPanel {
+public class deleteId_1 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -25,7 +25,7 @@ public class ShDeleteID extends JPanel {
 	Color bg = new Color(0xdfeff0);
 	private JTextField textField_3;
 	
-	public ShDeleteID(MainFrame mainFrame) {
+	public deleteId_1(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);

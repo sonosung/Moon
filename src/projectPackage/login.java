@@ -16,7 +16,7 @@ import javax.swing.border.LineBorder;
 import java.awt.Component;
 import javax.swing.border.BevelBorder;
 
-public class ShLoginTest extends JPanel {
+public class login extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -27,8 +27,9 @@ public class ShLoginTest extends JPanel {
 	Color bg = new Color(0xdfeff0);
 	private JTextField txtId;
 	private JTextField txtPassword;
+	private JButton btnNewButton_2;
 	
-	public ShLoginTest(MainFrame mainFrame) {
+	public login(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
@@ -41,6 +42,10 @@ public class ShLoginTest extends JPanel {
 		panel.setBounds(0, 0, 1280, 650);
 		add(panel);
 		panel.setLayout(null);
+		
+		JLabel imageLabel = new JLabel(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/cgving2.png")));
+		panel.add(imageLabel);
+		imageLabel.setBounds(539, 77, 200, 42);
 		
 		txtId = new JTextField();
 		txtId.setBounds(560, 167, 160, 21);
@@ -59,10 +64,15 @@ public class ShLoginTest extends JPanel {
 		panel.add(txtPassword);
 		
 		JButton btnNewButton = new JButton("로그인");
-		btnNewButton.setBackground(Color.LIGHT_GRAY);
-		btnNewButton.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton.setBounds(390, 378, 500, 50);
-		panel.add(btnNewButton);
+		
+//		// 로고 객체 생성
+//	      JButton logo;
+//	      // 로고 이미지 생성
+//	      btnNewButton = new JButton(new ImageIcon("C:/Users/Manic-063/git/AccountManagement/src/1o0.jpg"));
+//	      // 로고 이미지 크기 및 위치
+//	      logo.setSize(100, 90);
+//	      logo.setLocation(60, 60);
+	
 		
 		JButton btnNewButton_1 = new JButton("회원가입");
 		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
@@ -94,6 +104,11 @@ public class ShLoginTest extends JPanel {
 		lblNewLabel_2.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인.png"));
 		lblNewLabel_2.setBounds(0, 0, 1280, 650);
 		panel.add(lblNewLabel_2);
+		btnNewButton_2 = new JButton(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\button1.png"));
+		btnNewButton_2.setBounds(66, 94, 719, 121);
+		panel.add(btnNewButton_2);
+		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
+		btnNewButton_2.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 
 		this.setVisible(false);
 	}

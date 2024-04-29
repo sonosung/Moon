@@ -15,7 +15,7 @@ import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 
-public class ShMyPage extends JPanel {
+public class myPage extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -28,7 +28,7 @@ public class ShMyPage extends JPanel {
 	private JTextField inputId;
 	private JTextField inputName;
 	
-	public ShMyPage(MainFrame mainFrame) {
+	public myPage(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);

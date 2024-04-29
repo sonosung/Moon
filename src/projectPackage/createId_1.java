@@ -23,7 +23,7 @@ import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 
-public class ShCreatIDA extends JPanel {
+public class createId_1 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -34,7 +34,7 @@ public class ShCreatIDA extends JPanel {
 	Color bg = new Color(0xdfeff0);
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	
-	public ShCreatIDA(MainFrame mainFrame) {
+	public createId_1(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
@@ -59,7 +59,7 @@ public class ShCreatIDA extends JPanel {
 			}
 		});
 		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(346, 535, 587, 50);
+		btnNewButton_1.setBounds(346, 500, 587, 50);
 		panel.add(btnNewButton_1);
 		
 		JRadioButton agree = new JRadioButton("약관에 동의함");

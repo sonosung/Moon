@@ -12,8 +12,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
+import javax.swing.Icon;
 
-public class ShCreatIDC extends JPanel {
+public class deleteId_2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -23,7 +24,7 @@ public class ShCreatIDC extends JPanel {
 	 */
 	Color bg = new Color(0xdfeff0);
 	
-	public ShCreatIDC(MainFrame mainFrame) {
+	public deleteId_2(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
@@ -37,20 +38,28 @@ public class ShCreatIDC extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("회원가입이 완료되었습니다!");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lblNewLabel.setBounds(393, 187, 500, 50);
-		panel.add(lblNewLabel);
+//		JLabel imageLabel = new JLabel(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/cgving2.png")));
+//        imageLabel.setBounds(45, 48, 200, 51);  // x, y 위치와 이미지 사이즈 설정
+//        panel_1.add(imageLabel);
 		
 		JButton btnNewButton_1 = new JButton("홈으로");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
+		
+		JLabel imageLabel = new JLabel((Icon) null);
+		imageLabel.setBounds(528, 35, 200, 42);
+		panel.add(imageLabel);
 		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(393, 477, 500, 50);
+		btnNewButton_1.setBounds(390, 423, 500, 50);
 		panel.add(btnNewButton_1);
+		
+		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("그동안 CGVING을 이용해주셔서 감사합니다!");
+		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(365, 214, 550, 50);
+		panel.add(lblNewLabel_1_1_1_1_1_1_1);
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setOpaque(false);
@@ -58,6 +67,7 @@ public class ShCreatIDC extends JPanel {
 		panel_1.setBackground(new Color(224, 255, 255));
 		panel_1.setBounds(346, 75, 587, 512);
 		panel.add(panel_1);
+		
 
 		this.setVisible(false);
 	}

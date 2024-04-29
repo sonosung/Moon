@@ -17,7 +17,7 @@ import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 
-public class ShCreatIDB extends JPanel {
+public class createId_2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -30,7 +30,7 @@ public class ShCreatIDB extends JPanel {
 	private JTextField textField_id;
 	private JTextField textField_pw;
 	
-	public ShCreatIDB(MainFrame mainFrame) {
+	public createId_2(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
