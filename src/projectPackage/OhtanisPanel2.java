@@ -1,10 +1,15 @@
 package projectPackage;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import projectPackage.HeadPanel.popupDefine;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
@@ -15,6 +20,7 @@ public class OhtanisPanel2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
+	private JFrame window;
 
 	/**
 	 * Create the panel.
@@ -29,11 +35,17 @@ public class OhtanisPanel2 extends JPanel {
 		this.setBackground(Color.gray);
 
 		try {
+			
+			//JFrame Initialize			
+			//팝업 jframe 정의
+			window = new PopupTest();
+	       
 			JButton btnNewButton = new JButton("");
-			btnNewButton.addActionListener(new ActionListener() {
-				public void actionPerformed(ActionEvent e) {
-				}
-			});
+			//클릭시 이벤트 정의
+			btnNewButton.addActionListener(new popupDefine());
+			//--------------------------------------------------//
+			
+			
 			btnNewButton.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/crimetown.jpg")));
 			btnNewButton.setBounds(88, 336, 150, 214);
 			add(btnNewButton);
@@ -118,5 +130,15 @@ public class OhtanisPanel2 extends JPanel {
 		}
 
 		this.setVisible(false);
+	}
+	
+	//popup 이벤트 구현
+	class popupDefine implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			window.setVisible(true);
+		}
 	}
 }
