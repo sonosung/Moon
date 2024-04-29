@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		index = 0;		
 		panelMap = new HashMap<MainFrame.PANELNAME, JPanel>();
@@ -61,7 +61,7 @@ public class MainFrame extends JFrame {
 		HeadPanel = new HeadPanel(this);	
 		
 		//생성 판넬 관리
-		JPanel ContentPanel = new OhtanisPanel2(this);
+		JPanel ContentPanel = new OhtanisPanel(this);
 		JPanel ContentPanel2 = new ContentPanel2(this);
 		JPanel ContentPanel3 = new ContentPanel3(this);
 		

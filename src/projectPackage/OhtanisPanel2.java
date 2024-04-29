@@ -22,6 +22,7 @@ public class OhtanisPanel2 extends JPanel {
 	private MainFrame mainFrame;
 	private JFrame crimePopup;
 	private JFrame stuntPopup;
+	private JFrame kungfuPopup;
 
 	/**
 	 * Create the panel.
@@ -56,7 +57,9 @@ public class OhtanisPanel2 extends JPanel {
 			btnNewButton_1.setBounds(326, 336, 150, 214);
 			add(btnNewButton_1);
 
+			stuntPopup = new KungfuPopup();  
 			JButton btnNewButton_1_1 = new JButton("");
+			btnNewButton_1_1.addActionListener(new kungfuPopupAction());
 			btnNewButton_1_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/challengers.jpg")));
 			btnNewButton_1_1.setBounds(802, 336, 150, 214);
 			add(btnNewButton_1_1);
@@ -141,6 +144,8 @@ public class OhtanisPanel2 extends JPanel {
 			// TODO Auto-generated method stub
 			crimePopup.setVisible(true);
 			stuntPopup.setVisible(false);
+			kungfuPopup.setVisible(false);
+			
 		}
 	}
 	
@@ -151,6 +156,18 @@ public class OhtanisPanel2 extends JPanel {
 			// TODO Auto-generated method stub
 			crimePopup.setVisible(false);
 			stuntPopup.setVisible(true);
+			kungfuPopup.setVisible(false);
+		}
+	}
+
+	class kungfuPopupAction implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			crimePopup.setVisible(false);
+			stuntPopup.setVisible(false);
+			kungfuPopup.setVisible(true);
 		}
 	}
 }
