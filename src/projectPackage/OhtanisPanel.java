@@ -85,65 +85,65 @@ public class OhtanisPanel extends JPanel {
 			btnNewButton_0.setBounds(0, 0, 1280, 238);
 			add(btnNewButton_0);
 
-			JLabel label = new JLabel("1. 범죄도시4");
-			label.setForeground(new Color(255, 255, 255));
-			label.setFont(new Font("나눔고딕", Font.BOLD, 18));
-			label.setBounds(111, 550, 100, 22);
-			add(label);
-
-			JLabel label_1 = new JLabel("2. 스턴트맨");
+			JLabel label_1 = new JLabel("1. 범죄도시4");
 			label_1.setForeground(new Color(255, 255, 255));
 			label_1.setFont(new Font("나눔고딕", Font.BOLD, 18));
-			label_1.setBounds(351, 550, 100, 22);
+			label_1.setBounds(111, 550, 100, 22);
 			add(label_1);
 
-			JLabel label_1_1 = new JLabel("3. 쿵푸팬더4");
-			label_1_1.setForeground(new Color(255, 255, 255));
-			label_1_1.setFont(new Font("나눔고딕", Font.BOLD, 18));
-			label_1_1.setBounds(585, 550, 100, 22);
-			add(label_1_1);
-
-			JLabel label_1_1_1 = new JLabel("5. 몬스터 프렌즈");
-			label_1_1_1.setForeground(new Color(255, 255, 255));
-			label_1_1_1.setFont(new Font("나눔고딕", Font.BOLD, 18));
-			label_1_1_1.setBounds(1046, 550, 139, 22);
-			add(label_1_1_1);
-
-			JLabel label_1_1_1_1 = new JLabel("4. 챌린저스");
-			label_1_1_1_1.setForeground(new Color(255, 255, 255));
-			label_1_1_1_1.setFont(new Font("나눔고딕", Font.BOLD, 18));
-			label_1_1_1_1.setBounds(827, 550, 100, 22);
-			add(label_1_1_1_1);
-
-			JLabel label_2 = new JLabel("예매율 91.2%");
+			JLabel label_2 = new JLabel("2. 스턴트맨");
 			label_2.setForeground(new Color(255, 255, 255));
-			label_2.setFont(new Font("나눔고딕", Font.BOLD, 12));
-			label_2.setBounds(130, 573, 85, 22);
+			label_2.setFont(new Font("나눔고딕", Font.BOLD, 18));
+			label_2.setBounds(351, 550, 100, 22);
 			add(label_2);
 
-			JLabel label_2_1 = new JLabel("예매율 1.4%");
-			label_2_1.setForeground(new Color(255, 255, 255));
-			label_2_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
-			label_2_1.setBounds(370, 573, 85, 22);
-			add(label_2_1);
+			JLabel label_3 = new JLabel("3. 쿵푸팬더4");
+			label_3.setForeground(new Color(255, 255, 255));
+			label_3.setFont(new Font("나눔고딕", Font.BOLD, 18));
+			label_3.setBounds(585, 550, 100, 22);
+			add(label_3);
 
-			JLabel label_2_1_1 = new JLabel("예매율 1.3%");
-			label_2_1_1.setForeground(new Color(255, 255, 255));
-			label_2_1_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
-			label_2_1_1.setBounds(609, 573, 85, 22);
-			add(label_2_1_1);
+			JLabel label_4 = new JLabel("5. 몬스터 프렌즈");
+			label_4.setForeground(new Color(255, 255, 255));
+			label_4.setFont(new Font("나눔고딕", Font.BOLD, 18));
+			label_4.setBounds(1046, 550, 139, 22);
+			add(label_4);
 
-			JLabel label_2_1_1_1 = new JLabel("예매율 1.2%");
-			label_2_1_1_1.setForeground(new Color(255, 255, 255));
-			label_2_1_1_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
-			label_2_1_1_1.setBounds(847, 573, 85, 22);
-			add(label_2_1_1_1);
+			JLabel label_5 = new JLabel("4. 챌린저스");
+			label_5.setForeground(new Color(255, 255, 255));
+			label_5.setFont(new Font("나눔고딕", Font.BOLD, 18));
+			label_5.setBounds(827, 550, 100, 22);
+			add(label_5);
 
-			JLabel label_2_1_1_1_1 = new JLabel("예매율 1.2%");
-			label_2_1_1_1_1.setForeground(new Color(255, 255, 255));
-			label_2_1_1_1_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
-			label_2_1_1_1_1.setBounds(1084, 573, 85, 22);
-			add(label_2_1_1_1_1);
+			JLabel label_6 = new JLabel("예매율 91.2%");
+			label_6.setForeground(new Color(255, 255, 255));
+			label_6.setFont(new Font("나눔고딕", Font.BOLD, 12));
+			label_6.setBounds(130, 573, 85, 22);
+			add(label_6);
+
+			JLabel label_7 = new JLabel("예매율 1.4%");
+			label_7.setForeground(new Color(255, 255, 255));
+			label_7.setFont(new Font("나눔고딕", Font.BOLD, 12));
+			label_7.setBounds(370, 573, 85, 22);
+			add(label_7);
+
+			JLabel label_8 = new JLabel("예매율 1.3%");
+			label_8.setForeground(new Color(255, 255, 255));
+			label_8.setFont(new Font("나눔고딕", Font.BOLD, 12));
+			label_8.setBounds(609, 573, 85, 22);
+			add(label_8);
+
+			JLabel label_9 = new JLabel("예매율 1.2%");
+			label_9.setForeground(new Color(255, 255, 255));
+			label_9.setFont(new Font("나눔고딕", Font.BOLD, 12));
+			label_9.setBounds(847, 573, 85, 22);
+			add(label_9);
+
+			JLabel label_10 = new JLabel("예매율 1.2%");
+			label_10.setForeground(new Color(255, 255, 255));
+			label_10.setFont(new Font("나눔고딕", Font.BOLD, 12));
+			label_10.setBounds(1084, 573, 85, 22);
+			add(label_10);
 
 		} catch (Exception e) {
 			e.printStackTrace();
