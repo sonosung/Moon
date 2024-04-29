@@ -1,6 +1,7 @@
 package projectPackage;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Dimension;
 
 import javax.swing.JPanel;
@@ -8,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JMenuBar;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -16,6 +19,7 @@ public class HeadPanel extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
 	private JPanel thisPanel;
+	private JFrame window;
 
 	/**
 	 * Create the panel.
@@ -64,6 +68,36 @@ public class HeadPanel extends JPanel {
 		});
 		btnNewButton_2.setBounds(282, 66, 111, 41);
 		add(btnNewButton_2);
+		
+		
+		//popup 을 위한 코드
+		JButton btnNewButton_2_1 = new JButton("popup");
+		btnNewButton_2_1.addActionListener(new popupDefine());
+		btnNewButton_2_1.setBounds(582, 66, 111, 41);
+		add(btnNewButton_2_1);
+		
+		//--------------------------------------------------//
+		
+		window = new JFrame("제목 있는 윈도우");
+        window.setTitle("제목이 변경된 윈도우");
+        window.setBounds(800, 100, 400, 200);
+        
+        Container container = window.getContentPane();
+        container.setBackground(Color.ORANGE);
+        
+        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        window.setVisible(false);
+		
+	}
+	
+	//popup 이벤트 구현
+	class popupDefine implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			window.setVisible(true);
+		}
 	}
 	
 	class actionDefineClass implements ActionListener

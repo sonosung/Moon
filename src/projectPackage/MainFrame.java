@@ -53,7 +53,7 @@ public class MainFrame extends JFrame {
 	 * Create the frame.
 	 */
 	public MainFrame() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		index = 0;		
 		panelMap = new HashMap<MainFrame.PANELNAME, JPanel>();
@@ -61,7 +61,7 @@ public class MainFrame extends JFrame {
 		HeadPanel = new HeadPanel(this);	
 		
 		//생성 판넬 관리
-		JPanel ContentPanel = new ContentPanel(this);
+		JPanel ContentPanel = new OhtanisPanel(this);
 		JPanel ContentPanel2 = new ContentPanel2(this);
 		JPanel ContentPanel3 = new ContentPanel3(this);
 		
@@ -69,6 +69,9 @@ public class MainFrame extends JFrame {
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
 		panelMap.put(MainFrame.PANELNAME.PAGE0, ContentPanel2);
 		panelMap.put(MainFrame.PANELNAME.PAGE1, ContentPanel3);
+		
+		//System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
+		//System.out.println(MainFrame.class.getResource("").getPath());
 		
 		//Main판넬 설정
 		setBounds(100, 100, 1280, 800);
