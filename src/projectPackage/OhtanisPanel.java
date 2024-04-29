@@ -84,7 +84,7 @@ public class OhtanisPanel extends JPanel {
 			
 			JLabel label_2 = new JLabel("예매율 91.2%");
 			label_2.setFont(new Font("나눔고딕", Font.BOLD, 12));
-			label_2.setBounds(135, 588, 85, 22);
+			label_2.setBounds(130, 588, 85, 22);
 			add(label_2);
 			
 			JLabel label_2_1 = new JLabel("예매율 1.4%");
