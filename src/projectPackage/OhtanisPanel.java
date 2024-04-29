@@ -14,6 +14,7 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.Icon;
 
 public class OhtanisPanel extends JPanel {
 
@@ -78,12 +79,6 @@ public class OhtanisPanel extends JPanel {
 			btnNewButton_5.setIcon(new ImageIcon(OhtanisPanel.class.getResource("/image/ohtani/monsterfriends.jpg")));
 			btnNewButton_5.setBounds(1040, 326, 150, 214);
 			add(btnNewButton_5);
-			
-
-			JButton btnNewButton_0 = new JButton("");
-			btnNewButton_0.setIcon(new ImageIcon(OhtanisPanel.class.getResource("/image/ohtani/birds.jpg")));
-			btnNewButton_0.setBounds(0, 0, 1280, 238);
-			add(btnNewButton_0);
 
 			JLabel label_1 = new JLabel("1. 범죄도시4");
 			label_1.setForeground(new Color(255, 255, 255));
@@ -144,6 +139,10 @@ public class OhtanisPanel extends JPanel {
 			label_10.setFont(new Font("나눔고딕", Font.BOLD, 12));
 			label_10.setBounds(1084, 573, 85, 22);
 			add(label_10);
+			
+			JLabel imageLabel = new JLabel(new ImageIcon(OhtanisPanel.class.getResource("/image/ohtani/birds.jpg")));
+			imageLabel.setBounds(0, 0, 1277, 237);
+			add(imageLabel);
 
 		} catch (Exception e) {
 			e.printStackTrace();

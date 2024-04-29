@@ -58,7 +58,7 @@ public class MainFrame extends JFrame {
 		index = 0;		
 		panelMap = new HashMap<MainFrame.PANELNAME, JPanel>();
 		
-		HeadPanel = new HeadPanel(this);	
+		HeadPanel = new TopPanelTest(this);	
 		
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
