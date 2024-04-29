@@ -85,7 +85,7 @@ public class HeadPanel extends JPanel {
         Container container = window.getContentPane();
         container.setBackground(Color.ORANGE);
         
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         window.setVisible(false);
 		
 	}
