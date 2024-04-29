@@ -20,7 +20,8 @@ public class OhtanisPanel2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
-	private JFrame window;
+	private JFrame crimePopup;
+	private JFrame stuntPopup;
 
 	/**
 	 * Create the panel.
@@ -38,19 +39,19 @@ public class OhtanisPanel2 extends JPanel {
 			
 			//JFrame Initialize			
 			//팝업 jframe 정의
-			window = new PopupTest();
-	       
+			crimePopup = new CrimePopup();  
 			JButton btnNewButton = new JButton("");
 			//클릭시 이벤트 정의
-			btnNewButton.addActionListener(new popupDefine());
+			btnNewButton.addActionListener(new crimePopupAction());
 			//--------------------------------------------------//
-			
-			
+						
 			btnNewButton.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/crimetown.jpg")));
 			btnNewButton.setBounds(88, 336, 150, 214);
 			add(btnNewButton);
 
+			stuntPopup = new StuntPopup();  
 			JButton btnNewButton_1 = new JButton("");
+			btnNewButton_1.addActionListener(new stuntPopupAction());
 			btnNewButton_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/stuntman.jpg")));
 			btnNewButton_1.setBounds(326, 336, 150, 214);
 			add(btnNewButton_1);
@@ -133,12 +134,23 @@ public class OhtanisPanel2 extends JPanel {
 	}
 	
 	//popup 이벤트 구현
-	class popupDefine implements ActionListener
+	class crimePopupAction implements ActionListener
 	{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-			window.setVisible(true);
+			crimePopup.setVisible(true);
+			stuntPopup.setVisible(false);
+		}
+	}
+	
+	class stuntPopupAction implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			crimePopup.setVisible(false);
+			stuntPopup.setVisible(true);
 		}
 	}
 }

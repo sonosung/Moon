@@ -8,7 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import java.awt.Font;
 
-public class CrimePopup extends JFrame {
+
+public class StuntPopup extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
@@ -20,7 +21,7 @@ public class CrimePopup extends JFrame {
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    CrimePopup frame = new CrimePopup();
+                	StuntPopup frame = new StuntPopup();
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -32,7 +33,7 @@ public class CrimePopup extends JFrame {
     /**
      * Create the frame.
      */
-    public CrimePopup() {
+    public StuntPopup() {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(300, 300, 700, 434);
         contentPane = new JPanel();
@@ -43,7 +44,7 @@ public class CrimePopup extends JFrame {
         JButton btnNewButton = new JButton("");
         btnNewButton.setBounds(50, 72, 150, 214);
         try {
-            btnNewButton.setIcon(new ImageIcon(CrimePopup.class.getResource("/image/ohtani/crimetown.jpg")));
+            btnNewButton.setIcon(new ImageIcon(StuntPopup.class.getResource("/image/ohtani/stuntman.jpg")));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -51,7 +52,7 @@ public class CrimePopup extends JFrame {
         
         JTextArea textArea = new JTextArea();
         textArea.setFont(new Font("나눔바른고딕", Font.PLAIN, 14));
-        textArea.setText("신종 마약 사건 3년 뒤,\r\n괴물형사 ‘마석도’(마동석)와 서울 광수대는\r\n배달앱을 이용한 마약 판매 사건을 수사하던 중\r\n수배 중인 앱 개발자가 필리핀에서 사망한 사건이\r\n대규모 온라인 불법 도박 조직과 연관되어 있음을 알아낸다.\r\n\r\n필리핀에 거점을 두고 납치, 감금, 폭행, 살인 등으로\r\n대한민국 온라인 불법 도박 시장을 장악한\r\n특수부대 용병 출신의 빌런 ‘백창기’(김무열)와\r\n한국에서 더 큰 판을 짜고 있는 IT업계 천재 CEO ‘장동철’(이동휘).\r\n\r\n‘마석도’는 더 커진 판을 잡기 위해\r\n‘장이수’(박지환)에게 뜻밖의 협력을 제안하고\r\n광역수사대는 물론,\r\n사이버수사대까지 합류해 범죄를 소탕하기 시작하는데…\r\n\r\n나쁜 놈 잡는데 국경도 영역도 제한 없다!\r\n업그레이드 소탕 작전! 거침없이 싹 쓸어버린다!");
+        textArea.setText("사람도 구하고, 영화도 구하고, X도 구하려다 X됐다…!\r\n \r\n잠수 이별을 택하고 후회뿐인 날을 보내던\r\n스턴트맨 ‘콜트’(라이언 고슬링)\r\n영화감독이 된 전 여친 ‘조디’(에밀리 블런트)의\r\n촬영장에 복귀하며 아련한 재회를 기대했\r\n지만… 갑자기 주연배우가 사라지고\r\n콜트는 우선 그부터 찾아야만 한다!\r\n \r\n<데드풀 2> 감독이 말아주는 코미디, 액션, 로맨스 장르 풀코스\r\n액션도 터지고, 사랑도 터지고, 웃음도 터진다!");
         textArea.setBounds(254, 35, 386, 325);
         contentPane.add(textArea);
     }
