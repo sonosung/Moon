@@ -65,6 +65,7 @@ public class MainFrame extends JFrame {
 		JPanel ContentPanel2 = new ContentPanel2(this);
 		JPanel ContentPanel3 = new ContentPanel3(this);
 		
+		
 		//생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
 		panelMap.put(MainFrame.PANELNAME.PAGE0, ContentPanel2);
