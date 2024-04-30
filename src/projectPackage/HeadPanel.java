@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JMenuBar;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
@@ -69,12 +70,21 @@ public class HeadPanel extends JPanel {
 		btnNewButton_2.setBounds(282, 66, 111, 41);
 		add(btnNewButton_2);
 		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		lblNewLabel_1.setBounds(592, 54, 93, 64);
+		add(lblNewLabel_1);
 		
 		//popup 을 위한 코드
 		JButton btnNewButton_2_1 = new JButton("popup");
 		btnNewButton_2_1.addActionListener(new popupDefine());
+		btnNewButton_2_1.setIcon(new ImageIcon(HeadPanel.class.getResource("/image/TEST_forPersonal/google-play-badge.png")));
+		//lblNewLabel.setIcon(new ImageIcon(test_forlist.class.getResource("/image/TEST_forPersonal/ring.jpg")));
 		btnNewButton_2_1.setBounds(582, 66, 111, 41);
-		add(btnNewButton_2_1);
+		btnNewButton_2_1.setOpaque(false);
+		add(btnNewButton_2_1);		
+		
+		//google-play-badge
+		
 		
 		//--------------------------------------------------//
 		
