@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.Icon;
+import javax.swing.ImageIcon;
 
 public class deleteId_2 extends JPanel {
 
@@ -39,26 +40,27 @@ public class deleteId_2 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("홈으로");
-		btnNewButton_1.setBackground(UIManager.getColor("Button.background"));
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JLabel cgving = new JLabel(new ImageIcon(deleteId_2.class.getResource("/image/ohtani/cgving2.png")));
+		cgving.setBounds(540, 20, 200, 42);
+		panel.add(cgving);
+		
+		JLabel lb_bye = new JLabel("그동안 CGVING을 이용해주셔서 감사합니다!");
+		lb_bye.setForeground(Color.WHITE);
+		lb_bye.setHorizontalAlignment(SwingConstants.CENTER);
+		lb_bye.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lb_bye.setBounds(365, 230, 550, 50);
+		panel.add(lb_bye);
+		
+		JButton bt_home = new JButton("");
+		bt_home.setIcon(new ImageIcon(deleteId_2.class.getResource("/image/seungho/bt_home.png")));
+		bt_home.setBackground(UIManager.getColor("Button.background"));
+		bt_home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		
-		JLabel imageLabel = new JLabel((Icon) null);
-		imageLabel.setBounds(528, 35, 200, 42);
-		panel.add(imageLabel);
-		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(390, 500, 500, 50);
-		panel.add(btnNewButton_1);
-		
-		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("그동안 CGVING을 이용해주셔서 감사합니다!");
-		lblNewLabel_1_1_1_1_1_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(365, 230, 550, 50);
-		panel.add(lblNewLabel_1_1_1_1_1_1_1);
+		bt_home.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_home.setBounds(390, 500, 500, 50);
+		panel.add(bt_home);
 		
 //		JPanel panel_1 = new JPanel();
 //		panel_1.setOpaque(false);

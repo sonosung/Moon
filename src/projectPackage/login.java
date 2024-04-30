@@ -28,9 +28,9 @@ public class login extends JPanel {
 	 * Create the panel.
 	 */
 	Color bg = new Color(0xdfeff0);
-	private JTextField txtId;
+	private JTextField tf_id;
 	private JTextField tf_password;
-	private JButton btnNewButton_2;
+	private JButton bt_login;
 	
 	public login(MainFrame mainFrame) {
 
@@ -50,11 +50,6 @@ public class login extends JPanel {
 		panel.add(cgving);
 		cgving.setBounds(539, 20, 200, 42);
 		
-		txtId = new JTextField();
-		txtId.setBounds(465, 210, 350, 30);
-		panel.add(txtId);
-		txtId.setColumns(10);
-		
 		JLabel lb_login = new JLabel("로그인");
 		lb_login.setForeground(Color.WHITE);
 		lb_login.setHorizontalAlignment(SwingConstants.CENTER);
@@ -62,12 +57,45 @@ public class login extends JPanel {
 		lb_login.setBounds(502, 115, 275, 50);
 		panel.add(lb_login);
 		
+		JLabel lb_id = new JLabel("아이디");
+		lb_id.setForeground(Color.WHITE);
+		lb_id.setFont(new Font("나눔고딕", Font.BOLD, 12));
+		lb_id.setBounds(390, 210, 57, 30);
+		panel.add(lb_id);
+		
+		tf_id = new JTextField();
+		tf_id.setBounds(465, 210, 350, 30);
+		panel.add(tf_id);
+		tf_id.setColumns(10);
+		
+		JLabel lb_pw = new JLabel("비밀번호");
+		lb_pw.setForeground(Color.WHITE);
+		lb_pw.setFont(new Font("나눔고딕", Font.BOLD, 12));
+		lb_pw.setBounds(390, 260, 57, 30);
+		panel.add(lb_pw);
+		
 		tf_password = new JTextField();
 		tf_password.setColumns(10);
 		tf_password.setBounds(465, 260, 350, 30);
 		panel.add(tf_password);
 		
 		JButton btnNewButton = new JButton("로그인");
+		bt_login = new JButton(new ImageIcon(login.class.getResource("/image/seungho/lb_login.png")));
+		bt_login.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		bt_login.setHorizontalTextPosition(SwingConstants.CENTER);
+		bt_login.setBounds(390, 360, 500, 50);
+		panel.add(bt_login);
+		bt_login.setBackground(Color.LIGHT_GRAY);
+		bt_login.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		
+		JLabel lb_noId = new JLabel("아이디가 없으시나요?");
+		lb_noId.setForeground(Color.WHITE);
+		lb_noId.setFont(new Font("나눔고딕", Font.BOLD, 12));
+		lb_noId.setBounds(390, 475, 160, 15);
+		panel.add(lb_noId);
 		
 //		// 로고 객체 생성
 //	      JButton logo;
@@ -78,42 +106,15 @@ public class login extends JPanel {
 //	      logo.setLocation(60, 60);
 	
 		
-		JButton btnNewButton_1 = new JButton("회원가입");
-		btnNewButton_1.setFont(new Font("나눔고딕", Font.BOLD, 13));
-		btnNewButton_1.setBounds(390, 500, 500, 50);
-		panel.add(btnNewButton_1);
-		
-		JLabel lblNewLabel_1 = new JLabel("아이디가 없으시나요?");
-		lblNewLabel_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lblNewLabel_1.setBounds(390, 475, 160, 15);
-		panel.add(lblNewLabel_1);
-		
-		JLabel lblNewLabel_3 = new JLabel("아이디");
-		lblNewLabel_3.setForeground(Color.WHITE);
-		lblNewLabel_3.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lblNewLabel_3.setBounds(390, 210, 57, 30);
-		panel.add(lblNewLabel_3);
-		
-		JLabel lblNewLabel_3_1 = new JLabel("비밀번호");
-		lblNewLabel_3_1.setForeground(Color.WHITE);
-		lblNewLabel_3_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lblNewLabel_3_1.setBounds(390, 260, 57, 30);
-		panel.add(lblNewLabel_3_1);
-		btnNewButton_2 = new JButton(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\button1.png"));
-		btnNewButton_2.addActionListener(new ActionListener() {
+		JButton bt_join = new JButton("");
+		bt_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_2.setText("로그인");
-		btnNewButton_2.setHorizontalTextPosition(SwingConstants.CENTER);
-		btnNewButton_2.setPreferredSize(new Dimension(500, 50));
-		btnNewButton_2.setMargin(new Insets(0, 0, 0, 0));
-		btnNewButton_2.setMinimumSize(new Dimension(500, 50));
-		btnNewButton_2.setMaximumSize(new Dimension(500, 50));
-		btnNewButton_2.setBounds(390, 360, 500, 50);
-		panel.add(btnNewButton_2);
-		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
-		btnNewButton_2.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_join.setIcon(new ImageIcon(login.class.getResource("/image/seungho/bt_join.png")));
+		bt_join.setFont(new Font("나눔고딕", Font.BOLD, 13));
+		bt_join.setBounds(390, 500, 500, 50);
+		panel.add(bt_join);
 		
 //		JPanel border = new JPanel();
 //		border.setOpaque(false);

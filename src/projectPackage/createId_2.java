@@ -18,6 +18,8 @@ import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import javax.swing.JCheckBox;
 import javax.swing.Icon;
+import java.awt.Rectangle;
+import javax.swing.border.EmptyBorder;
 
 public class createId_2 extends JPanel {
 
@@ -59,51 +61,11 @@ public class createId_2 extends JPanel {
 		lb_MainTitle.setBounds(530, 115, 220, 50);
 		panel.add(lb_MainTitle);
 		
-		JButton bt_Join = new JButton("가입하기");
-		bt_Join.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
 		JLabel lb_subTitle = new JLabel("2. 회원정보 입력");
 		lb_subTitle.setForeground(Color.WHITE);
 		lb_subTitle.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_subTitle.setBounds(390, 180, 130, 20);
 		panel.add(lb_subTitle);
-		bt_Join.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		bt_Join.setBounds(390, 500, 500, 50);
-		panel.add(bt_Join);
-		
-		tf_user_name = new JTextField();
-		tf_user_name.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_name.setColumns(10);
-		tf_user_name.setBounds(465, 210, 350, 30);
-		panel.add(tf_user_name);
-		
-		tf_user_id = new JTextField();
-		tf_user_id.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_id.setColumns(10);
-		tf_user_id.setBounds(465, 260, 350, 30);
-		panel.add(tf_user_id);
-		
-		tf_user_pw = new JTextField();
-		tf_user_pw.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_pw.setColumns(10);
-		tf_user_pw.setBounds(465, 310, 350, 30);
-		panel.add(tf_user_pw);
-		
-		JLabel lb_user_pw = new JLabel("비밀번호");
-		lb_user_pw.setForeground(Color.WHITE);
-		lb_user_pw.setLabelFor(tf_user_pw);
-		lb_user_pw.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lb_user_pw.setBounds(390, 310, 60, 30);
-		panel.add(lb_user_pw);
-		
-		JLabel lb_user_id = new JLabel("아이디");
-		lb_user_id.setForeground(Color.WHITE);
-		lb_user_id.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lb_user_id.setBounds(390, 260, 60, 30);
-		panel.add(lb_user_id);
 		
 		JLabel lb_user_name = new JLabel("이  름");
 		lb_user_name.setForeground(Color.WHITE);
@@ -111,11 +73,52 @@ public class createId_2 extends JPanel {
 		lb_user_name.setBounds(390, 210, 60, 30);
 		panel.add(lb_user_name);
 		
+		tf_user_name = new JTextField();
+		tf_user_name.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_name.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_name.setColumns(10);
+		tf_user_name.setBounds(465, 210, 350, 30);
+		panel.add(tf_user_name);
+		
+		JLabel lb_user_id = new JLabel("아이디");
+		lb_user_id.setForeground(Color.WHITE);
+		lb_user_id.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_id.setBounds(390, 260, 60, 30);
+		panel.add(lb_user_id);
+		
+		tf_user_id = new JTextField();
+		tf_user_id.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_id.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_id.setColumns(10);
+		tf_user_id.setBounds(465, 260, 350, 30);
+		panel.add(tf_user_id);
+
+		JLabel lb_user_pw = new JLabel("비밀번호");
+		lb_user_pw.setForeground(Color.WHITE);
+		lb_user_pw.setLabelFor(tf_user_pw);
+		lb_user_pw.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_pw.setBounds(390, 310, 60, 30);
+		panel.add(lb_user_pw);
+		
+		tf_user_pw = new JTextField();
+		tf_user_pw.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_pw.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_pw.setColumns(10);
+		tf_user_pw.setBounds(465, 310, 350, 30);
+		panel.add(tf_user_pw);
+		
+
 		JLabel lb_user_email = new JLabel("이메일");
 		lb_user_email.setForeground(Color.WHITE);
 		lb_user_email.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_email.setBounds(390, 360, 57, 30);
 		panel.add(lb_user_email);
+		
+		tf_user_email = new JTextField();
+		tf_user_email.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_email.setBounds(465, 360, 350, 30);
+		panel.add(tf_user_email);
+		tf_user_email.setColumns(10);
 		
 		JLabel lb_user_phone = new JLabel("휴대전화");
 		lb_user_phone.setForeground(Color.WHITE);
@@ -123,16 +126,21 @@ public class createId_2 extends JPanel {
 		lb_user_phone.setBounds(390, 410, 57, 30);
 		panel.add(lb_user_phone);
 		
-		tf_user_email = new JTextField();
-		tf_user_email.setBounds(465, 360, 350, 30);
-		panel.add(tf_user_email);
-		tf_user_email.setColumns(10);
-		
 		tf_user_phone = new JTextField();
+		tf_user_phone.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_user_phone.setBounds(465, 410, 350, 30);
 		panel.add(tf_user_phone);
 		tf_user_phone.setColumns(10);
-		Image img = new ImageIcon(this.getClass().getResource("/cgving2.png")).getImage();
+		
+		JButton bt_join = new JButton("");
+		bt_join.setIcon(new ImageIcon(createId_2.class.getResource("/image/seungho/bt_join2.png")));
+		bt_join.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		bt_join.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_join.setBounds(390, 500, 500, 50);
+		panel.add(bt_join);
 		
 //		JLabel lblNewLabel_2 = new JLabel("");
 //		lblNewLabel_2.setOpaque(true);

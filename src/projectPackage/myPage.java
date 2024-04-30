@@ -13,6 +13,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.Icon;
 import javax.swing.JSeparator;
@@ -26,11 +27,11 @@ public class myPage extends JPanel {
 	 * Create the panel.
 	 */
 	Color bg = new Color(0xdfeff0);
-	private JTextField myReservation;
-	private JTextField inputId;
-	private JTextField inputName;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField tf_myTicket;
+	private JTextField tf_user_id;
+	private JTextField tf_user_name;
+	private JTextField tf_user_phone;
+	private JTextField tf_user_email;
 	
 	public myPage(MainFrame mainFrame) {
 
@@ -46,64 +47,50 @@ public class myPage extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("회원탈퇴");
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		
 		JLabel cgving = new JLabel(new ImageIcon(myPage.class.getResource("/image/ohtani/cgving2.png")));
 		cgving.setBounds(540, 20, 200, 42);
 		panel.add(cgving);
-		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(390, 500, 500, 50);
-		panel.add(btnNewButton_1);
 		
-		JLabel myRes = new JLabel("예매내역");
-		myRes.setForeground(Color.WHITE);
-		myRes.setHorizontalAlignment(SwingConstants.LEFT);
-		myRes.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		myRes.setBounds(390, 410, 60, 30);
-		panel.add(myRes);
+		JLabel lb_title_myPage = new JLabel("마이페이지");
+		lb_title_myPage.setForeground(Color.WHITE);
+		lb_title_myPage.setHorizontalAlignment(SwingConstants.CENTER);
+		lb_title_myPage.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lb_title_myPage.setBounds(565, 115, 150, 50);
+		panel.add(lb_title_myPage);
 		
-		JLabel myId = new JLabel("아이디");
-		myId.setForeground(Color.WHITE);
-		myId.setHorizontalAlignment(SwingConstants.LEFT);
-		myId.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		myId.setBounds(390, 260, 60, 30);
-		panel.add(myId);
+		JLabel lb_subTitle = new JLabel("회원정보");
+		lb_subTitle.setForeground(Color.WHITE);
+		lb_subTitle.setFont(new Font("나눔고딕", Font.BOLD, 15));
+		lb_subTitle.setBounds(390, 180, 130, 20);
+		panel.add(lb_subTitle);
 		
-		JLabel myName = new JLabel("이  름");
-		myName.setForeground(Color.WHITE);
-		myName.setHorizontalAlignment(SwingConstants.LEFT);
-		myName.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		myName.setBounds(390, 210, 60, 30);
-		panel.add(myName);
+		JLabel lb_user_name = new JLabel("이  름");
+		lb_user_name.setForeground(Color.WHITE);
+		lb_user_name.setHorizontalAlignment(SwingConstants.LEFT);
+		lb_user_name.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_name.setBounds(390, 210, 60, 30);
+		panel.add(lb_user_name);
 		
-		JLabel myPage = new JLabel("마이페이지");
-		myPage.setForeground(Color.WHITE);
-		myPage.setHorizontalAlignment(SwingConstants.CENTER);
-		myPage.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		myPage.setBounds(565, 115, 150, 50);
-		panel.add(myPage);
+		tf_user_name = new JTextField();
+		tf_user_name.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_name.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_name.setColumns(10);
+		tf_user_name.setBounds(465, 210, 350, 30);
+		panel.add(tf_user_name);
 		
-		myReservation = new JTextField();
-		myReservation.setHorizontalAlignment(SwingConstants.LEFT);
-		myReservation.setColumns(10);
-		myReservation.setBounds(465, 410, 350, 30);
-		panel.add(myReservation);
+		JLabel lb_user_id = new JLabel("아이디");
+		lb_user_id.setForeground(Color.WHITE);
+		lb_user_id.setHorizontalAlignment(SwingConstants.LEFT);
+		lb_user_id.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_id.setBounds(390, 260, 60, 30);
+		panel.add(lb_user_id);
 		
-		inputId = new JTextField();
-		inputId.setHorizontalAlignment(SwingConstants.LEFT);
-		inputId.setColumns(10);
-		inputId.setBounds(465, 260, 350, 30);
-		panel.add(inputId);
-		
-		inputName = new JTextField();
-		inputName.setHorizontalAlignment(SwingConstants.LEFT);
-		inputName.setColumns(10);
-		inputName.setBounds(465, 210, 350, 30);
-		panel.add(inputName);
+		tf_user_id = new JTextField();
+		tf_user_id.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_id.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_id.setColumns(10);
+		tf_user_id.setBounds(465, 260, 350, 30);
+		panel.add(tf_user_id);
 		
 		JLabel lb_user_email = new JLabel("이메일");
 		lb_user_email.setForeground(Color.WHITE);
@@ -111,27 +98,47 @@ public class myPage extends JPanel {
 		lb_user_email.setBounds(390, 310, 57, 30);
 		panel.add(lb_user_email);
 		
+		tf_user_email = new JTextField();
+		tf_user_email.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_email.setColumns(10);
+		tf_user_email.setBounds(465, 310, 350, 30);
+		panel.add(tf_user_email);
+		
 		JLabel lb_user_phone = new JLabel("휴대전화");
 		lb_user_phone.setForeground(Color.WHITE);
 		lb_user_phone.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_phone.setBounds(390, 360, 57, 30);
 		panel.add(lb_user_phone);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		textField.setBounds(465, 360, 350, 30);
-		panel.add(textField);
+		tf_user_phone = new JTextField();
+		tf_user_phone.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_user_phone.setColumns(10);
+		tf_user_phone.setBounds(465, 360, 350, 30);
+		panel.add(tf_user_phone);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(465, 310, 350, 30);
-		panel.add(textField_1);
+		JButton bt_delete_myPage = new JButton("");
+		bt_delete_myPage.setIcon(new ImageIcon(myPage.class.getResource("/image/seungho/bt_delete.png")));
+		bt_delete_myPage.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		
-		JLabel lb_subTitle = new JLabel("회원정보");
-		lb_subTitle.setForeground(Color.WHITE);
-		lb_subTitle.setFont(new Font("나눔고딕", Font.BOLD, 15));
-		lb_subTitle.setBounds(390, 180, 130, 20);
-		panel.add(lb_subTitle);
+		JLabel lb_myTicket = new JLabel("예매내역");
+		lb_myTicket.setForeground(Color.WHITE);
+		lb_myTicket.setHorizontalAlignment(SwingConstants.LEFT);
+		lb_myTicket.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_myTicket.setBounds(390, 410, 60, 30);
+		panel.add(lb_myTicket);
+		
+		tf_myTicket = new JTextField();
+		tf_myTicket.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_myTicket.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_myTicket.setColumns(10);
+		tf_myTicket.setBounds(465, 410, 350, 30);
+		panel.add(tf_myTicket);
+		bt_delete_myPage.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_delete_myPage.setBounds(390, 500, 500, 50);
+		panel.add(bt_delete_myPage);
 		
 //		JPanel border = new JPanel();
 //		border.setVisible(false);

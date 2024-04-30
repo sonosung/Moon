@@ -25,7 +25,7 @@ public class deleteId_1 extends JPanel {
 	 * Create the panel.
 	 */
 	Color bg = new Color(0xdfeff0);
-	private JTextField textField_3;
+	private JTextField tf_pw;
 	
 	public deleteId_1(MainFrame mainFrame) {
 
@@ -41,49 +41,51 @@ public class deleteId_1 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JButton btnNewButton_1 = new JButton("취소");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JLabel lb_title_delete = new JLabel("회원탈퇴");
+		lb_title_delete.setForeground(Color.WHITE);
+		lb_title_delete.setHorizontalAlignment(SwingConstants.CENTER);
+		lb_title_delete.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lb_title_delete.setBounds(540, 115, 200, 50);
+		panel.add(lb_title_delete);
+		
+		JLabel lb_typePw = new JLabel("회원탈퇴를 위해 비밀번호를 입력해주세요");
+		lb_typePw.setForeground(Color.WHITE);
+		lb_typePw.setHorizontalAlignment(SwingConstants.CENTER);
+		lb_typePw.setFont(new Font("나눔고딕", Font.BOLD, 12));
+		lb_typePw.setBounds(490, 310, 300, 30);
+		panel.add(lb_typePw);
+		
+		JLabel lb_pw = new JLabel("비밀번호");
+		lb_pw.setForeground(Color.WHITE);
+		lb_pw.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_pw.setBounds(390, 360, 60, 30);
+		panel.add(lb_pw);
+		
+		tf_pw = new JTextField();
+		tf_pw.setHorizontalAlignment(SwingConstants.CENTER);
+		tf_pw.setColumns(1);
+		tf_pw.setBounds(450, 360, 380, 30);
+		panel.add(tf_pw);
+		
+		JButton bt_deleteConfirm = new JButton("");
+		bt_deleteConfirm.setIcon(new ImageIcon(deleteId_1.class.getResource("/image/seungho/bt_delete_small.png")));
+		bt_deleteConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("굴림", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(645, 500, 245, 50);
-		panel.add(btnNewButton_1);
+		bt_deleteConfirm.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_deleteConfirm.setBounds(390, 500, 245, 50);
+		panel.add(bt_deleteConfirm);
 		
-		JButton btnNewButton_1_1 = new JButton("회원탈퇴");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
+		JButton bt_cancel = new JButton("");
+		bt_cancel.setIcon(new ImageIcon(deleteId_1.class.getResource("/image/seungho/bt_cancel.png")));
+		bt_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1_1.setBounds(390, 500, 245, 50);
-		panel.add(btnNewButton_1_1);
-		
-		textField_3 = new JTextField();
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setColumns(1);
-		textField_3.setBounds(450, 360, 380, 30);
-		panel.add(textField_3);
-		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("비밀번호");
-		lblNewLabel_1_1_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lblNewLabel_1_1_1_1.setBounds(390, 360, 60, 30);
-		panel.add(lblNewLabel_1_1_1_1);
-		
-		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("회원탈퇴를 위해 비밀번호를 입력해주세요");
-		lblNewLabel_1_1_1_1_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lblNewLabel_1_1_1_1_1_1.setBounds(490, 310, 300, 30);
-		panel.add(lblNewLabel_1_1_1_1_1_1);
-		
-		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("회원탈퇴");
-		lblNewLabel_1_1_1_1_1_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(540, 115, 200, 50);
-		panel.add(lblNewLabel_1_1_1_1_1_1_1);
+		bt_cancel.setFont(new Font("굴림", Font.PLAIN, 12));
+		bt_cancel.setBounds(645, 500, 245, 50);
+		panel.add(bt_cancel);
 		
 //		JPanel panel_1_1 = new JPanel();
 //		panel_1_1.setOpaque(false);
