@@ -36,6 +36,7 @@ public class KungfuPopup extends JFrame {
      * Create the frame.
      */
     public KungfuPopup() {
+    	setTitle("쿵푸팬더4");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(300, 300, 700, 434);
         setResizable(false);

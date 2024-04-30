@@ -36,6 +36,7 @@ public class CrimePopup extends JFrame {
      * Create the frame.
      */
     public CrimePopup() {
+    	setTitle("범죄도시4");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(300, 300, 700, 434);
         setResizable(false);

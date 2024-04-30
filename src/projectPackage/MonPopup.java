@@ -36,9 +36,11 @@ public class MonPopup extends JFrame {
      * Create the frame.
      */
     public MonPopup() {
+    	setResizable(false);
+    	setForeground(new Color(255, 255, 255));
+    	setTitle("몬스터 프렌즈");
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(300, 300, 700, 434);
-        setResizable(false);
         contentPane = new JPanel();
         contentPane.setBackground(new Color(0, 0, 0));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
