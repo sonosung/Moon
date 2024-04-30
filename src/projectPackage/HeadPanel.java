@@ -77,7 +77,7 @@ public class HeadPanel extends JPanel {
 		//popup 을 위한 코드
 		JButton btnNewButton_2_1 = new JButton("popup");
 		btnNewButton_2_1.addActionListener(new popupDefine());
-		btnNewButton_2_1.setIcon(new ImageIcon(HeadPanel.class.getResource("/image/TEST_forPersonal/google-play-badge.png")));
+		//btnNewButton_2_1.setIcon(new ImageIcon(HeadPanel.class.getResource("/image/TEST_forPersonal/google-play-badge.png")));
 		//lblNewLabel.setIcon(new ImageIcon(test_forlist.class.getResource("/image/TEST_forPersonal/ring.jpg")));
 		btnNewButton_2_1.setBounds(582, 66, 111, 41);
 		btnNewButton_2_1.setOpaque(false);
