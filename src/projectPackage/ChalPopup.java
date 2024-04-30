@@ -57,5 +57,10 @@ public class ChalPopup extends JFrame {
         JLabel imageLabel = new JLabel(new ImageIcon(ChalPopup.class.getResource("/image/ohtani/challengers.jpg")));
         imageLabel.setBounds(50, 72, 150, 214);
         contentPane.add(imageLabel);
+        
+        JButton btnNewButton = new JButton("");
+        btnNewButton.setIcon(new ImageIcon(ChalPopup.class.getResource("/image/ohtani/reserve2.png")));
+        btnNewButton.setBounds(73, 306, 110, 42);
+        contentPane.add(btnNewButton);
     }
 }
