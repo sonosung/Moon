@@ -17,6 +17,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import Tes.Movi;
+
 public class JinsungPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
