@@ -58,6 +58,7 @@ public class TopPanelTest extends JPanel {
         btnNewButton_1.setBounds(960, 76, 128, 42);
         panel_1.add(btnNewButton_1);
         
+        
         JButton btnNewButton_2 = new JButton("");
         btnNewButton_2.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/login2.png")));
         btnNewButton_2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
