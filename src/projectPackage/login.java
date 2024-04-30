@@ -15,6 +15,9 @@ import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import java.awt.Component;
 import javax.swing.border.BevelBorder;
+import java.awt.Insets;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class login extends JPanel {
 
@@ -43,24 +46,24 @@ public class login extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel imageLabel = new JLabel(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/cgving2.png")));
-		panel.add(imageLabel);
-		imageLabel.setBounds(539, 77, 200, 42);
+		JLabel cgving = new JLabel(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/cgving2.png")));
+		panel.add(cgving);
+		cgving.setBounds(539, 20, 200, 42);
 		
 		txtId = new JTextField();
-		txtId.setBounds(560, 167, 160, 21);
+		txtId.setBounds(465, 210, 350, 30);
 		panel.add(txtId);
 		txtId.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("로그인");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 30));
-		lblNewLabel.setBounds(502, 77, 275, 55);
+		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lblNewLabel.setBounds(502, 80, 275, 50);
 		panel.add(lblNewLabel);
 		
 		txtPassword = new JTextField();
 		txtPassword.setColumns(10);
-		txtPassword.setBounds(560, 254, 160, 21);
+		txtPassword.setBounds(465, 260, 350, 30);
 		panel.add(txtPassword);
 		
 		JButton btnNewButton = new JButton("로그인");
@@ -75,40 +78,52 @@ public class login extends JPanel {
 	
 		
 		JButton btnNewButton_1 = new JButton("회원가입");
-		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(390, 498, 500, 50);
+		btnNewButton_1.setFont(new Font("나눔고딕", Font.BOLD, 13));
+		btnNewButton_1.setBounds(390, 500, 500, 50);
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("아이디가 없으시나요?");
-		lblNewLabel_1.setBounds(390, 456, 160, 15);
+		lblNewLabel_1.setBounds(390, 475, 160, 15);
 		panel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_3 = new JLabel("ID");
-		lblNewLabel_3.setBounds(390, 167, 57, 15);
+		lblNewLabel_3.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lblNewLabel_3.setBounds(390, 210, 57, 30);
 		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel_3_1 = new JLabel("Password");
-		lblNewLabel_3_1.setBounds(390, 254, 57, 15);
+		lblNewLabel_3_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lblNewLabel_3_1.setBounds(390, 260, 57, 30);
 		panel.add(lblNewLabel_3_1);
-		
-		JPanel border = new JPanel();
-		border.setOpaque(false);
-		border.setEnabled(false);
-		border.setDoubleBuffered(false);
-		border.setFocusTraversalKeysEnabled(false);
-		border.setBorder(new LineBorder(new Color(255, 51, 51)));
-		border.setBounds(346, 75, 587, 512);
-		panel.add(border);
-		
-		JLabel lblNewLabel_2 = new JLabel("New label");
-		lblNewLabel_2.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인.png"));
-		lblNewLabel_2.setBounds(0, 0, 1280, 650);
-		panel.add(lblNewLabel_2);
 		btnNewButton_2 = new JButton(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\button1.png"));
-		btnNewButton_2.setBounds(66, 94, 719, 121);
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_2.setText("로그인");
+		btnNewButton_2.setHorizontalTextPosition(SwingConstants.CENTER);
+		btnNewButton_2.setPreferredSize(new Dimension(500, 50));
+		btnNewButton_2.setMargin(new Insets(0, 0, 0, 0));
+		btnNewButton_2.setMinimumSize(new Dimension(500, 50));
+		btnNewButton_2.setMaximumSize(new Dimension(500, 50));
+		btnNewButton_2.setBounds(390, 360, 500, 50);
 		panel.add(btnNewButton_2);
 		btnNewButton_2.setBackground(Color.LIGHT_GRAY);
 		btnNewButton_2.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		
+//		JPanel border = new JPanel();
+//		border.setOpaque(false);
+//		border.setEnabled(false);
+//		border.setDoubleBuffered(false);
+//		border.setFocusTraversalKeysEnabled(false);
+//		border.setBorder(new LineBorder(new Color(255, 51, 51)));
+//		border.setBounds(346, 75, 587, 512);
+//		panel.add(border);
+		
+//		JLabel lblNewLabel_2 = new JLabel("New label");
+//		lblNewLabel_2.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인.png"));
+//		lblNewLabel_2.setBounds(0, 0, 1280, 650);
+//		panel.add(lblNewLabel_2);
 
 		this.setVisible(false);
 	}

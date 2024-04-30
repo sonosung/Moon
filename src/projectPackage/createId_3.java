@@ -38,26 +38,31 @@ public class createId_3 extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("회원가입이 완료되었습니다!");
+		lblNewLabel.setMinimumSize(new Dimension(81, 23));
+		lblNewLabel.setMaximumSize(new Dimension(81, 23));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lblNewLabel.setBounds(393, 187, 500, 50);
+		lblNewLabel.setBounds(393, 230, 500, 50);
 		panel.add(lblNewLabel);
 		
 		JButton btnNewButton_1 = new JButton("홈으로");
+		btnNewButton_1.setPreferredSize(new Dimension(81, 23));
+		btnNewButton_1.setMinimumSize(new Dimension(81, 23));
+		btnNewButton_1.setMaximumSize(new Dimension(81, 23));
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(393, 477, 500, 50);
+		btnNewButton_1.setBounds(390, 500, 500, 50);
 		panel.add(btnNewButton_1);
 		
-		JPanel panel_1 = new JPanel();
-		panel_1.setOpaque(false);
-		panel_1.setBorder(new LineBorder(new Color(255, 0, 0)));
-		panel_1.setBackground(new Color(224, 255, 255));
-		panel_1.setBounds(346, 75, 587, 512);
-		panel.add(panel_1);
+//		JPanel panel_1 = new JPanel();
+//		panel_1.setOpaque(false);
+//		panel_1.setBorder(new LineBorder(new Color(255, 0, 0)));
+//		panel_1.setBackground(new Color(224, 255, 255));
+//		panel_1.setBounds(346, 75, 587, 512);
+//		panel.add(panel_1);
 
 		this.setVisible(false);
 	}

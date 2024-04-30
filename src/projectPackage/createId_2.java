@@ -16,6 +16,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
+import javax.swing.JCheckBox;
+import javax.swing.Icon;
 
 public class createId_2 extends JPanel {
 
@@ -26,9 +28,11 @@ public class createId_2 extends JPanel {
 	 * Create the panel.
 	 */
 	Color bg = new Color(0xdfeff0);
-	private JTextField textField_1;
-	private JTextField textField_id;
-	private JTextField textField_pw;
+	private JTextField tf_user_name;
+	private JTextField tf_user_id;
+	private JTextField tf_user_pw;
+	private JTextField tf_user_email;
+	private JTextField tf_user_phone;
 	
 	public createId_2(MainFrame mainFrame) {
 
@@ -44,77 +48,99 @@ public class createId_2 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("회원가입");
-		lblNewLabel.setFont(new Font("굴림", Font.BOLD, 50));
-		lblNewLabel.setBounds(532, 187, 220, 50);
-		panel.add(lblNewLabel);
+		JLabel cgving = new JLabel(new ImageIcon(createId_2.class.getResource("/image/ohtani/cgving2.png")));
+		cgving.setBounds(539, 20, 200, 42);
+		panel.add(cgving);
 		
-		JButton btnNewButton_1 = new JButton("회원가입");
-		btnNewButton_1.addActionListener(new ActionListener() {
+		JLabel lb_MainTitle = new JLabel("회원가입");
+		lb_MainTitle.setHorizontalAlignment(SwingConstants.CENTER);
+		lb_MainTitle.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lb_MainTitle.setBounds(530, 80, 220, 50);
+		panel.add(lb_MainTitle);
+		
+		JButton bt_Join = new JButton("가입하기");
+		bt_Join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(390, 477, 500, 50);
-		panel.add(btnNewButton_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setHorizontalAlignment(SwingConstants.LEFT);
-		textField_1.setColumns(10);
-		textField_1.setBounds(462, 299, 350, 30);
-		panel.add(textField_1);
+		JLabel lb_subTitle = new JLabel("2. 회원정보 입력");
+		lb_subTitle.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_subTitle.setBounds(390, 180, 130, 20);
+		panel.add(lb_subTitle);
+		bt_Join.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_Join.setBounds(390, 500, 500, 50);
+		panel.add(bt_Join);
 		
-		textField_id = new JTextField();
-		textField_id.setHorizontalAlignment(SwingConstants.LEFT);
-		textField_id.setColumns(10);
-		textField_id.setBounds(462, 351, 350, 30);
-		panel.add(textField_id);
+		tf_user_name = new JTextField();
+		tf_user_name.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_name.setColumns(10);
+		tf_user_name.setBounds(465, 210, 350, 30);
+		panel.add(tf_user_name);
 		
-		textField_pw = new JTextField();
-		textField_pw.setHorizontalAlignment(SwingConstants.LEFT);
-		textField_pw.setColumns(10);
-		textField_pw.setBounds(462, 399, 350, 30);
-		panel.add(textField_pw);
+		tf_user_id = new JTextField();
+		tf_user_id.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_id.setColumns(10);
+		tf_user_id.setBounds(465, 260, 350, 30);
+		panel.add(tf_user_id);
 		
-		JLabel lblNewLabel_1_1_1_1 = new JLabel("비밀번호");
-		lblNewLabel_1_1_1_1.setLabelFor(textField_pw);
-		lblNewLabel_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lblNewLabel_1_1_1_1.setBounds(390, 403, 60, 20);
-		panel.add(lblNewLabel_1_1_1_1);
+		tf_user_pw = new JTextField();
+		tf_user_pw.setHorizontalAlignment(SwingConstants.LEFT);
+		tf_user_pw.setColumns(10);
+		tf_user_pw.setBounds(465, 310, 350, 30);
+		panel.add(tf_user_pw);
 		
-		JLabel lblNewLabel_1_1_1_1_1 = new JLabel("아이디");
-		lblNewLabel_1_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lblNewLabel_1_1_1_1_1.setBounds(390, 355, 60, 20);
-		panel.add(lblNewLabel_1_1_1_1_1);
+		JLabel lb_user_pw = new JLabel("비밀번호");
+		lb_user_pw.setLabelFor(tf_user_pw);
+		lb_user_pw.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_pw.setBounds(390, 310, 60, 30);
+		panel.add(lb_user_pw);
 		
-		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("이  름");
-		lblNewLabel_1_1_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lblNewLabel_1_1_1_1_1_1.setBounds(390, 303, 60, 20);
-		panel.add(lblNewLabel_1_1_1_1_1_1);
+		JLabel lb_user_id = new JLabel("아이디");
+		lb_user_id.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_id.setBounds(390, 260, 60, 30);
+		panel.add(lb_user_id);
 		
-		JLabel lblNewLabel_1 = new JLabel("2. 회원정보 입력");
-		lblNewLabel_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lblNewLabel_1.setBounds(390, 227, 130, 20);
-		panel.add(lblNewLabel_1);
+		JLabel lb_user_name = new JLabel("이  름");
+		lb_user_name.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_name.setBounds(390, 210, 60, 30);
+		panel.add(lb_user_name);
 		
-		JPanel border = new JPanel();
-		border.setOpaque(false);
-		border.setBorder(new LineBorder(new Color(255, 0, 0)));
-		border.setBackground(new Color(224, 255, 255));
-		border.setBounds(346, 75, 587, 512);
-		panel.add(border);
+		JLabel lb_user_email = new JLabel("이메일");
+		lb_user_email.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_email.setBounds(390, 360, 57, 30);
+		panel.add(lb_user_email);
 		
-		JLabel logo = new JLabel("");
-		logo.setOpaque(true);
-		Image img = new ImageIcon(this.getClass().getResource("/cgving.png")).getImage();
-		logo.setIcon(new ImageIcon(img));
-		logo.setBounds(211, 0, 889, 190);
-		panel.add(logo);
+		JLabel lb_user_phone = new JLabel("휴대전화");
+		lb_user_phone.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_phone.setBounds(390, 410, 57, 30);
+		panel.add(lb_user_phone);
 		
-		JLabel lblNewLabel_2 = new JLabel("");
-		lblNewLabel_2.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인2.png"));
-		lblNewLabel_2.setBounds(0, 0, 1280, 650);
-		panel.add(lblNewLabel_2);
+		tf_user_email = new JTextField();
+		tf_user_email.setBounds(465, 360, 350, 30);
+		panel.add(tf_user_email);
+		tf_user_email.setColumns(10);
+		
+		tf_user_phone = new JTextField();
+		tf_user_phone.setBounds(465, 410, 350, 30);
+		panel.add(tf_user_phone);
+		tf_user_phone.setColumns(10);
+		Image img = new ImageIcon(this.getClass().getResource("/cgving2.png")).getImage();
+		
+//		JLabel lblNewLabel_2 = new JLabel("");
+//		lblNewLabel_2.setOpaque(true);
+//		lblNewLabel_2.setVisible(false);
+//		lblNewLabel_2.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인2.png"));
+//		lblNewLabel_2.setBounds(0, 0, 1280, 650);
+//		panel.add(lblNewLabel_2);
+		
+//		JPanel border = new JPanel();
+//		border.setEnabled(false);
+//		border.setOpaque(false);
+//		border.setBorder(new LineBorder(new Color(255, 0, 0)));
+//		border.setBackground(new Color(224, 255, 255));
+//		border.setBounds(346, 75, 587, 512);
+//		panel.add(border);
 
 		this.setVisible(false);
 	}
