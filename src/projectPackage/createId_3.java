@@ -58,7 +58,7 @@ public class createId_3 extends JPanel {
 		lb_joincomp.setMaximumSize(new Dimension(81, 23));
 		lb_joincomp.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_joincomp.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lb_joincomp.setBounds(393, 230, 500, 50);
+		lb_joincomp.setBounds(390, 230, 500, 50);
 		panel.add(lb_joincomp);
 		
 		JButton bt_home = new JButton("");

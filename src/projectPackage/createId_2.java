@@ -51,7 +51,7 @@ public class createId_2 extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel cgving = new JLabel(new ImageIcon(createId_2.class.getResource("/image/ohtani/cgving2.png")));
-		cgving.setBounds(539, 20, 200, 42);
+		cgving.setBounds(540, 20, 200, 42);
 		panel.add(cgving);
 		
 		JLabel lb_MainTitle = new JLabel("회원가입");
@@ -69,7 +69,7 @@ public class createId_2 extends JPanel {
 		
 		JLabel lb_user_name = new JLabel("이  름");
 		lb_user_name.setForeground(Color.WHITE);
-		lb_user_name.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_name.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_name.setBounds(390, 210, 60, 30);
 		panel.add(lb_user_name);
 		
@@ -82,7 +82,7 @@ public class createId_2 extends JPanel {
 		
 		JLabel lb_user_id = new JLabel("아이디");
 		lb_user_id.setForeground(Color.WHITE);
-		lb_user_id.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_id.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_id.setBounds(390, 260, 60, 30);
 		panel.add(lb_user_id);
 		
@@ -96,7 +96,7 @@ public class createId_2 extends JPanel {
 		JLabel lb_user_pw = new JLabel("비밀번호");
 		lb_user_pw.setForeground(Color.WHITE);
 		lb_user_pw.setLabelFor(tf_user_pw);
-		lb_user_pw.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_pw.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_pw.setBounds(390, 310, 60, 30);
 		panel.add(lb_user_pw);
 		
@@ -110,7 +110,7 @@ public class createId_2 extends JPanel {
 
 		JLabel lb_user_email = new JLabel("이메일");
 		lb_user_email.setForeground(Color.WHITE);
-		lb_user_email.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_email.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_email.setBounds(390, 360, 57, 30);
 		panel.add(lb_user_email);
 		
@@ -122,7 +122,7 @@ public class createId_2 extends JPanel {
 		
 		JLabel lb_user_phone = new JLabel("휴대전화");
 		lb_user_phone.setForeground(Color.WHITE);
-		lb_user_phone.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_phone.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_phone.setBounds(390, 410, 57, 30);
 		panel.add(lb_user_phone);
 		

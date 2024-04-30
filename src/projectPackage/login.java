@@ -48,7 +48,7 @@ public class login extends JPanel {
 		
 		JLabel cgving = new JLabel(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/cgving2.png")));
 		panel.add(cgving);
-		cgving.setBounds(539, 20, 200, 42);
+		cgving.setBounds(540, 20, 200, 42);
 		
 		JLabel lb_login = new JLabel("로그인");
 		lb_login.setForeground(Color.WHITE);

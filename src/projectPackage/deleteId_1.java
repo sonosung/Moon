@@ -41,6 +41,10 @@ public class deleteId_1 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
+		JLabel cgving = new JLabel(new ImageIcon(deleteId_1.class.getResource("/image/ohtani/cgving2.png")));
+		cgving.setBounds(540, 20, 200, 42);
+		panel.add(cgving);
+		
 		JLabel lb_title_delete = new JLabel("회원탈퇴");
 		lb_title_delete.setForeground(Color.WHITE);
 		lb_title_delete.setHorizontalAlignment(SwingConstants.CENTER);
@@ -57,7 +61,7 @@ public class deleteId_1 extends JPanel {
 		
 		JLabel lb_pw = new JLabel("비밀번호");
 		lb_pw.setForeground(Color.WHITE);
-		lb_pw.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_pw.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_pw.setBounds(390, 360, 60, 30);
 		panel.add(lb_pw);
 		

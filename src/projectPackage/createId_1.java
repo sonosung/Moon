@@ -53,6 +53,10 @@ public class createId_1 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
+		JLabel cgving = new JLabel(new ImageIcon(createId_1.class.getResource("/image/ohtani/cgving2.png")));
+		cgving.setBounds(540, 20, 200, 42);
+		panel.add(cgving);
+		
 		JLabel lb_join = new JLabel("회원가입");
 		lb_join.setForeground(Color.WHITE);
 		lb_join.setHorizontalAlignment(SwingConstants.CENTER);
@@ -81,7 +85,7 @@ public class createId_1 extends JPanel {
 		rbt_agree.setBackground(Color.BLACK);
 		rbt_agree.setForeground(Color.WHITE);
 		buttonGroup.add(rbt_agree);
-		rbt_agree.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		rbt_agree.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		rbt_agree.setBounds(770, 435, 120, 25);
 		panel.add(rbt_agree);
 		
@@ -95,7 +99,7 @@ public class createId_1 extends JPanel {
 		rbt_dagree.setForeground(Color.WHITE);
 		buttonGroup.add(rbt_dagree);
 		rbt_dagree.setSelected(true);
-		rbt_dagree.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		rbt_dagree.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		rbt_dagree.setBounds(770, 410, 120, 25);
 		panel.add(rbt_dagree);
 		

@@ -67,7 +67,7 @@ public class myPage extends JPanel {
 		JLabel lb_user_name = new JLabel("이  름");
 		lb_user_name.setForeground(Color.WHITE);
 		lb_user_name.setHorizontalAlignment(SwingConstants.LEFT);
-		lb_user_name.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_name.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_name.setBounds(390, 210, 60, 30);
 		panel.add(lb_user_name);
 		
@@ -81,7 +81,7 @@ public class myPage extends JPanel {
 		JLabel lb_user_id = new JLabel("아이디");
 		lb_user_id.setForeground(Color.WHITE);
 		lb_user_id.setHorizontalAlignment(SwingConstants.LEFT);
-		lb_user_id.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_id.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_id.setBounds(390, 260, 60, 30);
 		panel.add(lb_user_id);
 		
@@ -94,7 +94,7 @@ public class myPage extends JPanel {
 		
 		JLabel lb_user_email = new JLabel("이메일");
 		lb_user_email.setForeground(Color.WHITE);
-		lb_user_email.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_email.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_email.setBounds(390, 310, 57, 30);
 		panel.add(lb_user_email);
 		
@@ -106,7 +106,7 @@ public class myPage extends JPanel {
 		
 		JLabel lb_user_phone = new JLabel("휴대전화");
 		lb_user_phone.setForeground(Color.WHITE);
-		lb_user_phone.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_user_phone.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_user_phone.setBounds(390, 360, 57, 30);
 		panel.add(lb_user_phone);
 		
@@ -126,7 +126,7 @@ public class myPage extends JPanel {
 		JLabel lb_myTicket = new JLabel("예매내역");
 		lb_myTicket.setForeground(Color.WHITE);
 		lb_myTicket.setHorizontalAlignment(SwingConstants.LEFT);
-		lb_myTicket.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_myTicket.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_myTicket.setBounds(390, 410, 60, 30);
 		panel.add(lb_myTicket);
 		
