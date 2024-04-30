@@ -15,6 +15,7 @@ import javax.swing.UIManager;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 import javax.swing.Icon;
+import javax.swing.JSeparator;
 
 public class myPage extends JPanel {
 
@@ -40,7 +41,7 @@ public class myPage extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		panel.setBounds(0, 0, 1280, 650);
 		add(panel);
 		panel.setLayout(null);
@@ -55,40 +56,35 @@ public class myPage extends JPanel {
 		cgving.setBounds(540, 20, 200, 42);
 		panel.add(cgving);
 		btnNewButton_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1.setBounds(645, 500, 245, 50);
+		btnNewButton_1.setBounds(390, 500, 500, 50);
 		panel.add(btnNewButton_1);
 		
-		JButton btnNewButton_1_1 = new JButton("홈으로");
-		btnNewButton_1_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		btnNewButton_1_1.setBounds(390, 500, 245, 50);
-		panel.add(btnNewButton_1_1);
-		
 		JLabel myRes = new JLabel("예매내역");
+		myRes.setForeground(Color.WHITE);
 		myRes.setHorizontalAlignment(SwingConstants.LEFT);
 		myRes.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		myRes.setBounds(390, 410, 60, 30);
 		panel.add(myRes);
 		
 		JLabel myId = new JLabel("아이디");
+		myId.setForeground(Color.WHITE);
 		myId.setHorizontalAlignment(SwingConstants.LEFT);
 		myId.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		myId.setBounds(390, 260, 60, 30);
 		panel.add(myId);
 		
 		JLabel myName = new JLabel("이  름");
+		myName.setForeground(Color.WHITE);
 		myName.setHorizontalAlignment(SwingConstants.LEFT);
 		myName.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		myName.setBounds(390, 210, 60, 30);
 		panel.add(myName);
 		
 		JLabel myPage = new JLabel("마이페이지");
+		myPage.setForeground(Color.WHITE);
 		myPage.setHorizontalAlignment(SwingConstants.CENTER);
 		myPage.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		myPage.setBounds(565, 80, 150, 50);
+		myPage.setBounds(565, 115, 150, 50);
 		panel.add(myPage);
 		
 		myReservation = new JTextField();
@@ -110,11 +106,13 @@ public class myPage extends JPanel {
 		panel.add(inputName);
 		
 		JLabel lb_user_email = new JLabel("이메일");
+		lb_user_email.setForeground(Color.WHITE);
 		lb_user_email.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_email.setBounds(390, 310, 57, 30);
 		panel.add(lb_user_email);
 		
 		JLabel lb_user_phone = new JLabel("휴대전화");
+		lb_user_phone.setForeground(Color.WHITE);
 		lb_user_phone.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_phone.setBounds(390, 360, 57, 30);
 		panel.add(lb_user_phone);
@@ -130,7 +128,8 @@ public class myPage extends JPanel {
 		panel.add(textField_1);
 		
 		JLabel lb_subTitle = new JLabel("회원정보");
-		lb_subTitle.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_subTitle.setForeground(Color.WHITE);
+		lb_subTitle.setFont(new Font("나눔고딕", Font.BOLD, 15));
 		lb_subTitle.setBounds(390, 180, 130, 20);
 		panel.add(lb_subTitle);
 		

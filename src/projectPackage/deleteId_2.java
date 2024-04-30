@@ -34,7 +34,7 @@ public class deleteId_2 extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		panel.setBounds(0, 0, 1280, 650);
 		add(panel);
 		panel.setLayout(null);
@@ -54,6 +54,7 @@ public class deleteId_2 extends JPanel {
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("그동안 CGVING을 이용해주셔서 감사합니다!");
+		lblNewLabel_1_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
 		lblNewLabel_1_1_1_1_1_1_1.setBounds(365, 230, 550, 50);

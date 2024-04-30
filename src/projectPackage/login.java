@@ -29,7 +29,7 @@ public class login extends JPanel {
 	 */
 	Color bg = new Color(0xdfeff0);
 	private JTextField txtId;
-	private JTextField txtPassword;
+	private JTextField tf_password;
 	private JButton btnNewButton_2;
 	
 	public login(MainFrame mainFrame) {
@@ -41,7 +41,7 @@ public class login extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		panel.setBounds(0, 0, 1280, 650);
 		add(panel);
 		panel.setLayout(null);
@@ -55,16 +55,17 @@ public class login extends JPanel {
 		panel.add(txtId);
 		txtId.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("로그인");
-		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lblNewLabel.setBounds(502, 80, 275, 50);
-		panel.add(lblNewLabel);
+		JLabel lb_login = new JLabel("로그인");
+		lb_login.setForeground(Color.WHITE);
+		lb_login.setHorizontalAlignment(SwingConstants.CENTER);
+		lb_login.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
+		lb_login.setBounds(502, 115, 275, 50);
+		panel.add(lb_login);
 		
-		txtPassword = new JTextField();
-		txtPassword.setColumns(10);
-		txtPassword.setBounds(465, 260, 350, 30);
-		panel.add(txtPassword);
+		tf_password = new JTextField();
+		tf_password.setColumns(10);
+		tf_password.setBounds(465, 260, 350, 30);
+		panel.add(tf_password);
 		
 		JButton btnNewButton = new JButton("로그인");
 		
@@ -83,16 +84,19 @@ public class login extends JPanel {
 		panel.add(btnNewButton_1);
 		
 		JLabel lblNewLabel_1 = new JLabel("아이디가 없으시나요?");
+		lblNewLabel_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lblNewLabel_1.setBounds(390, 475, 160, 15);
 		panel.add(lblNewLabel_1);
 		
-		JLabel lblNewLabel_3 = new JLabel("ID");
-		lblNewLabel_3.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		JLabel lblNewLabel_3 = new JLabel("아이디");
+		lblNewLabel_3.setForeground(Color.WHITE);
+		lblNewLabel_3.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lblNewLabel_3.setBounds(390, 210, 57, 30);
 		panel.add(lblNewLabel_3);
 		
-		JLabel lblNewLabel_3_1 = new JLabel("Password");
-		lblNewLabel_3_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		JLabel lblNewLabel_3_1 = new JLabel("비밀번호");
+		lblNewLabel_3_1.setForeground(Color.WHITE);
+		lblNewLabel_3_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lblNewLabel_3_1.setBounds(390, 260, 57, 30);
 		panel.add(lblNewLabel_3_1);
 		btnNewButton_2 = new JButton(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\button1.png"));
