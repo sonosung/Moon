@@ -45,7 +45,7 @@ public class MainTestFrame extends MainFrame {
 	 * Create the frame.
 	 */
 	public MainTestFrame() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		index = 0;		
 		panelMap = new HashMap<MainFrame.PANELNAME, JPanel>();
@@ -58,7 +58,7 @@ public class MainTestFrame extends MainFrame {
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
 		JPanel ContentPanel2 = new Admin_UserList(this);
-		JPanel ContentPanel3 = new JinsungPanel(this);
+		JPanel ContentPanel3 = new ContentPanel2(this);
 		
 		
 		//생성된 판넬 Map 자료 구조에 넣기
