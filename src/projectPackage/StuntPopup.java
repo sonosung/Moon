@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.Color;
 
 
 public class StuntPopup extends JFrame {
@@ -37,6 +38,7 @@ public class StuntPopup extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(300, 300, 700, 434);
         contentPane = new JPanel();
+        contentPane.setBackground(new Color(0, 0, 0));
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
