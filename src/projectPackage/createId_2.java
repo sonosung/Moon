@@ -43,7 +43,7 @@ public class createId_2 extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		panel.setBounds(0, 0, 1280, 650);
 		add(panel);
 		panel.setLayout(null);
@@ -53,9 +53,10 @@ public class createId_2 extends JPanel {
 		panel.add(cgving);
 		
 		JLabel lb_MainTitle = new JLabel("회원가입");
+		lb_MainTitle.setForeground(Color.WHITE);
 		lb_MainTitle.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_MainTitle.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lb_MainTitle.setBounds(530, 80, 220, 50);
+		lb_MainTitle.setBounds(530, 115, 220, 50);
 		panel.add(lb_MainTitle);
 		
 		JButton bt_Join = new JButton("가입하기");
@@ -65,7 +66,8 @@ public class createId_2 extends JPanel {
 		});
 		
 		JLabel lb_subTitle = new JLabel("2. 회원정보 입력");
-		lb_subTitle.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		lb_subTitle.setForeground(Color.WHITE);
+		lb_subTitle.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_subTitle.setBounds(390, 180, 130, 20);
 		panel.add(lb_subTitle);
 		bt_Join.setFont(new Font("나눔고딕", Font.PLAIN, 12));
@@ -91,27 +93,32 @@ public class createId_2 extends JPanel {
 		panel.add(tf_user_pw);
 		
 		JLabel lb_user_pw = new JLabel("비밀번호");
+		lb_user_pw.setForeground(Color.WHITE);
 		lb_user_pw.setLabelFor(tf_user_pw);
 		lb_user_pw.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_pw.setBounds(390, 310, 60, 30);
 		panel.add(lb_user_pw);
 		
 		JLabel lb_user_id = new JLabel("아이디");
+		lb_user_id.setForeground(Color.WHITE);
 		lb_user_id.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_id.setBounds(390, 260, 60, 30);
 		panel.add(lb_user_id);
 		
 		JLabel lb_user_name = new JLabel("이  름");
+		lb_user_name.setForeground(Color.WHITE);
 		lb_user_name.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_name.setBounds(390, 210, 60, 30);
 		panel.add(lb_user_name);
 		
 		JLabel lb_user_email = new JLabel("이메일");
+		lb_user_email.setForeground(Color.WHITE);
 		lb_user_email.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_email.setBounds(390, 360, 57, 30);
 		panel.add(lb_user_email);
 		
 		JLabel lb_user_phone = new JLabel("휴대전화");
+		lb_user_phone.setForeground(Color.WHITE);
 		lb_user_phone.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		lb_user_phone.setBounds(390, 410, 57, 30);
 		panel.add(lb_user_phone);

@@ -32,12 +32,13 @@ public class createId_3 extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		panel.setBounds(0, 0, 1280, 650);
 		add(panel);
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("회원가입이 완료되었습니다!");
+		lblNewLabel.setForeground(Color.WHITE);
 		lblNewLabel.setMinimumSize(new Dimension(81, 23));
 		lblNewLabel.setMaximumSize(new Dimension(81, 23));
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);

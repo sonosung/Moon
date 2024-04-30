@@ -36,7 +36,7 @@ public class deleteId_1 extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(Color.WHITE);
+		panel.setBackground(Color.BLACK);
 		panel.setBounds(0, 0, 1280, 650);
 		add(panel);
 		panel.setLayout(null);
@@ -61,25 +61,28 @@ public class deleteId_1 extends JPanel {
 		
 		textField_3 = new JTextField();
 		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setColumns(10);
-		textField_3.setBounds(450, 357, 380, 30);
+		textField_3.setColumns(1);
+		textField_3.setBounds(450, 360, 380, 30);
 		panel.add(textField_3);
 		
 		JLabel lblNewLabel_1_1_1_1 = new JLabel("비밀번호");
+		lblNewLabel_1_1_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lblNewLabel_1_1_1_1.setBounds(390, 356, 60, 30);
+		lblNewLabel_1_1_1_1.setBounds(390, 360, 60, 30);
 		panel.add(lblNewLabel_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1 = new JLabel("회원탈퇴를 위해 비밀번호를 입력해주세요");
+		lblNewLabel_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1_1_1_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		lblNewLabel_1_1_1_1_1_1.setBounds(493, 180, 300, 20);
+		lblNewLabel_1_1_1_1_1_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
+		lblNewLabel_1_1_1_1_1_1.setBounds(490, 310, 300, 30);
 		panel.add(lblNewLabel_1_1_1_1_1_1);
 		
 		JLabel lblNewLabel_1_1_1_1_1_1_1 = new JLabel("회원탈퇴");
+		lblNewLabel_1_1_1_1_1_1_1.setForeground(Color.WHITE);
 		lblNewLabel_1_1_1_1_1_1_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1_1_1_1_1_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lblNewLabel_1_1_1_1_1_1_1.setBounds(540, 80, 200, 50);
+		lblNewLabel_1_1_1_1_1_1_1.setBounds(540, 115, 200, 50);
 		panel.add(lblNewLabel_1_1_1_1_1_1_1);
 		
 //		JPanel panel_1_1 = new JPanel();
