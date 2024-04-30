@@ -44,28 +44,37 @@ public class TopPanelTest extends JPanel {
         }
         
         textField_1 = new JTextField();
-        textField_1.setBounds(755, 92, 147, 21);
+        textField_1.setBounds(790, 77, 158, 41);
         panel_1.add(textField_1);
         textField_1.setColumns(40);
         
-        JButton btnNewButton_1 = new JButton("Search");
+        JButton btnNewButton_1 = new JButton("");
+        btnNewButton_1.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/search2.png")));
         btnNewButton_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
         btnNewButton_1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
             }
         });
-        btnNewButton_1.setBounds(914, 91, 97, 23);
+        btnNewButton_1.setBounds(960, 76, 128, 42);
         panel_1.add(btnNewButton_1);
         
-        JButton btnNewButton_2 = new JButton("L O G I N");
+        JButton btnNewButton_2 = new JButton("");
+        btnNewButton_2.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/login2.png")));
         btnNewButton_2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
-        btnNewButton_2.setBounds(1022, 91, 97, 23);
+        btnNewButton_2.setBounds(1118, 62, 50, 57);
         panel_1.add(btnNewButton_2);
         
-        JButton btnNewButton_3 = new JButton("J O I N");
+        JButton btnNewButton_3 = new JButton("");
+        btnNewButton_3.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/join2.png")));
         btnNewButton_3.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
-        btnNewButton_3.setBounds(1131, 91, 97, 23);
+        btnNewButton_3.setBounds(1180, 62, 50, 57);
         panel_1.add(btnNewButton_3);
+        
+        JLabel lblNewLabel = new JLabel("C U L T U R E P L E X");
+        lblNewLabel.setForeground(new Color(255, 255, 255));
+        lblNewLabel.setFont(new Font("나눔고딕", Font.BOLD, 16));
+        lblNewLabel.setBounds(246, 77, 174, 15);
+        panel_1.add(lblNewLabel);
         
         this.setVisible(true);
     }
