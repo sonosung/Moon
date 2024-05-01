@@ -23,6 +23,7 @@ public class AnCont1 extends JPanel {
     public AnCont1(MainFrame mainFrame) {
 		
 		//sadsadsad
+    	//asd
 		setLayout(null);
 		this.setSize(1280, 800-150);
 		this.setPreferredSize(new Dimension(1280, 800-150));
