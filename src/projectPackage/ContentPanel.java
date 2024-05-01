@@ -1,20 +1,18 @@
 package projectPackage;
 
-import java.awt.AWTEvent;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Rectangle;
 import java.util.Vector;
 
+import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 import javax.swing.ListSelectionModel;
 import javax.swing.SwingConstants;
-import javax.swing.JLabel;
-import javax.swing.JList;
 
 public class ContentPanel extends JPanel {
 
@@ -72,14 +70,11 @@ public class ContentPanel extends JPanel {
 	        public Component getListCellRendererComponent(JList<?> list, Object value, int index, boolean isSelected, boolean cellHasFocus) {
 	            setText(value.toString());
 
-	            // Customize size of each list item
-	            setPreferredSize(new Dimension(50, 50)); // Set preferred width and height for each item
+	            setPreferredSize(new Dimension(50, 50)); 
 	            setHorizontalAlignment(SwingConstants.RIGHT);
 	            
 	            Font font = getFont();
 	            setFont(font.deriveFont(20f));
-
-	            // Set background and foreground colors based on selection
 	            if (isSelected) {
 	                setBackground(list.getSelectionBackground());
 	                setForeground(list.getSelectionForeground());
