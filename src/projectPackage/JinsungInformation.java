@@ -2,21 +2,25 @@ package projectPackage;
 
 import java.awt.Color;
 import java.awt.Dimension;
-
-import javax.swing.JPanel;
-import javax.swing.JLabel;
 import java.awt.Font;
-import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Information extends JPanel {
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+
+public class JinsungInformation extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-
+	private JPanel JinsungPanelT;
+	private MainTestFrame mainTestFrame;	
 	/**
 	 * Create the panel.
 	 */
-	public Information() {
-		setLayout(null);
+	public JinsungInformation(MainTestFrame mainTestFrame) {
+		this.mainTestFrame = mainTestFrame;
 		
 		setLayout(null);
 		this.setSize(1280, 800 - 150);
@@ -29,7 +33,7 @@ public class Information extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabelfix = new JLabel("상세 내역");
+		JLabel lblNewLabelfix = new JLabel("상세 정보");
 		lblNewLabelfix.setForeground(Color.WHITE);
 		lblNewLabelfix.setFont(new Font("나눔고딕 ExtraBold", Font.BOLD, 30));
 		lblNewLabelfix.setBounds(429, 54, 143, 51);
@@ -83,16 +87,37 @@ public class Information extends JPanel {
 		lblNewLabel_title_1.setBounds(840, 378, 205, 41);
 		panel.add(lblNewLabel_title_1);
 		
-		JButton btnNewButton_1_1 = new JButton("뒤로가기");
-		btnNewButton_1_1.setForeground(new Color(0, 0, 0));
-		btnNewButton_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 15));
-		btnNewButton_1_1.setBounds(949, 559, 135, 44);
-		panel.add(btnNewButton_1_1);
+		JButton	BackButton= new JButton("뒤로가기");
+		BackButton.addActionListener(new BackAction());
+		BackButton.setForeground(new Color(0, 0, 0));
+		BackButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
+		BackButton.setBounds(675, 534, 135, 44);
+		panel.add(BackButton);
 		
-		JButton btnNewButton_1_1_1 = new JButton("상세정보");
-		btnNewButton_1_1_1.setForeground(new Color(0, 0, 0));
-		btnNewButton_1_1_1.setFont(new Font("나눔고딕", Font.PLAIN, 15));
-		btnNewButton_1_1_1.setBounds(1108, 559, 135, 44);
-		panel.add(btnNewButton_1_1_1);
+		JButton InfoButton = new JButton("상세정보");
+		InfoButton.addActionListener(new InfoAction());
+		InfoButton.setForeground(new Color(0, 0, 0));
+		InfoButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
+		InfoButton.setBounds(836, 534, 135, 44);
+		panel.add(InfoButton);
+	
+		this.setVisible(false);
+	}
+	
+	class InfoAction implements ActionListener {
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+
+      
+		mainTestFrame.PageChange(MainFrame.PANELNAME.PAGE1);
+	}
+}
+	class BackAction implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+		mainTestFrame.PageChange(MainFrame.PANELNAME.MAIN);
+}
 	}
 }

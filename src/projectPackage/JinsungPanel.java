@@ -215,4 +215,5 @@ public class JinsungPanel extends JPanel {
 		
 		this.setVisible(false);
 	}
+	
 }
