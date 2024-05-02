@@ -10,6 +10,7 @@ public class TopPanelTest extends JPanel {
     private static final long serialVersionUID = 1L;
     private JTextField textField_1;
     private MainFrame mainFrame;
+    private JTextField txtOhtani;
 
     public TopPanelTest(MainFrame mainFrame) {
         setLayout(null);
@@ -31,14 +32,14 @@ public class TopPanelTest extends JPanel {
         }
         
         textField_1 = new JTextField();
-        textField_1.setBounds(694, 90, 158, 42);
+        textField_1.setBounds(852, 90, 256, 42);
         panel_1.add(textField_1);
         textField_1.setColumns(40);
         
         JButton btnNewButton_1 = new JButton("");
         btnNewButton_1.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/search.png")));
         btnNewButton_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
-        btnNewButton_1.setBounds(857, 90, 110, 42);
+        btnNewButton_1.setBounds(1120, 90, 110, 42);
         panel_1.add(btnNewButton_1);
         
         btnNewButton_1.addActionListener(new ActionListener() {
@@ -70,13 +71,13 @@ public class TopPanelTest extends JPanel {
         JButton btnNewButton_2 = new JButton("");
         btnNewButton_2.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/login.png")));
         btnNewButton_2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
-        btnNewButton_2.setBounds(979, 90, 110, 42);
+        btnNewButton_2.setBounds(998, 10, 110, 42);
         panel_1.add(btnNewButton_2);
 
         JButton btnNewButton_3 = new JButton("");
         btnNewButton_3.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/join.png")));
         btnNewButton_3.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
-        btnNewButton_3.setBounds(1095, 90, 110, 42);
+        btnNewButton_3.setBounds(1120, 10, 110, 42);
         panel_1.add(btnNewButton_3);
 
         JLabel lblNewLabel = new JLabel("C U L T U R E P L E X");
@@ -84,6 +85,12 @@ public class TopPanelTest extends JPanel {
         lblNewLabel.setFont(new Font("나눔고딕", Font.BOLD, 16));
         lblNewLabel.setBounds(246, 77, 174, 15);
         panel_1.add(lblNewLabel);
+        
+        txtOhtani = new JTextField();
+        txtOhtani.setText("ohtani님 환영합니다.");
+        txtOhtani.setBounds(852, 31, 134, 21);
+        panel_1.add(txtOhtani);
+        txtOhtani.setColumns(10);
 
         this.setVisible(true);
     }
