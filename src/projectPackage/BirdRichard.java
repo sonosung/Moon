@@ -1,22 +1,14 @@
 package projectPackage;
 
 import java.awt.Color;
-import java.awt.Container;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-
-
 import javax.swing.JLabel;
 import java.awt.Font;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import javax.swing.Icon;
 import javax.swing.JTextArea;
-import javax.swing.DropMode;
-import javax.swing.JToolBar;
+
 
 public class BirdRichard extends JPanel {
 
@@ -79,7 +71,7 @@ public class BirdRichard extends JPanel {
 		
 		JButton btnNewButton_1 = new JButton("");
 		btnNewButton_1.setIcon(new ImageIcon(BirdRichard.class.getResource("/image/button/reserve.png")));
-		btnNewButton_1.setBounds(468, 235, 110, 42);
+		btnNewButton_1.setBounds(468, 239, 110, 42);
 		add(btnNewButton_1);
 		
 		JTextArea textArea_1 = new JTextArea();
