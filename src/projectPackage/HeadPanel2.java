@@ -43,11 +43,22 @@ public class HeadPanel2 extends JPanel {
 
 		// 로그인 버튼
 		JButton loginButton = new JButton("Log in");
+		
+		loginButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mainFrame.PageChange(MainFrame.PANELNAME.LOGIN);
+			}
+		});
 		loginButton.setBounds(760, 10, 90, 30);
 		add(loginButton);
 
 		// 회원가입 버튼
 		JButton joinButton = new JButton("Join");
+		joinButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				mainFrame.PageChange(MainFrame.PANELNAME.JOIN1);
+			}
+		});
 		joinButton.setBounds(860, 10, 90, 30);
 		add(joinButton);
 

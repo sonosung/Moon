@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.Label;
 
 public class AnCont2 extends JPanel {
 	private MainFrame mainFrame;
@@ -50,14 +51,14 @@ public class AnCont2 extends JPanel {
 				
 			}
 		});
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\아르헨티바 백브레이커.png"));
-		btnNewButton_2.setBounds(396, 544, 100, 50);
+		btnNewButton_2.setIcon(new ImageIcon(AnCont2.class.getResource("/image/button/back.png")));
+		btnNewButton_2.setBounds(396, 544, 110, 42);
 		panel.add(btnNewButton_2);
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\우당탕.png"));
-		btnNewButton.setBounds(725, 544, 100, 50);
+		btnNewButton.setIcon(new ImageIcon(AnCont2.class.getResource("/image/button/select.png")));
+		btnNewButton.setBounds(737, 544, 110, 42);
 		panel.add(btnNewButton);
 		
-		JLabel lblNewLabel_1 = new JLabel("고른좌석 금액");
+		JLabel lblNewLabel_1 = new JLabel("선택 좌석 + 금액");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
 		lblNewLabel_1.setBounds(139, 469, 202, 73);
 		panel.add(lblNewLabel_1);
@@ -157,7 +158,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_2 = new JButton("");
 		btnNewButton_1_2.setBounds(400, 176, 50, 50);
-		btnNewButton_1_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\내자리.png"));
+		btnNewButton_1_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_2.setOpaque(false);
 		panel.add(btnNewButton_1_2);
 		
@@ -181,7 +182,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_1_1 = new JButton("");
 		btnNewButton_1_1_1_1.setBounds(550, 176, 50, 50);
-		btnNewButton_1_1_1_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\먹은자리.png"));
+		btnNewButton_1_1_1_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_1_1.setOpaque(false);
 		panel.add(btnNewButton_1_1_1_1);
 		
@@ -374,18 +375,17 @@ public class AnCont2 extends JPanel {
 		lblNewLabel.setBackground(new Color(0, 0, 0));
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\1231231232131234124123.png"));
 		lblNewLabel.setBounds(0, 0, 1280, 650);
-		panel.add(lblNewLabel);		
+		panel.add(lblNewLabel);
 		
 		this.setVisible(false);
 	}
 	private void openAnCont1Panel() {
         AnCont1 anCont1Panel = new AnCont1(mainFrame);
-        mainFrame.PageChange(MainFrame.PANELNAME.PAGE0); 
+        mainFrame.PageChange(MainFrame.PANELNAME.TICKETING); 
     }
 	
 	private void openAnCont3Panel() {
         AnCont2 anCont3Panel = new AnCont2(mainFrame);
-        mainFrame.PageChange(MainFrame.PANELNAME.PAGE2); 
+        mainFrame.PageChange(MainFrame.PANELNAME.PAYMENT); 
     }
-	
 }

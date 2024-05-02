@@ -40,6 +40,10 @@ public class Admin_UserList extends JPanel {
 	private UserDetailInfoFrame userDetailFrame;
 	JScrollPane sPane;
 	Container contentPane;
+	JComboBox<String> comboBox;
+	
+	private enum FINDTYPE {USER_ID, USER_NAME, AUTH_NO, USER_NO};
+	
 	
 	Vector<String> columnName = null;   // String을 원소로 갖는 갖는 리스트
 	Vector<Vector<String>> data = null; // String 여러개를 갖는 백터들을 원소로 갖는 리스트
@@ -51,6 +55,7 @@ public class Admin_UserList extends JPanel {
 		
 		this.mainFrame = mainFrame;
 		this.userDetailFrame = new UserDetailInfoFrame();
+		this.userDetailFrame.setParentPage(this);
 		
 		this.setSize(1280,800-150);
 		this.setPreferredSize(new Dimension(1280,800-150));
@@ -67,7 +72,7 @@ public class Admin_UserList extends JPanel {
 		/*---------------------------------------------------------*/
 		
 		textField = new JTextField();
-		textField.setBounds(763, 119, 347, 30);
+		textField.setBounds(771, 119, 347, 30);
 		add(textField);
 		textField.setColumns(10);
 		
@@ -80,7 +85,7 @@ public class Admin_UserList extends JPanel {
 				
 			}
 		});
-		btnNewButton_4.setBounds(1122, 118, 97, 30);
+		btnNewButton_4.setBounds(1130, 118, 97, 30);
 		add(btnNewButton_4);
 		
 		tableInit();		
@@ -99,8 +104,8 @@ public class Admin_UserList extends JPanel {
 	
 	public void tableUpdate()
 	{
-		UserInfoTableModel aa = new UserInfoTableModel(data,columnName);
-		table.setModel(aa);		
+		UserInfoTableModel temp = new UserInfoTableModel(data,columnName);
+		table.setModel(temp);		
 	}
 	
 	public void tableInit()
@@ -160,9 +165,9 @@ public class Admin_UserList extends JPanel {
         			 usinfo.setUser_phone((String)m.getValueAt(row, 5));
         			 
         			 
-        			 userDetailFrame.FrameInit(usinfo);
-        			 
-        			 userDetailFrame.setVisible(true);
+        			 userDetailFrame.FrameInit(usinfo);  
+        			 userDetailFrame.Popup();
+        			 //userDetailFrame.setVisible(true);
         			 //JOptionPane.showMessageDialog(t, s, "title", JOptionPane.INFORMATION_MESSAGE);
         		 }
         	 }        	
@@ -179,9 +184,22 @@ public class Admin_UserList extends JPanel {
 		contentPane = this;
 		contentPane.add(sPane, BorderLayout.CENTER);
 		
+		comboBox = new JComboBox<String>();
+		
+		comboBox.insertItemAt("USER_ID", FINDTYPE.USER_ID.ordinal());
+		comboBox.insertItemAt("USER_NAME", FINDTYPE.USER_NAME.ordinal());
+		comboBox.insertItemAt("AUTH_NO", FINDTYPE.AUTH_NO.ordinal());		
+		comboBox.insertItemAt("USER_NO", FINDTYPE.USER_NO.ordinal());		
+		//comboBox.insertItemAt("AUTH_NO", 5);
+		
+		comboBox.setBounds(657, 119, 105, 30);
+		comboBox.setSelectedIndex(0);
+		
+		add(comboBox);
+		
 	}
 	
-	public void Get_UserInfomation(Vector<Vector<String>> data,String id)
+	public void Get_UserInfomation(Vector<Vector<String>> data,String input)
 	{
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@//14.42.124.35:1521/XE";
@@ -198,8 +216,11 @@ public class Admin_UserList extends JPanel {
 			Connection conn = DriverManager.getConnection(url,user,pw);
 			System.out.println("oralce connection success.");
 			
-			String sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO"
-			+ " WHERE USER_ID LIKE '%"+ id+ "%' ORDER BY USER_NO";	
+			String sql = "";
+			
+			int selectedIndex = comboBox.getSelectedIndex();
+			sql = Get_FindUserQuery(selectedIndex, input);
+			
 			
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);			
@@ -242,12 +263,54 @@ public class Admin_UserList extends JPanel {
 		}
 	}
 	
+	public String Get_FindUserQuery(int index, String input)
+	{
+		String sql = "";
+		
+		if(index == FINDTYPE.USER_ID.ordinal())
+		{
+			sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO"
+					+ " WHERE USER_ID LIKE '%"+ input + "%' ORDER BY USER_NO";
+		}
+		else if(index == FINDTYPE.USER_NAME.ordinal())
+		{
+			sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO"
+					+ " WHERE USER_NAME LIKE '%"+ input + "%' ORDER BY USER_NO";
+		}
+		else if(index == FINDTYPE.AUTH_NO.ordinal())
+		{
+			sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO"
+					+ " WHERE AUTH_NO LIKE '%"+ input + "%' ORDER BY USER_NO";
+		}
+		else if(index == FINDTYPE.USER_NO.ordinal())
+		{
+			sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO"
+					+ " WHERE USER_NO = "+ input + " ORDER BY USER_NO";
+		}		
+		
+		return sql;
+	}
+	
+	public void Refresh_Table()
+	{
+		String input =  textField.getText();
+		
+		if(!input.isEmpty())		
+			Get_UserInfomation(data,input);
+		else
+			Get_UserInfomation(data);
+		
+		tableUpdate();
+	}
+	
 	public void Get_UserInfomation(Vector<Vector<String>> data)
 	{
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@//14.42.124.35:1521/XE";
 		String user = "c##wjrls";
 		String pw = "881125";
+		
+		data.clear();
 		
 		try {
 			
