@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AnCont4 extends JPanel {
 	private MainFrame mainFrame;
@@ -38,7 +40,13 @@ public class AnCont4 extends JPanel {
 		panel_1.add(lblNewLabel_1);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\확인 버튼 - 복사본 - 복사본.png"));
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				OtanP();
+		    	setVisible(false);
+			}
+		});
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\우당탕.png"));
 		btnNewButton.setBounds(441, 536, 100, 50);
 		panel_1.add(btnNewButton);
 		
@@ -47,5 +55,11 @@ public class AnCont4 extends JPanel {
 		lblNewLabel.setBounds(0, 0, 553, 650);
 		panel_1.add(lblNewLabel);
 		
+		this.setVisible(false);
 	}
+	
+	private void OtanP() {
+		OhtanisPanel Otan = new OhtanisPanel(mainFrame);
+        mainFrame.PageChange(MainFrame.PANELNAME.MAIN); 
+    }
 }
