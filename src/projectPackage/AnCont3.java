@@ -116,12 +116,12 @@ public class AnCont3 extends JPanel {
 	}
 	private void openAnCont4Panel() {
         AnCont4 anCont4Panel = new AnCont4(mainFrame);
-        mainFrame.PageChange(MainFrame.PANELNAME.PAGE3); 
+        mainFrame.PageChange(MainFrame.PANELNAME.TICKET); 
     }
 	
 	private void openAnCont2Panel() {
         AnCont4 anCont2Panel = new AnCont4(mainFrame);
-        mainFrame.PageChange(MainFrame.PANELNAME.PAGE1); 
+        mainFrame.PageChange(MainFrame.PANELNAME.SELECT); 
     }
 	
 }

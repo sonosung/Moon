@@ -297,7 +297,7 @@ public class AnCont1 extends JPanel {
 }
 	private void openAnCont2Panel() {
         AnCont2 anCont2Panel = new AnCont2(mainFrame);
-        mainFrame.PageChange(MainFrame.PANELNAME.PAGE1); 
+        mainFrame.PageChange(MainFrame.PANELNAME.SELECT); 
     }
 	
 	private void OtanP() {

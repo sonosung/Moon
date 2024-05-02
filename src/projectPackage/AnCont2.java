@@ -380,12 +380,12 @@ public class AnCont2 extends JPanel {
 	}
 	private void openAnCont1Panel() {
         AnCont1 anCont1Panel = new AnCont1(mainFrame);
-        mainFrame.PageChange(MainFrame.PANELNAME.PAGE0); 
+        mainFrame.PageChange(MainFrame.PANELNAME.TICKETING); 
     }
 	
 	private void openAnCont3Panel() {
         AnCont2 anCont3Panel = new AnCont2(mainFrame);
-        mainFrame.PageChange(MainFrame.PANELNAME.PAGE2); 
+        mainFrame.PageChange(MainFrame.PANELNAME.PAYMENT); 
     }
 	
 }
