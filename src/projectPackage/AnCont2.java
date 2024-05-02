@@ -8,6 +8,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class AnCont2 extends JPanel {
 	private MainFrame mainFrame;
@@ -17,6 +19,7 @@ public class AnCont2 extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	    
 	public AnCont2(MainFrame mainFrame) {
 		
 		this.mainFrame = mainFrame;
@@ -32,13 +35,31 @@ public class AnCont2 extends JPanel {
 		panel.setLayout(null);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("D:\\AnSangHwan\\work-Java-2024.ecl.web\\testProject\\IMGG\\asdasd.png"));
-		btnNewButton.setBounds(691, 544, 155, 55);
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openAnCont3Panel();
+		    	setVisible(false);
+			}
+		});
+		
+		JButton btnNewButton_2 = new JButton("");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				openAnCont1Panel();
+		    	setVisible(false);
+				
+			}
+		});
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\아르헨티바 백브레이커.png"));
+		btnNewButton_2.setBounds(396, 544, 100, 50);
+		panel.add(btnNewButton_2);
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\우당탕.png"));
+		btnNewButton.setBounds(725, 544, 100, 50);
 		panel.add(btnNewButton);
 		
 		JLabel lblNewLabel_1 = new JLabel("고른좌석 금액");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(415, 540, 202, 73);
+		lblNewLabel_1.setBounds(139, 469, 202, 73);
 		panel.add(lblNewLabel_1);
 		
 		
@@ -232,7 +253,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_1_2 = new JButton("");
 		btnNewButton_1_1_1_2.setBounds(550, 251, 50, 50);
-		btnNewButton_1_1_1_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_1_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_1_2.setOpaque(false);
 		panel.add(btnNewButton_1_1_1_2);
 		
@@ -244,7 +265,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_2_2 = new JButton("");
 		btnNewButton_1_1_2_2.setBounds(625, 251, 50, 50);
-		btnNewButton_1_1_2_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_2_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_2_2.setOpaque(false);
 		panel.add(btnNewButton_1_1_2_2);
 		
@@ -256,7 +277,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_3_2 = new JButton("");
 		btnNewButton_1_1_3_2.setBounds(700, 251, 50, 50);
-		btnNewButton_1_1_3_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_3_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_3_2.setOpaque(false);
 		panel.add(btnNewButton_1_1_3_2);
 		
@@ -268,7 +289,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_4_2 = new JButton("");
 		btnNewButton_1_1_4_2.setBounds(775, 251, 50, 50);
-		btnNewButton_1_1_4_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_4_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_4_2.setOpaque(false);
 		panel.add(btnNewButton_1_1_4_2);
 		
@@ -292,7 +313,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_7 = new JButton("");
 		btnNewButton_1_1_7.setBounds(475, 328, 50, 50);
-		btnNewButton_1_1_7.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_7.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_7.setOpaque(false);
 		panel.add(btnNewButton_1_1_7);
 		
@@ -304,7 +325,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_1_3 = new JButton("");
 		btnNewButton_1_1_1_3.setBounds(550, 328, 50, 50);
-		btnNewButton_1_1_1_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_1_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_1_3.setOpaque(false);
 		panel.add(btnNewButton_1_1_1_3);
 		
@@ -316,7 +337,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_2_3 = new JButton("");
 		btnNewButton_1_1_2_3.setBounds(625, 328, 50, 50);
-		btnNewButton_1_1_2_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_2_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_2_3.setOpaque(false);
 		panel.add(btnNewButton_1_1_2_3);
 		
@@ -328,7 +349,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_3_3 = new JButton("");
 		btnNewButton_1_1_3_3.setBounds(700, 328, 50, 50);
-		btnNewButton_1_1_3_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_3_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_3_3.setOpaque(false);
 		panel.add(btnNewButton_1_1_3_3);
 		
@@ -340,7 +361,7 @@ public class AnCont2 extends JPanel {
 		
 		JButton btnNewButton_1_1_4_3 = new JButton("");
 		btnNewButton_1_1_4_3.setBounds(775, 328, 50, 50);
-		btnNewButton_1_1_4_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\공석.png"));
+		btnNewButton_1_1_4_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
 		btnNewButton_1_1_4_3.setOpaque(false);
 		panel.add(btnNewButton_1_1_4_3);
 		
@@ -355,7 +376,16 @@ public class AnCont2 extends JPanel {
 		lblNewLabel.setBounds(0, 0, 1280, 650);
 		panel.add(lblNewLabel);		
 		
-		
+		this.setVisible(false);
 	}
+	private void openAnCont1Panel() {
+        AnCont1 anCont1Panel = new AnCont1(mainFrame);
+        mainFrame.PageChange(MainFrame.PANELNAME.PAGE0); 
+    }
+	
+	private void openAnCont3Panel() {
+        AnCont2 anCont3Panel = new AnCont2(mainFrame);
+        mainFrame.PageChange(MainFrame.PANELNAME.PAGE2); 
+    }
 	
 }
