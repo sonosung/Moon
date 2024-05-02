@@ -15,7 +15,7 @@ public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private int index;
 	private JPanel MainPane;	
-	private JPanel TopPanelTest;	
+	private JPanel HeadPanel;	
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
@@ -46,7 +46,7 @@ public class MainFrame extends JFrame {
 		index = 0;		
 		panelMap = new HashMap<MainFrame.PANELNAME, JPanel>();
 		
-		TopPanelTest = new TopPanelTest(this);	
+		HeadPanel = new HeadPanel(this);	
 		
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
@@ -83,7 +83,7 @@ public class MainFrame extends JFrame {
 		ContentPanel.setVisible(true);		
 		
 		//Main 판넬에 하위 판넬 add 처리
-		this.getContentPane().add(TopPanelTest);
+		this.getContentPane().add(HeadPanel);
 		this.getContentPane().add(ContentPanel);
 		this.getContentPane().add(ContentPanel2);
 		this.getContentPane().add(ContentPanel3);
