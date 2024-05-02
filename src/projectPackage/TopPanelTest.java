@@ -5,6 +5,7 @@ import java.awt.event.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import javax.swing.border.EmptyBorder;
 
 public class TopPanelTest extends JPanel {
     private static final long serialVersionUID = 1L;
@@ -32,6 +33,7 @@ public class TopPanelTest extends JPanel {
         }
         
         textField_1 = new JTextField();
+        textField_1.setBorder(new EmptyBorder(0, 10, 0, 0));
         textField_1.setBounds(858, 86, 250, 32);
         panel_1.add(textField_1);
         textField_1.setColumns(40);
