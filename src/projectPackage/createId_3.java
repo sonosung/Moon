@@ -49,7 +49,7 @@ public class createId_3 extends JPanel {
 		lb_thankyou.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_thankyou.setBackground(Color.BLACK);
 		lb_thankyou.setForeground(Color.WHITE);
-		lb_thankyou.setBounds(490, 115, 300, 50);
+		lb_thankyou.setBounds(490, 180, 300, 50);
 		panel.add(lb_thankyou);
 		
 		JLabel lb_joincomp = new JLabel("회원가입이 완료되었습니다!");
@@ -58,19 +58,19 @@ public class createId_3 extends JPanel {
 		lb_joincomp.setMaximumSize(new Dimension(81, 23));
 		lb_joincomp.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_joincomp.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lb_joincomp.setBounds(390, 230, 500, 50);
+		lb_joincomp.setBounds(390, 300, 500, 50);
 		panel.add(lb_joincomp);
 		
 		JButton bt_home = new JButton("");
 		bt_home.setIcon(new ImageIcon(createId_3.class.getResource("/image/seungho/bt_home.png")));
-		bt_home.setPreferredSize(new Dimension(81, 23));
-		bt_home.setMinimumSize(new Dimension(81, 23));
-		bt_home.setMaximumSize(new Dimension(81, 23));
 		bt_home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 			}
 		});
+		bt_home.setPreferredSize(new Dimension(81, 23));
+		bt_home.setMinimumSize(new Dimension(81, 23));
+		bt_home.setMaximumSize(new Dimension(81, 23));
 		bt_home.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		bt_home.setBounds(390, 500, 500, 50);
 		panel.add(bt_home);
@@ -84,8 +84,4 @@ public class createId_3 extends JPanel {
 
 		this.setVisible(false);
 	}
-
-//	public static void main(String[] args) {
-//		new MainFrame();
-//	}
 }

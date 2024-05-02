@@ -27,8 +27,10 @@ import javax.swing.Icon;
 import java.awt.Rectangle;
 import javax.swing.event.ChangeListener;
 import javax.swing.event.ChangeEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
 
-public class createId_1 extends JPanel {
+public class createId_1 extends JPanel implements ItemListener {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -38,7 +40,9 @@ public class createId_1 extends JPanel {
 	 */
 	Color bg = new Color(0xdfeff0);
 	private final ButtonGroup buttonGroup = new ButtonGroup();
-	
+	private Object rbt_agree;
+	private Object rbt_dagree;
+
 	public createId_1(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
@@ -78,39 +82,29 @@ public class createId_1 extends JPanel {
 		panel.add(ta_terms);
 		
 		JRadioButton rbt_agree = new JRadioButton("약관에 동의함");
-		rbt_agree.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e) {
-			}
-		});
-		
 		rbt_agree.setBackground(Color.BLACK);
 		rbt_agree.setForeground(Color.WHITE);
-		buttonGroup.add(rbt_agree);
 		rbt_agree.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		rbt_agree.setBounds(770, 435, 120, 25);
 		panel.add(rbt_agree);
+		buttonGroup.add(rbt_agree);
 		
 		JRadioButton rbt_dagree = new JRadioButton("약관에 동의안함");
-		rbt_dagree.addChangeListener(new ChangeListener() {
-			public void stateChanged(ChangeEvent e) {
-			}
-		});
-		
 		rbt_dagree.setBackground(Color.BLACK);
 		rbt_dagree.setForeground(Color.WHITE);
-		buttonGroup.add(rbt_dagree);
 		rbt_dagree.setSelected(true);
 		rbt_dagree.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		rbt_dagree.setBounds(770, 410, 120, 25);
 		panel.add(rbt_dagree);
+		buttonGroup.add(rbt_dagree);
 		
+		
+			
 		JButton bt_next = new JButton("");
 		bt_next.setIcon(new ImageIcon(createId_1.class.getResource("/image/seungho/bt_next.png")));
 		bt_next.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				 new createId_2(mainFrame);
-	                setVisible(false);
+				mainFrame.PageChange(MainFrame.PANELNAME.JOIN2);
 			}
 		});
 		bt_next.setFont(new Font("나눔고딕", Font.PLAIN, 12));
@@ -132,5 +126,21 @@ public class createId_1 extends JPanel {
 //		panel.add(lblNewLabel_2);
 
 		this.setVisible(false);
+	}
+
+	@Override
+	public void itemStateChanged(ItemEvent e) {
+		Object btg = e.getItem();
+		if(btg == rbt_agree)
+			new createId_2(mainFrame);
+		else if (btg == rbt_dagree)
+			System.out.println("동의함을 눌러주세요");
+			
+	}
+
+	private void createId_2(MainFrame mainFrame2) {
+		// TODO Auto-generated method stub
+		
+		
 	}
 }
