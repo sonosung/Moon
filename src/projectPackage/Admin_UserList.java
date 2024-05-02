@@ -37,6 +37,7 @@ public class Admin_UserList extends JPanel {
 	private MainFrame mainFrame;
 	private JTextField textField;
 	private JTable table;
+	private UserDetailInfoFrame userDetailFrame;
 	JScrollPane sPane;
 	Container contentPane;
 	
@@ -49,6 +50,8 @@ public class Admin_UserList extends JPanel {
 	public Admin_UserList(MainFrame mainFrame) {
 		
 		this.mainFrame = mainFrame;
+		this.userDetailFrame = new UserDetailInfoFrame();
+		
 		this.setSize(1280,800-150);
 		this.setPreferredSize(new Dimension(1280,800-150));
 		this.setBackground(Color.darkGray);
@@ -71,11 +74,16 @@ public class Admin_UserList extends JPanel {
 		JButton btnNewButton_4 = new JButton("Search");
 		btnNewButton_4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String id =  textField.getText();
+				Get_UserInfomation(data,id);
+				tableUpdate();
+				
 			}
 		});
 		btnNewButton_4.setBounds(1122, 118, 97, 30);
 		add(btnNewButton_4);
-		tableInit();
+		
+		tableInit();		
 	}
 	
 	class UserInfoTableModel extends DefaultTableModel
@@ -87,6 +95,12 @@ public class Admin_UserList extends JPanel {
 		 public boolean isCellEditable(int rowIndex, int mColIndex) {
              return false;
          }		
+	}	
+	
+	public void tableUpdate()
+	{
+		UserInfoTableModel aa = new UserInfoTableModel(data,columnName);
+		table.setModel(aa);		
 	}
 	
 	public void tableInit()
@@ -136,26 +150,96 @@ public class Admin_UserList extends JPanel {
         			 int row = t.convertRowIndexToModel(i);
         			 String s = String.format("%s (%s)", m.getValueAt(row, 0), m.getValueAt(row, 1));
         			 System.out.println(s);
+        			 
+        			 UserInfoVo usinfo = new UserInfoVo();
+        			 usinfo.setUser_no(Integer.parseInt( (String)m.getValueAt(row, 0) ));
+        			 usinfo.setUser_id((String)m.getValueAt(row, 1));
+        			 usinfo.setUser_pw((String)m.getValueAt(row, 2));
+        			 usinfo.setUser_name((String)m.getValueAt(row, 3));
+        			 usinfo.setUser_email((String)m.getValueAt(row, 4));
+        			 usinfo.setUser_phone((String)m.getValueAt(row, 5));
+        			 
+        			 
+        			 userDetailFrame.FrameInit(usinfo);
+        			 
+        			 userDetailFrame.setVisible(true);
         			 //JOptionPane.showMessageDialog(t, s, "title", JOptionPane.INFORMATION_MESSAGE);
         		 }
         	 }        	
-		});
-        
+		});     
 		
 		
 		sPane = new JScrollPane(table);
 		sPane.setBounds(28, 159, 1199, 440);
+		
+		//sPane.revalidate();
 		
 		table.setBounds(41, 154, 1196, 453);
 		
 		contentPane = this;
 		contentPane.add(sPane, BorderLayout.CENTER);
 		
-		//JButton btn = new JButton("출력");
-		//contentPane.add(btn, BorderLayout.SOUTH);
+	}
+	
+	public void Get_UserInfomation(Vector<Vector<String>> data,String id)
+	{
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@//14.42.124.35:1521/XE";
+		String user = "c##wjrls";
+		String pw = "881125";
 		
-		//add(table);		
+		data.clear();
 		
+		try {
+			
+			Class.forName(driver);
+			System.out.println("jdbc driver lading success.");
+			
+			Connection conn = DriverManager.getConnection(url,user,pw);
+			System.out.println("oralce connection success.");
+			
+			String sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO"
+			+ " WHERE USER_ID LIKE '%"+ id+ "%' ORDER BY USER_NO";	
+			
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next())
+			{				
+				UserInfoVo usinfo = 
+						new UserInfoVo(	
+						rs.getInt("USER_NO"),
+						rs.getString("USER_ID"), 
+						rs.getString("USER_PW"),
+						rs.getString("USER_NAME"),
+						rs.getString("USER_EMAIL"),
+						rs.getString("USER_PHONE"),
+						rs.getInt("AUTH_NO")				
+						);
+				
+				Vector<String> info = new Vector<String>();
+				info.add(Integer.toString(usinfo.getUser_no()));
+				info.add(usinfo.getUser_id());
+				info.add(usinfo.getUser_pw());
+				info.add(usinfo.getUser_name());
+				info.add(usinfo.getUser_email());
+				info.add(usinfo.getUser_phone());
+				info.add(Integer.toString(usinfo.getAuth_no()));
+				
+				data.add(info);
+			}
+			
+			pstmt.close();
+			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void Get_UserInfomation(Vector<Vector<String>> data)
@@ -173,8 +257,11 @@ public class Admin_UserList extends JPanel {
 			Connection conn = DriverManager.getConnection(url,user,pw);
 			System.out.println("oralce connection success.");
 			
-			String sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO ORDER BY USER_NO";
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			String sql = "select USER_NO, USER_ID, USER_PW, USER_NAME, USER_EMAIL, USER_PHONE, AUTH_NO from USER_INFO ORDER BY USER_NO";			
+			
+			
+			PreparedStatement pstmt = conn.prepareStatement(sql);	
+			
 			
 			ResultSet rs = pstmt.executeQuery();
 			
@@ -190,8 +277,6 @@ public class Admin_UserList extends JPanel {
 						rs.getString("USER_PHONE"),
 						rs.getInt("AUTH_NO")				
 						);
-				
-				usinfo.RenderInfo();
 				
 				Vector<String> info = new Vector<String>();
 				info.add(Integer.toString(usinfo.getUser_no()));
