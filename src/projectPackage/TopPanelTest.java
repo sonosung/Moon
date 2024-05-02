@@ -32,14 +32,14 @@ public class TopPanelTest extends JPanel {
         }
         
         textField_1 = new JTextField();
-        textField_1.setBounds(852, 90, 256, 42);
+        textField_1.setBounds(858, 86, 250, 32);
         panel_1.add(textField_1);
         textField_1.setColumns(40);
         
         JButton btnNewButton_1 = new JButton("");
         btnNewButton_1.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/search.png")));
         btnNewButton_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
-        btnNewButton_1.setBounds(1120, 90, 110, 42);
+        btnNewButton_1.setBounds(1120, 82, 110, 42);
         panel_1.add(btnNewButton_1);
         
         btnNewButton_1.addActionListener(new ActionListener() {
@@ -88,7 +88,7 @@ public class TopPanelTest extends JPanel {
         
         txtOhtani = new JTextField();
         txtOhtani.setText("ohtani님 환영합니다.");
-        txtOhtani.setBounds(852, 31, 134, 21);
+        txtOhtani.setBounds(858, 30, 134, 21);
         panel_1.add(txtOhtani);
         txtOhtani.setColumns(10);
 
