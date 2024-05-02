@@ -61,7 +61,7 @@ public class KungfuPopup extends JFrame {
         contentPane.add(imageLabel);
         
         JButton btnNewButton = new JButton("");
-        btnNewButton.setIcon(new ImageIcon(KungfuPopup.class.getResource("/image/ohtani/reserve2.png")));
+        btnNewButton.setIcon(new ImageIcon(KungfuPopup.class.getResource("/image/button/reserve.png")));
         btnNewButton.setBounds(73, 306, 110, 42);
         contentPane.add(btnNewButton);
     }

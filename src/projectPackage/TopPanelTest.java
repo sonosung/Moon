@@ -36,7 +36,7 @@ public class TopPanelTest extends JPanel {
         textField_1.setColumns(40);
         
         JButton btnNewButton_1 = new JButton("");
-        btnNewButton_1.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/search.png")));
+        btnNewButton_1.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/search.png")));
         btnNewButton_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
         btnNewButton_1.setBounds(857, 90, 110, 42);
         panel_1.add(btnNewButton_1);
@@ -68,13 +68,13 @@ public class TopPanelTest extends JPanel {
         });
 
         JButton btnNewButton_2 = new JButton("");
-        btnNewButton_2.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/login.png")));
+        btnNewButton_2.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/login.png")));
         btnNewButton_2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
         btnNewButton_2.setBounds(979, 90, 110, 42);
         panel_1.add(btnNewButton_2);
 
         JButton btnNewButton_3 = new JButton("");
-        btnNewButton_3.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/join.png")));
+        btnNewButton_3.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/join.png")));
         btnNewButton_3.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
         btnNewButton_3.setBounds(1095, 90, 110, 42);
         panel_1.add(btnNewButton_3);
