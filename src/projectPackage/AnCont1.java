@@ -4,26 +4,20 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.ListCellRenderer;
-import javax.swing.ListSelectionModel;
-import javax.swing.SwingConstants;
+import javax.swing.*;
 
 public class AnCont1 extends JPanel {
 	private MainFrame mainFrame;
 	private static final long serialVersionUID = 1L;
 
     public AnCont1(MainFrame mainFrame) {
-		
-		//sadsadsad
-    	//asd
+
+    	
+    	this.mainFrame = mainFrame;
 		setLayout(null);
 		this.setSize(1280, 800-150);
 		this.setPreferredSize(new Dimension(1280, 800-150));
@@ -97,7 +91,7 @@ public class AnCont1 extends JPanel {
 		panel_3_1_1_1.setLayout(null);
 		
 		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\새로고침.png"));
+		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\또고침.png"));
 		btnNewButton.setBounds(620, 15, 100, 30);
 		panel_2.add(btnNewButton);
 		
@@ -122,11 +116,19 @@ public class AnCont1 extends JPanel {
 		panel_2.add(btnNewButton_1_1_1_1_1);
 		
 		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\확인 버튼 - 복사본 - 복사본.png"));
+		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\우당탕.png"));
 		btnNewButton_2.setBounds(653, 470, 100, 50);
 		panel_2.add(btnNewButton_2);
 		
-		btnNewButton_2.addActionListener(new ActionHandler());	
+		btnNewButton_2.addActionListener(new ActionListener() {
+			@Override
+		    public void actionPerformed(ActionEvent e) {
+				openAnCont2Panel();
+		    	setVisible(false);
+		    }
+		});
+		
+
 		
 	
 		JPanel panel_4 = new JPanel();
@@ -254,7 +256,18 @@ public class AnCont1 extends JPanel {
 								JScrollPane scrollPane2 = new JScrollPane(list2);
 								scrollPane2.setBounds(250, 180, 110, 270);
 								panel_2.add(scrollPane2);
-						        this.setVisible(false);
+								
+								JButton btnNewButton_3 = new JButton("");
+								btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\아르헨티바 백브레이커.png"));
+								btnNewButton_3.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent e) {
+										OtanP();
+								    	setVisible(false);
+									}
+								});
+								btnNewButton_3.setBounds(12, 470, 100, 50);
+								panel_2.add(btnNewButton_3);
+								this.setVisible(false);
 		
 	}
 	class MyCellRenderer extends JLabel implements ListCellRenderer<Object> {
@@ -282,4 +295,13 @@ public class AnCont1 extends JPanel {
         }
 		
 }
+	private void openAnCont2Panel() {
+        AnCont2 anCont2Panel = new AnCont2(mainFrame);
+        mainFrame.PageChange(MainFrame.PANELNAME.SELECT); 
+    }
+	
+	private void OtanP() {
+		OhtanisPanel Otan = new OhtanisPanel(mainFrame);
+        mainFrame.PageChange(MainFrame.PANELNAME.MAIN); 
+    }
 }
