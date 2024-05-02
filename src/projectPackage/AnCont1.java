@@ -6,16 +6,27 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.HashMap;
 import java.util.Vector;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListCellRenderer;
+import javax.swing.ListSelectionModel;
+import javax.swing.SwingConstants;
 
 public class AnCont1 extends JPanel {
 	private MainFrame mainFrame;
 	private static final long serialVersionUID = 1L;
+	private An_SQL ansql;
+	private JList<String> list;
+	
 
-    public AnCont1(MainFrame mainFrame) {
-
+    public AnCont1(MainFrame mainFrame) {  
     	
     	this.mainFrame = mainFrame;
 		setLayout(null);
@@ -41,17 +52,11 @@ public class AnCont1 extends JPanel {
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 		
-		JLabel lblNewLabel_2 = new JLabel("     시간");
+		JLabel lblNewLabel_2 = new JLabel("      시  간");
 		lblNewLabel_2.setBounds(563, 100, 194, 59);
 		panel_2.add(lblNewLabel_2);
-		lblNewLabel_2.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 20));
+		lblNewLabel_2.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 16));
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		
-		JLabel lblNewLabel_1 = new JLabel("     지역");
-		lblNewLabel_1.setBounds(245, 100, 100, 59);
-		panel_2.add(lblNewLabel_1);
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 20));
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(0, 0, 0));
@@ -59,17 +64,23 @@ public class AnCont1 extends JPanel {
 		panel_2.add(panel_3);
 		panel_3.setLayout(null);
 		
+		JLabel lblNewLabel_1 = new JLabel("    지  역");
+		lblNewLabel_1.setBounds(12, 0, 100, 59);
+		panel_3.add(lblNewLabel_1);
+		lblNewLabel_1.setForeground(Color.WHITE);
+		lblNewLabel_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 16));
+		
 		JPanel panel_3_1 = new JPanel();
 		panel_3_1.setBackground(Color.BLACK);
 		panel_3_1.setBounds(66, 100, 100, 59);
 		panel_2.add(panel_3_1);
 		panel_3_1.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("     영화");
-		lblNewLabel.setBounds(0, 0, 100, 59);
+		JLabel lblNewLabel = new JLabel("        영  화");
+		lblNewLabel.setBounds(12, 0, 100, 59);
 		panel_3_1.add(lblNewLabel);
 		lblNewLabel.setBackground(new Color(64, 0, 64));
-		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 20));
+		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 16));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
 		
 		JPanel panel_3_1_1 = new JPanel();
@@ -78,10 +89,10 @@ public class AnCont1 extends JPanel {
 		panel_2.add(panel_3_1_1);
 		panel_3_1_1.setLayout(null);
 		
-		JLabel lblNewLabel_1_1 = new JLabel("     극장");
-		lblNewLabel_1_1.setBounds(0, 0, 100, 59);
+		JLabel lblNewLabel_1_1 = new JLabel("    극  장");
+		lblNewLabel_1_1.setBounds(12, 0, 100, 59);
 		lblNewLabel_1_1.setForeground(Color.WHITE);
-		lblNewLabel_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 20));
+		lblNewLabel_1_1.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 16));
 		panel_3_1_1.add(lblNewLabel_1_1);
 		
 		JPanel panel_3_1_1_1 = new JPanel();
@@ -90,34 +101,9 @@ public class AnCont1 extends JPanel {
 		panel_2.add(panel_3_1_1_1);
 		panel_3_1_1_1.setLayout(null);
 		
-		JButton btnNewButton = new JButton("");
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\또고침.png"));
-		btnNewButton.setBounds(620, 15, 100, 30);
-		panel_2.add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("오늘");
-		btnNewButton_1.setBounds(40, 50, 100, 30);
-		panel_2.add(btnNewButton_1);
-		
-		JButton btnNewButton_1_1 = new JButton("내일");
-		btnNewButton_1_1.setBounds(180, 50, 100, 30);
-		panel_2.add(btnNewButton_1_1);
-		
-		JButton btnNewButton_1_1_1 = new JButton("모래");
-		btnNewButton_1_1_1.setBounds(330, 50, 100, 30);
-		panel_2.add(btnNewButton_1_1_1);
-		
-		JButton btnNewButton_1_1_1_1 = new JButton("사흘");
-		btnNewButton_1_1_1_1.setBounds(470, 50, 100, 30);
-		panel_2.add(btnNewButton_1_1_1_1);
-		
-		JButton btnNewButton_1_1_1_1_1 = new JButton("나흘");
-		btnNewButton_1_1_1_1_1.setBounds(620, 50, 100, 30);
-		panel_2.add(btnNewButton_1_1_1_1_1);
-		
 		JButton btnNewButton_2 = new JButton("");
-		btnNewButton_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\우당탕.png"));
-		btnNewButton_2.setBounds(653, 470, 100, 50);
+		btnNewButton_2.setIcon(new ImageIcon(AnCont1.class.getResource("/image/button/select.png")));
+		btnNewButton_2.setBounds(643, 470, 110, 42);
 		panel_2.add(btnNewButton_2);
 		
 		btnNewButton_2.addActionListener(new ActionListener() {
@@ -137,91 +123,71 @@ public class AnCont1 extends JPanel {
 		panel_2.add(panel_4);
 		
 		JPanel panel_5 = new JPanel();
-		panel_5.setBackground(new Color(255, 255, 255));
+		panel_5.setBackground(new Color(0, 0, 0));
 		panel_5.setBounds(12, 10, 745, 80);
 		panel_2.add(panel_5);
+		panel_5.setLayout(null);
+		
+		JLabel lblNewLabel_3 = new JLabel("");
+		lblNewLabel_3.setIcon(new ImageIcon(AnCont1.class.getResource("/image/ohtani/cgving2.png")));
+		lblNewLabel_3.setBounds(12, 0, 200, 80);
+		panel_5.add(lblNewLabel_3);
+		
+		JButton btnNewButton = new JButton("");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton.setBounds(623, 21, 110, 30);
+		panel_5.add(btnNewButton);
+		btnNewButton.setIcon(new ImageIcon(AnCont1.class.getResource("/image/button/again.png")));
 		
 		this.mainFrame = mainFrame;
 		this.setSize(1280,800);
 		this.setPreferredSize(new Dimension(1280, 650));
 		this.setBackground(Color.green);
 		
-		Vector<String> testvec = new Vector<String>();
-		testvec.add("영화1");
-		testvec.add("영화2");
-		testvec.add("영화3");
-		testvec.add("영화4");
-		testvec.add("영화5");
-		testvec.add("영화6");
-		testvec.add("영화7");
-		testvec.add("영화8");
-		testvec.add("영화9");
-		testvec.add("영화10");
-		testvec.add("영화11");
-//		getContentPane().setLayout(null);
-		
-		
-		JList<String> list = new JList<String>(testvec);
+		ansql = new An_SQL();
+
+		HashMap<String, Integer> movieMap = ansql.list();
+	    Vector<String> movieNames = new Vector<>(movieMap.keySet());
+		JList<String> list = new JList<String>(movieNames);
 		list.setCellRenderer(new MyCellRenderer());
 		list.setBounds(192, 199, 271, 222);
-		
-		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		
+//		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setBounds(15, 180, 230, 270);
-
-//		getContentPane().add(scrollPane);
-//		this.setVisible(false);	
 		panel_2.add(scrollPane);
         this.setVisible(false);
+        
+        list.addListSelectionListener(e -> {
+            if (!e.getValueIsAdjusting()) {
+                String selectedMovie = list.getSelectedValue();
+                int movieNo = movieMap.get(selectedMovie);
+                ansql.setSelectedMovieNo(movieNo);
+            }
+        });
+        
 		
 		//------------------------------------------------------------------
 		
 		Vector<String> testvec2 = new Vector<String>();
-		testvec2.add("지역1");
-		testvec2.add("지역2");
-		testvec2.add("지역3");
-		testvec2.add("지역4");
-		testvec2.add("지역5");
-		testvec2.add("지역6");
-		testvec2.add("지역7");
-		testvec2.add("지역8");
-		testvec2.add("지역9");
-		testvec2.add("지역10");
-		testvec2.add("지역11");
+//		testvec2.add("지역1");
+
         this.setVisible(false);
 
-//		getContentPane().add(scrollPane2);
-//		this.setVisible(false);	
-		//-------------------------------------------------------
+
 		
 		Vector<String> testvec3 = new Vector<String>();
-		testvec3.add("극장1");
-		testvec3.add("극장2");
-		testvec3.add("극장3");
-		testvec3.add("극장4");
-		testvec3.add("극장5");
-		testvec3.add("극장6");
-		testvec3.add("극장7");
-		testvec3.add("극장8");
-		testvec3.add("극장9");
-		testvec3.add("극장10");
+//		testvec3.add("극장1");
+
 		this.setVisible(false);
-		//-----------------------------------------------------------------------
+
 		
 		
 		Vector<String> testvec4 = new Vector<String>();
-		testvec4.add("시간");
-		testvec4.add("시간2");
-		testvec4.add("시간3");
-		testvec4.add("시간4");
-		testvec4.add("시간5");
-		testvec4.add("시간6");
-		testvec4.add("시간7");
-		testvec4.add("시간8");
-		testvec4.add("시간9");
-		testvec4.add("시간10");
-		testvec4.add("시간11");
+//		testvec4.add("시간");
+
 				
 				JList<String> list3 = new JList<String>(testvec3);
 				panel_2.add(list3);
@@ -258,18 +224,20 @@ public class AnCont1 extends JPanel {
 								panel_2.add(scrollPane2);
 								
 								JButton btnNewButton_3 = new JButton("");
-								btnNewButton_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\아르헨티바 백브레이커.png"));
+								btnNewButton_3.setIcon(new ImageIcon(AnCont1.class.getResource("/image/button/back.png")));
 								btnNewButton_3.addActionListener(new ActionListener() {
 									public void actionPerformed(ActionEvent e) {
 										OtanP();
 								    	setVisible(false);
 									}
 								});
-								btnNewButton_3.setBounds(12, 470, 100, 50);
+								btnNewButton_3.setBounds(12, 470, 110, 42);
 								panel_2.add(btnNewButton_3);
 								this.setVisible(false);
+								
 		
 	}
+   
 	class MyCellRenderer extends JLabel implements ListCellRenderer<Object> {
         MyCellRenderer() {
             setOpaque(true);
@@ -293,7 +261,6 @@ public class AnCont1 extends JPanel {
 
             return this;
         }
-		
 }
 	private void openAnCont2Panel() {
         AnCont2 anCont2Panel = new AnCont2(mainFrame);
