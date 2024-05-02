@@ -15,6 +15,7 @@ import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.DropMode;
 
 public class deleteId_1 extends JPanel {
 
@@ -66,8 +67,9 @@ public class deleteId_1 extends JPanel {
 		panel.add(lb_pw);
 		
 		tf_pw = new JTextField();
+		tf_pw.setDropMode(DropMode.INSERT);
 		tf_pw.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_pw.setColumns(1);
+		tf_pw.setColumns(125);
 		tf_pw.setBounds(450, 360, 380, 30);
 		panel.add(tf_pw);
 		
@@ -85,6 +87,7 @@ public class deleteId_1 extends JPanel {
 		bt_cancel.setIcon(new ImageIcon(deleteId_1.class.getResource("/image/seungho/bt_cancel.png")));
 		bt_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 			}
 		});
 		bt_cancel.setFont(new Font("굴림", Font.PLAIN, 12));

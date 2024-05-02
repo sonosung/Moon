@@ -20,6 +20,8 @@ import javax.swing.JCheckBox;
 import javax.swing.Icon;
 import java.awt.Rectangle;
 import javax.swing.border.EmptyBorder;
+import javax.swing.DropMode;
+import javax.swing.JPasswordField;
 
 public class createId_2 extends JPanel {
 
@@ -32,9 +34,9 @@ public class createId_2 extends JPanel {
 	Color bg = new Color(0xdfeff0);
 	private JTextField tf_user_name;
 	private JTextField tf_user_id;
-	private JTextField tf_user_pw;
 	private JTextField tf_user_email;
 	private JTextField tf_user_phone;
+	private JPasswordField tf_user_pw;
 	
 	public createId_2(MainFrame mainFrame) {
 
@@ -74,9 +76,10 @@ public class createId_2 extends JPanel {
 		panel.add(lb_user_name);
 		
 		tf_user_name = new JTextField();
+		tf_user_name.setDropMode(DropMode.INSERT);
 		tf_user_name.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_user_name.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_name.setColumns(10);
+		tf_user_name.setColumns(125);
 		tf_user_name.setBounds(465, 210, 350, 30);
 		panel.add(tf_user_name);
 		
@@ -87,9 +90,10 @@ public class createId_2 extends JPanel {
 		panel.add(lb_user_id);
 		
 		tf_user_id = new JTextField();
+		tf_user_id.setDropMode(DropMode.INSERT);
 		tf_user_id.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_user_id.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_id.setColumns(10);
+		tf_user_id.setColumns(125);
 		tf_user_id.setBounds(465, 260, 350, 30);
 		panel.add(tf_user_id);
 
@@ -100,10 +104,9 @@ public class createId_2 extends JPanel {
 		lb_user_pw.setBounds(390, 310, 60, 30);
 		panel.add(lb_user_pw);
 		
-		tf_user_pw = new JTextField();
+		tf_user_pw = new JPasswordField();
 		tf_user_pw.setBorder(new EmptyBorder(0, 10, 0, 0));
-		tf_user_pw.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_pw.setColumns(10);
+		tf_user_pw.setEchoChar('*');
 		tf_user_pw.setBounds(465, 310, 350, 30);
 		panel.add(tf_user_pw);
 		
@@ -115,10 +118,11 @@ public class createId_2 extends JPanel {
 		panel.add(lb_user_email);
 		
 		tf_user_email = new JTextField();
+		tf_user_email.setDropMode(DropMode.INSERT);
 		tf_user_email.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_user_email.setBounds(465, 360, 350, 30);
 		panel.add(tf_user_email);
-		tf_user_email.setColumns(10);
+		tf_user_email.setColumns(125);
 		
 		JLabel lb_user_phone = new JLabel("휴대전화");
 		lb_user_phone.setForeground(Color.WHITE);
@@ -127,10 +131,11 @@ public class createId_2 extends JPanel {
 		panel.add(lb_user_phone);
 		
 		tf_user_phone = new JTextField();
+		tf_user_phone.setDropMode(DropMode.INSERT);
 		tf_user_phone.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_user_phone.setBounds(465, 410, 350, 30);
 		panel.add(tf_user_phone);
-		tf_user_phone.setColumns(10);
+		tf_user_phone.setColumns(125);
 		
 		JButton bt_join = new JButton("");
 		bt_join.setIcon(new ImageIcon(createId_2.class.getResource("/image/seungho/bt_join2.png")));

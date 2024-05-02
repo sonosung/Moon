@@ -17,6 +17,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.Icon;
 import javax.swing.JSeparator;
+import javax.swing.DropMode;
 
 public class myPage extends JPanel {
 
@@ -72,10 +73,12 @@ public class myPage extends JPanel {
 		panel.add(lb_user_name);
 		
 		tf_user_name = new JTextField();
+		tf_user_name.setColumns(125);
+		tf_user_name.setDropMode(DropMode.INSERT);
+		tf_user_name.setEditable(false);
 		tf_user_name.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_user_name.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_name.setColumns(10);
-		tf_user_name.setBounds(465, 210, 350, 30);
+		tf_user_name.setBounds(471, 210, 350, 30);
 		panel.add(tf_user_name);
 		
 		JLabel lb_user_id = new JLabel("아이디");
@@ -86,10 +89,12 @@ public class myPage extends JPanel {
 		panel.add(lb_user_id);
 		
 		tf_user_id = new JTextField();
+		tf_user_id.setColumns(125);
+		tf_user_id.setDropMode(DropMode.INSERT);
+		tf_user_id.setEditable(false);
 		tf_user_id.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_user_id.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_user_id.setColumns(10);
-		tf_user_id.setBounds(465, 260, 350, 30);
+		tf_user_id.setBounds(471, 260, 350, 30);
 		panel.add(tf_user_id);
 		
 		JLabel lb_user_email = new JLabel("이메일");
@@ -99,9 +104,11 @@ public class myPage extends JPanel {
 		panel.add(lb_user_email);
 		
 		tf_user_email = new JTextField();
+		tf_user_email.setColumns(125);
+		tf_user_email.setDropMode(DropMode.INSERT);
+		tf_user_email.setEditable(false);
 		tf_user_email.setBorder(new EmptyBorder(0, 10, 0, 0));
-		tf_user_email.setColumns(10);
-		tf_user_email.setBounds(465, 310, 350, 30);
+		tf_user_email.setBounds(471, 310, 350, 30);
 		panel.add(tf_user_email);
 		
 		JLabel lb_user_phone = new JLabel("휴대전화");
@@ -111,9 +118,11 @@ public class myPage extends JPanel {
 		panel.add(lb_user_phone);
 		
 		tf_user_phone = new JTextField();
+		tf_user_phone.setColumns(125);
+		tf_user_phone.setDropMode(DropMode.INSERT);
+		tf_user_phone.setEditable(false);
 		tf_user_phone.setBorder(new EmptyBorder(0, 10, 0, 0));
-		tf_user_phone.setColumns(10);
-		tf_user_phone.setBounds(465, 360, 350, 30);
+		tf_user_phone.setBounds(471, 360, 350, 30);
 		panel.add(tf_user_phone);
 		
 		JButton bt_delete_myPage = new JButton("");
@@ -131,10 +140,12 @@ public class myPage extends JPanel {
 		panel.add(lb_myTicket);
 		
 		tf_myTicket = new JTextField();
+		tf_myTicket.setColumns(125);
+		tf_myTicket.setDropMode(DropMode.INSERT);
+		tf_myTicket.setEditable(false);
 		tf_myTicket.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_myTicket.setHorizontalAlignment(SwingConstants.LEFT);
-		tf_myTicket.setColumns(10);
-		tf_myTicket.setBounds(465, 410, 350, 30);
+		tf_myTicket.setBounds(471, 410, 350, 30);
 		panel.add(tf_myTicket);
 		bt_delete_myPage.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		bt_delete_myPage.setBounds(390, 500, 500, 50);

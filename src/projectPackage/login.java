@@ -18,6 +18,8 @@ import javax.swing.border.BevelBorder;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JPasswordField;
 
 public class login extends JPanel {
 
@@ -29,8 +31,8 @@ public class login extends JPanel {
 	 */
 	Color bg = new Color(0xdfeff0);
 	private JTextField tf_id;
-	private JTextField tf_password;
 	private JButton bt_login;
+	private JPasswordField tf_password;
 	
 	public login(MainFrame mainFrame) {
 
@@ -63,10 +65,11 @@ public class login extends JPanel {
 		lb_id.setBounds(390, 210, 57, 30);
 		panel.add(lb_id);
 		
-		tf_id = new JTextField();
+		tf_id = new JTextField(125);
+		tf_id.setBorder(new EmptyBorder(0, 10, 0, 0));
 		tf_id.setBounds(465, 210, 350, 30);
 		panel.add(tf_id);
-		tf_id.setColumns(10);
+		tf_id.setColumns(125);
 		
 		JLabel lb_pw = new JLabel("비밀번호");
 		lb_pw.setForeground(Color.WHITE);
@@ -74,17 +77,20 @@ public class login extends JPanel {
 		lb_pw.setBounds(390, 260, 57, 30);
 		panel.add(lb_pw);
 		
-		tf_password = new JTextField();
-		tf_password.setColumns(10);
-		tf_password.setBounds(465, 260, 350, 30);
-		panel.add(tf_password);
-		
-		JButton btnNewButton = new JButton("로그인");
+		JButton bt_login = new JButton("로그인");
 		bt_login = new JButton(new ImageIcon(login.class.getResource("/image/seungho/lb_login.png")));
 		bt_login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				new MainFrame();
+		        setVisible(false);
 			}
 		});
+		
+		tf_password = new JPasswordField();
+		tf_password.setBorder(new EmptyBorder(0, 10, 0, 0));
+		tf_password.setEchoChar('*');
+		tf_password.setBounds(465, 260, 350, 30);
+		panel.add(tf_password);
 		bt_login.setHorizontalTextPosition(SwingConstants.CENTER);
 		bt_login.setBounds(390, 360, 500, 50);
 		panel.add(bt_login);
@@ -97,18 +103,12 @@ public class login extends JPanel {
 		lb_noId.setBounds(390, 475, 160, 15);
 		panel.add(lb_noId);
 		
-//		// 로고 객체 생성
-//	      JButton logo;
-//	      // 로고 이미지 생성
-//	      btnNewButton = new JButton(new ImageIcon("C:/Users/Manic-063/git/AccountManagement/src/1o0.jpg"));
-//	      // 로고 이미지 크기 및 위치
-//	      logo.setSize(100, 90);
-//	      logo.setLocation(60, 60);
-	
-		
 		JButton bt_join = new JButton("");
 		bt_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				createId_1 cr = new createId_1(mainFrame);
+				cr.setVisible(false);
+		
 			}
 		});
 		bt_join.setIcon(new ImageIcon(login.class.getResource("/image/seungho/bt_join.png")));

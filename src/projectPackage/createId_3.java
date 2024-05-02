@@ -68,6 +68,7 @@ public class createId_3 extends JPanel {
 		bt_home.setMaximumSize(new Dimension(81, 23));
 		bt_home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 			}
 		});
 		bt_home.setFont(new Font("나눔고딕", Font.PLAIN, 12));
@@ -83,4 +84,8 @@ public class createId_3 extends JPanel {
 
 		this.setVisible(false);
 	}
+
+//	public static void main(String[] args) {
+//		new MainFrame();
+//	}
 }
