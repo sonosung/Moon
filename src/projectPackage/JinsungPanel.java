@@ -14,19 +14,21 @@ import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JinsungPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainFrame mainFrame;	
+	private MainFrame mainFrame;
+	private JFrame TicketFrame;
 	/**
 	 * Create the panel.
 	 */
 
 	public JinsungPanel(MainFrame mainFrame) {
-
+		
 		this.mainFrame = mainFrame;
 		System.out.println("1232131");
 		
