@@ -31,11 +31,12 @@ public class MainFrame extends JFrame {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
-	public enum PANELNAME {MAIN, PAGE0, PAGE1};
+	public enum PANELNAME {MAIN, PAGE0, PAGE1, PAGE2};
 
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -62,14 +63,15 @@ public class MainFrame extends JFrame {
 		
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
-		JPanel ContentPanel2 = new JinsungPanel(this);
+		JPanel ContentPanel2 = new ContentPanel2(this);
 		JPanel ContentPanel3 = new ContentPanel3(this);
-		
+		JPanel ContentPanel4 = new ContentPanel4(this);
 		
 		//생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
 		panelMap.put(MainFrame.PANELNAME.PAGE0, ContentPanel2);
 		panelMap.put(MainFrame.PANELNAME.PAGE1, ContentPanel3);
+		panelMap.put(MainFrame.PANELNAME.PAGE2, ContentPanel4);
 		
 		//System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
 		//System.out.println(MainFrame.class.getResource("").getPath());
@@ -90,6 +92,7 @@ public class MainFrame extends JFrame {
 		this.getContentPane().add(ContentPanel);
 		this.getContentPane().add(ContentPanel2);
 		this.getContentPane().add(ContentPanel3);
+		this.getContentPane().add(ContentPanel4);
 		
 	}
 	
@@ -114,6 +117,9 @@ public class MainFrame extends JFrame {
 		case PAGE1:
 			panelMap.get(MainFrame.PANELNAME.PAGE1).setVisible(true);
 			break;		
+		case PAGE2:
+			panelMap.get(MainFrame.PANELNAME.PAGE2).setVisible(true);
+			break;	
 		}
 	}
 

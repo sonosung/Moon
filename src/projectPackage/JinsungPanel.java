@@ -22,7 +22,7 @@ public class JinsungPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
-	private JFrame TicketFrame;
+	private JFrame ticketFrame;
 	/**
 	 * Create the panel.
 	 */
@@ -209,6 +209,7 @@ public class JinsungPanel extends JPanel {
 		backButton.setBounds(834, 544, 143, 41);
 		panel.add(backButton);
 		
+		ticketFrame = new TicketFrame();
 		JButton cancleButton = new JButton("티켓 취소하기");
 		cancleButton.setFont(new Font("나눔고딕", Font.BOLD, 26));
 		cancleButton.setForeground(Color.WHITE);

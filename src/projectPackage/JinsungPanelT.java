@@ -344,7 +344,8 @@ public class JinsungPanelT extends JPanel {
 	} 
 	
 	/* 텍스트 날린거 표시
-	 * public void TextInit() { this.timep.setText("test null"); }
+	 * public void TextInit() {
+	 * this.timep.setText("test null"); }
 	 */
 	
 	class BackAction implements ActionListener {
