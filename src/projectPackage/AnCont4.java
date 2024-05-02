@@ -34,11 +34,6 @@ public class AnCont4 extends JPanel {
 		panel.add(panel_1);
 		panel_1.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\마동석이 2.png"));
-		lblNewLabel_1.setBounds(147, 98, 90, 128);
-		panel_1.add(lblNewLabel_1);
-		
 		JButton btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -46,8 +41,13 @@ public class AnCont4 extends JPanel {
 		    	setVisible(false);
 			}
 		});
-		btnNewButton.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\우당탕.png"));
-		btnNewButton.setBounds(441, 536, 100, 50);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon(AnCont4.class.getResource("/anSH_img/마동석이 2.png")));
+		lblNewLabel_1.setBounds(155, 95, 90, 128);
+		panel_1.add(lblNewLabel_1);
+		btnNewButton.setIcon(new ImageIcon(AnCont4.class.getResource("/image/button/ok.png")));
+		btnNewButton.setBounds(441, 536, 110, 42);
 		panel_1.add(btnNewButton);
 		
 		JLabel lblNewLabel = new JLabel("");
