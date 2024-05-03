@@ -124,11 +124,11 @@ public class UserDetailInfoFrame extends JFrame {
 		
 		//현재 내가 위치한 권한으로 선택 되어야한다.
 		
-		System.out.println("AUTH_NO : " + userinfo.getAuth_no());
+		//System.out.println("AUTH_NO : " + userinfo.getAuth_no());
 		table.setRowSelectionInterval(userinfo.getAuth_no()-1, userinfo.getAuth_no()-1);
 		
 		//System.out.println("getSelectedRow : " + table.getSelectedRow());
-		System.out.println( table.getValueAt(table.getSelectedRow(), 0));
+		//System.out.println( table.getValueAt(table.getSelectedRow(), 0));
 	}
 	
 	public void TableInit()
@@ -217,10 +217,10 @@ public class UserDetailInfoFrame extends JFrame {
 		try 
 		{
 			Class.forName(driver);		
-			System.out.println("jdbc driver lading success.");
+			//System.out.println("jdbc driver lading success.");
 			
 			connection = DriverManager.getConnection(url,user,pw);
-			System.out.println("oralce connection success.");
+			//System.out.println("oralce connection success.");
 			
 			String sql = "SELECT AUTH_NO, AUTH_INFO  FROM AUTHORITY";
 			
