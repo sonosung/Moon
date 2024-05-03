@@ -13,6 +13,7 @@ import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -20,6 +21,8 @@ public class JinsungPanelT extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainTestFrame mainTestFrame;	
+	private TicketFrame ticketFrame;
+	
 	/**
 	 * Create the panel.
 	 */
@@ -86,7 +89,7 @@ public class JinsungPanelT extends JPanel {
 		lblNewLabel.setBounds(485, 0, 212, 84);
 		panel.add(lblNewLabel);
 		
-		// 고정
+		// 고정값
 		JLabel lblNewLabelfix = new JLabel("상세 내역");
 		lblNewLabelfix.setForeground(Color.WHITE);
 		lblNewLabelfix.setFont(new Font("나눔고딕 ExtraBold", Font.BOLD, 30));
@@ -101,28 +104,24 @@ public class JinsungPanelT extends JPanel {
 		
 		JLabel lblNewLabelfix3 = new JLabel("예매 번호");
 		lblNewLabelfix3.setForeground(Color.WHITE);
-		lblNewLabelfix3.setFont(new Font("나눔고딕", Font.PLAIN, 25));
+		lblNewLabelfix3.setFont(new Font("나눔고딕", Font.BOLD, 28));
 		lblNewLabelfix3.setBounds(798, 143, 152, 51);
 		panel.add(lblNewLabelfix3);
 		
 		//db 불러와서 출력
 		JLabel ticketnum= new JLabel("1234-567");
 		ticketnum.setForeground(Color.WHITE);
-		ticketnum.setFont(new Font("나눔고딕", Font.PLAIN, 25));
+		ticketnum.setFont(new Font("나눔고딕", Font.BOLD, 28));
 		ticketnum.setBounds(1016, 130, 196, 77);
 		panel.add(ticketnum);
 		Movi movi1 = new Movi(); 
-		
-		//ticketnum.setText("12345");
 		 try { String sql ="" + " select * from MOVIE " + " where Ticket =? ";
 		  
 		  PreparedStatement pstmt1 = conn.prepareStatement(sql);
 		  pstmt1.setString(1,"1001");
 		  
 		  ResultSet rs = pstmt1.executeQuery(); 
-		  
 		  while(rs.next())   { 
-		  //movi1 = new Movi(); 
 		  movi1.setMovie_id(rs.getString("movie_id"));
 		  movi1.setLocation(rs.getString("location"));
 		  movi1.setScreen(rs.getInt("screen")); 
@@ -135,11 +134,6 @@ public class JinsungPanelT extends JPanel {
 		 catch (SQLException
 		  e) { e.printStackTrace();
 		  } 
-			/*
-			 * finally { if(conn !=null) { try { conn.close();
-			 * 
-			 * } catch (SQLException e) {} } }
-			 */ 
 		ticketnum.setText(Integer.toString(movi1.getTicket()));
 		
 		JLabel Time = new JLabel("상영일시");
@@ -164,13 +158,12 @@ public class JinsungPanelT extends JPanel {
 		person.setForeground(Color.WHITE);
 		person.setFont(new Font("나눔고딕", Font.PLAIN, 25));
 		person.setBounds(54, 514, 111, 41);
-		panel.add(person);
-		
+		panel.add(person);	
 		//      --------------------------------- db 입력받기  ------------------- //     
 		JLabel Title = new JLabel("영화");
 		Title.setForeground(Color.WHITE);
 		Title.setFont(new Font("나눔고딕", Font.PLAIN, 25));
-		Title.setBounds(897, 300, 202, 41);
+		Title.setBounds(1059, 300, 202, 41);
 		panel.add(Title);
 		
 		Movi movi2 = new Movi(); 
@@ -187,14 +180,12 @@ public class JinsungPanelT extends JPanel {
 		  movi2.setLocation(rs.getString("location"));
 		  movi2.setScreen(rs.getInt("screen")); 
 		  movi2.setTicket(rs.getInt("ticket"));
-		  movi2.setTitle(rs.getString("title"));
-		  //System.out.println("-----------------------------------------------------------------------------------");
-		  //System.out.println(movi2); 
-		  } pstmt1.close(); 
+		  movi2.setTitle(rs.getString("title"));  
 		  } 
-		 catch (SQLException
-		  e) { e.printStackTrace();
+		  pstmt1.close(); 
 		  } 
+		 catch (SQLException e) { 
+			 e.printStackTrace();  } 
 			/*
 			 * finally { if(conn !=null) { try { conn.close();
 			 * 
@@ -207,7 +198,6 @@ public class JinsungPanelT extends JPanel {
 		timep.setFont(new Font("나눔고딕", Font.PLAIN, 25));
 		timep.setBounds(1059, 361, 205, 41);
 		panel.add(timep);
-		//ticketnum.setText("12345");
 		 try { String sql ="" + " select * from MOVIE " + " where Ticket =? ";
 		  
 		  PreparedStatement pstmt1 = conn.prepareStatement(sql);
@@ -215,8 +205,7 @@ public class JinsungPanelT extends JPanel {
 		  
 		  ResultSet rs = pstmt1.executeQuery(); 
 		  
-		  while(rs.next())   { 
-		  //movi1 = new Movi(); 	
+		  while(rs.next())   {	
 		  movi2.setMovie_id(rs.getString("movie_id"));
 		  movi2.setLocation(rs.getString("location"));
 		  movi2.setScreen(rs.getInt("screen")); 
@@ -229,12 +218,6 @@ public class JinsungPanelT extends JPanel {
 		 catch (SQLException
 		  e) { e.printStackTrace();
 		  } 
-		 /*finally { if(conn !=null) 
-		  { try { conn.close();
-		  
-		  }
-		  catch (SQLException e) {} }}*/
-		 
 		timep.setText(Integer.toString(movi2.getTicket()));
 		
 		JLabel localp = new JLabel("CGV");
@@ -257,15 +240,13 @@ public class JinsungPanelT extends JPanel {
 		  movi3.setScreen(rs.getInt("screen")); 
 		  movi3.setTicket(rs.getInt("ticket"));
 		  movi3.setTitle(rs.getString("title"));
-		 // System.out.println("-----------------------------------------------------------------------------------");
-		 // System.out.println(movi2); 
 		  } pstmt1.close(); 
 		  } 
 		 catch (SQLException
 		  e) { e.printStackTrace();
 		  } 
 		localp.setText(movi3.getLocation());
-		
+
 		JLabel screenp = new JLabel("1관");
 		screenp.setForeground(Color.WHITE);
 		screenp.setFont(new Font("나눔고딕", Font.PLAIN, 25));
@@ -286,8 +267,6 @@ public class JinsungPanelT extends JPanel {
 		  movi4.setScreen(rs.getInt("screen")); 
 		  movi4.setTicket(rs.getInt("ticket"));
 		  movi4.setTitle(rs.getString("title"));
-		 // System.out.println("-----------------------------------------------------------------------------------");
-		 // System.out.println(movi2); 
 		  } pstmt1.close(); 
 		  } 
 		 catch (SQLException
@@ -296,8 +275,9 @@ public class JinsungPanelT extends JPanel {
 		 finally { if(conn !=null) {
 		 try { conn.close(); } 
 		 catch (SQLException e) {
-		 } } }
-		 
+		 } 
+		 } 
+		 }
 		screenp.setText(Integer.toString(movi1.getScreen()));
 		
 		JLabel personp = new JLabel("2명");
@@ -308,25 +288,80 @@ public class JinsungPanelT extends JPanel {
 		
 		JButton backButton = new JButton("뒤로가기");
 		backButton.addActionListener(new BackAction());
-		backButton.setFont(new Font("나눔고딕", Font.BOLD, 26));
-		backButton.setForeground(Color.WHITE);
+		backButton.setForeground(new Color(0, 0, 0));
+		backButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
 		backButton.setBounds(614, 544, 143, 44);
 		panel.add(backButton);
 		
+		ticketFrame = new TicketFrame();
+		ticketFrame.setParentPage(this);
+		
 		JButton cancleButton = new JButton("티켓 취소하기");
-		cancleButton.setFont(new Font("나눔고딕", Font.BOLD, 26));
-		cancleButton.setForeground(Color.WHITE);
+		cancleButton.addActionListener(new CancleAction());
+		cancleButton.setForeground(new Color(0, 0, 0));
+		cancleButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
 		cancleButton.setBounds(776, 544, 196, 44);
 		panel.add(cancleButton);
 
 		this.setVisible(false);
 	}
+	
+	public MainTestFrame get_MainTestFrame() {return mainTestFrame;}
+
+	public void progress()
+	{//code
+		Connection conn = null;
+		try {
+			 Class.forName("oracle.jdbc.OracleDriver");
+			 conn= DriverManager.getConnection(
+					  "jdbc:oracle:thin:@localhost:1521/xe",
+					  "c##green",
+					  "green1234" );
+		
+		String sql = "" + " DELETE FROM MOVIE " + "WHERE TICKET =? " ;
+		PreparedStatement pstmt1 = conn.prepareStatement(sql);
+		  pstmt1.setString(1,"1001");
+		System.out.println("Progress in----");
+		
+		int rs = pstmt1.executeUpdate();
+		
+		if(rs < 0 || rs > 1)
+			System.out.println("err : movie ticket delete rs cnt : " + rs);
+		
+		//
+		  } 
+	  catch (ClassNotFoundException e) { 
+		  // TODO Auto-generated catch block
+		  e.printStackTrace();
+	  } catch (SQLException e) { 
+		  e.printStackTrace();
+	  }finally { if(conn !=null) { try { conn.close(); } catch (SQLException e) {} }
+		  }
+	
+		//--> 전에 있던 텍스트 날려주세요.
+		//TextInit();
+		
+	} 
+	
+	/* 텍스트 날린거 표시
+	 * public void TextInit() {
+	 * this.timep.setText("test null"); }
+	 */
+	
 	class BackAction implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 		mainTestFrame.PageChange(MainFrame.PANELNAME.PAGE0);
 }
+		
 	}
+	class CancleAction implements ActionListener {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			ticketFrame.setVisible(true);
+		}
 }
+}
+
 	

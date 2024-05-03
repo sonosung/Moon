@@ -10,22 +10,38 @@ import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.DropMode;
 
 public class deleteId_1 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
-
+	private Connection conn;
 	/**
 	 * Create the panel.
 	 */
 	Color bg = new Color(0xdfeff0);
 	private JTextField tf_pw;
+	
+//	public deleteId_1() {
+//		try {
+//			Class.forName("oracle.jdbc.OracleDriver");
+//
+//			conn = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/XE", "c##green", "green1234");
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//			exit();
+//		}
+//	}
 	
 	public deleteId_1(MainFrame mainFrame) {
 
@@ -56,25 +72,27 @@ public class deleteId_1 extends JPanel {
 		lb_typePw.setForeground(Color.WHITE);
 		lb_typePw.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_typePw.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lb_typePw.setBounds(490, 310, 300, 30);
+		lb_typePw.setBounds(490, 260, 300, 30);
 		panel.add(lb_typePw);
 		
 		JLabel lb_pw = new JLabel("비밀번호");
 		lb_pw.setForeground(Color.WHITE);
 		lb_pw.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lb_pw.setBounds(390, 360, 60, 30);
+		lb_pw.setBounds(340, 310, 50, 30);
 		panel.add(lb_pw);
 		
 		tf_pw = new JTextField();
+		tf_pw.setDropMode(DropMode.INSERT);
 		tf_pw.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_pw.setColumns(1);
-		tf_pw.setBounds(450, 360, 380, 30);
+		tf_pw.setColumns(125);
+		tf_pw.setBounds(390, 310, 500, 30);
 		panel.add(tf_pw);
 		
 		JButton bt_deleteConfirm = new JButton("");
 		bt_deleteConfirm.setIcon(new ImageIcon(deleteId_1.class.getResource("/image/seungho/bt_delete_small.png")));
 		bt_deleteConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		bt_deleteConfirm.setFont(new Font("나눔고딕", Font.PLAIN, 12));
@@ -85,6 +103,7 @@ public class deleteId_1 extends JPanel {
 		bt_cancel.setIcon(new ImageIcon(deleteId_1.class.getResource("/image/seungho/bt_cancel.png")));
 		bt_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 			}
 		});
 		bt_cancel.setFont(new Font("굴림", Font.PLAIN, 12));

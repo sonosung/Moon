@@ -1,14 +1,26 @@
 package projectPackage;
 
 import java.awt.EventQueue;
-import java.util.HashMap;
-import java.util.Iterator;
-import javax.swing.BoxLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
+import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Component;
+
+import javax.swing.BoxLayout;
 
 public class MainFrame extends JFrame {
 
@@ -19,11 +31,12 @@ public class MainFrame extends JFrame {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
-	public enum PANELNAME {MAIN, PAGE0, PAGE1, TICKETING, SELECT, PAYMENT, TICKET};
+	public enum PANELNAME {MAIN, PAGE0, PAGE1, PAGE2};
 
 	/**
 	 * Launch the application.
 	 */
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -52,21 +65,13 @@ public class MainFrame extends JFrame {
 		JPanel ContentPanel = new OhtanisPanel(this);
 		JPanel ContentPanel2 = new ContentPanel2(this);
 		JPanel ContentPanel3 = new ContentPanel3(this);
-		JPanel ContentPanel4 = new AnCont1(this);
-		JPanel ContentPanel5 = new AnCont2(this);
-		JPanel ContentPanel6 = new AnCont3(this);
-		JPanel ContentPanel7 = new AnCont4(this);
-		
-
+		JPanel ContentPanel4 = new ContentPanel4(this);
 		
 		//생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
 		panelMap.put(MainFrame.PANELNAME.PAGE0, ContentPanel2);
 		panelMap.put(MainFrame.PANELNAME.PAGE1, ContentPanel3);
-		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel4);
-		panelMap.put(MainFrame.PANELNAME.SELECT, ContentPanel5);
-		panelMap.put(MainFrame.PANELNAME.PAYMENT, ContentPanel6);
-		panelMap.put(MainFrame.PANELNAME.TICKET, ContentPanel7);
+		panelMap.put(MainFrame.PANELNAME.PAGE2, ContentPanel4);
 		
 		//System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
 		//System.out.println(MainFrame.class.getResource("").getPath());
@@ -88,12 +93,8 @@ public class MainFrame extends JFrame {
 		this.getContentPane().add(ContentPanel2);
 		this.getContentPane().add(ContentPanel3);
 		this.getContentPane().add(ContentPanel4);
-		this.getContentPane().add(ContentPanel5);
-		this.getContentPane().add(ContentPanel6);
-		this.getContentPane().add(ContentPanel7);
 		
 	}
-
 	
 	
 	public void PageChange(PANELNAME name)
@@ -116,18 +117,10 @@ public class MainFrame extends JFrame {
 		case PAGE1:
 			panelMap.get(MainFrame.PANELNAME.PAGE1).setVisible(true);
 			break;		
-		case TICKETING:
-			panelMap.get(MainFrame.PANELNAME.TICKETING).setVisible(true);
-			break;	
-		case SELECT:
-			panelMap.get(MainFrame.PANELNAME.SELECT).setVisible(true);
-			break;	
-		case PAYMENT:
-			panelMap.get(MainFrame.PANELNAME.PAYMENT).setVisible(true);
-			break;	
-		case TICKET:
-			panelMap.get(MainFrame.PANELNAME.TICKET).setVisible(true);
+		case PAGE2:
+			panelMap.get(MainFrame.PANELNAME.PAGE2).setVisible(true);
 			break;	
 		}
 	}
+
 }

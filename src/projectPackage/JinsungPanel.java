@@ -14,19 +14,21 @@ import java.sql.SQLException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class JinsungPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainFrame mainFrame;	
+	private MainFrame mainFrame;
+	private JFrame ticketFrame;
 	/**
 	 * Create the panel.
 	 */
 
 	public JinsungPanel(MainFrame mainFrame) {
-
+		
 		this.mainFrame = mainFrame;
 		System.out.println("1232131");
 		
@@ -207,6 +209,7 @@ public class JinsungPanel extends JPanel {
 		backButton.setBounds(834, 544, 143, 41);
 		panel.add(backButton);
 		
+		ticketFrame = new TicketFrame();
 		JButton cancleButton = new JButton("티켓 취소하기");
 		cancleButton.setFont(new Font("나눔고딕", Font.BOLD, 26));
 		cancleButton.setForeground(Color.WHITE);
