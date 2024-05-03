@@ -3,9 +3,11 @@ package projectPackage;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -87,22 +89,30 @@ public class JinsungInformation extends JPanel {
 		lblNewLabel_title_1.setBounds(956, 378, 205, 41);
 		panel.add(lblNewLabel_title_1);
 		
-		JButton	BackButton= new JButton("뒤로가기");
+		JButton	BackButton= new JButton("");
 		BackButton.addActionListener(new BackAction());
-		BackButton.setForeground(new Color(0, 0, 0));
-		BackButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
-		BackButton.setBounds(675, 534, 135, 44);
+		BackButton.setIcon(new ImageIcon(JinsungInformation.class.getResource("/image/button/back.png")));
+		BackButton.setBounds(675, 534, 110, 42);
 		panel.add(BackButton);
 		
-		JButton InfoButton = new JButton("예매내역");
+		JButton InfoButton = new JButton("");
 		InfoButton.addActionListener(new InfoAction());
-		InfoButton.setForeground(new Color(0, 0, 0));
-		InfoButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
-		InfoButton.setBounds(836, 534, 135, 44);
+
+		
+		//InfoButton.setIcon(new ImageIcon(JinsungInformation.class.getResource("/image/jinsung/ticketinfoma.png")));
+		InfoButton.setIcon(new ImageIcon(JinsungInformation.class.getResource("/image/jinsung/ticketinfoma.png")));
+		InfoButton.setBounds(815, 534, 110, 42);
 		panel.add(InfoButton);
 	
 		this.setVisible(false);
 	}
+	
+	ImageIcon imageSetSize(ImageIcon icon, int i, int j) { // image Size Setting
+	      Image ximg = icon.getImage();  //ImageIcon을 Image로 변환.
+	      Image yimg = ximg.getScaledInstance(i, j, java.awt.Image.SCALE_SMOOTH);
+	      ImageIcon xyimg = new ImageIcon(yimg); 
+	      return xyimg;
+	   }
 	
 	class InfoAction implements ActionListener {
 	@Override

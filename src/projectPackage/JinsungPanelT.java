@@ -39,6 +39,7 @@ public class JinsungPanelT extends JPanel {
 				  "c##green",
 				  "green1234" ); 
 		  
+		  
 		  String sql = "" + " SELECT * FROM MOVIE ";
 		  //" SELECT movie_id, title, location, screen " + " FROM movie " +
 		  //" WHERE title =? ";
@@ -90,7 +91,7 @@ public class JinsungPanelT extends JPanel {
 		panel.add(lblNewLabel);
 		
 		// 고정값
-		JLabel lblNewLabelfix = new JLabel("상세 내역");
+		JLabel lblNewLabelfix = new JLabel("예매 내역");
 		lblNewLabelfix.setForeground(Color.WHITE);
 		lblNewLabelfix.setFont(new Font("나눔고딕 ExtraBold", Font.BOLD, 30));
 		lblNewLabelfix.setBounds(518, 71, 143, 51);
@@ -286,21 +287,22 @@ public class JinsungPanelT extends JPanel {
 		personp.setBounds(1059, 514, 124, 41);
 		panel.add(personp);
 		
-		JButton backButton = new JButton("뒤로가기");
+		//뒤로가기버튼
+		JButton backButton = new JButton("");
 		backButton.addActionListener(new BackAction());
-		backButton.setForeground(new Color(0, 0, 0));
-		backButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
-		backButton.setBounds(614, 544, 143, 44);
+		backButton.setIcon(new ImageIcon(JinsungPanelT.class.getResource("/image/button/back.png")));
+		backButton.setBounds(614, 544, 110, 42);
 		panel.add(backButton);
 		
 		ticketFrame = new TicketFrame();
 		ticketFrame.setParentPage(this);
 		
-		JButton cancleButton = new JButton("티켓 취소하기");
+		JButton cancleButton = new JButton("");
 		cancleButton.addActionListener(new CancleAction());
-		cancleButton.setForeground(new Color(0, 0, 0));
-		cancleButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
-		cancleButton.setBounds(776, 544, 196, 44);
+		//cancleButton.setForeground(new Color(0, 0, 0));
+		//cancleButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
+		cancleButton.setIcon(new ImageIcon(JinsungPanelT.class.getResource("/image/jinsung/ticketcancle.png")));
+		cancleButton.setBounds(776, 544, 110, 42);
 		panel.add(cancleButton);
 
 		this.setVisible(false);
@@ -352,7 +354,7 @@ public class JinsungPanelT extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-		mainTestFrame.PageChange(MainFrame.PANELNAME.PAGE0);
+		mainTestFrame.PageChange(MainFrame.PANELNAME.PAGE1);
 }
 		
 	}
