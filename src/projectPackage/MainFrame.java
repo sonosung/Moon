@@ -117,9 +117,13 @@ public class MainFrame extends JFrame {
 	    this.getContentPane().add(ContentPanel8);   //LOGIN
 	    this.getContentPane().add(ContentPanel9);   //JOIN1
 	    this.getContentPane().add(ContentPanel10);   //JOIN2
-	    this.getContentPane().add(ContentPanel11);   //JOIN3
-
-		
+	    this.getContentPane().add(ContentPanel11);   //JOIN3		
+	}
+	
+	public void Pagechange_init(JPanel _panel, boolean headVisible)
+	{
+		this.HeadPanel.setVisible(headVisible);
+		_panel.setVisible(true);
 	}
 	
 	
@@ -134,14 +138,14 @@ public class MainFrame extends JFrame {
 		
 		
 		switch (name) {
-		case MAIN: 
-			panelMap.get(MainFrame.PANELNAME.MAIN).setVisible(true);
+		case MAIN: 			
+			Pagechange_init(panelMap.get(MainFrame.PANELNAME.MAIN), true);
 			break;
 		case PAGE0:
-			panelMap.get(MainFrame.PANELNAME.PAGE0).setVisible(true);
+			Pagechange_init(panelMap.get(MainFrame.PANELNAME.PAGE0), true);
 			break;
 		case PAGE1:
-			panelMap.get(MainFrame.PANELNAME.PAGE1).setVisible(true);
+			Pagechange_init(panelMap.get(MainFrame.PANELNAME.PAGE1), false);			
 			break;	
 		case PAGE2:
 			panelMap.get(MainFrame.PANELNAME.PAGE2).setVisible(true);
