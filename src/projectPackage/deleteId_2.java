@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
 public class deleteId_2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainFrame mainFrame;
+	private MainTestFrame mainFrame;
 
 	/**
 	 * Create the panel.
@@ -26,7 +26,7 @@ public class deleteId_2 extends JPanel {
 	Color bg = new Color(0xdfeff0);
 	Color btcolor = new Color(0x276bf0);
 	
-	public deleteId_2(MainFrame mainFrame) {
+	public deleteId_2(MainTestFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);

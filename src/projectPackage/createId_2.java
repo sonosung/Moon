@@ -38,9 +38,9 @@ public class createId_2 extends JPanel {
 	private JTextField tf_user_phone;
 	private JPasswordField tf_user_pw;
 	
-	public createId_2(MainFrame mainFrame) {
+	public createId_2(MainFrame mainFrame2) {
 
-		this.mainFrame = mainFrame;
+		this.mainFrame = mainFrame2;
 		this.setSize(1280, 800 - 150);
 		this.setPreferredSize(new Dimension(1280, 800 - 150));
 		this.setBackground(bg);
@@ -141,7 +141,7 @@ public class createId_2 extends JPanel {
 		bt_join.setIcon(new ImageIcon(createId_2.class.getResource("/image/seungho/bt_join2.png")));
 		bt_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainFrame.PageChange(MainFrame.PANELNAME.JOIN3);
+				mainFrame2.PageChange(MainFrame.PANELNAME.JOIN3);
 			}
 		});
 		bt_join.setFont(new Font("나눔고딕", Font.PLAIN, 12));

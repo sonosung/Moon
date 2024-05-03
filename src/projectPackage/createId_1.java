@@ -104,6 +104,7 @@ public class createId_1 extends JPanel implements ItemListener {
 		bt_next.setIcon(new ImageIcon(createId_1.class.getResource("/image/seungho/bt_next.png")));
 		bt_next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				System.out.println("go to Class[create_2]");
 				mainFrame.PageChange(MainFrame.PANELNAME.JOIN2);
 			}
 		});

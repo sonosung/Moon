@@ -24,7 +24,7 @@ import javax.swing.DropMode;
 public class deleteId_1 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainFrame mainFrame;
+	private MainTestFrame mainFrame;
 	private Connection conn;
 	/**
 	 * Create the panel.
@@ -43,7 +43,7 @@ public class deleteId_1 extends JPanel {
 //		}
 //	}
 	
-	public deleteId_1(MainFrame mainFrame) {
+	public deleteId_1(MainTestFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
@@ -103,7 +103,7 @@ public class deleteId_1 extends JPanel {
 		bt_cancel.setIcon(new ImageIcon(deleteId_1.class.getResource("/image/seungho/bt_cancel.png")));
 		bt_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
+				mainFrame.PageChange(MainTestFrame.PANELNAME.MAIN);
 			}
 		});
 		bt_cancel.setFont(new Font("굴림", Font.PLAIN, 12));
