@@ -58,6 +58,8 @@ public class UserDetailInfoFrame extends JFrame {
 	private Vector<String> columnName = null;   // String을 원소로 갖는 갖는 리스트
 	private Vector<Vector<String>> data = null; // String 여러개를 갖는 백터들을 원소로 갖는 리스트
 	private JTable table;
+	
+	private Connection connection;
 
 	/**
 	 * Create the frame.
@@ -122,7 +124,11 @@ public class UserDetailInfoFrame extends JFrame {
 		
 		//현재 내가 위치한 권한으로 선택 되어야한다.
 		
-		table.setRowSelectionInterval(0, 0);
+		System.out.println("AUTH_NO : " + userinfo.getAuth_no());
+		table.setRowSelectionInterval(userinfo.getAuth_no()-1, userinfo.getAuth_no()-1);
+		
+		//System.out.println("getSelectedRow : " + table.getSelectedRow());
+		System.out.println( table.getValueAt(table.getSelectedRow(), 0));
 	}
 	
 	public void TableInit()
@@ -130,14 +136,7 @@ public class UserDetailInfoFrame extends JFrame {
 		columnName.add("AUTH_NO");
 		columnName.add("AUTH_INFO");
 		
-		Vector<String> temp = new Vector<String>();
-		temp.add("Mater");
-		
-		Vector<String> temp2 = new Vector<String>();
-		temp2.add("User");
-		
-		data.add(temp);
-		data.add(temp2);
+		Get_DBauthcolumnInfo();
 		
 		table = new JTable(data,columnName);
 		table.setBounds(12, 264, 410, 185);
@@ -147,17 +146,6 @@ public class UserDetailInfoFrame extends JFrame {
 		
 		contentPane.setVisible(true);
 		contentPane.add(sPane, BorderLayout.CENTER);
-		
-		
-		
-		/*
-		 * AUTH_NO NUMBER(3) NOT NULL PRIMARY KEY,
-			AUTH_ADMINPAGE NUMBER(3),
-			AUTH_MOVIE NUMBER(3),
-			AUTH_TICKET NUMBER(3),
-			AUTH_MOVIEHOUSE NUMBER(3),
-			AUTH_INFO VARCHAR(125)
-		 * */
 	}
 	
 	public void FrameSetting()
@@ -219,12 +207,59 @@ public class UserDetailInfoFrame extends JFrame {
 		contentPane.add(phoneText);
 	}
 	
+	public void Get_DBauthcolumnInfo()
+	{
+		String driver = "oracle.jdbc.driver.OracleDriver";
+		String url = "jdbc:oracle:thin:@//14.42.124.35:1521/XE";
+		String user = "c##wjrls";
+		String pw = "881125";
+		
+		try 
+		{
+			Class.forName(driver);		
+			System.out.println("jdbc driver lading success.");
+			
+			connection = DriverManager.getConnection(url,user,pw);
+			System.out.println("oralce connection success.");
+			
+			String sql = "SELECT AUTH_NO, AUTH_INFO  FROM AUTHORITY";
+			
+			PreparedStatement pstmt = connection.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();					
+			while(rs.next())
+			{					
+				Vector<String> vec = new Vector<String>();	
+				AuthVo info = new AuthVo();
+				info.setAUTH_NO(rs.getInt("AUTH_NO"));
+				
+				info.setAUTH_INFO(rs.getString("AUTH_INFO"));		
+				vec.add(Integer.toString(rs.getInt("AUTH_NO")));
+				vec.add(rs.getString("AUTH_INFO"));
+				
+				data.add(vec);
+			}
+			
+			pstmt.close();
+			connection.close();			
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void Update_UserInfo()
 	{
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@//14.42.124.35:1521/XE";
 		String user = "c##wjrls";
 		String pw = "881125";
+		
+		
+		String auth_no = (String)table.getValueAt(table.getSelectedRow(),0);
 		
 		try 
 		{
@@ -248,7 +283,8 @@ public class UserDetailInfoFrame extends JFrame {
 					+"USER_PW = '" + pwstring +"', "
 					+"USER_NAME = '" + name +"', "
 					+"USER_EMAIL = '" + mail +"', "
-					+"USER_PHONE = '"+ ph +"' "
+					+"USER_PHONE = '"+ ph +"', "
+					+"AUTH_NO = '" + auth_no +"' "
 					+"WHERE USER_NO = "+userinfo.getUser_no();			
 			
 			PreparedStatement pstmt = conn.prepareStatement(sql);			

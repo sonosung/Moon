@@ -31,7 +31,8 @@ public class MainFrame extends JFrame {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
-	public enum PANELNAME {MAIN, PAGE0, PAGE1, PAGE2};
+	public enum PANELNAME {MAIN, PAGE0, PAGE1, PAGE2, LOGIN, JOIN1, JOIN2, 
+		JOIN3, SELECT, TICKETING, TICKET, PAYMENT};
 
 	/**
 	 * Launch the application.
@@ -63,7 +64,7 @@ public class MainFrame extends JFrame {
 		
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
-		JPanel ContentPanel2 = new ContentPanel2(this);
+		JPanel ContentPanel2 = new Admin_UserList(this);
 		JPanel ContentPanel3 = new ContentPanel3(this);
 		JPanel ContentPanel4 = new ContentPanel4(this);
 		
