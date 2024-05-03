@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 public class TicketFrame extends JFrame {
@@ -66,27 +67,24 @@ public class TicketFrame extends JFrame {
 		lblNewLabel.setHorizontalAlignment(JLabel.CENTER);
 		contentPane.add(lblNewLabel);
 		
-		JButton BackButton = new JButton("아니오");
+		JButton BackButton = new JButton("");
 		
 		BackAction action = new BackAction();
 		action.oriFrame = this;
 		
 		BackButton.addActionListener(action);
 	
-		BackButton.setForeground(Color.BLACK);
-		BackButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
+		BackButton.setIcon(new ImageIcon(JinsungInformation.class.getResource("/image/jinsung/No.png")));
 		BackButton.setBounds(375, 303, 135, 44);
 		contentPane.add(BackButton);	
 		
-		JButton CancleButton = new JButton("예");
+		JButton CancleButton = new JButton("");
 		
 		CancleAction action2 = new CancleAction();
 		action2.oriFrame2 = this;
 		
 		CancleButton.addActionListener(action2);
-		
-		CancleButton.setForeground(Color.BLACK);
-		CancleButton.setFont(new Font("나눔고딕", Font.PLAIN, 15));
+		CancleButton.setIcon(new ImageIcon(JinsungInformation.class.getResource("/image/jinsung/yes.png")));
 		CancleButton.setBounds(182, 303, 135, 44);
 		contentPane.add(CancleButton);
 		
