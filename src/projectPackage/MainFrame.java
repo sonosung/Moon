@@ -70,10 +70,10 @@ public class MainFrame extends JFrame {
 	    JPanel ContentPanel5 = new AnCont2(this);
 	    JPanel ContentPanel6 = new AnCont3(this);
 	    JPanel ContentPanel7 = new AnCont4(this);
-	    JPanel ContentPanel8 = new login(this);
-	    JPanel ContentPanel9 = new createId_1(this);
-	    JPanel ContentPanel10 = new createId_2(this);
-	    JPanel ContentPanel11 = new createId_3(this);
+	    JPanel ContentPanel8 = new Login(this);
+	    JPanel ContentPanel9 = new CreateId_1(this);
+	    JPanel ContentPanel10 = new CreateId_2(this);
+	    JPanel ContentPanel11 = new CreateId_3(this);
 
 		
 		//생성된 판넬 Map 자료 구조에 넣기

@@ -30,7 +30,7 @@ import javax.swing.event.ChangeEvent;
 import java.awt.event.ItemListener;
 import java.awt.event.ItemEvent;
 
-public class createId_1 extends JPanel implements ItemListener {
+public class CreateId_1 extends JPanel implements ItemListener {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
@@ -43,7 +43,7 @@ public class createId_1 extends JPanel implements ItemListener {
 	private Object rbt_agree;
 	private Object rbt_dagree;
 
-	public createId_1(MainFrame mainFrame) {
+	public CreateId_1(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
@@ -57,7 +57,7 @@ public class createId_1 extends JPanel implements ItemListener {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel cgving = new JLabel(new ImageIcon(createId_1.class.getResource("/image/ohtani/cgving2.png")));
+		JLabel cgving = new JLabel(new ImageIcon(CreateId_1.class.getResource("/image/ohtani/cgving2.png")));
 		cgving.setBounds(540, 20, 200, 42);
 		panel.add(cgving);
 		
@@ -101,7 +101,7 @@ public class createId_1 extends JPanel implements ItemListener {
 		
 			
 		JButton bt_next = new JButton("");
-		bt_next.setIcon(new ImageIcon(createId_1.class.getResource("/image/seungho/bt_next.png")));
+		bt_next.setIcon(new ImageIcon(CreateId_1.class.getResource("/image/seungho/bt_next.png")));
 		bt_next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("go to Class[create_2(JOIN2)]");
@@ -135,7 +135,7 @@ public class createId_1 extends JPanel implements ItemListener {
 	public void itemStateChanged(ItemEvent e) {
 		Object btg = e.getItem();
 		if(btg == rbt_agree)
-			new createId_2(mainFrame);
+			new CreateId_2(mainFrame);
 		else if (btg == rbt_dagree)
 			System.out.println("동의함을 눌러주세요");
 			
