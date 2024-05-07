@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Login_DAO {
     String driver = "oracle.jdbc.driver.OracleDriver";
-    String url = "jdbc:oracle:thin:@//localhost:1521/XE";
-    String user = "c##green";
-    String password = "green1234";
+    String url = "jdbc:oracle:thin:@//14.42.124.35:1521/XE";
+    String user = "C##WJRLS";
+    String password = "881125";
 
     private Connection con;
     private Statement stmt;
@@ -25,7 +25,7 @@ public class Login_DAO {
 
             String query = "SELECT * FROM login";
             if (pid != null) {
-                query += " where id='" + pid + "'"; // ID로 필터링
+                query += " where user_id='" + pid + "'"; // ID로 필터링
             }
             System.out.println("SQL : " + query);
 
@@ -39,10 +39,15 @@ public class Login_DAO {
                 System.out.println(rs.getRow() + " rows selected...");
                 rs.previous();
                 while (rs.next()) {
-                    String id = rs.getString("id");
-                    String pwd = rs.getString("pwd");
+                	int  user_no = rs.getInt("user_no");
+                	String user_name = rs.getString("user_name");
+                	String user_id = rs.getString("user_id");
+                	String user_pw = rs.getString("user_pw");
+                	String user_email = rs.getString("user_email");
+                	String user_phone = rs.getString("user_phone");
+                	int auth_no = rs.getInt("auth_no");
 
-                    UserInfoVo data = new UserInfoVo(0, id, pwd, pwd, pwd, pwd, 0);
+                    UserInfoVo data = new UserInfoVo(user_no, user_id, user_pw, user_name, user_email, user_phone, auth_no);
                     list.add(data); // 검색 결과를 리스트에 추가
                 }
             }

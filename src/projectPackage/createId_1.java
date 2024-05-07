@@ -104,8 +104,10 @@ public class createId_1 extends JPanel implements ItemListener {
 		bt_next.setIcon(new ImageIcon(createId_1.class.getResource("/image/seungho/bt_next.png")));
 		bt_next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("go to Class[create_2]");
+				System.out.println("go to Class[create_2(JOIN2)]");
+				setVisible(false);
 				mainFrame.PageChange(MainFrame.PANELNAME.JOIN2);
+				setVisible(true);
 			}
 		});
 		bt_next.setFont(new Font("나눔고딕", Font.PLAIN, 12));
@@ -137,11 +139,5 @@ public class createId_1 extends JPanel implements ItemListener {
 		else if (btg == rbt_dagree)
 			System.out.println("동의함을 눌러주세요");
 			
-	}
-
-	private void createId_2(MainFrame mainFrame2) {
-		// TODO Auto-generated method stub
-		
-		
 	}
 }
