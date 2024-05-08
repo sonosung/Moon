@@ -20,24 +20,24 @@ import javax.swing.JPanel;
 public class JinsungPanelT extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainTestFrame mainTestFrame;	
+	private MainFrame mainFrame;	
 	private TicketFrame ticketFrame;
 	
 	/**
 	 * Create the panel.
 	 */
 
-	public JinsungPanelT(MainTestFrame mainTestFrame) {
+	public JinsungPanelT(MainFrame mainFrame) {
 
-		this.mainTestFrame = mainTestFrame;
+		this.mainFrame = mainFrame;
 		  Connection conn = null; 
 		  try {
 			  Class.forName("oracle.jdbc.OracleDriver");
 		  
 		  conn= DriverManager.getConnection(
-				  "jdbc:oracle:thin:@localhost:1521/xe",
-				  "c##green",
-				  "green1234" ); 
+				  "jdbc:oracle:thin:@14.42.124.35:1521/xe",
+				  "C##wjrls",
+				  "881125" ); 
 		  
 		  
 		  String sql = "" + " SELECT * FROM MOVIE ";
@@ -308,7 +308,7 @@ public class JinsungPanelT extends JPanel {
 		this.setVisible(false);
 	}
 	
-	public MainTestFrame get_MainTestFrame() {return mainTestFrame;}
+	public MainFrame get_MainTestFrame() {return mainFrame;}
 
 	public void progress()
 	{//code
@@ -354,7 +354,7 @@ public class JinsungPanelT extends JPanel {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
-		mainTestFrame.PageChange(MainFrame.PANELNAME.PAGE1);
+		mainFrame.PageChange(MainFrame.PANELNAME.PAGE1);
 }
 		
 	}

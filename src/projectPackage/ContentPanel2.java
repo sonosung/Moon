@@ -8,14 +8,14 @@ import javax.swing.JPanel;
 public class ContentPanel2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainFrame mainFrame;
+	private MainTestFrame mainTestFrame;
 
 	/**
 	 * Create the panel.
 	 */
-	public ContentPanel2(MainFrame mainFrame) {
+	public ContentPanel2(MainTestFrame mainTestFrame) {
 		
-		this.mainFrame = mainFrame;
+		this.mainTestFrame = mainTestFrame;
 		
 		setLayout(null);
 		this.setSize(1280,800-150);
