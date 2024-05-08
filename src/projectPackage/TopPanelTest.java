@@ -23,15 +23,17 @@ public class TopPanelTest extends JPanel {
         panel_1.setBounds(0, 0, 1280, 150);
         add(panel_1);
         panel_1.setLayout(null);
-        
-        try {
-            JLabel imageLabel = new JLabel(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/cgving2.png")));
-            imageLabel.setBounds(45, 48, 200, 51);
-            panel_1.add(imageLabel);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
+
+        JLabel imageLabel = new JLabel(new ImageIcon(TopPanelTest.class.getResource("/image/ohtani/cgving2.png")));
+        imageLabel.setBounds(45, 48, 200, 51);
+        panel_1.add(imageLabel);
+        imageLabel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
+            }
+        });
+
         textField_1 = new JTextField();
         textField_1.setBorder(new EmptyBorder(0, 10, 0, 0));
         textField_1.setBounds(953, 106, 250, 21);
