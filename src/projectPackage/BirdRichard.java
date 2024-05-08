@@ -84,8 +84,14 @@ public class BirdRichard extends JPanel {
 		
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIcon(new ImageIcon(BirdRichard.class.getResource("/image/ohtani/egg2.png")));
-		lblNewLabel.setBounds(545, 132, 32, 32);
+		lblNewLabel.setBounds(558, 132, 32, 32);
 		add(lblNewLabel);
+		
+		JLabel lblNewLabel_4_1 = new JLabel("99%");
+		lblNewLabel_4_1.setForeground(Color.WHITE);
+		lblNewLabel_4_1.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
+		lblNewLabel_4_1.setBounds(590, 135, 39, 25);
+		add(lblNewLabel_4_1);
 
 		try {
 
