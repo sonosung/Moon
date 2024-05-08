@@ -81,6 +81,11 @@ public class BirdRichard extends JPanel {
 		textArea_1.setBackground(new Color(0, 0, 0));
 		textArea_1.setBounds(468, 297, 635, 353);
 		add(textArea_1);
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon(BirdRichard.class.getResource("/image/ohtani/egg2.png")));
+		lblNewLabel.setBounds(545, 132, 32, 32);
+		add(lblNewLabel);
 
 		try {
 
