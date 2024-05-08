@@ -32,7 +32,7 @@ public class MainFrame extends JFrame {
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
 	public enum PANELNAME {MAIN, PAGE0, PAGE1, PAGE2, LOGIN, JOIN1, JOIN2, 
-		JOIN3, SELECT, TICKETING, TICKET, PAYMENT};
+		JOIN3, SELECT, TICKETING, TICKET, PAYMENT, BIRD};
 
 	/**
 	 * Launch the application.
@@ -74,6 +74,7 @@ public class MainFrame extends JFrame {
 	    JPanel ContentPanel9 = new CreateId_1(this);
 	    JPanel ContentPanel10 = new CreateId_2(this);
 	    JPanel ContentPanel11 = new CreateId_3(this);
+	    JPanel ContentPanel12 = new BirdRichard(this);
 
 		
 		//생성된 판넬 Map 자료 구조에 넣기
@@ -89,6 +90,7 @@ public class MainFrame extends JFrame {
 	    panelMap.put(MainFrame.PANELNAME.JOIN1, ContentPanel9);
 	    panelMap.put(MainFrame.PANELNAME.JOIN2, ContentPanel10);
 	    panelMap.put(MainFrame.PANELNAME.JOIN3, ContentPanel11);
+	    panelMap.put(MainFrame.PANELNAME.BIRD, ContentPanel12);
 
 		
 		//System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
@@ -117,7 +119,8 @@ public class MainFrame extends JFrame {
 	    this.getContentPane().add(ContentPanel8);   //LOGIN
 	    this.getContentPane().add(ContentPanel9);   //JOIN1
 	    this.getContentPane().add(ContentPanel10);   //JOIN2
-	    this.getContentPane().add(ContentPanel11);   //JOIN3		
+	    this.getContentPane().add(ContentPanel11);   //JOIN3	
+	    this.getContentPane().add(ContentPanel12); // bird
 	}
 	
 	public void Pagechange_init(JPanel _panel, boolean headVisible)
@@ -174,6 +177,9 @@ public class MainFrame extends JFrame {
 	      case JOIN3:
 	         panelMap.get(MainFrame.PANELNAME.JOIN3).setVisible(true);
 	         break;
+	      case BIRD:
+	    	 panelMap.get(MainFrame.PANELNAME.BIRD).setVisible(true);
+		     break;
 		}
 	}
 
