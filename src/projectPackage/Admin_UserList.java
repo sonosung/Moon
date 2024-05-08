@@ -163,6 +163,7 @@ public class Admin_UserList extends JPanel {
         			 usinfo.setUser_name((String)m.getValueAt(row, 3));
         			 usinfo.setUser_email((String)m.getValueAt(row, 4));
         			 usinfo.setUser_phone((String)m.getValueAt(row, 5));
+        			 usinfo.setAuth_no(Integer.parseInt( (String)m.getValueAt(row, 6) ));
         			 
         			 
         			 userDetailFrame.FrameInit(usinfo);  
