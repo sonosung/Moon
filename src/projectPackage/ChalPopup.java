@@ -1,21 +1,21 @@
 package projectPackage;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JButton;
-import javax.swing.ImageIcon;
-import javax.swing.JTextArea;
-import java.awt.Font;
 import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.Icon;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
 
 
 public class ChalPopup extends JFrame {
-	
-
+	private MainFrame mainFrame;
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     
@@ -69,9 +69,17 @@ public class ChalPopup extends JFrame {
         contentPane.add(imageLabel);
         
         JButton btnNewButton = new JButton("");
-        btnNewButton.setIcon(new ImageIcon(ChalPopup.class.getResource("/image/button/reserve.png")));
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        btnNewButton.setIcon(new ImageIcon(ChalPopup.class.getResource("/image/button/ok.png")));
         btnNewButton.setBounds(73, 306, 110, 42);
         contentPane.add(btnNewButton);
         
+
+        
     }
+
 }

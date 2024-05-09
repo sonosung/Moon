@@ -31,8 +31,8 @@ public class MainFrame extends JFrame {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
-	public enum PANELNAME {MAIN, SELECT, PAYMENT, OHYES, LOGIN, JOIN1, JOIN2, 
-		JOIN3, TICKET, BIRD, PAGE1 };
+	public enum PANELNAME {MAIN,TICKETING, SELECT, PAYMENT, TICKET, LOGIN, JOIN1, JOIN2, 
+		JOIN3, BIRD, PAGE1 };
 
 	/**
 	 * Launch the application.
@@ -64,10 +64,10 @@ public class MainFrame extends JFrame {
 		
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
-//		JPanel ContentPanel2 = new AnCont5_1panel(this);
+		JPanel ContentPanel2 = new AnCont5_1panel(this);
 		JPanel ContentPanel3 = new AnCont2(this);
 	    JPanel ContentPanel4 = new AnCont3(this);
-	    JPanel ContentPanel5 = new AnCont4(this);
+	    JPanel ContentPanel5= new AnCont4(this);
 	    JPanel ContentPanel6 = new Login(this);
 	    JPanel ContentPanel7 = new CreateId_1(this);
 	    JPanel ContentPanel8 = new CreateId_2(this);
@@ -78,10 +78,10 @@ public class MainFrame extends JFrame {
 		
 		//생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
-//		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2);
+		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2);
 		panelMap.put(MainFrame.PANELNAME.SELECT, ContentPanel3);
 	    panelMap.put(MainFrame.PANELNAME.PAYMENT, ContentPanel4);
-	    panelMap.put(MainFrame.PANELNAME.OHYES, ContentPanel5);
+	    panelMap.put(MainFrame.PANELNAME.TICKET, ContentPanel5);
 	    panelMap.put(MainFrame.PANELNAME.LOGIN, ContentPanel6);
 	    panelMap.put(MainFrame.PANELNAME.JOIN1, ContentPanel7);
 	    panelMap.put(MainFrame.PANELNAME.JOIN2, ContentPanel8);
@@ -107,10 +107,10 @@ public class MainFrame extends JFrame {
 		//Main 판넬에 하위 판넬 add 처리
 		this.getContentPane().add(TopPanelTest);
 		this.getContentPane().add(ContentPanel);
-//		this.getContentPane().add(ContentPanel2);
+		this.getContentPane().add(ContentPanel2);
 		this.getContentPane().add(ContentPanel3);
 		this.getContentPane().add(ContentPanel4);
-	    this.getContentPane().add(ContentPanel5);
+		this.getContentPane().add(ContentPanel5);
 	    this.getContentPane().add(ContentPanel6);
 	    this.getContentPane().add(ContentPanel7);
 	    this.getContentPane().add(ContentPanel8);   //LOGIN
@@ -141,18 +141,15 @@ public class MainFrame extends JFrame {
 		case MAIN: 			
 			Pagechange_init(panelMap.get(MainFrame.PANELNAME.MAIN), true);
 			break;
-//	     case TICKETING:
-//	         panelMap.get(MainFrame.PANELNAME.TICKETING).setVisible(true);
-//	         break;   
+	     case TICKETING:
+	         panelMap.get(MainFrame.PANELNAME.TICKETING).setVisible(true);
+	         break;   
 	      case SELECT:
 	         panelMap.get(MainFrame.PANELNAME.SELECT).setVisible(true);
 	         break;   
 	      case PAYMENT:
 	         panelMap.get(MainFrame.PANELNAME.PAYMENT).setVisible(true);
-	         break;   
-	      case OHYES:
-		      panelMap.get(MainFrame.PANELNAME.PAYMENT).setVisible(true);
-		      break;   
+	         break;     
 	      case TICKET:
 	         panelMap.get(MainFrame.PANELNAME.TICKET).setVisible(true);
 	         break;

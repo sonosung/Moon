@@ -148,6 +148,7 @@ public class OhtanisPanel extends JPanel {
 			
 			imageLabel.addMouseListener(new MyMouseListener());
 			add(imageLabel);
+			
 
 		} catch (Exception e) {
 			e.printStackTrace();

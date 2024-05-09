@@ -60,54 +60,54 @@ public class AnCont5_1panel extends JPanel {
 
 		this.setVisible(false);
 
-		An_SQL ansql = new An_SQL();
-		ansql.An_SQL1();
-		HashMap<Integer, String> movieMap = ansql.Movielist();
-		Vector<String> movieNames = new Vector<>(movieMap.values());
-		JList<String> list = new JList<String>(movieNames);
-		list.setCellRenderer(new MyCellRenderer());
-		list.setBounds(300, 0, 270, 225);
-		JScrollPane scrollPane = new JScrollPane(list);
-		scrollPane.setBounds(264, 205, 233, 270);
-		lblNewLabel.add(scrollPane);
-		this.setVisible(false);
-
-		list.addListSelectionListener(e -> {
-			if (e.getValueIsAdjusting()) {
-				String selectedMovie = list.getSelectedValue();
-				int movieNo = 0;
-				for (Map.Entry<Integer, String> entry : movieMap.entrySet()) {
-					if (entry.getValue().equals(selectedMovie)) {
-						movieNo = entry.getKey();
-						break;
-					}
-				}
-				ansql.setSelectedMovieNo(movieNo);
-				HashMap<Integer, String> LocalMap = ansql.Allsearch();
-				Vector<String> LocalName = new Vector<>(LocalMap.values());
-				JList<String> list2 = new JList<String>(LocalName);
-				list2.setCellRenderer(new MyCellRenderer());
-				list2.setBounds(300, 0, 270, 222);
-				JScrollPane scrollPane2 = new JScrollPane(list2);
-				scrollPane2.setBounds(502, 205, 110, 270);
-				lblNewLabel.add(scrollPane2);
-				this.setVisible(false);
-
-				list2.addListSelectionListener(o -> {
-					if (o.getValueIsAdjusting()) {
-						String selectedLocal = list2.getSelectedValue();
-						int LocalNo = 0;
-						for (Map.Entry<Integer, String> entry : LocalMap.entrySet()) {
-							if (entry.getValue().equals(selectedLocal)) {
-								LocalNo = entry.getKey();
-								break;
-							}
-						}
-						ansql.setSelectedMovieNo(LocalNo);
-					}
-				});
-			}
-		});
+//		An_SQL ansql = new An_SQL();
+//		ansql.An_SQL1();
+//		HashMap<Integer, String> movieMap = ansql.Movielist();
+//		Vector<String> movieNames = new Vector<>(movieMap.values());
+//		JList<String> list = new JList<String>(movieNames);
+//		list.setCellRenderer(new MyCellRenderer());
+//		list.setBounds(300, 0, 270, 225);
+//		JScrollPane scrollPane = new JScrollPane(list);
+//		scrollPane.setBounds(264, 205, 233, 270);
+//		lblNewLabel.add(scrollPane);
+//		this.setVisible(false);
+//
+//		list.addListSelectionListener(e -> {
+//			if (e.getValueIsAdjusting()) {
+//				String selectedMovie = list.getSelectedValue();
+//				int movieNo = 0;
+//				for (Map.Entry<Integer, String> entry : movieMap.entrySet()) {
+//					if (entry.getValue().equals(selectedMovie)) {
+//						movieNo = entry.getKey();
+//						break;
+//					}
+//				}
+//				ansql.setSelectedMovieNo(movieNo);
+//				HashMap<Integer, String> LocalMap = ansql.Allsearch();
+//				Vector<String> LocalName = new Vector<>(LocalMap.values());
+//				JList<String> list2 = new JList<String>(LocalName);
+//				list2.setCellRenderer(new MyCellRenderer());
+//				list2.setBounds(300, 0, 270, 222);
+//				JScrollPane scrollPane2 = new JScrollPane(list2);
+//				scrollPane2.setBounds(502, 205, 110, 270);
+//				lblNewLabel.add(scrollPane2);
+//				this.setVisible(false);
+//
+//				list2.addListSelectionListener(o -> {
+//					if (o.getValueIsAdjusting()) {
+//						String selectedLocal = list2.getSelectedValue();
+//						int LocalNo = 0;
+//						for (Map.Entry<Integer, String> entry : LocalMap.entrySet()) {
+//							if (entry.getValue().equals(selectedLocal)) {
+//								LocalNo = entry.getKey();
+//								break;
+//							}
+//						}
+//						ansql.setSelectedMovieNo(LocalNo);
+//					}
+//				});
+//			}
+//		});
 	}
 
 //		DefaultListModel<String> localListModel = new DefaultListModel<>();

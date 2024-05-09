@@ -9,6 +9,8 @@ import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.DropMode;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 
 public class BirdRichard extends JPanel {
@@ -71,7 +73,12 @@ public class BirdRichard extends JPanel {
 		add(lblNewLabel_7);
 		
 		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(BirdRichard.class.getResource("/image/button/reserve.png")));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CHA();
+			}
+		});
+		btnNewButton_1.setIcon(new ImageIcon(BirdRichard.class.getResource("/image/button/ok.png")));
 		btnNewButton_1.setBounds(468, 220, 110, 42);
 		add(btnNewButton_1);
 		
@@ -104,5 +111,10 @@ public class BirdRichard extends JPanel {
 		}
 
 		this.setVisible(false);
+	}
+	
+	private void CHA() {
+		AnCont5_1panel anCont2Panel = new AnCont5_1panel(mainFrame);
+		mainFrame.PageChange(MainFrame.PANELNAME.TICKETING);
 	}
 }

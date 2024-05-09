@@ -10,12 +10,15 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.Icon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CrimePopup extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-
+    private MainFrame mainFrame;
+    private OhtanisPanel ohtanisPanel;
     /**
      * Launch the application.
      */
@@ -49,7 +52,6 @@ public class CrimePopup extends JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         JTextArea textArea = new JTextArea();
         textArea.setBorder(new EmptyBorder(10, 10, 0, 0));
         textArea.setFont(new Font("나눔바른고딕", Font.PLAIN, 14));
@@ -62,7 +64,13 @@ public class CrimePopup extends JFrame {
         contentPane.add(imageLabel);
         
         JButton btnNewButton = new JButton("");
-        btnNewButton.setIcon(new ImageIcon(CrimePopup.class.getResource("/image/button/reserve.png")));
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        
+        btnNewButton.setIcon(new ImageIcon(CrimePopup.class.getResource("/image/button/ok.png")));
         btnNewButton.setBounds(73, 306, 110, 42);
         contentPane.add(btnNewButton);
     }

@@ -55,7 +55,8 @@ public class HeadPanel extends JPanel {
 		JButton btnNewButton_1 = new JButton("New button");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainFrame.PageChange(MainFrame.PANELNAME.PAGE0);
+				mainFrame.PageChange(MainFrame.PANELNAME.TICKETING);
+				//page0 를 TICKETING 으로 바꿈
 			}
 		});
 		btnNewButton_1.setBounds(163, 66, 107, 41);
