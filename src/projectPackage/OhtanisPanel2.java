@@ -8,7 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import projectPackage.HeadPanel.popupDefine;
+//import projectPackage.HeadPanel.popupDefine;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -42,6 +42,7 @@ public class OhtanisPanel2 extends JPanel {
 			//팝업 jframe 정의
 			crimePopup = new CrimePopup();  
 			JButton btnNewButton = new JButton("");
+			btnNewButton.setBorderPainted(false);
 			//클릭시 이벤트 정의
 			btnNewButton.addActionListener(new crimePopupAction());
 			//--------------------------------------------------//
@@ -52,6 +53,7 @@ public class OhtanisPanel2 extends JPanel {
 
 			stuntPopup = new StuntPopup();  
 			JButton btnNewButton_1 = new JButton("");
+			btnNewButton_1.setBorderPainted(false);
 			btnNewButton_1.addActionListener(new stuntPopupAction());
 			btnNewButton_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/stuntman.jpg")));
 			btnNewButton_1.setBounds(326, 336, 150, 214);
@@ -59,22 +61,26 @@ public class OhtanisPanel2 extends JPanel {
 
 			stuntPopup = new KungfuPopup();  
 			JButton btnNewButton_1_1 = new JButton("");
+			btnNewButton_1_1.setBorderPainted(false);
 			btnNewButton_1_1.addActionListener(new kungfuPopupAction());
 			btnNewButton_1_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/challengers.jpg")));
 			btnNewButton_1_1.setBounds(802, 336, 150, 214);
 			add(btnNewButton_1_1);
 
 			JButton btnNewButton_1_1_1 = new JButton("");
+			btnNewButton_1_1_1.setBorderPainted(false);
 			btnNewButton_1_1_1.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/kungfupanda.jpg")));
 			btnNewButton_1_1_1.setBounds(560, 336, 150, 214);
 			add(btnNewButton_1_1_1);
 
 			JButton btnNewButton_1_1_2 = new JButton("");
+			btnNewButton_1_1_2.setBorderPainted(false);
 			btnNewButton_1_1_2.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/monsterfriends.jpg")));
 			btnNewButton_1_1_2.setBounds(1040, 336, 150, 214);
 			add(btnNewButton_1_1_2);
 			
 			JButton btnNewButton_2 = new JButton("");
+			btnNewButton_2.setBorderPainted(false);
 			btnNewButton_2.setIcon(new ImageIcon(OhtanisPanel2.class.getResource("/image/ohtani/birds.jpg")));
 			btnNewButton_2.setBounds(0, 0, 1280, 238);
 			add(btnNewButton_2);

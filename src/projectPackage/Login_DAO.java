@@ -8,9 +8,9 @@ import java.util.ArrayList;
 
 public class Login_DAO {
     String driver = "oracle.jdbc.driver.OracleDriver";
-    String url = "jdbc:oracle:thin:@//14.42.124.35:1521/XE";
-    String user = "C##WJRLS";
-    String password = "881125";
+    String url = "jdbc:oracle:thin:@//localhost:1521/XE";
+    String user = "C##MOON";
+    String password = "C##MOON";
 
     private Connection con;
     private Statement stmt;
@@ -23,7 +23,7 @@ public class Login_DAO {
         try {
             connDB(); // 데이터베이스 연결
 
-            String query = "SELECT * FROM login";
+            String query = "SELECT * FROM USER_INFO";
             if (pid != null) {
                 query += " where user_id='" + pid + "'"; // ID로 필터링
             }
@@ -45,9 +45,10 @@ public class Login_DAO {
                 	String user_pw = rs.getString("user_pw");
                 	String user_email = rs.getString("user_email");
                 	String user_phone = rs.getString("user_phone");
-                	int auth_no = rs.getInt("auth_no");
+                	int ticket_no = rs.getInt("ticket_no");
+                	String seat = rs.getString("seat");
 
-                    UserInfoVo data = new UserInfoVo(user_no, user_id, user_pw, user_name, user_email, user_phone, auth_no);
+                    UserInfoVo data = new UserInfoVo(user_no, user_name, user_id, user_pw, user_email, user_phone, ticket_no, seat);
                     list.add(data); // 검색 결과를 리스트에 추가
                 }
             }

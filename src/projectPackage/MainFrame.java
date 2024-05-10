@@ -31,8 +31,8 @@ public class MainFrame extends JFrame {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
-	public enum PANELNAME {MAIN, SELECT, PAYMENT, OHYES, LOGIN, JOIN1, JOIN2, 
-		JOIN3, TICKET, BIRD, PAGE1 };
+	public enum PANELNAME {MAIN, SELECT, PAYMENT, OHYES, LOGIN, CREATE1, CREATE2, 
+		JOIN3, TICKET, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1, DELETE2};
 
 	/**
 	 * Launch the application.
@@ -68,12 +68,15 @@ public class MainFrame extends JFrame {
 		JPanel ContentPanel3 = new AnCont2(this);
 	    JPanel ContentPanel4 = new AnCont3(this);
 	    JPanel ContentPanel5 = new AnCont4(this);
-	    JPanel ContentPanel6 = new Login(this);
-	    JPanel ContentPanel7 = new CreateId_1(this);
-	    JPanel ContentPanel8 = new CreateId_2(this);
-	    JPanel ContentPanel9 = new CreateId_3(this);
+	    JPanel PLogin = new Login(this);
+	    JPanel PCreateId_1 = new CreateId_1(this);
+	    JPanel PCreateId_2 = new CreateId_2(this);
+	    JPanel PCreateId_3 = new CreateId_3(this);
 	    JPanel ContentPanel10 = new BirdRichard(this);
 //	    JPanel ContentPanel11 = new JinsungPanelT(this);
+	    JPanel ContentPanel12 = new MyPage(this);
+	    JPanel ContentPanel13 = new DeleteId_1(this);
+	    JPanel ContentPanel14 = new DeleteId_2(this);
 
 		
 		//생성된 판넬 Map 자료 구조에 넣기
@@ -82,12 +85,15 @@ public class MainFrame extends JFrame {
 		panelMap.put(MainFrame.PANELNAME.SELECT, ContentPanel3);
 	    panelMap.put(MainFrame.PANELNAME.PAYMENT, ContentPanel4);
 	    panelMap.put(MainFrame.PANELNAME.OHYES, ContentPanel5);
-	    panelMap.put(MainFrame.PANELNAME.LOGIN, ContentPanel6);
-	    panelMap.put(MainFrame.PANELNAME.JOIN1, ContentPanel7);
-	    panelMap.put(MainFrame.PANELNAME.JOIN2, ContentPanel8);
-	    panelMap.put(MainFrame.PANELNAME.JOIN3, ContentPanel9);
+	    panelMap.put(MainFrame.PANELNAME.LOGIN, PLogin);
+	    panelMap.put(MainFrame.PANELNAME.CREATE1, PCreateId_1);
+	    panelMap.put(MainFrame.PANELNAME.CREATE2, PCreateId_2);
+	    panelMap.put(MainFrame.PANELNAME.JOIN3, PCreateId_3);
 	    panelMap.put(MainFrame.PANELNAME.BIRD, ContentPanel10);
 //	    panelMap.put(MainFrame.PANELNAME.PAGE1, ContentPanel11);
+	    panelMap.put(MainFrame.PANELNAME.MYPAGE, ContentPanel12);
+	    panelMap.put(MainFrame.PANELNAME.DELETE1, ContentPanel13);
+	    panelMap.put(MainFrame.PANELNAME.DELETE2, ContentPanel14);
 
 		
 		//System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
@@ -111,12 +117,15 @@ public class MainFrame extends JFrame {
 		this.getContentPane().add(ContentPanel3);
 		this.getContentPane().add(ContentPanel4);
 	    this.getContentPane().add(ContentPanel5);
-	    this.getContentPane().add(ContentPanel6);
-	    this.getContentPane().add(ContentPanel7);
-	    this.getContentPane().add(ContentPanel8);   //LOGIN
-	    this.getContentPane().add(ContentPanel9);   //JOIN1
-	    this.getContentPane().add(ContentPanel10);   //JOIN2
+	    this.getContentPane().add(PLogin);	//LOGIN
+	    this.getContentPane().add(PCreateId_1);	//CreateId_1
+	    this.getContentPane().add(PCreateId_2);   //CreateId_2
+	    this.getContentPane().add(PCreateId_3);   //CreateId_3
+	    this.getContentPane().add(ContentPanel10);  //BirdRichard
 //	    this.getContentPane().add(ContentPanel11);
+	    this.getContentPane().add(ContentPanel12);
+	    this.getContentPane().add(ContentPanel13);
+	    this.getContentPane().add(ContentPanel14);
 
 	}
 	
@@ -159,11 +168,11 @@ public class MainFrame extends JFrame {
 	      case LOGIN:
 	         panelMap.get(MainFrame.PANELNAME.LOGIN).setVisible(true);
 	         break;
-	      case JOIN1:
-	         panelMap.get(MainFrame.PANELNAME.JOIN1).setVisible(true);
+	      case CREATE1:
+	         panelMap.get(MainFrame.PANELNAME.CREATE1).setVisible(true);
 	         break;
-	      case JOIN2:
-	         panelMap.get(MainFrame.PANELNAME.JOIN2).setVisible(true);
+	      case CREATE2:
+	         panelMap.get(MainFrame.PANELNAME.CREATE2).setVisible(true);
 	         break;
 	      case JOIN3:
 	         panelMap.get(MainFrame.PANELNAME.JOIN3).setVisible(true);
@@ -173,6 +182,15 @@ public class MainFrame extends JFrame {
 		     break;
 	      case PAGE1:
 	    	  panelMap.get(MainFrame.PANELNAME.PAGE1).setVisible(true);
+	    	  break;
+	      case MYPAGE:
+	    	  panelMap.get(MainFrame.PANELNAME.MYPAGE).setVisible(true);
+	    	  break;
+	      case DELETE1:
+	    	  panelMap.get(MainFrame.PANELNAME.DELETE1).setVisible(true);
+	    	  break;
+	      case DELETE2:
+	    	  panelMap.get(MainFrame.PANELNAME.DELETE2).setVisible(true);
 	    	  break;
 		}
 	}

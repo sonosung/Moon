@@ -17,14 +17,14 @@ import javax.swing.SwingConstants;
 public class ContentPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainTestFrame mainTestFrame;
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
 	 */
-	public ContentPanel(MainTestFrame mainTestFrame) {
+	public ContentPanel(MainFrame mainTestFrame) {
 		
-		this.mainTestFrame = mainTestFrame;
+		this.mainFrame = mainTestFrame;
 		this.setSize(1280,800-150);
 		this.setPreferredSize(new Dimension(1280,800-150));
 		this.setBackground(Color.green);

@@ -40,9 +40,9 @@ public class CreateId_3 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel cgving = new JLabel(new ImageIcon(CreateId_3.class.getResource("/image/ohtani/cgving2.png")));
-		cgving.setBounds(540, 20, 200, 42);
-		panel.add(cgving);
+//		JLabel cgving = new JLabel(new ImageIcon(CreateId_3.class.getResource("/image/ohtani/cgving2.png")));
+//		cgving.setBounds(540, 20, 200, 42);
+//		panel.add(cgving);
 		
 		JLabel lb_thankyou = new JLabel("감사합니다!");
 		lb_thankyou.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.BOLD, 25));
@@ -65,6 +65,8 @@ public class CreateId_3 extends JPanel {
 		bt_home.setIcon(new ImageIcon(CreateId_3.class.getResource("/image/seungho/bt_home.png")));
 		bt_home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
+				System.out.println("메인 페이지로 이동");
 				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 			}
 		});

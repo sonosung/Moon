@@ -38,9 +38,9 @@ public class CreateId_2 extends JPanel {
 	private JTextField tf_user_phone;
 	private JPasswordField tf_user_pw;
 	
-	public CreateId_2(MainFrame mainFrame2) {
+	public CreateId_2(MainFrame mainFrame) {
 
-		this.mainFrame = mainFrame2;
+		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
 		this.setPreferredSize(new Dimension(1280, 800 - 150));
 		this.setBackground(bg);
@@ -52,9 +52,9 @@ public class CreateId_2 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel cgving = new JLabel(new ImageIcon(CreateId_2.class.getResource("/image/ohtani/cgving2.png")));
-		cgving.setBounds(540, 20, 200, 42);
-		panel.add(cgving);
+//		JLabel cgving = new JLabel(new ImageIcon(CreateId_2.class.getResource("/image/ohtani/cgving2.png")));
+//		cgving.setBounds(540, 20, 200, 42);
+//		panel.add(cgving);
 		
 		JLabel lb_MainTitle = new JLabel("회원가입");
 		lb_MainTitle.setForeground(Color.WHITE);
@@ -81,6 +81,7 @@ public class CreateId_2 extends JPanel {
 		tf_user_name.setHorizontalAlignment(SwingConstants.LEFT);
 		tf_user_name.setColumns(125);
 		tf_user_name.setBounds(390, 210, 500, 30);
+		tf_user_name.setText("");
 		panel.add(tf_user_name);
 		
 		JLabel lb_user_id = new JLabel("아이디");
@@ -141,27 +142,25 @@ public class CreateId_2 extends JPanel {
 		bt_join.setIcon(new ImageIcon(CreateId_2.class.getResource("/image/seungho/bt_join2.png")));
 		bt_join.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				mainFrame2.PageChange(MainFrame.PANELNAME.JOIN3);
+				String uName = new String(tf_user_name.getText());
+				String uId = new String(tf_user_id.getText());
+				String uPw = new String(tf_user_pw.getPassword());
+				String uEmail = new String(tf_user_email.getText());
+				String uPhone = new String(tf_user_phone.getText());
+				
+				System.out.println(uName + "\n" + uId + "\n" + uPw+ "\n" + uEmail + "\n" + uPhone);//아이디, 패스워드 입력 확인용.
+				System.out.println("회원가입 완료 페이지로 이동");
+				mainFrame.PageChange(MainFrame.PANELNAME.JOIN3);
+				tf_user_name.setText("");
+				tf_user_id.setText("");
+				tf_user_pw.setText("");
+				tf_user_email.setText("");
+				tf_user_phone.setText("");
 			}
 		});
 		bt_join.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		bt_join.setBounds(390, 500, 500, 50);
 		panel.add(bt_join);
-		
-//		JLabel lblNewLabel_2 = new JLabel("");
-//		lblNewLabel_2.setOpaque(true);
-//		lblNewLabel_2.setVisible(false);
-//		lblNewLabel_2.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인2.png"));
-//		lblNewLabel_2.setBounds(0, 0, 1280, 650);
-//		panel.add(lblNewLabel_2);
-		
-//		JPanel border = new JPanel();
-//		border.setEnabled(false);
-//		border.setOpaque(false);
-//		border.setBorder(new LineBorder(new Color(255, 0, 0)));
-//		border.setBackground(new Color(224, 255, 255));
-//		border.setBounds(346, 75, 587, 512);
-//		panel.add(border);
 
 		this.setVisible(false);
 	}

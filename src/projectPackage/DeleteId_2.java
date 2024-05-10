@@ -18,7 +18,7 @@ import javax.swing.ImageIcon;
 public class DeleteId_2 extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private MainTestFrame mainFrame;
+	private MainFrame mainFrame;
 
 	/**
 	 * Create the panel.
@@ -26,7 +26,7 @@ public class DeleteId_2 extends JPanel {
 	Color bg = new Color(0xdfeff0);
 	Color btcolor = new Color(0x276bf0);
 	
-	public DeleteId_2(MainTestFrame mainFrame) {
+	public DeleteId_2(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
@@ -56,6 +56,7 @@ public class DeleteId_2 extends JPanel {
 		bt_home.setBackground(UIManager.getColor("Button.background"));
 		bt_home.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 			}
 		});
 		bt_home.setFont(new Font("나눔고딕", Font.PLAIN, 12));

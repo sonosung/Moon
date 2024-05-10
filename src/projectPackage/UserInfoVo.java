@@ -1,14 +1,14 @@
 package projectPackage;
 
 public class UserInfoVo {
-	
-	public String getUser_id() {
-		return user_id;
-	}
-
-	public void setUser_id(String user_id) {
-		this.user_id = user_id;
-	}
+//	
+//	public String getUser_id() {
+//		return user_id;
+//	}
+//
+//	public void setUser_id(String user_id) {
+//		this.user_id = user_id;
+//	}
 
 	private int user_no;
 	private String user_name;
@@ -16,12 +16,14 @@ public class UserInfoVo {
 	private String user_pw;
 	private String user_email;
 	private String user_phone;
-	private int auth_no;
+	private int ticket_no;
+	private String seat;
+
 	
 	public UserInfoVo() {}
 	
-	public UserInfoVo(int user_no, String user_id, String user_pw, String user_name, String user_email, String user_phone,
-			int auth_no) {
+	public UserInfoVo(int user_no, String user_id, String user_pw, String user_name, String user_email, String user_phone, int ticket_no,
+			String seat) {
 		super();
 		this.user_no = user_no;
 		this.user_id = user_id;
@@ -29,7 +31,8 @@ public class UserInfoVo {
 		this.user_pw = user_pw;
 		this.user_email = user_email;
 		this.user_phone = user_phone;
-		this.auth_no = auth_no;
+		this.ticket_no = ticket_no;
+		this.seat = seat;
 	}
 	
 	public int getUser_no() {
@@ -40,6 +43,12 @@ public class UserInfoVo {
 	}
 	public String getUser_name() {
 		return user_name;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
 	}
 	public void setUser_name(String user_name) {
 		this.user_name = user_name;
@@ -62,18 +71,25 @@ public class UserInfoVo {
 	public void setUser_phone(String user_phone) {
 		this.user_phone = user_phone;
 	}
-	public int getAuth_no() {
-		return auth_no;
+	public int getTicket_no() {
+		return ticket_no;
 	}
-	public void setAuth_no(int auth_no) {
-		this.auth_no = auth_no;
+	public void setTicketnum(int ticket_no) {
+		this.ticket_no = ticket_no;
+	}
+	public String getSeat() {
+		return seat;
+	}
+	public void setSeat(String seat) {
+		this.seat = seat;
 	}
 	
 	public void RenderInfo()
 	{
+		System.out.println("NO : "  + this.user_no);
 		System.out.println("ID : " + this.user_id);
 		System.out.println("NAME : "  + this.user_name);
-		System.out.println("NO : "  + this.user_no);
+		
 	}
 	
 }

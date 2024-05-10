@@ -17,12 +17,12 @@ public class JinsungInformation extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private JPanel JinsungPanelT;
-	private MainTestFrame mainTestFrame;	
+	private MainFrame mainFrame;	
 	/**
 	 * Create the panel.
 	 */
-	public JinsungInformation(MainTestFrame mainTestFrame) {
-		this.mainTestFrame = mainTestFrame;
+	public JinsungInformation(MainFrame mainFrame) {
+		this.mainFrame = mainFrame;
 		
 		setLayout(null);
 		this.setSize(1280, 800 - 150);
@@ -118,14 +118,14 @@ public class JinsungInformation extends JPanel {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 
-		mainTestFrame.PageChange(MainFrame.PANELNAME.PAGE2);
+		mainFrame.PageChange(MainFrame.PANELNAME.PAGE2);
 	}
 }
 	class BackAction implements ActionListener {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			
-		mainTestFrame.PageChange(MainFrame.PANELNAME.MAIN);
+		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 		
 }
 	}
