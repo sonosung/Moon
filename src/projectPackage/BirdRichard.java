@@ -114,7 +114,7 @@ public class BirdRichard extends JPanel {
 	}
 	
 	private void CHA() {
-		AnCont5_1panel anCont2Panel = new AnCont5_1panel(mainFrame);
-		mainFrame.PageChange(MainFrame.PANELNAME.TICKETING);
+		OhtanisPanel anCont2Panel = new OhtanisPanel(mainFrame);
+		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 	}
 }

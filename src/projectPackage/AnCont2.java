@@ -3,6 +3,7 @@ package projectPackage;
 import java.awt.Choice;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,6 +17,10 @@ public class AnCont2 extends JPanel {
 	private MainFrame mainFrame;
 	private JPanel contentPane;
 	private static final long serialVersionUID = 1L;
+	int A1 = 0, A2 = 0, A3 = 0, A4 = 0, A5 = 0, A6 = 0,
+			B1 = 0, B2 = 0, B3 = 0, B4 = 0, B5 = 0, B6 = 0,
+			C1 = 0, C2 = 0, C3 = 0, C4 = 0, C5 = 0, C6 = 0,
+			D1 = 0, D2 = 0, D3 = 0, D4 = 0, D5 = 0, D6 = 0;
 
 	/**
 	 * Create the panel.
@@ -29,7 +34,7 @@ public class AnCont2 extends JPanel {
 		setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(255, 255, 255));
+		panel.setBackground(new Color(0, 0, 0));
 		panel.setForeground(new Color(0, 0, 0));
 		panel.setBounds(0, 0, 1280, 650);
 		this.add(panel);
@@ -51,6 +56,7 @@ public class AnCont2 extends JPanel {
 				
 			}
 		});
+		
 		btnNewButton_2.setIcon(new ImageIcon(AnCont2.class.getResource("/image/button/back.png")));
 		btnNewButton_2.setBounds(396, 544, 110, 42);
 		panel.add(btnNewButton_2);
@@ -64,323 +70,462 @@ public class AnCont2 extends JPanel {
 		panel.add(lblNewLabel_1);
 		
 		
-		Choice choice = new Choice();
-		choice.setBounds(73, 200, 168, 21);	
-		choice.add("1명");
-		choice.add("2명");
-		choice.add("3명");
-		choice.add("4명");
-		choice.add("5명");
-		choice.add("6명");
-		choice.add("7명");
-		choice.add("8명");
-		choice.setVisible(true);
-		panel.add(choice);
-		
-		JLabel lblNewLabel_2 = new JLabel("    A1");
-		lblNewLabel_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2.setBackground(new Color(0, 0, 0));
-		lblNewLabel_2.setBounds(400, 100, 35, 50);		
-		panel.add(lblNewLabel_2);
+//		Choice choice = new Choice();
+//		choice.setBounds(73, 200, 168, 21);	
+//		choice.add("1명");
+//		choice.add("2명");
+//		choice.add("3명");
+//		choice.add("4명");
+//		choice.add("5명");
+//		choice.add("6명");
+//		choice.add("7명");
+//		choice.add("8명");
+//		choice.setVisible(true);
+//		panel.add(choice);
 		
 		
-		JButton btnNewButton_1 = new JButton("");	
-		btnNewButton_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1.setBounds(400, 100, 50, 50);
-		btnNewButton_1.setOpaque(false);
-		panel.add(btnNewButton_1);
+		RoundedButton_2 seat_A1 = new RoundedButton_2("A1");	
+		seat_A1.setBounds(400, 100, 50, 50);
+		seat_A1.setOpaque(false);
+		int seat[] = new int[24];
+		seat[0] = 1;
+		seat_A1.setBackground(Color.DARK_GRAY);
+		int ing = 1;
+		for(int i = 0; i < 24 ; i++) {
+			if(ing == seat[i]) {
+				seat_A1.setBackground(Color.RED);
+				seat_A1.setEnabled(false);
+				break;
+			}else {
+			}
+		}
+		panel.add(seat_A1);
+		seat_A1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {	
+				if(A1 % 2 == 0) {
+					A1++;
+					seat_A1.setBackground(Color.YELLOW);
+				}else {
+					A1 += 1;
+					seat_A1.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1 = new JLabel("A2");
-		lblNewLabel_2_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1.setBackground(Color.BLACK);
-		lblNewLabel_2_1.setBounds(490, 100, 20, 50);
-		panel.add(lblNewLabel_2_1);
+		RoundedButton_2 seat_A2 = new RoundedButton_2("A2");
+		seat_A2.setBounds(475, 100, 50, 50);
+		seat_A2.setOpaque(false);
+		seat_A2.setBackground(Color.DARK_GRAY);
+		panel.add(seat_A2);
+		seat_A2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(A2 % 2 == 0) {
+					A2++;
+					seat_A2.setBackground(Color.YELLOW);
+				}else {
+					A2 += 1;
+					seat_A2.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1 = new JButton("");
-		btnNewButton_1_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1.setBounds(475, 100, 50, 50);
-		btnNewButton_1_1.setOpaque(false);
-		panel.add(btnNewButton_1_1);
+		RoundedButton_2 seat_A3 = new RoundedButton_2("A3");
+		seat_A3.setBounds(550, 100, 50, 50);
+		seat_A3.setOpaque(false);
+		seat_A3.setBackground(Color.DARK_GRAY);
+		panel.add(seat_A3);
+		seat_A3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(A3 % 2 == 0) {
+					A3++;
+					seat_A3.setBackground(Color.YELLOW);
+				}else {
+					A3 += 1;
+					seat_A3.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_1 = new JLabel("A3");
-		lblNewLabel_2_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1.setBackground(Color.BLACK);
-		lblNewLabel_2_1_1.setBounds(565, 100, 20, 50);
-		panel.add(lblNewLabel_2_1_1);
+		RoundedButton_2 seat_A4 = new RoundedButton_2("A4");
+		seat_A4.setBounds(625, 100, 50, 50);
+		seat_A4.setOpaque(false);
+		seat_A4.setBackground(Color.DARK_GRAY);
+		panel.add(seat_A4);
+		seat_A4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(A4 % 2 == 0) {
+					A4++;
+					seat_A4.setBackground(Color.YELLOW);
+				}else {
+					A4 += 1;
+					seat_A4.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_1 = new JButton("");
-		btnNewButton_1_1_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_1.setBounds(550, 100, 50, 50);
-		btnNewButton_1_1_1.setOpaque(false);
-		panel.add(btnNewButton_1_1_1);
+		RoundedButton_2 seat_A5 = new RoundedButton_2("A5");
+		seat_A5.setBounds(700, 100, 50, 50);
+		seat_A5.setOpaque(false);
+		seat_A5.setBackground(Color.DARK_GRAY);
+		panel.add(seat_A5);
+		seat_A5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(A5 % 2 == 0) {
+					A5++;
+					seat_A5.setBackground(Color.YELLOW);
+				}else {
+					A5 += 1;
+					seat_A5.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_2 = new JLabel("A4");
-		lblNewLabel_2_1_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_2.setBackground(Color.BLACK);
-		lblNewLabel_2_1_2.setBounds(640, 100, 20, 50);
-		panel.add(lblNewLabel_2_1_2);
+		RoundedButton_2 seat_A6 = new RoundedButton_2("A6");
+		seat_A6.setBounds(775, 100, 50, 50);
+		seat_A6.setOpaque(false);
+		seat_A6.setBackground(Color.DARK_GRAY);
+		panel.add(seat_A6);
+		seat_A6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(A6 % 2 == 0) {
+					A6++;
+					seat_A6.setBackground(Color.YELLOW);
+				}else {
+					A6 += 1;
+					seat_A6.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_2 = new JButton("");
-		btnNewButton_1_1_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_2.setBounds(625, 100, 50, 50);
-		btnNewButton_1_1_2.setOpaque(false);
-		panel.add(btnNewButton_1_1_2);
+		RoundedButton_2 seat_B1 = new RoundedButton_2("B1");
+		seat_B1.setBounds(400, 175, 50, 50);
+		seat_B1.setOpaque(false);
+		seat_B1.setBackground(Color.DARK_GRAY);
+		panel.add(seat_B1);
+		seat_B1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(B1 % 2 == 0) {
+					B1++;
+					seat_B1.setBackground(Color.YELLOW);
+				}else {
+					B1 += 1;
+					seat_B1.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_3 = new JLabel("A5");
-		lblNewLabel_2_1_3.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_3.setBackground(Color.BLACK);
-		lblNewLabel_2_1_3.setBounds(715, 100, 20, 50);
-		panel.add(lblNewLabel_2_1_3);
+		RoundedButton_2 seat_B2 = new RoundedButton_2("B2");
+		seat_B2.setBounds(475, 175, 50, 50);
+		seat_B2.setOpaque(false);
+		seat_B2.setBackground(Color.DARK_GRAY);
+		panel.add(seat_B2);
+		seat_B2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(B2 % 2 == 0) {
+					B2++;
+					seat_B2.setBackground(Color.YELLOW);
+				}else {
+					B2 += 1;
+					seat_B2.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_3 = new JButton("");
-		btnNewButton_1_1_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_3.setBounds(700, 100, 50, 50);
-		btnNewButton_1_1_3.setOpaque(false);
-		panel.add(btnNewButton_1_1_3);
+		RoundedButton_2 seat_B3 = new RoundedButton_2("B3");
+		seat_B3.setBounds(550, 175, 50, 50);
+		seat_B3.setOpaque(false);
+		seat_B3.setBackground(Color.DARK_GRAY);
+		panel.add(seat_B3);
+		seat_B3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(B3 % 2 == 0) {
+					B3++;
+					seat_B3.setBackground(Color.YELLOW);
+				}else {
+					B3 += 1;
+					seat_B3.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_4 = new JLabel("A6");
-		lblNewLabel_2_1_4.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_4.setBackground(Color.BLACK);
-		lblNewLabel_2_1_4.setBounds(790, 100, 20, 50);
-		panel.add(lblNewLabel_2_1_4);
+		RoundedButton_2 seat_B4 = new RoundedButton_2("B4");
+		seat_B4.setBounds(625, 175, 50, 50);
+		seat_B4.setOpaque(false);
+		seat_B4.setBackground(Color.DARK_GRAY);
+		panel.add(seat_B4);
+		seat_B4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(B4 % 2 == 0) {
+					B4++;
+					seat_B4.setBackground(Color.YELLOW);
+				}else {
+					B4 += 1;
+					seat_B4.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_4 = new JButton("");
-		btnNewButton_1_1_4.setBounds(775, 100, 50, 50);
-		btnNewButton_1_1_4.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_4.setOpaque(false);
-		panel.add(btnNewButton_1_1_4);
+		RoundedButton_2 seat_B5 = new RoundedButton_2("B5");
+		seat_B5.setBounds(700, 175, 50, 50);
+		seat_B5.setOpaque(false);
+		seat_B5.setBackground(Color.DARK_GRAY);
+		panel.add(seat_B5);
+		seat_B5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(B5 % 2 == 0) {
+					B5++;
+					seat_B5.setBackground(Color.YELLOW);
+				}else {
+					B5 += 1;
+					seat_B5.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_2 = new JLabel("B1");
-		lblNewLabel_2_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_2.setBackground(Color.BLACK);
-		lblNewLabel_2_2.setBounds(415, 176, 20, 50);
-		panel.add(lblNewLabel_2_2);
+		RoundedButton_2 seat_B6 = new RoundedButton_2("B6");
+		seat_B6.setBounds(775, 175, 50, 50);
+		seat_B6.setOpaque(false);
+		seat_B6.setBackground(Color.DARK_GRAY);
+		panel.add(seat_B6);
+		seat_B6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(B6 % 2 == 0) {
+					B6++;
+					seat_B6.setBackground(Color.YELLOW);
+				}else {
+					B6 += 1;
+					seat_B6.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_2 = new JButton("");
-		btnNewButton_1_2.setBounds(400, 176, 50, 50);
-		btnNewButton_1_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_2.setOpaque(false);
-		panel.add(btnNewButton_1_2);
+		RoundedButton_2 seat_C1 = new RoundedButton_2("C1");	
+		seat_C1.setBounds(400, 250, 50, 50);
+		seat_C1.setOpaque(false);
+		seat_C1.setBackground(Color.DARK_GRAY);
+		panel.add(seat_C1);
+		seat_C1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {	
+				if(C1 % 2 == 0) {
+					C1++;
+					seat_C1.setBackground(Color.YELLOW);
+				}else {
+					C1 += 1;
+					seat_C1.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_5 = new JLabel("B2");
-		lblNewLabel_2_1_5.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_5.setBackground(Color.BLACK);
-		lblNewLabel_2_1_5.setBounds(490, 176, 20, 50);
-		panel.add(lblNewLabel_2_1_5);
+		RoundedButton_2 seat_C2 = new RoundedButton_2("C2");
+		seat_C2.setBounds(475, 250, 50, 50);
+		seat_C2.setOpaque(false);
+		seat_C2.setBackground(Color.DARK_GRAY);
+		panel.add(seat_C2);
+		seat_C2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(C2 % 2 == 0) {
+					C2++;
+					seat_C2.setBackground(Color.YELLOW);
+				}else {
+					C2 += 1;
+					seat_C2.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_5 = new JButton("");
-		btnNewButton_1_1_5.setBounds(475, 176, 50, 50);
-		btnNewButton_1_1_5.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_5.setOpaque(false);
-		panel.add(btnNewButton_1_1_5);
+		RoundedButton_2 seat_C3 = new RoundedButton_2("C3");
+		seat_C3.setBounds(550, 250, 50, 50);
+		seat_C3.setOpaque(false);
+		seat_C3.setBackground(Color.DARK_GRAY);
+		panel.add(seat_C3);
+		seat_C3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(C3 % 2 == 0) {
+					C3++;
+					seat_C3.setBackground(Color.YELLOW);
+				}else {
+					C3 += 1;
+					seat_C3.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_1_1 = new JLabel("B3");
-		lblNewLabel_2_1_1_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1_1.setBackground(Color.BLACK);
-		lblNewLabel_2_1_1_1.setBounds(565, 176, 20, 50);
-		panel.add(lblNewLabel_2_1_1_1);
+		RoundedButton_2 seat_C4 = new RoundedButton_2("C4");
+		seat_C4.setBounds(625, 250, 50, 50);
+		seat_C4.setOpaque(false);
+		seat_C4.setBackground(Color.DARK_GRAY);
+		panel.add(seat_C4);
+		seat_C4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(C4 % 2 == 0) {
+					C4++;
+					seat_C4.setBackground(Color.YELLOW);
+				}else {
+					C4 += 1;
+					seat_C4.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_1_1 = new JButton("");
-		btnNewButton_1_1_1_1.setBounds(550, 176, 50, 50);
-		btnNewButton_1_1_1_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_1_1.setOpaque(false);
-		panel.add(btnNewButton_1_1_1_1);
+		RoundedButton_2 seat_C5 = new RoundedButton_2("C5");
+		seat_C5.setBounds(700, 250, 50, 50);
+		seat_C5.setOpaque(false);
+		seat_C5.setBackground(Color.DARK_GRAY);
+		panel.add(seat_C5);
+		seat_C5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(C5 % 2 == 0) {
+					C5++;
+					seat_C5.setBackground(Color.YELLOW);
+				}else {
+					C5 += 1;
+					seat_C5.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_2_1 = new JLabel("B4");
-		lblNewLabel_2_1_2_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_2_1.setBackground(Color.BLACK);
-		lblNewLabel_2_1_2_1.setBounds(640, 176, 20, 50);
-		panel.add(lblNewLabel_2_1_2_1);
+		RoundedButton_2 seat_C6 = new RoundedButton_2("C6");
+		seat_C6.setBounds(775, 250, 50, 50);
+		seat_C6.setOpaque(false);
+		seat_C6.setBackground(Color.DARK_GRAY);
+		panel.add(seat_C6);
+		seat_C6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(C6 % 2 == 0) {
+					C6++;
+					seat_C6.setBackground(Color.YELLOW);
+				}else {
+					C6 += 1;
+					seat_C6.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_2_1 = new JButton("");
-		btnNewButton_1_1_2_1.setBounds(625, 176, 50, 50);
-		btnNewButton_1_1_2_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_2_1.setOpaque(false);
-		panel.add(btnNewButton_1_1_2_1);
+		RoundedButton_2 seat_D1 = new RoundedButton_2("D1");
+		seat_D1.setBounds(400, 325, 50, 50);
+		seat_D1.setOpaque(false);
+		seat_D1.setBackground(Color.DARK_GRAY);
+		panel.add(seat_D1);
+		seat_D1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(D1 % 2 == 0) {
+					D1++;
+					seat_D1.setBackground(Color.YELLOW);
+				}else {
+					D1 += 1;
+					seat_D1.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_3_1 = new JLabel("B5");
-		lblNewLabel_2_1_3_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_3_1.setBackground(Color.BLACK);
-		lblNewLabel_2_1_3_1.setBounds(715, 176, 20, 50);
-		panel.add(lblNewLabel_2_1_3_1);
+		RoundedButton_2 seat_D2 = new RoundedButton_2("D2");
+		seat_D2.setBounds(475, 325, 50, 50);
+		seat_D2.setOpaque(false);
+		seat_D2.setBackground(Color.DARK_GRAY);
+		panel.add(seat_D2);
+		seat_D2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(D2 % 2 == 0) {
+					D2++;
+					seat_D2.setBackground(Color.YELLOW);
+				}else {
+					D2 += 1;
+					seat_D2.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_3_1 = new JButton("");
-		btnNewButton_1_1_3_1.setBounds(700, 176, 50, 50);
-		btnNewButton_1_1_3_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_3_1.setOpaque(false);
-		panel.add(btnNewButton_1_1_3_1);
+		RoundedButton_2 seat_D3 = new RoundedButton_2("D3");
+		seat_D3.setBounds(550, 325, 50, 50);
+		seat_D3.setOpaque(false);
+		seat_D3.setBackground(Color.DARK_GRAY);
+		panel.add(seat_D3);
+		seat_D3.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(D3 % 2 == 0) {
+					D3++;
+					seat_D3.setBackground(Color.YELLOW);
+				}else {
+					D3 += 1;
+					seat_D3.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_1_4_1 = new JLabel("B6");
-		lblNewLabel_2_1_4_1.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_4_1.setBackground(Color.BLACK);
-		lblNewLabel_2_1_4_1.setBounds(790, 176, 20, 50);
-		panel.add(lblNewLabel_2_1_4_1);
+		RoundedButton_2 seat_D4 = new RoundedButton_2("D4");
+		seat_D4.setBounds(625, 325, 50, 50);
+		seat_D4.setOpaque(false);
+		seat_D4.setBackground(Color.DARK_GRAY);
+		panel.add(seat_D4);
+		seat_D4.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(D4 % 2 == 0) {
+					D4++;
+					seat_D4.setBackground(Color.YELLOW);
+				}else {
+					D4 += 1;
+					seat_D4.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JButton btnNewButton_1_1_4_1 = new JButton("");
-		btnNewButton_1_1_4_1.setBounds(775, 176, 50, 50);
-		btnNewButton_1_1_4_1.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_4_1.setOpaque(false);
-		panel.add(btnNewButton_1_1_4_1);
+		RoundedButton_2 seat_D5 = new RoundedButton_2("D5");
+		seat_D5.setBounds(700, 325, 50, 50);
+		seat_D5.setOpaque(false);
+		seat_D5.setBackground(Color.DARK_GRAY);
+		panel.add(seat_D5);
+		seat_D5.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(D5 % 2 == 0) {
+					D5++;
+					seat_D5.setBackground(Color.YELLOW);
+				}else {
+					D5 += 1;
+					seat_D5.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
 		
-		JLabel lblNewLabel_2_3 = new JLabel("C1");
-		lblNewLabel_2_3.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_3.setBackground(Color.BLACK);
-		lblNewLabel_2_3.setBounds(415, 251, 20, 50);
-		panel.add(lblNewLabel_2_3);
+		RoundedButton_2 seat_D6 = new RoundedButton_2("D6");
+		seat_D6.setBounds(775, 325, 50, 50);
+		seat_D6.setOpaque(false);
+		seat_D6.setBackground(Color.DARK_GRAY);
+		panel.add(seat_D6);
+		seat_D6.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(D6 % 2 == 0) {
+					D6++;
+					seat_D6.setBackground(Color.YELLOW);
+				}else {
+					D6 += 1;
+					seat_D6.setBackground(Color.DARK_GRAY);
+				}
+			}
+		});
+
+
+
 		
-		JButton btnNewButton_1_3 = new JButton("");
-		btnNewButton_1_3.setBounds(400, 251, 50, 50);
-		btnNewButton_1_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_3.setOpaque(false);
-		panel.add(btnNewButton_1_3);
 		
-		JLabel lblNewLabel_2_1_6 = new JLabel("C2");
-		lblNewLabel_2_1_6.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_6.setBackground(Color.BLACK);
-		lblNewLabel_2_1_6.setBounds(490, 251, 20, 50);
-		panel.add(lblNewLabel_2_1_6);
-		
-		JButton btnNewButton_1_1_6 = new JButton("");
-		btnNewButton_1_1_6.setBounds(475, 251, 50, 50);
-		btnNewButton_1_1_6.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_6.setOpaque(false);
-		panel.add(btnNewButton_1_1_6);
-		
-		JLabel lblNewLabel_2_1_1_2 = new JLabel("C3");
-		lblNewLabel_2_1_1_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1_2.setBackground(Color.BLACK);
-		lblNewLabel_2_1_1_2.setBounds(565, 251, 20, 50);
-		panel.add(lblNewLabel_2_1_1_2);
-		
-		JButton btnNewButton_1_1_1_2 = new JButton("");
-		btnNewButton_1_1_1_2.setBounds(550, 251, 50, 50);
-		btnNewButton_1_1_1_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_1_2.setOpaque(false);
-		panel.add(btnNewButton_1_1_1_2);
-		
-		JLabel lblNewLabel_2_1_2_2 = new JLabel("C4");
-		lblNewLabel_2_1_2_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_2_2.setBackground(Color.BLACK);
-		lblNewLabel_2_1_2_2.setBounds(640, 251, 20, 50);
-		panel.add(lblNewLabel_2_1_2_2);
-		
-		JButton btnNewButton_1_1_2_2 = new JButton("");
-		btnNewButton_1_1_2_2.setBounds(625, 251, 50, 50);
-		btnNewButton_1_1_2_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_2_2.setOpaque(false);
-		panel.add(btnNewButton_1_1_2_2);
-		
-		JLabel lblNewLabel_2_1_3_2 = new JLabel("C5");
-		lblNewLabel_2_1_3_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_3_2.setBackground(Color.BLACK);
-		lblNewLabel_2_1_3_2.setBounds(715, 251, 20, 50);
-		panel.add(lblNewLabel_2_1_3_2);
-		
-		JButton btnNewButton_1_1_3_2 = new JButton("");
-		btnNewButton_1_1_3_2.setBounds(700, 251, 50, 50);
-		btnNewButton_1_1_3_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_3_2.setOpaque(false);
-		panel.add(btnNewButton_1_1_3_2);
-		
-		JLabel lblNewLabel_2_1_4_2 = new JLabel("C6");
-		lblNewLabel_2_1_4_2.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_4_2.setBackground(Color.BLACK);
-		lblNewLabel_2_1_4_2.setBounds(790, 251, 20, 50);
-		panel.add(lblNewLabel_2_1_4_2);
-		
-		JButton btnNewButton_1_1_4_2 = new JButton("");
-		btnNewButton_1_1_4_2.setBounds(775, 251, 50, 50);
-		btnNewButton_1_1_4_2.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_4_2.setOpaque(false);
-		panel.add(btnNewButton_1_1_4_2);
-		
-		JLabel lblNewLabel_2_4 = new JLabel("D1");
-		lblNewLabel_2_4.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_4.setBackground(Color.BLACK);
-		lblNewLabel_2_4.setBounds(415, 328, 20, 50);
-		panel.add(lblNewLabel_2_4);
-		
-		JButton btnNewButton_1_4 = new JButton("");
-		btnNewButton_1_4.setBounds(400, 328, 50, 50);
-		btnNewButton_1_4.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_4.setOpaque(false);
-		panel.add(btnNewButton_1_4);
-		
-		JLabel lblNewLabel_2_1_7 = new JLabel("D2");
-		lblNewLabel_2_1_7.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_7.setBackground(Color.BLACK);
-		lblNewLabel_2_1_7.setBounds(490, 328, 20, 50);
-		panel.add(lblNewLabel_2_1_7);
-		
-		JButton btnNewButton_1_1_7 = new JButton("");
-		btnNewButton_1_1_7.setBounds(475, 328, 50, 50);
-		btnNewButton_1_1_7.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_7.setOpaque(false);
-		panel.add(btnNewButton_1_1_7);
-		
-		JLabel lblNewLabel_2_1_1_3 = new JLabel("D3");
-		lblNewLabel_2_1_1_3.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_1_3.setBackground(Color.BLACK);
-		lblNewLabel_2_1_1_3.setBounds(565, 328, 20, 50);
-		panel.add(lblNewLabel_2_1_1_3);
-		
-		JButton btnNewButton_1_1_1_3 = new JButton("");
-		btnNewButton_1_1_1_3.setBounds(550, 328, 50, 50);
-		btnNewButton_1_1_1_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_1_3.setOpaque(false);
-		panel.add(btnNewButton_1_1_1_3);
-		
-		JLabel lblNewLabel_2_1_2_3 = new JLabel("D4");
-		lblNewLabel_2_1_2_3.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_2_3.setBackground(Color.BLACK);
-		lblNewLabel_2_1_2_3.setBounds(640, 328, 20, 50);
-		panel.add(lblNewLabel_2_1_2_3);
-		
-		JButton btnNewButton_1_1_2_3 = new JButton("");
-		btnNewButton_1_1_2_3.setBounds(625, 328, 50, 50);
-		btnNewButton_1_1_2_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_2_3.setOpaque(false);
-		panel.add(btnNewButton_1_1_2_3);
-		
-		JLabel lblNewLabel_2_1_3_3 = new JLabel("D5");
-		lblNewLabel_2_1_3_3.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_3_3.setBackground(Color.BLACK);
-		lblNewLabel_2_1_3_3.setBounds(715, 328, 20, 50);
-		panel.add(lblNewLabel_2_1_3_3);
-		
-		JButton btnNewButton_1_1_3_3 = new JButton("");
-		btnNewButton_1_1_3_3.setBounds(700, 328, 50, 50);
-		btnNewButton_1_1_3_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_3_3.setOpaque(false);
-		panel.add(btnNewButton_1_1_3_3);
-		
-		JLabel lblNewLabel_2_1_4_3 = new JLabel("D6");
-		lblNewLabel_2_1_4_3.setForeground(new Color(0, 0, 0));
-		lblNewLabel_2_1_4_3.setBackground(Color.BLACK);
-		lblNewLabel_2_1_4_3.setBounds(790, 328, 20, 50);
-		panel.add(lblNewLabel_2_1_4_3);
-		
-		JButton btnNewButton_1_1_4_3 = new JButton("");
-		btnNewButton_1_1_4_3.setBounds(775, 328, 50, 50);
-		btnNewButton_1_1_4_3.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\공석.png"));
-		btnNewButton_1_1_4_3.setOpaque(false);
-		panel.add(btnNewButton_1_1_4_3);
-		
-		JLabel lblNewLabel_3 = new JLabel("좌석을 선택하시오");
-		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-		lblNewLabel_3.setBounds(73, 165, 168, 15);
-		panel.add(lblNewLabel_3);
+//		
+//		JLabel lblNewLabel_3 = new JLabel("좌석을 선택하시오");
+//		lblNewLabel_3.setForeground(new Color(255, 255, 255));
+//		lblNewLabel_3.setBounds(73, 165, 168, 15);
+//		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
 		lblNewLabel.setBackground(new Color(0, 0, 0));
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Manic-063\\Desktop\\버튼들\\1231231232131234124123.png"));
+		lblNewLabel.setIcon(new ImageIcon(AnCont2.class.getResource("/image/screen/1231231232131234124123.png")));
 		lblNewLabel.setBounds(0, 0, 1280, 650);
 		panel.add(lblNewLabel);
 		
 		this.setVisible(false);
 	}
 	private void openAnCont1Panel() {
-        AnCont1 anCont1Panel = new AnCont1(mainFrame);
+		AnCont5_1panel anCont1Panel = new AnCont5_1panel(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.TICKETING); 
     }
 	

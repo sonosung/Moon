@@ -115,6 +115,11 @@ public class AnCont3 extends JPanel {
 		btnNewButton_2.setIcon(new ImageIcon(AnCont3.class.getResource("/image/button/back.png")));
 		panel_4.add(btnNewButton_2);
 		
+		JPanel panel_5 = new JPanel();
+		panel_5.setBackground(new Color(128, 128, 128));
+		panel_5.setBounds(0, 0, 715, 3);
+		panel_4.add(panel_5);
+		
 		JLabel lblNewLabel_2 = new JLabel("");
 		lblNewLabel_2.setIcon(new ImageIcon(AnCont3.class.getResource("/image/ohtani/cgving2.png")));
 		lblNewLabel_2.setBounds(556, 0, 209, 89);
@@ -134,5 +139,4 @@ public class AnCont3 extends JPanel {
         AnCont2 anCont2Panel = new AnCont2(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.SELECT); 
     }
-	
 }
