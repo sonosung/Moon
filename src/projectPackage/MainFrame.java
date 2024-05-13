@@ -68,7 +68,7 @@ public class MainFrame extends JFrame {
 		JPanel ContentPanel3 = new AnCont2(this);
 	    JPanel ContentPanel4 = new AnCont3(this);
 	    JPanel ContentPanel5 = new AnCont4(this);
-	    JPanel PLogin = new Login(this);
+	    JPanel PLogin = new Login_Test(this);
 	    JPanel PCreateId_1 = new CreateId_1(this);
 	    JPanel PCreateId_2 = new CreateId_2(this);
 	    JPanel PCreateId_3 = new CreateId_3(this);
