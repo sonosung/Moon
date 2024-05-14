@@ -13,14 +13,14 @@ public class TopPanelTest extends JPanel {
     private JTextField textField_1;
     private MainFrame mainFrame;
     private JTextField txtOhtani;
-    private Login_DAO_Test dao;
+    private UserInfo_DAO dao;
     ArrayList<UserInfoVo> list;
 
 
     public TopPanelTest(MainFrame mainFrame) {
         setLayout(null);
         
-        dao = new Login_DAO_Test();
+        dao = new UserInfo_DAO();
         
         this.mainFrame = mainFrame;
         this.setSize(1280,150);
@@ -118,6 +118,7 @@ public class TopPanelTest extends JPanel {
         });
         panel_1.add(btnNewButton_3);
         
+          //로그인 성공시 띄울 라벨
 //        txtOhtani = new JTextField();
 //        txtOhtani.setEditable(false);
 //        txtOhtani.setHorizontalAlignment(SwingConstants.CENTER);
@@ -125,18 +126,20 @@ public class TopPanelTest extends JPanel {
 //        txtOhtani.setBounds(1031, 31, 134, 21);
 //        txtOhtani.setColumns(10);
 //        panel_1.add(txtOhtani);
-        
-        JButton btnNewButton = new JButton("");
-        btnNewButton.setForeground(Color.WHITE);
-        btnNewButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
-        	}
+          
+          //로그아웃 버튼
+        JButton bt_logout = new JButton("");
+        bt_logout.setForeground(Color.WHITE);
+        bt_logout.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
+            }
         });
-        btnNewButton.setOpaque(false);
-        btnNewButton.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/logout_s.png")));
-        btnNewButton.setBounds(1173, 62, 30, 25);
-        panel_1.add(btnNewButton);
+        bt_logout.setOpaque(false);
+        bt_logout.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/logout_s.png")));
+        bt_logout.setBounds(1173, 62, 30, 25);
+        panel_1.add(bt_logout);
         
         JButton btnNewButton_4 = new JButton("");
         btnNewButton_4.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/mypage_s.png")));
@@ -147,12 +150,6 @@ public class TopPanelTest extends JPanel {
         });
         btnNewButton_4.setBounds(1209, 62, 30, 25);
         panel_1.add(btnNewButton_4);
-        
-        JLabel lblNewLabel_1 = new JLabel("추후에 수정할 예정!");
-        lblNewLabel_1.setFont(new Font("나눔고딕", Font.PLAIN, 15));
-        lblNewLabel_1.setForeground(Color.WHITE);
-        lblNewLabel_1.setBounds(1031, 62, 134, 20);
-        panel_1.add(lblNewLabel_1);
         
         this.setVisible(true);
     }
