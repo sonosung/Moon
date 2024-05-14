@@ -31,7 +31,7 @@ public class CreateId_2 extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
 	private Login_DAO_Test dao;
-	private connDB con;
+//	private connDB con;
 
 	/**
 	 * Create the panel.
@@ -46,7 +46,7 @@ public class CreateId_2 extends JPanel {
 	
 	public CreateId_2(MainFrame mainFrame) {
 		dao = new Login_DAO_Test();
-		con = new connDB();
+//		con = new connDB();
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
 		this.setPreferredSize(new Dimension(1280, 800 - 150));
@@ -153,7 +153,7 @@ public class CreateId_2 extends JPanel {
 				String uEmail = new String(tf_user_email.getText());
 				String uPhone = new String(tf_user_phone.getText());
 				
-				Connection con = mainFrame.getConnection(url, user, password);
+//				Connection con = mainFrame.getConnection();
 				
 				list = dao.list(uName, uId, uPw, uEmail, uPhone);
 				
