@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Vector;
 
@@ -18,6 +19,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ListCellRenderer;
 import javax.swing.SwingConstants;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class AnCont5_1panel extends JPanel {
 	private MainFrame mainFrame;
@@ -26,31 +29,23 @@ public class AnCont5_1panel extends JPanel {
 	private DefaultListModel<String> movieListModel;
 	private JScrollPane scrollPane;
 	private HashMap<Integer, String> movieMap;
+	private HashMap<Integer, String> LocalMap;
+	private HashMap<Integer, String> HouseMap;
+	private HashMap<Integer, String> TimeMap;
+	
+	
 	An_SQL ansql = new An_SQL();
 	JLabel lblNewLabel = new JLabel("");
+	int key[] = new int[4];
 
 	/**
 	 * Create the panel.
 	 */
 	public AnCont5_1panel(MainFrame mainFrame) {
-
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
 		this.setPreferredSize(new Dimension(1280, 800 - 150));
 		setLayout(null);
-
-		JButton btnNewButton_1 = new JButton("");
-		btnNewButton_1.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/ok.png")));
-		btnNewButton_1.setBounds(893, 498, 110, 40);
-		add(btnNewButton_1);
-
-		btnNewButton_1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				openAnCont2Panel();
-				setVisible(false);
-			}
-		});
 
 		JButton btnNewButton = new JButton("");
 		btnNewButton.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/back.png")));
@@ -65,7 +60,7 @@ public class AnCont5_1panel extends JPanel {
 			}
 		});
 
-		lblNewLabel.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/anSH_img/Yamae.png")));
+		lblNewLabel.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/anSH_img/Yamae2.png")));
 		lblNewLabel.setBounds(0, 0, 1280, 650);
 		add(lblNewLabel);
 
@@ -80,111 +75,135 @@ public class AnCont5_1panel extends JPanel {
 		JScrollPane scrollPane = new JScrollPane(list);
 		scrollPane.setBounds(264, 205, 233, 270);
 		lblNewLabel.add(scrollPane);
-		this.setVisible(false);
-
-		list.addListSelectionListener(e -> {
-			if (e.getValueIsAdjusting()) {
-				String selectedMovie = list.getSelectedValue();
-				int movieNo = 0;
-
-				for (Map.Entry<Integer, String> entry : movieMap.entrySet()) {
-					if (entry.getValue().equals(selectedMovie)) {
-						movieNo = entry.getKey();
-						break;
-					}
-				}
-
-				ansql.setSelectedMovieNo(movieNo);
-				list2();
-			}
-		});
-	}
-
-	public void list2() {
-		HashMap<Integer, String> LocalMap = ansql.Allsearch();
-		Vector<String> LocalName = new Vector<>(LocalMap.values());
-		JList<String> list2 = new JList<String>(LocalName);
+		
+		JList<String> list2 = new JList<String>();
 		list2.setCellRenderer(new MyCellRenderer());
-		list2.setBounds(300, 0, 270, 222);
+		list2.setBounds(300, 0, 270, 225);
 		JScrollPane scrollPane2 = new JScrollPane(list2);
-		scrollPane2.setBounds(500, 205, 110, 270);
-		lblNewLabel.add(scrollPane2);
+		scrollPane2.setBounds(503, 205, 110, 270);
+		lblNewLabel.add(scrollPane2);	
 		
-        lblNewLabel.revalidate();
-        lblNewLabel.repaint();
-        
-		list2.addListSelectionListener(o -> {
-			if (o.getValueIsAdjusting()) {
-				String selectedLocal = list2.getSelectedValue();
-				int LocalNo = 0;
-				for (Map.Entry<Integer, String> entry : LocalMap.entrySet()) {
-					if (entry.getValue().equals(selectedLocal)) {
-						LocalNo = entry.getKey();
-						break;
-					}
-				}
-				ansql.setSelectedLocalNo(LocalNo);
-				list3();
-			}
-		});
-	}
-
-	public void list3() {
-		HashMap<Integer, String> TheaterMap = ansql.Allsearch2();
-		Vector<String> TheaterName = new Vector<>(TheaterMap.values());
-		JList<String> list3 = new JList<String>(TheaterName);
+		JList<String> list3 = new JList<String>();
 		list3.setCellRenderer(new MyCellRenderer());
-		list3.setBounds(300, 0, 270, 222);
+		list3.setBounds(300, 0, 270, 225);
 		JScrollPane scrollPane3 = new JScrollPane(list3);
-		scrollPane3.setBounds(615, 205, 110, 270);
-		lblNewLabel.add(scrollPane3);
+		scrollPane3.setBounds(617, 205, 110, 270);
+		lblNewLabel.add(scrollPane3);	
 		
-	       lblNewLabel.revalidate();
-	        lblNewLabel.repaint();
-
-		list3.addListSelectionListener(i -> {
-			if (i.getValueIsAdjusting()) {
-				String selectedTheater = list3.getSelectedValue();
-				int TheaterNo = 0;
-				for (Map.Entry<Integer, String> entry : TheaterMap.entrySet()) {
-					if (entry.getValue().equals(selectedTheater)) {
-						TheaterNo = entry.getKey();
-						break;
-					}
-				}
-				ansql.setSelectedTheaterNo(TheaterNo);
-				list4();
-			}
-		});
-	}
-
-	public void list4() {
-		HashMap<Integer, String> TimeMap = ansql.Allsearch3();
-		Vector<String> TimeName = new Vector<>(TimeMap.values());
-		JList<String> list4 = new JList<String>(TimeName);
+		JList<String> list4 = new JList<String>();
 		list4.setCellRenderer(new MyCellRenderer());
-		list4.setBounds(300, 0, 270, 222);
+		list4.setBounds(300, 0, 270, 225);
 		JScrollPane scrollPane4 = new JScrollPane(list4);
 		scrollPane4.setBounds(730, 205, 270, 270);
-		lblNewLabel.add(scrollPane4);
-		
-	       lblNewLabel.revalidate();
-	        lblNewLabel.repaint();
+		lblNewLabel.add(scrollPane4);	
 
-		list4.addListSelectionListener(p -> {
-			if (p.getValueIsAdjusting()) {
-				String Timess = list4.getSelectedValue();
-				int Times = 0;
-				for (Map.Entry<Integer, String> entry : TimeMap.entrySet()) {
-					if (entry.getValue().equals(Timess)) {
-						Times = entry.getKey();
+		list.addListSelectionListener(new ListSelectionListener() {
+
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				
+				if(e.getValueIsAdjusting())
+					return;
+								
+				int movieno = 0;
+				String selectedMovie = list.getSelectedValue();
+
+				for (Map.Entry<Integer, String> entry : movieMap.entrySet()) 
+				{
+					if (entry.getValue().equals(selectedMovie)) {
+						movieno = entry.getKey();
 						break;
 					}
 				}
+				
+				ansql.setSelectedMovieNo(movieno);
+				key[0] = movieno;
+				LocalMap = ansql.Allsearch();
+				
+				Vector<String> Localname = new Vector<>(LocalMap.values());
+				list2.setListData(Localname);
+
+
+				}
+		});	
+		
+		list2.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {			
+				if(e.getValueIsAdjusting())
+					return;							
+				int localno = 0;
+				String selectedLocal = list2.getSelectedValue();
+				for (Map.Entry<Integer, String> entry : LocalMap.entrySet()) 
+				{
+					if (entry.getValue().equals(selectedLocal)) {
+						localno = entry.getKey();
+						break;
+					}
+				}				
+				ansql.setSelectedLocalNo(localno);
+				key[1] = localno;
+				HouseMap = ansql.Allsearch2();				
+				Vector<String> Housename = new Vector<>(HouseMap.values());
+				list3.setListData(Housename);
+				}
+		});	
+		
+		list3.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {			
+				if(e.getValueIsAdjusting())
+					return;							
+				int Houseno = 0;
+				String selectedHouse = list3.getSelectedValue();
+				for (Map.Entry<Integer, String> entry : HouseMap.entrySet()) 
+				{
+					if (entry.getValue().equals(selectedHouse)) {
+						Houseno = entry.getKey();
+						break;
+					}
+				}				
+				ansql.setSelectedHouseNo(Houseno);
+				key[2] = Houseno;
+				TimeMap = ansql.Allsearch3();				
+				Vector<String> Timename = new Vector<>(TimeMap.values());
+				list4.setListData(Timename);
+				}
+		});	
+		
+		list4.addListSelectionListener(new ListSelectionListener() {
+			@Override
+			public void valueChanged(ListSelectionEvent e) {			
+				if(e.getValueIsAdjusting())
+					return;	
+				int Timeno = 0;
+				String selectedTime = list4.getSelectedValue();
+				for (Map.Entry<Integer, String> entry : TimeMap.entrySet()) 
+				{
+					if (entry.getValue().equals(selectedTime)) {
+						Timeno = entry.getKey();
+						break;
+					}
+				}
+				key[3] = Timeno;
+				ansql.setSelectedTime(Timeno);
+		
+			}
+		});		
+
+		JButton btnNewButton_1 = new JButton("");
+		btnNewButton_1.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/ok.png")));
+		btnNewButton_1.setBounds(893, 498, 110, 40);
+		add(btnNewButton_1);
+
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				openAnCont2Panel();
+				setVisible(false);
 			}
 		});
-
-	}
+}
 
 	class MyCellRenderer extends JLabel implements ListCellRenderer<Object> {
 		MyCellRenderer() {
@@ -207,20 +226,19 @@ public class AnCont5_1panel extends JPanel {
 				setBackground(list.getBackground());
 				setForeground(list.getForeground());
 			}
-
 			return this;
 		}
 	}
 
 	private void openAnCont2Panel() {
-		AnCont2 anCont2Panel = new AnCont2(mainFrame);
+		List<Integer> seat_no = ansql.seat_no();	
+		mainFrame.Set_SeatValue(seat_no);
 		mainFrame.PageChange(MainFrame.PANELNAME.SELECT);
 		this.setVisible(false);
 	}
 
 	private void MainGo() {
-		OhtanisPanel anCont2Panel = new OhtanisPanel(mainFrame);
+//		OhtanisPanel anCont2Panel = new OhtanisPanel(mainFrame);
 		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 	}
-
 }

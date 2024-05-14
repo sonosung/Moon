@@ -10,12 +10,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 
 public class AnCont3 extends JPanel {
 	private MainFrame mainFrame;
 	private static final long serialVersionUID = 1L;
-
+	List<Integer> select_seat = new ArrayList<>();
+	
 	public AnCont3(MainFrame mainFrame) {
 		
 		this.mainFrame = mainFrame;
@@ -130,6 +133,13 @@ public class AnCont3 extends JPanel {
 		this.setVisible(false);
        
 	}
+	
+	public void PageInit2(List<Integer> select_seat) {
+		this.select_seat = select_seat;
+		System.out.println("선택좌석표시"+select_seat);
+	}
+	
+	
 	private void openAnCont4Panel() {
         AnCont4 anCont4Panel = new AnCont4(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.TICKET); 

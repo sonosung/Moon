@@ -50,6 +50,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 	}
+	
 
 	/**
 	 * Create the frame.
@@ -73,10 +74,8 @@ public class MainFrame extends JFrame {
 	    JPanel ContentPanel8 = new CreateId_2(this);
 	    JPanel ContentPanel9 = new CreateId_3(this);
 	    JPanel ContentPanel10 = new BirdRichard(this);
-//	    JPanel ContentPanel11 = new JinsungPanelT(this);
-
-		
-		//생성된 판넬 Map 자료 구조에 넣기
+	    
+	    //생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
 		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2);
 		panelMap.put(MainFrame.PANELNAME.SELECT, ContentPanel3);
@@ -87,13 +86,13 @@ public class MainFrame extends JFrame {
 	    panelMap.put(MainFrame.PANELNAME.JOIN2, ContentPanel8);
 	    panelMap.put(MainFrame.PANELNAME.JOIN3, ContentPanel9);
 	    panelMap.put(MainFrame.PANELNAME.BIRD, ContentPanel10);
-//	    panelMap.put(MainFrame.PANELNAME.PAGE1, ContentPanel11);
 
-		
-		//System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
-		//System.out.println(MainFrame.class.getResource("").getPath());
-		
-		//Main판넬 설정
+
+
+	  //System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
+	  //System.out.println(MainFrame.class.getResource("").getPath());
+
+	  //Main판넬 설정
 		setBounds(100, 100, 1280, 800);
 		MainPane = new JPanel();
 		MainPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -101,10 +100,8 @@ public class MainFrame extends JFrame {
 		setContentPane(MainPane);
 		MainPane.setLayout(new BoxLayout(MainPane, BoxLayout.Y_AXIS));
 		
-		//메인 페이지 초기화 코드
 		ContentPanel.setVisible(true);		
 		
-		//Main 판넬에 하위 판넬 add 처리
 		this.getContentPane().add(TopPanelTest);
 		this.getContentPane().add(ContentPanel);
 		this.getContentPane().add(ContentPanel2);
@@ -116,9 +113,9 @@ public class MainFrame extends JFrame {
 	    this.getContentPane().add(ContentPanel8);   //LOGIN
 	    this.getContentPane().add(ContentPanel9);   //JOIN1
 	    this.getContentPane().add(ContentPanel10);   //JOIN2
-//	    this.getContentPane().add(ContentPanel11);
 
 	}
+	
 	
 	public void Pagechange_init(JPanel _panel, boolean headVisible)
 	{
@@ -172,6 +169,14 @@ public class MainFrame extends JFrame {
 	    	  panelMap.get(MainFrame.PANELNAME.PAGE1).setVisible(true);
 	    	  break;
 		}
+	}
+	
+	public void Set_SeatValue(List<Integer> seat_no){
+		((AnCont2)panelMap.get(MainFrame.PANELNAME.SELECT)).PageInit(seat_no);
+	}
+	
+	public void Set_SeatValue2(List<Integer> select_seat) {
+		((AnCont3)panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit2(select_seat);
 	}
 
 }
