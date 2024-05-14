@@ -154,7 +154,7 @@ public class CreateId_2 extends JPanel {
 				String uPhone = new String(tf_user_phone.getText());
 				
 //				Connection con = mainFrame.getConnection();
-				
+				//
 				list = dao.list(uName, uId, uPw, uEmail, uPhone);
 				
 				System.out.println(uName + "\n" + uId + "\n" + uPw+ "\n" + uEmail + "\n" + uPhone);//아이디, 패스워드 입력 확인.
