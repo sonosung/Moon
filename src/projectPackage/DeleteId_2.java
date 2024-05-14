@@ -40,10 +40,6 @@ public class DeleteId_2 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 		
-		JLabel cgving = new JLabel(new ImageIcon(DeleteId_2.class.getResource("/image/ohtani/cgving2.png")));
-		cgving.setBounds(540, 20, 200, 42);
-		panel.add(cgving);
-		
 		JLabel lb_bye = new JLabel("그동안 CGVING을 이용해주셔서 감사합니다!");
 		lb_bye.setForeground(Color.WHITE);
 		lb_bye.setHorizontalAlignment(SwingConstants.CENTER);
@@ -60,7 +56,7 @@ public class DeleteId_2 extends JPanel {
 			}
 		});
 		bt_home.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		bt_home.setBounds(390, 500, 500, 50);
+		bt_home.setBounds(390, 470, 500, 50);
 		panel.add(bt_home);
 		
 //		JPanel panel_1 = new JPanel();

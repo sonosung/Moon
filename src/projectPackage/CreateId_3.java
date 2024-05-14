@@ -49,7 +49,7 @@ public class CreateId_3 extends JPanel {
 		lb_thankyou.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_thankyou.setBackground(Color.BLACK);
 		lb_thankyou.setForeground(Color.WHITE);
-		lb_thankyou.setBounds(490, 180, 300, 50);
+		lb_thankyou.setBounds(490, 150, 300, 50);
 		panel.add(lb_thankyou);
 		
 		JLabel lb_joincomp = new JLabel("회원가입이 완료되었습니다!");
@@ -58,7 +58,7 @@ public class CreateId_3 extends JPanel {
 		lb_joincomp.setMaximumSize(new Dimension(81, 23));
 		lb_joincomp.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_joincomp.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lb_joincomp.setBounds(390, 300, 500, 50);
+		lb_joincomp.setBounds(390, 270, 500, 50);
 		panel.add(lb_joincomp);
 		
 		JButton bt_home = new JButton("");
@@ -74,7 +74,7 @@ public class CreateId_3 extends JPanel {
 		bt_home.setMinimumSize(new Dimension(81, 23));
 		bt_home.setMaximumSize(new Dimension(81, 23));
 		bt_home.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		bt_home.setBounds(390, 500, 500, 50);
+		bt_home.setBounds(390, 470, 500, 50);
 		panel.add(bt_home);
 		
 //		JPanel panel_1 = new JPanel();

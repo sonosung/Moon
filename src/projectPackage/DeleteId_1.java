@@ -57,35 +57,25 @@ public class DeleteId_1 extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 
-		JLabel cgving = new JLabel(new ImageIcon(DeleteId_1.class.getResource("/image/ohtani/cgving2.png")));
-		cgving.setBounds(540, 20, 200, 42);
-		panel.add(cgving);
-
 		JLabel lb_title_delete = new JLabel("회원탈퇴");
 		lb_title_delete.setForeground(Color.WHITE);
 		lb_title_delete.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_title_delete.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lb_title_delete.setBounds(540, 115, 200, 50);
+		lb_title_delete.setBounds(540, 80, 200, 50);
 		panel.add(lb_title_delete);
 
 		JLabel lb_typePw = new JLabel("회원탈퇴를 위해 비밀번호를 입력해주세요");
 		lb_typePw.setForeground(Color.WHITE);
 		lb_typePw.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_typePw.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lb_typePw.setBounds(490, 260, 300, 30);
+		lb_typePw.setBounds(490, 230, 300, 30);
 		panel.add(lb_typePw);
-
-		JLabel lb_pw = new JLabel("비밀번호");
-		lb_pw.setForeground(Color.WHITE);
-		lb_pw.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lb_pw.setBounds(340, 310, 50, 30);
-		panel.add(lb_pw);
 
 		tf_pw = new JTextField();
 		tf_pw.setDropMode(DropMode.INSERT);
 		tf_pw.setHorizontalAlignment(SwingConstants.CENTER);
 		tf_pw.setColumns(125);
-		tf_pw.setBounds(390, 310, 500, 30);
+		tf_pw.setBounds(390, 260, 500, 30);
 		panel.add(tf_pw);
 
 		JButton bt_deleteConfirm = new JButton("");
@@ -100,7 +90,7 @@ public class DeleteId_1 extends JPanel {
 			}
 		});
 		bt_deleteConfirm.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		bt_deleteConfirm.setBounds(390, 500, 245, 50);
+		bt_deleteConfirm.setBounds(390, 470, 245, 50);
 		panel.add(bt_deleteConfirm);
 
 		JButton bt_cancel = new JButton("");
@@ -113,7 +103,7 @@ public class DeleteId_1 extends JPanel {
 			}
 		});
 		bt_cancel.setFont(new Font("굴림", Font.PLAIN, 12));
-		bt_cancel.setBounds(645, 500, 245, 50);
+		bt_cancel.setBounds(645, 470, 245, 50);
 		panel.add(bt_cancel);
 
 		this.setVisible(false);

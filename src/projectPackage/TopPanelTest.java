@@ -2,6 +2,7 @@ package projectPackage;
 
 import javax.swing.*;
 import java.awt.event.*;
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -12,10 +13,15 @@ public class TopPanelTest extends JPanel {
     private JTextField textField_1;
     private MainFrame mainFrame;
     private JTextField txtOhtani;
-//    private Login log;
+    private Login_DAO_Test dao;
+    ArrayList<UserInfoVo> list;
+
 
     public TopPanelTest(MainFrame mainFrame) {
         setLayout(null);
+        
+        dao = new Login_DAO_Test();
+        
         this.mainFrame = mainFrame;
         this.setSize(1280,150);
         this.setPreferredSize(new Dimension(1280,150));
@@ -89,7 +95,7 @@ public class TopPanelTest extends JPanel {
         btnNewButton_2.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
         btnNewButton_2.setBounds(1170, 20, 32, 32);
         
-        //로그인 버튼 클릭시 DB와 연동하여 아이디가 있을 경우 메인화면으로 이동.
+        //로그인 화면으로 이동하는 이벤트.
         btnNewButton_2.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		mainFrame.PageChange(MainFrame.PANELNAME.LOGIN);
@@ -104,7 +110,7 @@ public class TopPanelTest extends JPanel {
         btnNewButton_3.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
         btnNewButton_3.setBounds(1209, 20, 32, 32);
         
-        //회원가입 버튼 클릭시 회원가입 페이지로 이동.
+        //회원가입 페이지로 이동하는 이벤트
         btnNewButton_3.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
         		mainFrame.PageChange(MainFrame.PANELNAME.CREATE1);
@@ -112,13 +118,13 @@ public class TopPanelTest extends JPanel {
         });
         panel_1.add(btnNewButton_3);
         
-        txtOhtani = new JTextField();
-        txtOhtani.setEditable(false);
-        txtOhtani.setHorizontalAlignment(SwingConstants.CENTER);
-        txtOhtani.setText("님 환영합니다.");
-        txtOhtani.setBounds(1031, 31, 134, 21);
-        txtOhtani.setColumns(10);
-        panel_1.add(txtOhtani);
+//        txtOhtani = new JTextField();
+//        txtOhtani.setEditable(false);
+//        txtOhtani.setHorizontalAlignment(SwingConstants.CENTER);
+//        txtOhtani.setText("님 환영합니다.");
+//        txtOhtani.setBounds(1031, 31, 134, 21);
+//        txtOhtani.setColumns(10);
+//        panel_1.add(txtOhtani);
         
         JButton btnNewButton = new JButton("");
         btnNewButton.setForeground(Color.WHITE);

@@ -58,21 +58,17 @@ public class CreateId_1 extends JPanel implements ItemListener {
 		add(panel);
 		panel.setLayout(null);
 		
-//		JLabel cgving = new JLabel(new ImageIcon(CreateId_1.class.getResource("/image/ohtani/cgving2.png")));
-//		cgving.setBounds(540, 20, 200, 42);
-//		panel.add(cgving);
-		
 		JLabel lb_join = new JLabel("회원가입");
 		lb_join.setForeground(Color.WHITE);
 		lb_join.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_join.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
-		lb_join.setBounds(530, 115, 220, 50);
+		lb_join.setBounds(530, 80, 220, 50);
 		panel.add(lb_join);
 		
 		JLabel lb_terms = new JLabel("1.(필수) 개인정보 이용 약관");
 		lb_terms.setForeground(Color.WHITE);
 		lb_terms.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		lb_terms.setBounds(390, 180, 160, 20);
+		lb_terms.setBounds(390, 150, 160, 20);
 		panel.add(lb_terms);
 		
 		TextArea ta_terms = new TextArea();
@@ -96,20 +92,21 @@ public class CreateId_1 extends JPanel implements ItemListener {
 				+ "Nulla auctor dolor vitae libero sagittis maximus. Aliquam erat volutpat. Integer lacinia sagittis tristique. \n"
 				+ "Nulla at ante a velit pretium iaculis. nNulla luctus pharetra odio vehicula accumsan. Ut ultricies est in ");
 				
-		ta_terms.setBounds(390, 200, 500, 200);
+		ta_terms.setBounds(390, 170, 500, 210);
 		panel.add(ta_terms);
 		
 		JRadioButton rbt_agree = new JRadioButton("약관에 동의함");
 		rbt_agree.setBackground(Color.BLACK);
 		rbt_agree.setForeground(Color.WHITE);
 		rbt_agree.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		rbt_agree.setBounds(770, 435, 120, 25);
+		rbt_agree.setBounds(770, 410, 120, 25);
 		panel.add(rbt_agree);
 		
 		JButton bt_next = new JButton("");
 		bt_next.setIcon(new ImageIcon(CreateId_1.class.getResource("/image/seungho/bt_next.png")));
 		bt_next.setEnabled(false);
 		
+		//동의함 버튼 클릭시 '다음' 버튼 활성화
 		rbt_agree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				bt_next.setEnabled(true);
@@ -118,6 +115,7 @@ public class CreateId_1 extends JPanel implements ItemListener {
 				
 		buttonGroup.add(rbt_agree);
 		
+		//동의함 버튼 클릭시 '다음' 버튼 비활성화, 가입약관 동의 팝업 구현하기!
 		JRadioButton rbt_dagree = new JRadioButton("약관에 동의안함");
 		rbt_dagree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -129,7 +127,7 @@ public class CreateId_1 extends JPanel implements ItemListener {
 		rbt_dagree.setForeground(Color.WHITE);
 		rbt_dagree.setSelected(true);
 		rbt_dagree.setFont(new Font("나눔고딕", Font.BOLD, 12));
-		rbt_dagree.setBounds(770, 410, 120, 25);
+		rbt_dagree.setBounds(770, 390, 120, 25);
 		
 		panel.add(rbt_dagree);
 		buttonGroup.add(rbt_dagree);
@@ -145,7 +143,7 @@ public class CreateId_1 extends JPanel implements ItemListener {
 			}
 		});
 		bt_next.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		bt_next.setBounds(390, 500, 500, 50);
+		bt_next.setBounds(390, 470, 500, 50);
 		panel.add(bt_next);
 
 		this.setVisible(false);
