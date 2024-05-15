@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -132,13 +134,18 @@ public class MyPage extends JPanel {
 		tf_user_phone.setBounds(390, 334, 500, 30);
 		panel.add(tf_user_phone);
 		
+		//회원탈퇴 버튼
 		JButton bt_delete_myPage = new JButton("");
 		bt_delete_myPage.setIcon(new ImageIcon(MyPage.class.getResource("/image/seungho/bt_delete.png")));
+		bt_delete_myPage.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_delete_myPage.setBounds(390, 470, 500, 50);
 		bt_delete_myPage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				mainFrame.PageChange(MainFrame.PANELNAME.DELETE1);
 			}
 		});
+		panel.add(bt_delete_myPage);
 		
 		JLabel lb_myTicket = new JLabel("예매내역");
 		lb_myTicket.setForeground(Color.WHITE);
@@ -156,24 +163,10 @@ public class MyPage extends JPanel {
 		tf_myTicket.setHorizontalAlignment(SwingConstants.LEFT);
 		tf_myTicket.setBounds(390, 388, 500, 30);
 		panel.add(tf_myTicket);
-		bt_delete_myPage.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		bt_delete_myPage.setBounds(390, 470, 500, 50);
-		panel.add(bt_delete_myPage);
 		
-//		JPanel border = new JPanel();
-//		border.setVisible(false);
-//		border.setOpaque(false);
-//		border.setBorder(new LineBorder(Color.RED));
-//		border.setBackground(new Color(224, 255, 255));
-//		border.setBounds(346, 75, 587, 512);
-//		panel.add(border);
-		
-//		JLabel ProtLog = new JLabel("");
-//		ProtLog.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인.png"));
-//		ProtLog.setBounds(0, 0, 1280, 650);
-//		panel.add(ProtLog);
-		
+
 
 		this.setVisible(false);
 	}
 }
+

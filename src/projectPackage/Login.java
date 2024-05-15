@@ -28,7 +28,7 @@ public class Login extends JPanel {
 	private MainFrame mainFrame;
 	private JPasswordField pf_password;
 	private UserInfo_DAO dao;
-	ArrayList<UserInfoVo> list_Lg;
+	ArrayList<UserInfoVo> list_Id;
 	/**
 	 * Create the panel.
 	 */
@@ -92,11 +92,11 @@ public class Login extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				String inId = new String(tf_id.getText());
 				dao = new UserInfo_DAO();
-				list_Lg = dao.list(inId); // DAO 클래스 출력값 호출
+				list_Id = dao.Login(inId); // DAO 클래스 출력값 호출
 
-				if (list_Lg.size() != 0) {
-					for (int i = 0; i < list_Lg.size(); i++) {
-						UserInfoVo data = (UserInfoVo) list_Lg.get(i);
+				if (list_Id.size() != 0) {
+					for (int i = 0; i < list_Id.size(); i++) {
+						UserInfoVo data = (UserInfoVo) list_Id.get(i);
 						String gid = data.getUserId();
 						String gpwd = data.getUserPw();
 

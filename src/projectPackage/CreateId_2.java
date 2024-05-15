@@ -139,15 +139,15 @@ public class CreateId_2 extends JPanel {
 		//회원가입 버튼 클릭시 텍스트필드 값 출력 확인
 		bt_join.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                String uName = tf_user_name.getText();
-                String uId = tf_user_id.getText();
-                String uPw = new String(tf_user_pw.getPassword());
-                String uEmail = tf_user_email.getText();
-                String uPhone = tf_user_phone.getText();
+                String uName 	= tf_user_name.getText();
+                String uId 		= tf_user_id.getText();
+                String uPw 		= new String(tf_user_pw.getPassword());
+                String uEmail 	= tf_user_email.getText();
+                String uPhone 	= tf_user_phone.getText();
 
                 dao = new UserInfo_DAO();
-                dao.insertUser(uName, uId, uPw, uEmail, uPhone);
-                JOptionPane.showMessageDialog(null, "User registered successfully!");
+                dao.Creat_Id(uName, uId, uPw, uEmail, uPhone);
+                JOptionPane.showMessageDialog(null, "회원가입 완료!");
 
                 // Clear fields
                 tf_user_name.setText("");
