@@ -1,6 +1,5 @@
 package projectPackage;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 
@@ -36,7 +35,6 @@ public class CreateId_2 extends JPanel {
 	 * Create the panel.
 	 */
 	Color bg = new Color(0xdfeff0);
-	
 	
 	public CreateId_2(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
@@ -139,6 +137,7 @@ public class CreateId_2 extends JPanel {
 		//회원가입 버튼 클릭시 텍스트필드 값 출력 확인
 		bt_join.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+            	
                 String uName 	= tf_user_name.getText();
                 String uId 		= tf_user_id.getText();
                 String uPw 		= new String(tf_user_pw.getPassword());
@@ -146,7 +145,7 @@ public class CreateId_2 extends JPanel {
                 String uPhone 	= tf_user_phone.getText();
 
                 dao = new UserInfo_DAO();
-                dao.Creat_Id(uName, uId, uPw, uEmail, uPhone);
+                dao.Creat_Id (uName, uId, uPw, uEmail, uPhone);
                 JOptionPane.showMessageDialog(null, "회원가입 완료!");
 
                 // Clear fields
@@ -168,47 +167,3 @@ public class CreateId_2 extends JPanel {
 	}
 
 }
-
-
-//bt_join.addActionListener(new ActionListener() {
-//public void actionPerformed(ActionEvent e) {
-//	String uName = new String(tf_user_name.getText());
-//	String uId = new String(tf_user_id.getText());
-//	String uPw = new String(tf_user_pw.getPassword());
-//	String uEmail = new String(tf_user_email.getText());
-//	String uPhone = new String(tf_user_phone.getText());
-//	
-//	char[] pw = (tf_user_pw.getPassword());
-//	
-//	dao = new UserInfo_DAO();
-//	list_Ct = dao.list(uName); // DAO 클래스 출력값 호출
-//	
-//	list_Ct = dao.list(uName);
-//	list_Ct = dao.list(uId);
-//	list_Ct = dao.list(uPw);
-//	list_Ct = dao.list(uEmail);
-//	list_Ct = dao.list(uPhone);
-//	
-//	if (list_Ct.size() != 0) {
-//		for (int i = 0; i < list_Ct.size(); i++) {
-//			UserInfoVo data = (UserInfoVo) list_Ct.get(i);
-//			
-//			String id = data.getUserId();
-//			String pwd = data.getUserPw();
-//			
-//			System.out.println(id + " : " + pwd);
-//	
-//		}
-//	}
-//	System.out.println(uName + "\n" + uId + "\n" + uPw+ "\n" + uEmail + "\n" + uPhone);//아이디, 패스워드 입력 확인.
-//	
-//	System.out.println("회원가입 완료 페이지로 이동");
-//	mainFrame.PageChange(MainFrame.PANELNAME.JOIN3);
-//	
-//	tf_user_name.setText("");
-//	tf_user_id.setText("");
-//	tf_user_pw.setText("");
-//	tf_user_email.setText("");
-//	tf_user_phone.setText("");
-//}
-//});

@@ -298,7 +298,7 @@ public class UserInfo_DAO {
 	}
 
 	public void Creat_Id(String name, String id, String pw, String email, String phone) {
-		String sql = "INSERT INTO USER_INFO (USER_NO, USER_NAME, USER_ID, USER_PW, USER_EMAIL, USER_PHONE) VALUES ('4', ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO USER_INFO (USER_NO, USER_NAME, USER_ID, USER_PW, USER_EMAIL, USER_PHONE) VALUES (SEQ_USER_NO.NEXTVAL, ?, ?, ?, ?, ?)";
 		try (Connection con = connDB(); PreparedStatement pstmt = con.prepareStatement(sql)) {
 			pstmt.setString(1, name);
 			pstmt.setString(2, id);
@@ -356,29 +356,70 @@ public class UserInfo_DAO {
 
 		return list_Id;
 	}
-
-	public ArrayList<UserInfoVo> Delete(String inPw) {
-		String sql = "Delete FROM USER_INFO ";
-		ArrayList<UserInfoVo> list_Pw = new ArrayList<UserInfoVo>();
+	
+	public ArrayList<UserInfoVo> myPage(String name, String id, String pw, String email, String phone) {
+		String sql = "SELECT * FROM USER_INFO";
+		ArrayList<UserInfoVo> list_Info = new ArrayList<UserInfoVo>();
 		try {
 			connDB(); // 데이터베이스 연결
-			if (inPw != null) {
-				sql += " WHERE USER_PW='" + inPw + "'"; // ID로 필터링
-				PreparedStatement pstmt = con.prepareStatement(sql); {
-				pstmt.setString(1, rs.getString("USER_PW"));
-				int result = pstmt.executeUpdate();
-				if (result != 0) {
-					System.out.println("회원탈퇴가 성공적으로 완료되었습니다.");
-				} else {
-					System.out.println("비밀번호가 올바르지 않습니다.");
+//			if ( != null) {
+				sql += " WHERE USER_ID='" + inId + "'"; // ID로 필터링
+//			}
+			System.out.println("SQL : " + sql);
+
+			rs = stmt.executeQuery(sql); // 쿼리 실행
+			rs.last();
+			System.out.println("rs.getRow() : " + rs.getRow());
+
+			if (rs.getRow() == 0) {
+				System.out.println("0 row selected...");
+			} else {
+				System.out.println(rs.getRow() + " rows selected...");
+				rs.previous();
+				while (rs.next()) {
+					int userNo = rs.getInt("user_no");
+					String userName = rs.getString("user_name");
+					String userId = rs.getString("USER_ID");
+					String userPw = rs.getString("USER_PW");
+					String userEmail = rs.getString("user_email");
+					String userPhone = rs.getString("user_phone");
+					int ticketNo = rs.getInt("ticket_no");
+					String seat = rs.getString("seat");
+
+					UserInfoVo data = new UserInfoVo(userNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
+							seat);
+					list_Id.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
+				}
 			}
-		}
-			 
-		} 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+
+		return list_Id;
 	}
+
+//	public ArrayList<UserInfoVo> Delete(String inPw) {
+//		String sql = "Delete FROM USER_INFO ";
+//		ArrayList<UserInfoVo> list_Pw = new ArrayList<UserInfoVo>();
+//		try {
+//			connDB(); // 데이터베이스 연결
+//			if (inPw != null) {
+//				sql += " WHERE USER_PW='" + inPw + "'"; // ID로 필터링
+//				PreparedStatement pstmt = con.prepareStatement(sql); {
+//				pstmt.setString(1, rs.getString("USER_PW"));
+//				int result = pstmt.executeUpdate();
+//				if (result != 0) {
+//					System.out.println("회원탈퇴가 성공적으로 완료되었습니다.");
+//				} else {
+//					System.out.println("비밀번호가 올바르지 않습니다.");
+//			}
+//		}
+//			 
+//		} 
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 //				System.out.println("SQL : " + sql);
 //

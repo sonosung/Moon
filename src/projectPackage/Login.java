@@ -11,12 +11,6 @@ import javax.swing.JTextField;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.border.EmptyBorder;
-
-//import Login_Test.UserDAO;
-
-//import Login_Test.UserDAO;
-//import Login_Test.loginVo;
-
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -106,7 +100,7 @@ public class Login extends JPanel {
 						
 						if (tf_id.getText().equals(gid) && String.valueOf(pw).equals(gpwd)) {
 							System.out.println("로그인이 성공했습니다.");
-
+							System.out.println("메인 화면으로 이동.");
 							mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 							
 						} else {
