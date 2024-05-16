@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.JTextArea;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.Icon;
@@ -64,7 +66,12 @@ public class MonPopup extends JFrame {
         
         JButton btnNewButton = new JButton("");
         btnNewButton.setBorderPainted(false);
-        btnNewButton.setIcon(new ImageIcon(MonPopup.class.getResource("/image/button/reserve.png")));
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        	}
+        });
+        btnNewButton.setIcon(new ImageIcon(KungfuPopup.class.getResource("/image/button/ok.png")));
         btnNewButton.setBounds(73, 306, 110, 42);
         contentPane.add(btnNewButton);
     }

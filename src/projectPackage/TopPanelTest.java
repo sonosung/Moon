@@ -87,7 +87,9 @@ public class TopPanelTest extends JPanel {
                         break;
                 }
             }
-        });
+        });	
+        
+
 
         JButton btnNewButton_2 = new JButton("");
         btnNewButton_2.setBorderPainted(false);
@@ -103,6 +105,7 @@ public class TopPanelTest extends JPanel {
         	}
         });
         panel_1.add(btnNewButton_2);
+        
 
         JButton btnNewButton_3 = new JButton("");
         btnNewButton_3.setBorderPainted(false);
@@ -110,6 +113,7 @@ public class TopPanelTest extends JPanel {
         btnNewButton_3.setFont(new Font("나눔고딕 ExtraBold", Font.PLAIN, 14));
         btnNewButton_3.setBounds(1209, 20, 32, 32);
         
+<<<<<<< HEAD
         //회원가입 페이지로 이동하는 이벤트
         btnNewButton_3.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
@@ -154,6 +158,27 @@ public class TopPanelTest extends JPanel {
         lblNewLabel_1.setBounds(1031, 62, 134, 20);
         panel_1.add(lblNewLabel_1);
         
+=======
+        txtOhtani = new JTextField();
+        txtOhtani.setText("ohtani님 환영합니다.");
+        txtOhtani.setBounds(1031, 31, 134, 21);
+        panel_1.add(txtOhtani);
+        txtOhtani.setColumns(10);
+        
+        JButton btnNewButton = new JButton("");
+        btnNewButton.setIcon(new ImageIcon(TopPanelTest.class.getResource("/image/button/reserve.png")));
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		mainFrame.PageChange(MainFrame.PANELNAME.TICKETING);
+        	}
+        });
+        btnNewButton.setBounds(784, 91, 110, 40);
+        panel_1.add(btnNewButton);
+        
+
+        
+
+>>>>>>> refs/remotes/origin/sanghwan
         this.setVisible(true);
     }
 }
