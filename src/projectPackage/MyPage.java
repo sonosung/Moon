@@ -6,10 +6,13 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.ImageIcon;
@@ -33,6 +36,8 @@ public class MyPage extends JPanel {
 	private JTextField tf_user_name;
 	private JTextField tf_user_phone;
 	private JTextField tf_user_email;
+	private UserInfo_DAO dao;
+	ArrayList<UserInfoVo> list_Id;
 	
 	public MyPage(MainFrame mainFrame) {
 
@@ -69,10 +74,29 @@ public class MyPage extends JPanel {
 		panel.add(lb_user_name);
 		
 		tf_user_name = new JTextField();
+		tf_user_name.setText("");
+		tf_user_name.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		tf_user_name.setBackground(Color.WHITE);
 		tf_user_name.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				tf_user_name.add(TOOL_TIP_TEXT_KEY, lb_user_name);
+				
+//				String opName = new String(tf_user_name.getText());
+//				dao = new UserInfo_DAO();
+//				list_Id = dao.Login(opName); // DAO 클래스 출력값 호출
+//
+//				if (list_Id.size() != 0) {
+//					for (int i = 0; i < list_Id.size(); i++) {
+//						UserInfoVo data = (UserInfoVo) list_Id.get(i);
+//						String gName = data.getUserName();
+//						
+//						System.out.println(gName);
+//						
+//						if (tf_user_name.getText().equals(gName)) {
+//							tf_user_name.setText(opName);
+////				tf_user_name.add(TOOL_TIP_TEXT_KEY, lb_user_name);
+//						}
+//					}
+//				}
 			}
 		});
 		tf_user_name.setEditable(false);
@@ -91,6 +115,28 @@ public class MyPage extends JPanel {
 		panel.add(lb_user_id);
 		
 		tf_user_id = new JTextField();
+		tf_user_id.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					
+					String inId = new String(tf_user_id.getText());
+					dao = new UserInfo_DAO();
+					list_Id = dao.Login(inId); // DAO 클래스 출력값 호출
+
+					if (list_Id.size() != 0) {
+						for (int i = 0; i < list_Id.size(); i++) {
+							UserInfoVo data = (UserInfoVo) list_Id.get(i);
+							String gName = data.getUserId();
+							
+							System.out.println(gName);
+							
+							if (tf_user_id.getText().equals(gName)) {
+								tf_user_id.setText(inId);
+//					tf_user_name.add(TOOL_TIP_TEXT_KEY, lb_user_name);
+							}
+						}
+					}
+				}
+		});
 		tf_user_id.setBackground(Color.WHITE);
 		tf_user_id.setEditable(false);
 		tf_user_id.setColumns(125);
@@ -132,13 +178,18 @@ public class MyPage extends JPanel {
 		tf_user_phone.setBounds(390, 334, 500, 30);
 		panel.add(tf_user_phone);
 		
+		//회원탈퇴 버튼
 		JButton bt_delete_myPage = new JButton("");
 		bt_delete_myPage.setIcon(new ImageIcon(MyPage.class.getResource("/image/seungho/bt_delete.png")));
+		bt_delete_myPage.setFont(new Font("나눔고딕", Font.PLAIN, 12));
+		bt_delete_myPage.setBounds(390, 470, 500, 50);
 		bt_delete_myPage.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				mainFrame.PageChange(MainFrame.PANELNAME.DELETE1);
 			}
 		});
+		panel.add(bt_delete_myPage);
 		
 		JLabel lb_myTicket = new JLabel("예매내역");
 		lb_myTicket.setForeground(Color.WHITE);
@@ -156,24 +207,10 @@ public class MyPage extends JPanel {
 		tf_myTicket.setHorizontalAlignment(SwingConstants.LEFT);
 		tf_myTicket.setBounds(390, 388, 500, 30);
 		panel.add(tf_myTicket);
-		bt_delete_myPage.setFont(new Font("나눔고딕", Font.PLAIN, 12));
-		bt_delete_myPage.setBounds(390, 470, 500, 50);
-		panel.add(bt_delete_myPage);
 		
-//		JPanel border = new JPanel();
-//		border.setVisible(false);
-//		border.setOpaque(false);
-//		border.setBorder(new LineBorder(Color.RED));
-//		border.setBackground(new Color(224, 255, 255));
-//		border.setBounds(346, 75, 587, 512);
-//		panel.add(border);
-		
-//		JLabel ProtLog = new JLabel("");
-//		ProtLog.setIcon(new ImageIcon("E:\\KDTFullStackClass\\TeamProject1\\img\\screen\\로그인.png"));
-//		ProtLog.setBounds(0, 0, 1280, 650);
-//		panel.add(ProtLog);
-		
+
 
 		this.setVisible(false);
 	}
 }
+
