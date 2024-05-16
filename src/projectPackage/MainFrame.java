@@ -28,6 +28,7 @@ public class MainFrame extends JFrame {
 	private int index;
 	private JPanel MainPane;	
 	private JPanel TopPanelTest;	
+	An_SQL ansql = new An_SQL();
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
@@ -191,6 +192,10 @@ public class MainFrame extends JFrame {
 	
 	public void Set_SeatValue(List<Integer> seat_no){
 		((AnCont2)panelMap.get(MainFrame.PANELNAME.SELECT)).PageInit(seat_no);
+	}
+	
+	public void Set_movie(String[] select_movie) {
+		((AnCont3)panelMap.get(MainFrame.PANELNAME.PAYMENT)).pageInt_movie(select_movie);
 	}
 	
 	public void Set_SeatValue2(List<Integer> select_seat) {
