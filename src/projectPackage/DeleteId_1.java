@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
@@ -14,6 +16,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import javax.swing.border.LineBorder;
@@ -22,26 +25,15 @@ import javax.swing.ImageIcon;
 import javax.swing.DropMode;
 
 public class DeleteId_1 extends JPanel {
-
+	Color bg = new Color(0xdfeff0);
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
-	private Connection conn;
 	/**
 	 * Create the panel.
 	 */
-	Color bg = new Color(0xdfeff0);
 	private JTextField tf_pw;
-
-//	public deleteId_1() {
-//		try {
-//			Class.forName("oracle.jdbc.OracleDriver");
-//
-//			conn = DriverManager.getConnection("jdbc:oracle:thin:@//localhost:1521/XE", "c##green", "green1234");
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			exit();
-//		}
-//	}
+	private UserInfo_DAO dao;
+	ArrayList<UserInfoVo> delete_id;
 
 	public DeleteId_1(MainFrame mainFrame) {
 
@@ -84,11 +76,39 @@ public class DeleteId_1 extends JPanel {
 		// 회원탈퇴 버튼을 클릭시 데이터베이스에서 회원정보가 삭제되며, DeletId_2 클래스 화면으로 이동.
 		bt_deleteConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("DB에 해당 아이디의 비밀번호와 일치하는지 확인");
-				mainFrame.PageChange(MainFrame.PANELNAME.DELETE2);
+				String pw = tf_pw.getText();
+				dao = new UserInfo_DAO();
+				delete_id = dao.DeleteId(pw); // DAO 클래스 출력값 호출
+				
+				if (delete_id.size() != 0) {
+					for (int i = 0; i < delete_id.size(); i++) {
+						UserInfoVo data = (UserInfoVo) delete_id.get(i);
+						
+						String gpwd = data.getUserPw();
+						
+						if (String.valueOf(pw).equals(gpwd)) {
+							System.out.println("회원탈퇴가 완료되었습니다.");
+							System.out.println("탈퇴완료 화면으로 이동.");
+							tf_pw.setText("");
+							mainFrame.PageChange(MainFrame.PANELNAME.DELETE2);
+							
+						} else {
+							System.out.println("비밀번호가 일치하지 않습니다.");
+							JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.", "회원탈퇴 실패", 1);
+							tf_pw.setText("");
+						}
+					}
+
+				} else {
+					System.out.println("비밀번호가 일치하지 않습니다.");
+					JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.", "회원탈퇴 실패", 1);
+					tf_pw.setText("");
+				}
 
 			}
+			
 		});
+
 		bt_deleteConfirm.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		bt_deleteConfirm.setBounds(390, 470, 245, 50);
 		panel.add(bt_deleteConfirm);

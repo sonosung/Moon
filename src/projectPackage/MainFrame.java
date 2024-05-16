@@ -6,6 +6,11 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -27,7 +32,12 @@ public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private int index;
 	private JPanel MainPane;	
-	private JPanel TopPanelTest;	
+	private JPanel TopPanel;
+	private Login log;
+	
+	private UserInfo_DAO dao;
+	ArrayList<UserInfoVo> Loged_User;
+	
 	An_SQL ansql = new An_SQL();
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
@@ -40,6 +50,7 @@ public class MainFrame extends JFrame {
 	 */
 	
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -61,15 +72,15 @@ public class MainFrame extends JFrame {
 		index = 0;		
 		panelMap = new HashMap<MainFrame.PANELNAME, JPanel>();
 		
-		TopPanelTest = new TopPanelTest(this);	
-		
+		TopPanel = new TopPanel(this);
+        
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
 		JPanel ContentPanel2 = new AnCont5_1panel(this);
 		JPanel ContentPanel3 = new AnCont2(this);
 	    JPanel ContentPanel4 = new AnCont3(this);
 	    JPanel ContentPanel5= new AnCont4(this);
-	    JPanel PLogin = new Login_Test(this);
+	    JPanel PLogin = new Login(this);
 	    JPanel PCreateId_1 = new CreateId_1(this);
 	    JPanel PCreateId_2 = new CreateId_2(this);
 	    JPanel PCreateId_3 = new CreateId_3(this);
@@ -94,10 +105,6 @@ public class MainFrame extends JFrame {
 	    panelMap.put(MainFrame.PANELNAME.MYPAGE, ContentPanel12);
 	    panelMap.put(MainFrame.PANELNAME.DELETE1, ContentPanel13);
 	    panelMap.put(MainFrame.PANELNAME.DELETE2, ContentPanel14);
-
-		
-		//System.out.println(MainFrame.class.getResource("./../image/ring.jpg"));
-		//System.out.println(MainFrame.class.getResource("").getPath());
 		
 		//Main판넬 설정
 		setBounds(100, 100, 1280, 800);
@@ -110,7 +117,7 @@ public class MainFrame extends JFrame {
 		//메인 페이지 초기화 코드
 		ContentPanel.setVisible(true);		
 		
-		this.getContentPane().add(TopPanelTest);
+		this.getContentPane().add(TopPanel);
 		this.getContentPane().add(ContentPanel);
 		this.getContentPane().add(ContentPanel2);
 		this.getContentPane().add(ContentPanel3);
@@ -129,7 +136,7 @@ public class MainFrame extends JFrame {
 	
 	public void Pagechange_init(JPanel _panel, boolean headVisible)
 	{
-		this.TopPanelTest.setVisible(headVisible);
+		this.TopPanel.setVisible(headVisible);
 		_panel.setVisible(true);
 	}
 	
@@ -201,5 +208,10 @@ public class MainFrame extends JFrame {
 	public void Set_SeatValue2(List<Integer> select_seat) {
 		((AnCont3)panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit2(select_seat);
 	}
-
+	
+//	public void Set_Loged_User(List<Integer> User_No) {
+//		dao = new UserInfo_DAO();
+//		Loged_User = dao.User_no(User_No);
+//		System.out.println("현재" + Loged_User + "로 로그인이 되었습니다.");
+//	}
 }
