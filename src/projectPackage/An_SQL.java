@@ -214,7 +214,7 @@ public class An_SQL {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, key[3]);
 				pstmt.setInt(2, seat_size.get(i));   // 시트넘버 어떻게 가져오지
-				pstmt.setInt(3,1);  //유저 넘버 어떻게 할거
+				pstmt.setInt(3,30);  //유저 넘버 어떻게 할거
 				ResultSet rs = pstmt.executeQuery();
 				System.out.println("쿼리문 확인 : " + key[3] + " 시트 사이즈 겟 확인 " + seat_size.get(i));
 				rs.close();

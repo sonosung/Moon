@@ -81,7 +81,7 @@
 package projectPackage;
 
 public class UserInfoVo {
-	private String currentUser;
+//	private String currentUser;
 	private int userNo;
 	private String userId;
 	private String userName;
@@ -90,7 +90,7 @@ public class UserInfoVo {
 	private String userPhone;
 	private int ticketNo;
 	private String seat;
-	private String udata;
+//	private String udata;
 
 	public UserInfoVo(int userNo, String userName, String userId, String userPw, String userEmail, String userPhone, int ticketNo, String seat) {
 		
@@ -104,9 +104,9 @@ public class UserInfoVo {
 		this.seat = seat;
 	}
 	
-	public String getUser() {
-		return currentUser;
-	}
+//	public String getUser() {
+//		return currentUser;
+//	}
 
 	public int getUserNo() {
 		return userNo;
@@ -138,9 +138,9 @@ public class UserInfoVo {
 		return seat;
 	}
 	
-	public String getData() {
-		return udata;
-	}
+//	public String getData() {
+//		return udata;
+//	}
 	
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
@@ -171,18 +171,18 @@ public class UserInfoVo {
 	public void setSeat(String seat) {
 		this.seat = seat;
 	}
-	public void displayUserInfo(String udata) {
-		this.udata = udata;
-		
-        System.out.println("사용자 정보:");
-        System.out.println("사용자 번호: " + userNo);
-        System.out.println("사용자 이름: " + userName);
-        System.out.println("사용자 ID: " + userId);
-        System.out.println("사용자 이메일: " + userEmail);
-        System.out.println("사용자 전화번호: " + userPhone);
-        System.out.println("티켓 번호: " + ticketNo);
-        System.out.println("좌석: " + seat);
-    }
+//	public void displayUserInfo(String udata) {
+//		this.udata = udata;
+//		
+//        System.out.println("사용자 정보:");
+//        System.out.println("사용자 번호: " + userNo);
+//        System.out.println("사용자 이름: " + userName);
+//        System.out.println("사용자 ID: " + userId);
+//        System.out.println("사용자 이메일: " + userEmail);
+//        System.out.println("사용자 전화번호: " + userPhone);
+//        System.out.println("티켓 번호: " + ticketNo);
+//        System.out.println("좌석: " + seat);
+//    }
 }
 //
 //	public String getUser_Name() {

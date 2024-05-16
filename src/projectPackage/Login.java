@@ -90,7 +90,7 @@ public class Login extends JPanel {
 				dao = new UserInfo_DAO();
 				list_Id = dao.Login(inId); // DAO 클래스 출력값 호출
 				
-				UserInfoVo currentUser = SessionManager.getCurrentUser();
+//				UserInfoVo currentUser = SessionManager.getCurrentUser();
 
 				if (list_Id.size() != 0) {
 					for (int i = 0; i < list_Id.size(); i++) {
@@ -108,31 +108,31 @@ public class Login extends JPanel {
 							System.out.println("메인 화면으로 이동.");
 							mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 							
-//							new ImageIcon(TopPanel.class.getResource("/image/button/logout_s.png"));
-							
-							// 로그인 버튼 가져오기
-							JButton bt_login = (JButton) panel.getComponent(panel.getComponentCount() - 1);
-//							JButton bt_login = new JButton("로그인");
-
-							// 로그아웃 아이콘 설정
-							bt_login.setIcon(new ImageIcon(TopPanel.class.getResource("/image/button/logout_s.png")));
-							bt_login.setToolTipText("로그아웃");
-							bt_login.removeActionListener(bt_login.getActionListeners()[0]);
-							bt_login.addActionListener(new ActionListener() {
-							    @Override
-							    public void actionPerformed(ActionEvent e) {
-							        // 로그아웃 처리 코드 작성
-							        SessionManager.setCurrentUser(null);
-							        bt_login.setIcon(new ImageIcon(TopPanel.class.getResource("/image/button/login_s.png")));
-							        bt_login.setToolTipText("로그인");
-							        bt_login.addActionListener(new ActionListener() {
-							            @Override
-							            public void actionPerformed(ActionEvent e) {
-							                mainFrame.PageChange(MainFrame.PANELNAME.LOGIN);
-							            }
-							        });
-							    }
-							});
+////							new ImageIcon(TopPanel.class.getResource("/image/button/logout_s.png"));
+//							
+//							// 로그인 버튼 가져오기
+//							JButton bt_login = (JButton) panel.getComponent(panel.getComponentCount() - 1);
+////							JButton bt_login = new JButton("로그인");
+//
+//							// 로그아웃 아이콘 설정
+//							bt_login.setIcon(new ImageIcon(TopPanel.class.getResource("/image/button/logout_s.png")));
+//							bt_login.setToolTipText("로그아웃");
+//							bt_login.removeActionListener(bt_login.getActionListeners()[0]);
+//							bt_login.addActionListener(new ActionListener() {
+//							    @Override
+//							    public void actionPerformed(ActionEvent e) {
+//							        // 로그아웃 처리 코드 작성
+//							        SessionManager.setCurrentUser(null);
+//							        bt_login.setIcon(new ImageIcon(TopPanel.class.getResource("/image/button/login_s.png")));
+//							        bt_login.setToolTipText("로그인");
+//							        bt_login.addActionListener(new ActionListener() {
+//							            @Override
+//							            public void actionPerformed(ActionEvent e) {
+//							                mainFrame.PageChange(MainFrame.PANELNAME.LOGIN);
+//							            }
+//							        });
+//							    }
+//							});
 							
 							
 							
