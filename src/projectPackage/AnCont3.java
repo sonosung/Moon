@@ -26,9 +26,7 @@ public class AnCont3 extends JPanel {
 		this.mainFrame = mainFrame;
 		this.setSize(1280,800-150);
 		this.setPreferredSize(new Dimension(1280,800-150));
-		setLayout(null);
-		
-		
+		setLayout(null);	
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 0, 0));
@@ -71,7 +69,7 @@ public class AnCont3 extends JPanel {
 		panel_2.setLayout(null);
 		
 
-        this.setVisible(false);  
+//        this.setVisible(false);  
 		
 		
 		JLabel lblNewLabel = new JLabel("");
@@ -95,7 +93,6 @@ public class AnCont3 extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openAnCont4Panel();
-		    	setVisible(false);
 			}
 		});
 		panel_4.setLayout(null);
@@ -106,7 +103,6 @@ public class AnCont3 extends JPanel {
 		btnNewButton_2.setBounds(12, 240, 110, 42);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				An_SQL2 as = new An_SQL2();
 				openAnCont2Panel();
 		    	setVisible(false);
 				
@@ -168,7 +164,10 @@ public class AnCont3 extends JPanel {
 	
 	
 	private void openAnCont4Panel() {
+		mainFrame.ansql.seat_size_set(select_seat);
+		mainFrame.ansql.update();
         mainFrame.PageChange(MainFrame.PANELNAME.TICKET); 
+        this.setVisible(false);
     }
 	
 	private void openAnCont2Panel() {

@@ -15,6 +15,7 @@ public class An_SQL {
 	private MainFrame mainFrame;
 	int key[]=new int[4];
 	List<Integer> seat_no = new ArrayList<>();
+	List<Integer> seat_size = new ArrayList<>();
 	
 	public void An_SQL1() {
 		try {
@@ -38,10 +39,6 @@ public class An_SQL {
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
-				
-				AnBoard board = new AnBoard();
-				board.setNo(rs.getString("MOVIE_NO"));
-				board.setName(rs.getString("MOVIE_NAME"));
 				
 				String movieName = rs.getString("MOVIE_NAME");
 				int movieNo = rs.getInt("MOVIE_NO");
@@ -201,6 +198,31 @@ public class An_SQL {
 			exit();
 		}
 		return seat_no;
+	}
+	
+	public void seat_size_set(List<Integer> select_seat) {
+	    this.seat_size.clear(); 
+	    this.seat_size = select_seat;
+	}
+	
+	public void update() {
+		for(int i = 0; i < seat_size.size(); i++) {
+			try {
+				String sql = "" + "  INSERT INTO TICKET (TICKET_NO, SCHEDULE_NO, SEAT_NO, USER_NO, TICKET_STATUS) "
+						+ "  VALUES (SEQ_TICKET_NO.NEXTVAL, ?, ?, ?, 'av')";
+				PreparedStatement pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, key[3]);
+				pstmt.setInt(2, seat_size.get(i));   // 시트넘버 어떻게 가져오지
+				pstmt.setInt(3,1);  //유저 넘버 어떻게 할거
+				ResultSet rs = pstmt.executeQuery();
+				System.out.println("쿼리문 확인 : " + key[3] + " 시트 사이즈 겟 확인 " + seat_size.get(i));
+				rs.close();
+				pstmt.close();
+			}catch (SQLException e) {
+				e.printStackTrace();
+				exit();
+			}
+		}
 	}
 		
 	public void exit() {

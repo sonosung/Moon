@@ -40,9 +40,7 @@ public class AnCont2 extends JPanel {
 		this.setSize(1280,800-150);
 		this.setPreferredSize(new Dimension(1280,800-150));
 		setLayout(null);
-
-//		JPanel panel = new JPanel();
-
+		
 		panel.setBackground(new Color(0, 0, 0));
 		panel.setForeground(new Color(0, 0, 0));
 		panel.setBounds(0, 0, 1280, 650);
@@ -53,7 +51,6 @@ public class AnCont2 extends JPanel {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openAnCont3Panel();
-		    	setVisible(false);
 			}
 		});
 		
@@ -61,8 +58,6 @@ public class AnCont2 extends JPanel {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				openAnCont1Panel();
-		    	setVisible(false);
-				
 			}
 		});
 		
@@ -73,10 +68,10 @@ public class AnCont2 extends JPanel {
 		btnNewButton.setBounds(737, 544, 110, 42);
 		panel.add(btnNewButton);
 		
-		
+		this.setVisible(false);
 	}
 	public void Seat_Seeting() {
-		RoundedButton_2 seat_A1 = new RoundedButton_2("A1");	
+		RoundedButton_2 seat_A1 = new RoundedButton_2("1");	
 		seat_A1.setBounds(400, 100, 50, 50);
 		seat_A1.setOpaque(false);
 		seat_A1.setBackground(Color.DARK_GRAY);
@@ -103,7 +98,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_A2 = new RoundedButton_2("A2");
+		RoundedButton_2 seat_A2 = new RoundedButton_2("2");
 		seat_A2.setBounds(475, 100, 50, 50);
 		seat_A2.setOpaque(false);
 		seat_A2.setBackground(Color.DARK_GRAY);
@@ -129,7 +124,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_A3 = new RoundedButton_2("A3");
+		RoundedButton_2 seat_A3 = new RoundedButton_2("3");
 		seat_A3.setBounds(550, 100, 50, 50);
 		seat_A3.setOpaque(false);
 		seat_A3.setBackground(Color.DARK_GRAY);
@@ -156,7 +151,7 @@ public class AnCont2 extends JPanel {
 		});
 		
 
-		RoundedButton_2 seat_A4 = new RoundedButton_2("A4");
+		RoundedButton_2 seat_A4 = new RoundedButton_2("4");
 		seat_A4.setBounds(625, 100, 50, 50);
 		seat_A4.setOpaque(false);
 		seat_A4.setBackground(Color.DARK_GRAY);
@@ -182,7 +177,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_A5 = new RoundedButton_2("A5");
+		RoundedButton_2 seat_A5 = new RoundedButton_2("5");
 		seat_A5.setBounds(700, 100, 50, 50);
 		seat_A5.setOpaque(false);
 		seat_A5.setBackground(Color.DARK_GRAY);
@@ -208,7 +203,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_A6 = new RoundedButton_2("A6");
+		RoundedButton_2 seat_A6 = new RoundedButton_2("6");
 		seat_A6.setBounds(775, 100, 50, 50);
 		seat_A6.setOpaque(false);
 		seat_A6.setBackground(Color.DARK_GRAY);
@@ -234,7 +229,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_B1 = new RoundedButton_2("B1");
+		RoundedButton_2 seat_B1 = new RoundedButton_2("7");
 		seat_B1.setBounds(400, 175, 50, 50);
 		seat_B1.setOpaque(false);
 		seat_B1.setBackground(Color.DARK_GRAY);
@@ -260,7 +255,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_B2 = new RoundedButton_2("B2");
+		RoundedButton_2 seat_B2 = new RoundedButton_2("8");
 		seat_B2.setBounds(475, 175, 50, 50);
 		seat_B2.setOpaque(false);
 		seat_B2.setBackground(Color.DARK_GRAY);
@@ -286,7 +281,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_B3 = new RoundedButton_2("B3");
+		RoundedButton_2 seat_B3 = new RoundedButton_2("9");
 		seat_B3.setBounds(550, 175, 50, 50);
 		seat_B3.setOpaque(false);
 		seat_B3.setBackground(Color.DARK_GRAY);
@@ -312,7 +307,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_B4 = new RoundedButton_2("B4");
+		RoundedButton_2 seat_B4 = new RoundedButton_2("10");
 		seat_B4.setBounds(625, 175, 50, 50);
 		seat_B4.setOpaque(false);
 		seat_B4.setBackground(Color.DARK_GRAY);
@@ -338,7 +333,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_B5 = new RoundedButton_2("B5");
+		RoundedButton_2 seat_B5 = new RoundedButton_2("11");
 		seat_B5.setBounds(700, 175, 50, 50);
 		seat_B5.setOpaque(false);
 		seat_B5.setBackground(Color.DARK_GRAY);
@@ -364,7 +359,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_B6 = new RoundedButton_2("B6");
+		RoundedButton_2 seat_B6 = new RoundedButton_2("12");
 		seat_B6.setBounds(775, 175, 50, 50);
 		seat_B6.setOpaque(false);
 		seat_B6.setBackground(Color.DARK_GRAY);
@@ -390,7 +385,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_C1 = new RoundedButton_2("C1");	
+		RoundedButton_2 seat_C1 = new RoundedButton_2("13");	
 		seat_C1.setBounds(400, 250, 50, 50);
 		seat_C1.setOpaque(false);
 		seat_C1.setBackground(Color.DARK_GRAY);
@@ -417,7 +412,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_C2 = new RoundedButton_2("C2");
+		RoundedButton_2 seat_C2 = new RoundedButton_2("14");
 		seat_C2.setBounds(475, 250, 50, 50);
 		seat_C2.setOpaque(false);
 		seat_C2.setBackground(Color.DARK_GRAY);
@@ -443,7 +438,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_C3 = new RoundedButton_2("C3");
+		RoundedButton_2 seat_C3 = new RoundedButton_2("15");
 		seat_C3.setBounds(550, 250, 50, 50);
 		seat_C3.setOpaque(false);
 		seat_C3.setBackground(Color.DARK_GRAY);
@@ -469,7 +464,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_C4 = new RoundedButton_2("C4");
+		RoundedButton_2 seat_C4 = new RoundedButton_2("16");
 		seat_C4.setBounds(625, 250, 50, 50);
 		seat_C4.setOpaque(false);
 		seat_C4.setBackground(Color.DARK_GRAY);
@@ -495,7 +490,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_C5 = new RoundedButton_2("C5");
+		RoundedButton_2 seat_C5 = new RoundedButton_2("17");
 		seat_C5.setBounds(700, 250, 50, 50);
 		seat_C5.setOpaque(false);
 		seat_C5.setBackground(Color.DARK_GRAY);
@@ -521,7 +516,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_C6 = new RoundedButton_2("C6");
+		RoundedButton_2 seat_C6 = new RoundedButton_2("18");
 		seat_C6.setBounds(775, 250, 50, 50);
 		seat_C6.setOpaque(false);
 		seat_C6.setBackground(Color.DARK_GRAY);
@@ -547,7 +542,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_D1 = new RoundedButton_2("D1");
+		RoundedButton_2 seat_D1 = new RoundedButton_2("19");
 		seat_D1.setBounds(400, 325, 50, 50);
 		seat_D1.setOpaque(false);
 		seat_D1.setBackground(Color.DARK_GRAY);
@@ -573,7 +568,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_D2 = new RoundedButton_2("D2");
+		RoundedButton_2 seat_D2 = new RoundedButton_2("20");
 		seat_D2.setBounds(475, 325, 50, 50);
 		seat_D2.setOpaque(false);
 		seat_D2.setBackground(Color.DARK_GRAY);
@@ -599,7 +594,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_D3 = new RoundedButton_2("D3");
+		RoundedButton_2 seat_D3 = new RoundedButton_2("21");
 		seat_D3.setBounds(550, 325, 50, 50);
 		seat_D3.setOpaque(false);
 		seat_D3.setBackground(Color.DARK_GRAY);
@@ -625,7 +620,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_D4 = new RoundedButton_2("D4");
+		RoundedButton_2 seat_D4 = new RoundedButton_2("22");
 		seat_D4.setBounds(625, 325, 50, 50);
 		seat_D4.setOpaque(false);
 		seat_D4.setBackground(Color.DARK_GRAY);
@@ -651,7 +646,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_D5 = new RoundedButton_2("D5");
+		RoundedButton_2 seat_D5 = new RoundedButton_2("23");
 		seat_D5.setBounds(700, 325, 50, 50);
 		seat_D5.setOpaque(false);
 		seat_D5.setBackground(Color.DARK_GRAY);
@@ -677,7 +672,7 @@ public class AnCont2 extends JPanel {
 			}
 		});
 		
-		RoundedButton_2 seat_D6 = new RoundedButton_2("D6");
+		RoundedButton_2 seat_D6 = new RoundedButton_2("24");
 		seat_D6.setBounds(775, 325, 50, 50);
 		seat_D6.setOpaque(false);
 		seat_D6.setBackground(Color.DARK_GRAY);
@@ -702,10 +697,6 @@ public class AnCont2 extends JPanel {
 				}
 			}
 		});		
-//		JLabel lblNewLabel_3 = new JLabel("좌석을 선택하시오");
-//		lblNewLabel_3.setForeground(new Color(255, 255, 255));
-//		lblNewLabel_3.setBounds(73, 165, 168, 15);
-//		panel.add(lblNewLabel_3);
 		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setForeground(new Color(0, 0, 0));
@@ -717,13 +708,11 @@ public class AnCont2 extends JPanel {
 		
 		this.setVisible(false);
 	}
-	
-	
-	
-	
+
 	private void openAnCont1Panel() {
-		AnCont5_1panel anCont1Panel = new AnCont5_1panel(mainFrame);
+//		AnCont5_1panel anCont1Panel = new AnCont5_1panel(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.TICKETING); 
+        this.setVisible(false);
     }
 	
 	private void openAnCont3Panel() {
@@ -753,7 +742,7 @@ public class AnCont2 extends JPanel {
 			select_seat.add(8);
 		}
 		if(B3 % 2 == 1) {
-			select_seat.add(8);
+			select_seat.add(9);
 		}
 		if(B4 % 2 == 1) {
 			select_seat.add(10);
@@ -801,7 +790,7 @@ public class AnCont2 extends JPanel {
 			select_seat.add(24);
 		}
 		mainFrame.Set_SeatValue2(select_seat);
-//        AnCont2 anCont3Panel = new AnCont2(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.PAYMENT); 
+        this.setVisible(false);
     }
 }
