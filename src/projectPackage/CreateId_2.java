@@ -136,6 +136,7 @@ public class CreateId_2 extends JPanel {
 		
 		//회원가입 버튼 클릭시 텍스트필드 값 출력 확인
 		bt_join.addActionListener(new ActionListener() {
+<<<<<<< HEAD
             public void actionPerformed(ActionEvent e) {
             	
                 String uName 	= tf_user_name.getText();
@@ -159,6 +160,31 @@ public class CreateId_2 extends JPanel {
             }
         });
 
+=======
+			public void actionPerformed(ActionEvent e) {
+				String uName = new String(tf_user_name.getText());
+				String uId = new String(tf_user_id.getText());
+				String uPw = new String(tf_user_pw.getPassword());
+				String uEmail = new String(tf_user_email.getText());
+				String uPhone = new String(tf_user_phone.getText());
+				
+//				Connection con = mainFrame.getConnection();
+				//
+				list = dao.list(uName, uId, uPw, uEmail, uPhone);
+				
+				System.out.println(uName + "\n" + uId + "\n" + uPw+ "\n" + uEmail + "\n" + uPhone);//아이디, 패스워드 입력 확인.
+				
+				System.out.println("회원가입 완료 페이지로 이동");
+				mainFrame.PageChange(MainFrame.PANELNAME.JOIN3);
+				
+				tf_user_name.setText("");
+				tf_user_id.setText("");
+				tf_user_pw.setText("");
+				tf_user_email.setText("");
+				tf_user_phone.setText("");
+			}
+		});
+>>>>>>> refs/heads/main
 		bt_join.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		bt_join.setBounds(390, 470, 500, 50);
 		panel.add(bt_join);

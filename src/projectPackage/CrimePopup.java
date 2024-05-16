@@ -10,12 +10,15 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.Icon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CrimePopup extends JFrame {
 
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
-
+    private MainFrame mainFrame;
+    private OhtanisPanel ohtanisPanel;
     /**
      * Launch the application.
      */

@@ -31,8 +31,8 @@ public class MainFrame extends JFrame {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 	
-	public enum PANELNAME {MAIN, SELECT, PAYMENT, OHYES, LOGIN, CREATE1, CREATE2, 
-		JOIN3, TICKET, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1, DELETE2};
+	public enum PANELNAME {MAIN, TICKETING, SELECT, PAYMENT, TICKET, LOGIN, CREATE1, CREATE2, 
+		JOIN3, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1, DELETE2};
 
 	/**
 	 * Launch the application.
@@ -64,11 +64,16 @@ public class MainFrame extends JFrame {
 		
 		//생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
-//		JPanel ContentPanel2 = new AnCont5_1panel(this);
+		JPanel ContentPanel2 = new AnCont5_1panel(this);
 		JPanel ContentPanel3 = new AnCont2(this);
 	    JPanel ContentPanel4 = new AnCont3(this);
+<<<<<<< HEAD
 	    JPanel ContentPanel5 = new AnCont4(this);
 	    JPanel PLogin = new Login(this);
+=======
+	    JPanel ContentPanel5= new AnCont4(this);
+	    JPanel PLogin = new Login_Test(this);
+>>>>>>> refs/heads/main
 	    JPanel PCreateId_1 = new CreateId_1(this);
 	    JPanel PCreateId_2 = new CreateId_2(this);
 	    JPanel PCreateId_3 = new CreateId_3(this);
@@ -81,16 +86,15 @@ public class MainFrame extends JFrame {
 		
 		//생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
-//		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2);
+		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2);
 		panelMap.put(MainFrame.PANELNAME.SELECT, ContentPanel3);
 	    panelMap.put(MainFrame.PANELNAME.PAYMENT, ContentPanel4);
-	    panelMap.put(MainFrame.PANELNAME.OHYES, ContentPanel5);
+	    panelMap.put(MainFrame.PANELNAME.TICKET, ContentPanel5);
 	    panelMap.put(MainFrame.PANELNAME.LOGIN, PLogin);
 	    panelMap.put(MainFrame.PANELNAME.CREATE1, PCreateId_1);
 	    panelMap.put(MainFrame.PANELNAME.CREATE2, PCreateId_2);
 	    panelMap.put(MainFrame.PANELNAME.JOIN3, PCreateId_3);
 	    panelMap.put(MainFrame.PANELNAME.BIRD, ContentPanel10);
-//	    panelMap.put(MainFrame.PANELNAME.PAGE1, ContentPanel11);
 	    panelMap.put(MainFrame.PANELNAME.MYPAGE, ContentPanel12);
 	    panelMap.put(MainFrame.PANELNAME.DELETE1, ContentPanel13);
 	    panelMap.put(MainFrame.PANELNAME.DELETE2, ContentPanel14);
@@ -110,19 +114,17 @@ public class MainFrame extends JFrame {
 		//메인 페이지 초기화 코드
 		ContentPanel.setVisible(true);		
 		
-		//Main 판넬에 하위 판넬 add 처리
 		this.getContentPane().add(TopPanelTest);
 		this.getContentPane().add(ContentPanel);
-//		this.getContentPane().add(ContentPanel2);
+		this.getContentPane().add(ContentPanel2);
 		this.getContentPane().add(ContentPanel3);
 		this.getContentPane().add(ContentPanel4);
-	    this.getContentPane().add(ContentPanel5);
+		this.getContentPane().add(ContentPanel5);
 	    this.getContentPane().add(PLogin);	//LOGIN
 	    this.getContentPane().add(PCreateId_1);	//CreateId_1
 	    this.getContentPane().add(PCreateId_2);   //CreateId_2
 	    this.getContentPane().add(PCreateId_3);   //CreateId_3
 	    this.getContentPane().add(ContentPanel10);  //BirdRichard
-//	    this.getContentPane().add(ContentPanel11);
 	    this.getContentPane().add(ContentPanel12);
 	    this.getContentPane().add(ContentPanel13);
 	    this.getContentPane().add(ContentPanel14);
@@ -150,18 +152,15 @@ public class MainFrame extends JFrame {
 		case MAIN: 			
 			Pagechange_init(panelMap.get(MainFrame.PANELNAME.MAIN), true);
 			break;
-//	     case TICKETING:
-//	         panelMap.get(MainFrame.PANELNAME.TICKETING).setVisible(true);
-//	         break;   
+	     case TICKETING:
+	         panelMap.get(MainFrame.PANELNAME.TICKETING).setVisible(true);
+	         break;   
 	      case SELECT:
 	         panelMap.get(MainFrame.PANELNAME.SELECT).setVisible(true);
 	         break;   
 	      case PAYMENT:
 	         panelMap.get(MainFrame.PANELNAME.PAYMENT).setVisible(true);
-	         break;   
-	      case OHYES:
-		      panelMap.get(MainFrame.PANELNAME.PAYMENT).setVisible(true);
-		      break;   
+	         break;     
 	      case TICKET:
 	         panelMap.get(MainFrame.PANELNAME.TICKET).setVisible(true);
 	         break;
@@ -193,6 +192,14 @@ public class MainFrame extends JFrame {
 	    	  panelMap.get(MainFrame.PANELNAME.DELETE2).setVisible(true);
 	    	  break;
 		}
+	}
+	
+	public void Set_SeatValue(List<Integer> seat_no){
+		((AnCont2)panelMap.get(MainFrame.PANELNAME.SELECT)).PageInit(seat_no);
+	}
+	
+	public void Set_SeatValue2(List<Integer> select_seat) {
+		((AnCont3)panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit2(select_seat);
 	}
 
 }
