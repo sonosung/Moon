@@ -32,9 +32,8 @@ public class AnCont5_1panel extends JPanel {
 	private HashMap<Integer, String> LocalMap;
 	private HashMap<Integer, String> HouseMap;
 	private HashMap<Integer, String> TimeMap;
+	String select_movie[] = new String[4];
 	
-	
-	An_SQL ansql = new An_SQL();
 	JLabel lblNewLabel = new JLabel("");
 	int key[] = new int[4];
 
@@ -66,8 +65,8 @@ public class AnCont5_1panel extends JPanel {
 
 		this.setVisible(false);
 
-		ansql.An_SQL1();
-		HashMap<Integer, String> movieMap = ansql.Movielist();
+		mainFrame.ansql.An_SQL1();
+		HashMap<Integer, String> movieMap = mainFrame.ansql.Movielist();
 		Vector<String> movieNames = new Vector<>(movieMap.values());
 		JList<String> list = new JList<String>(movieNames);
 		list.setCellRenderer(new MyCellRenderer());
@@ -115,10 +114,12 @@ public class AnCont5_1panel extends JPanel {
 						break;
 					}
 				}
+				String moviename = (String)movieMap.get(movieno);
+				select_movie[0]= moviename;
 				
-				ansql.setSelectedMovieNo(movieno);
+				mainFrame.ansql.setSelectedMovieNo(movieno);
 				key[0] = movieno;
-				LocalMap = ansql.Allsearch();
+				LocalMap = mainFrame.ansql.Allsearch();
 				
 				Vector<String> Localname = new Vector<>(LocalMap.values());
 				list2.setListData(Localname);
@@ -141,9 +142,12 @@ public class AnCont5_1panel extends JPanel {
 						break;
 					}
 				}				
-				ansql.setSelectedLocalNo(localno);
+				String Localname = (String)LocalMap.get(localno);
+				select_movie[1]= Localname;
+				
+				mainFrame.ansql.setSelectedLocalNo(localno);
 				key[1] = localno;
-				HouseMap = ansql.Allsearch2();				
+				HouseMap = mainFrame.ansql.Allsearch2();				
 				Vector<String> Housename = new Vector<>(HouseMap.values());
 				list3.setListData(Housename);
 				}
@@ -163,9 +167,12 @@ public class AnCont5_1panel extends JPanel {
 						break;
 					}
 				}				
-				ansql.setSelectedHouseNo(Houseno);
+				String Housename = (String)HouseMap.get(Houseno);
+				select_movie[2]= Housename;
+				
+				mainFrame.ansql.setSelectedHouseNo(Houseno);
 				key[2] = Houseno;
-				TimeMap = ansql.Allsearch3();				
+				TimeMap = mainFrame.ansql.Allsearch3();				
 				Vector<String> Timename = new Vector<>(TimeMap.values());
 				list4.setListData(Timename);
 				}
@@ -185,8 +192,11 @@ public class AnCont5_1panel extends JPanel {
 						break;
 					}
 				}
+				String Timename = (String)TimeMap.get(Timeno);
+				select_movie[3]= Timename;
+				
 				key[3] = Timeno;
-				ansql.setSelectedTime(Timeno);
+				mainFrame.ansql.setSelectedTime(Timeno);
 		
 			}
 		});		
@@ -231,8 +241,9 @@ public class AnCont5_1panel extends JPanel {
 	}
 
 	private void openAnCont2Panel() {
-		List<Integer> seat_no = ansql.seat_no();	
+		List<Integer> seat_no = mainFrame.ansql.seat_no();	
 		mainFrame.Set_SeatValue(seat_no);
+		mainFrame.Set_movie(select_movie);
 		mainFrame.PageChange(MainFrame.PANELNAME.SELECT);
 		this.setVisible(false);
 	}
@@ -240,5 +251,6 @@ public class AnCont5_1panel extends JPanel {
 	private void MainGo() {
 //		OhtanisPanel anCont2Panel = new OhtanisPanel(mainFrame);
 		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
+		this.setVisible(false);
 	}
 }
