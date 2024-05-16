@@ -67,13 +67,13 @@ public class MainFrame extends JFrame {
 		JPanel ContentPanel2 = new AnCont5_1panel(this);
 		JPanel ContentPanel3 = new AnCont2(this);
 	    JPanel ContentPanel4 = new AnCont3(this);
-<<<<<<< HEAD
+
 	    JPanel ContentPanel5 = new AnCont4(this);
 	    JPanel PLogin = new Login(this);
-=======
-	    JPanel ContentPanel5= new AnCont4(this);
-	    JPanel PLogin = new Login_Test(this);
->>>>>>> refs/heads/main
+
+//	    JPanel ContentPanel5 = new AnCont4(this);
+//	    JPanel PLogin = new Login(this);
+
 	    JPanel PCreateId_1 = new CreateId_1(this);
 	    JPanel PCreateId_2 = new CreateId_2(this);
 	    JPanel PCreateId_3 = new CreateId_3(this);

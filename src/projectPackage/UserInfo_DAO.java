@@ -357,46 +357,46 @@ public class UserInfo_DAO {
 		return list_Id;
 	}
 	
-	public ArrayList<UserInfoVo> myPage(String name, String id, String pw, String email, String phone) {
-		String sql = "SELECT * FROM USER_INFO";
-		ArrayList<UserInfoVo> list_Info = new ArrayList<UserInfoVo>();
-		try {
-			connDB(); // 데이터베이스 연결
-//			if ( != null) {
-				sql += " WHERE USER_ID='" + inId + "'"; // ID로 필터링
+//	public ArrayList<UserInfoVo> myPage(String name, String id, String pw, String email, String phone) {
+//		String sql = "SELECT * FROM USER_INFO";
+//		ArrayList<UserInfoVo> list_Info = new ArrayList<UserInfoVo>();
+//		try {
+//			connDB(); // 데이터베이스 연결
+////			if ( != null) {
+//				sql += " WHERE USER_ID='" + inId + "'"; // ID로 필터링
+////			}
+//			System.out.println("SQL : " + sql);
+//
+//			rs = stmt.executeQuery(sql); // 쿼리 실행
+//			rs.last();
+//			System.out.println("rs.getRow() : " + rs.getRow());
+//
+//			if (rs.getRow() == 0) {
+//				System.out.println("0 row selected...");
+//			} else {
+//				System.out.println(rs.getRow() + " rows selected...");
+//				rs.previous();
+//				while (rs.next()) {
+//					int userNo = rs.getInt("user_no");
+//					String userName = rs.getString("user_name");
+//					String userId = rs.getString("USER_ID");
+//					String userPw = rs.getString("USER_PW");
+//					String userEmail = rs.getString("user_email");
+//					String userPhone = rs.getString("user_phone");
+//					int ticketNo = rs.getInt("ticket_no");
+//					String seat = rs.getString("seat");
+//
+//					UserInfoVo data = new UserInfoVo(userNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
+//							seat);
+//					list_Id.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
+//				}
 //			}
-			System.out.println("SQL : " + sql);
-
-			rs = stmt.executeQuery(sql); // 쿼리 실행
-			rs.last();
-			System.out.println("rs.getRow() : " + rs.getRow());
-
-			if (rs.getRow() == 0) {
-				System.out.println("0 row selected...");
-			} else {
-				System.out.println(rs.getRow() + " rows selected...");
-				rs.previous();
-				while (rs.next()) {
-					int userNo = rs.getInt("user_no");
-					String userName = rs.getString("user_name");
-					String userId = rs.getString("USER_ID");
-					String userPw = rs.getString("USER_PW");
-					String userEmail = rs.getString("user_email");
-					String userPhone = rs.getString("user_phone");
-					int ticketNo = rs.getInt("ticket_no");
-					String seat = rs.getString("seat");
-
-					UserInfoVo data = new UserInfoVo(userNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
-							seat);
-					list_Id.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
-		return list_Id;
-	}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return list_Id;
+//	}
 
 //	public ArrayList<UserInfoVo> Delete(String inPw) {
 //		String sql = "Delete FROM USER_INFO ";

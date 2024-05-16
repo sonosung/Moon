@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+//<<<<<<< HEAD
 //package projectPackage;
 //
 //import java.awt.Color;
@@ -120,7 +120,7 @@
 //		}
 //	}
 //}
-=======
+//=======
 package projectPackage;
 
 import java.awt.Color;
@@ -243,4 +243,4 @@ public class HeadPanel extends JPanel {
 		}
 	}
 }
->>>>>>> refs/remotes/origin/sanghwan
+//>>>>>>> refs/remotes/origin/sanghwan
