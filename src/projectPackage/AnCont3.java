@@ -18,9 +18,11 @@ public class AnCont3 extends JPanel {
 	private MainFrame mainFrame;
 	private static final long serialVersionUID = 1L;
 	List<Integer> select_seat = new ArrayList<>();
+	int key[] = new int[4];
+	String select_movie[] = new String[4];
+	JPanel panel_2 = new JPanel();
 	
 	public AnCont3(MainFrame mainFrame) {
-		
 		this.mainFrame = mainFrame;
 		this.setSize(1280,800-150);
 		this.setPreferredSize(new Dimension(1280,800-150));
@@ -62,8 +64,7 @@ public class AnCont3 extends JPanel {
 		panel_1.setBounds(245, 20, 790, 550);
 		panel.add(panel_1);
 		panel_1.setLayout(null);
-		
-		JPanel panel_2 = new JPanel();
+
 		panel_2.setBounds(12, 10, 765, 530);
 		panel_2.setBackground(new Color(0, 0, 0));
 		panel_1.add(panel_2);
@@ -77,11 +78,6 @@ public class AnCont3 extends JPanel {
 		lblNewLabel.setIcon(new ImageIcon(AnCont3.class.getResource("/anSH_img/style_65e936963ad32.png")));
 		lblNewLabel.setBounds(12, 10, 130, 185);
 		panel_2.add(lblNewLabel);
-		
-		JLabel lblNewLabel_1 = new JLabel("영화 제목 정보");
-		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setBounds(184, 10, 531, 185);
-		panel_2.add(lblNewLabel_1);
 		
 		JPanel panel_3 = new JPanel();
 		panel_3.setBackground(new Color(0, 0, 0));
@@ -110,6 +106,7 @@ public class AnCont3 extends JPanel {
 		btnNewButton_2.setBounds(12, 240, 110, 42);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+//				An_SQL2 as = new An_SQL2();
 				openAnCont2Panel();
 		    	setVisible(false);
 				
@@ -131,22 +128,50 @@ public class AnCont3 extends JPanel {
 	
 	
 		this.setVisible(false);
-       
+	}
+	
+	public void oppppen() {
+	JLabel lblNewLabel_1 = new JLabel("영화 제목 : " +  select_movie[0]);
+	lblNewLabel_1.setForeground(new Color(255, 255, 255));
+	lblNewLabel_1.setBounds(184, 40, 531, 40);
+	panel_2.add(lblNewLabel_1);
+	
+	JLabel lblNewLabel_2 = new JLabel(
+			"지역  영화관 : " +  select_movie[1] +"  " +  select_movie[2] +  "\n");
+	lblNewLabel_2.setForeground(new Color(255, 255, 255));
+	lblNewLabel_2.setBounds(184, 10, 531, 185);
+	panel_2.add(lblNewLabel_2);
+	
+	JLabel lblNewLabel_3 = new JLabel(
+			"상영 시간 : " + select_movie[3]);
+	lblNewLabel_3.setForeground(new Color(255, 255, 255));
+	lblNewLabel_3.setBounds(184, 25, 531, 185);
+	panel_2.add(lblNewLabel_3);
+	
+	JLabel lblNewLabel_4 = new JLabel(
+			"좌석 번호 : " + select_seat);
+	lblNewLabel_4.setForeground(new Color(255, 255, 255));
+	lblNewLabel_4.setBounds(184, 40, 531, 185);
+	panel_2.add(lblNewLabel_4);
 	}
 	
 	public void PageInit2(List<Integer> select_seat) {
 		this.select_seat = select_seat;
-		System.out.println("선택좌석표시"+select_seat);
+		oppppen();
+		System.out.println("선택좌석표시" + select_seat);
+	}
+	
+	public void pageInt_movie(String[] select_movie) {
+		this.select_movie = select_movie;
+		System.out.println(select_movie[0] + select_movie[1] + select_movie[2] + select_movie[3]);
 	}
 	
 	
 	private void openAnCont4Panel() {
-        AnCont4 anCont4Panel = new AnCont4(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.TICKET); 
     }
 	
 	private void openAnCont2Panel() {
-        AnCont2 anCont2Panel = new AnCont2(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.SELECT); 
     }
 }

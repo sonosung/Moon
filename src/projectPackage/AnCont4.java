@@ -58,8 +58,12 @@ public class AnCont4 extends JPanel {
 		this.setVisible(false);
 	}
 	
+	public void show() {
+		
+	}
+	
 	private void OtanP() {
-		OhtanisPanel Otan = new OhtanisPanel(mainFrame);
+//		OhtanisPanel Otan = new OhtanisPanel(mainFrame);
         mainFrame.PageChange(MainFrame.PANELNAME.MAIN); 
     }
 }
