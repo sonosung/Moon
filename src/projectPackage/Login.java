@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
@@ -21,16 +20,24 @@ public class Login extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private MainFrame mainFrame;
-	private TopPanel topPanel;
 	private JPasswordField pf_password;
 	private UserInfo_DAO dao;
 	ArrayList<UserInfoVo> list_Id;
-	/**
-	 * Create the panel.
-	 */
+
+	// g
+	private LoginEventListener listener;
+
+	public void addLoginEventListener(LoginEventListener listener) {
+		this.listener = listener;
+	}
+		/**
+		 * Create the panel.
+		 */
+
 	Color bg = new Color(0xdfeff0);
 
 	public Login(MainFrame mainFrame) {
+
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
 		this.setPreferredSize(new Dimension(1280, 800 - 150));
@@ -44,7 +51,7 @@ public class Login extends JPanel {
 		add(panel);
 		panel.setLayout(null);
 
-		JLabel lb_login = new JLabel("로그인");
+		JLabel lb_login = new JLabel();
 		lb_login.setForeground(Color.WHITE);
 		lb_login.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_login.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
@@ -75,7 +82,7 @@ public class Login extends JPanel {
 		panel.add(lb_noId);
 
 		// 로그인 버튼
-		JButton bt_login = new JButton("로그인");
+		JButton bt_login = new JButton();
 		bt_login = new JButton(new ImageIcon(Login.class.getResource("/image/seungho/lb_login.png")));
 		bt_login.setHorizontalTextPosition(SwingConstants.CENTER);
 		bt_login.setBounds(390, 330, 500, 50);
@@ -84,61 +91,35 @@ public class Login extends JPanel {
 
 		// 로그인 버튼 클릭시, DB와 연동하여 입력값과 출력 그리고 DB정보값과 입력값 비교하여 로그인 성공/실패 유무 판단!
 		bt_login.addActionListener(new ActionListener() {
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				String inId = new String(tf_id.getText());
-				dao = new UserInfo_DAO();
-				list_Id = dao.Login(inId); // DAO 클래스 출력값 호출
+				dao = new UserInfo_DAO(); //UserInfo_DVO 클래스의 인스턴스 생성.
+				list_Id = dao.Login(inId); //입력한 아이디를 사용하여 DAO가 접근해여 얻은 사용자의 ID를 가져옴.
 				
-//				UserInfoVo currentUser = SessionManager.getCurrentUser();
-
+				//사용자 아이디가 존재할 경우, 아이디와 패스워드 일치여부 확인.
 				if (list_Id.size() != 0) {
 					for (int i = 0; i < list_Id.size(); i++) {
+						//DAO 클래스에서 가져온 정보를 UserInfoVo 클래스에 저장.
 						UserInfoVo data = (UserInfoVo) list_Id.get(i);
 						String gid = data.getUserId();
 						String gpwd = data.getUserPw();
+						int gUno = data.getUserNo();
 
 						char[] pw = (pf_password.getPassword());
 						
 						System.out.println(gid + " : " + gpwd);
-						
+
 						if (tf_id.getText().equals(gid) && String.valueOf(pw).equals(gpwd)) {
 							System.out.println("로그인이 성공했습니다.");
-							SessionManager.setCurrentUser(data);
 							System.out.println("메인 화면으로 이동.");
 							mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 							
-////							new ImageIcon(TopPanel.class.getResource("/image/button/logout_s.png"));
-//							
-//							// 로그인 버튼 가져오기
-//							JButton bt_login = (JButton) panel.getComponent(panel.getComponentCount() - 1);
-////							JButton bt_login = new JButton("로그인");
-//
-//							// 로그아웃 아이콘 설정
-//							bt_login.setIcon(new ImageIcon(TopPanel.class.getResource("/image/button/logout_s.png")));
-//							bt_login.setToolTipText("로그아웃");
-//							bt_login.removeActionListener(bt_login.getActionListeners()[0]);
-//							bt_login.addActionListener(new ActionListener() {
-//							    @Override
-//							    public void actionPerformed(ActionEvent e) {
-//							        // 로그아웃 처리 코드 작성
-//							        SessionManager.setCurrentUser(null);
-//							        bt_login.setIcon(new ImageIcon(TopPanel.class.getResource("/image/button/login_s.png")));
-//							        bt_login.setToolTipText("로그인");
-//							        bt_login.addActionListener(new ActionListener() {
-//							            @Override
-//							            public void actionPerformed(ActionEvent e) {
-//							                mainFrame.PageChange(MainFrame.PANELNAME.LOGIN);
-//							            }
-//							        });
-//							    }
-//							});
-							
-							
-							
+							//로그인 성공이벤트처리.
+							loginSuccessful(gid, gUno);
+
 							tf_id.setText("");
 							pf_password.setText("");
-							
+
 						} else {
 							System.out.println("로그인이 실패했습니다.");
 							JOptionPane.showMessageDialog(null, "아이디나 패스워드가 올바르지 않습니다.", "로그인 실패", 1);
@@ -155,25 +136,16 @@ public class Login extends JPanel {
 				}
 
 			}
-			
+
 		});
 		panel.add(bt_login);
 
-		JButton bt_join = new JButton("");
-		bt_join.setIcon(new ImageIcon(Login.class.getResource("/image/seungho/bt_join.png")));
-		bt_join.setFont(new Font("나눔고딕", Font.BOLD, 13));
-		bt_join.setBounds(390, 470, 500, 50);
-		bt_join.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-				System.out.println("회원가입 화면으로 이동"); // 버튼 클릭 확인용.
-				mainFrame.PageChange(MainFrame.PANELNAME.CREATE1);
-			}
-		});
-		panel.add(bt_join);
-
 		this.setVisible(false);
-
+	}
+	public void loginSuccessful(String userId, int userNo) {
+		mainFrame.loginSuccessful(new LoginEvent(userId, userNo));
+		mainFrame.switchToTopPanel2();
+		
 	}
 
 }

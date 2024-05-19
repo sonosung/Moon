@@ -81,7 +81,7 @@
 package projectPackage;
 
 public class UserInfoVo {
-//	private String currentUser;
+
 	private int userNo;
 	private String userId;
 	private String userName;
@@ -103,10 +103,6 @@ public class UserInfoVo {
 		this.ticketNo = ticketNo;
 		this.seat = seat;
 	}
-	
-//	public String getUser() {
-//		return currentUser;
-//	}
 
 	public int getUserNo() {
 		return userNo;
@@ -138,10 +134,6 @@ public class UserInfoVo {
 		return seat;
 	}
 	
-//	public String getData() {
-//		return udata;
-//	}
-	
 	public void setUserNo(int userNo) {
 		this.userNo = userNo;
 	}
@@ -153,9 +145,9 @@ public class UserInfoVo {
 		this.userId = userId;
 	}
 
-	public void setUserPw(String userPw) {
-		this.userPw = userPw;
-	}
+//	public void setUserPw(String userPw) {
+//		this.userPw = userPw;
+//	}
 
 	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
@@ -171,6 +163,7 @@ public class UserInfoVo {
 	public void setSeat(String seat) {
 		this.seat = seat;
 	}
+	
 //	public void displayUserInfo(String udata) {
 //		this.udata = udata;
 //		
@@ -184,24 +177,3 @@ public class UserInfoVo {
 //        System.out.println("좌석: " + seat);
 //    }
 }
-//
-//	public String getUser_Name() {
-//		return userName;
-//	}
-//
-//	public String getUser_Email() {
-//		return userEmail;
-//	}
-//
-//	public String getUser_Phone() {
-//		return userPhone;
-//	}
-//
-//	public String getUser_Id() {
-//		return userId;
-//	}
-//
-//	public String getUser_Pw() {
-//		return userPw;
-//	}
-//}

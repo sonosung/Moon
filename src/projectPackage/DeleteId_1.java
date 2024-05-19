@@ -76,9 +76,11 @@ public class DeleteId_1 extends JPanel {
 		// 회원탈퇴 버튼을 클릭시 데이터베이스에서 회원정보가 삭제되며, DeletId_2 클래스 화면으로 이동.
 		bt_deleteConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				String inId = Session.getInstance().getUserId();
 				String pw = tf_pw.getText();
+				
 				dao = new UserInfo_DAO();
-				delete_id = dao.DeleteId(pw); // DAO 클래스 출력값 호출
+				delete_id = dao.DeleteId(inId, pw); // DAO 클래스 출력값 호출
 				
 				if (delete_id.size() != 0) {
 					for (int i = 0; i < delete_id.size(); i++) {

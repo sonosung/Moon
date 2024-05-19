@@ -348,7 +348,7 @@ public class CreateId_2 extends JPanel {
                 tf_user_email.setText("");
                 tf_user_phone.setText("");
                 // Optionally switch panels
-                mainFrame.PageChange(MainFrame.PANELNAME.JOIN3);
+                mainFrame.PageChange(MainFrame.PANELNAME.CREATE3);
             }
         });
 
