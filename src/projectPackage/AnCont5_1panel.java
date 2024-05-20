@@ -249,7 +249,6 @@ public class AnCont5_1panel extends JPanel {
 	}
 
 	private void MainGo() {
-//		OhtanisPanel anCont2Panel = new OhtanisPanel(mainFrame);
 		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 		this.setVisible(false);
 	}
