@@ -1,6 +1,7 @@
 package projectPackage;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -14,6 +15,7 @@ import java.awt.event.ItemEvent;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JScrollBar;
@@ -42,10 +44,14 @@ public class CreateId_1 extends JPanel implements ItemListener {
 	Color bg = new Color(0xdfeff0);
 	private final ButtonGroup buttonGroup = new ButtonGroup();
 	private Object rbt_agree;
-	private Object rbt_dagree;
+//	private Object rbt_dagree;
+	private JButton bt_next;
+
 
 	public CreateId_1(MainFrame mainFrame) {
-
+		bt_next = new JButton("");
+		reset();
+		
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
 		this.setPreferredSize(new Dimension(1280, 800 - 150));
@@ -119,7 +125,7 @@ public class CreateId_1 extends JPanel implements ItemListener {
 		JRadioButton rbt_dagree = new JRadioButton("약관에 동의안함");
 		rbt_dagree.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("가입약관 동의는 필수입니다.");
+				JOptionPane.showMessageDialog(null, "가입약관 동의는 필수입니다");
 				bt_next.setEnabled(false);
 			}
 		});
@@ -139,6 +145,7 @@ public class CreateId_1 extends JPanel implements ItemListener {
 		bt_next.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("CREATE2 페이지로 이동");
+				reset();
 				mainFrame.PageChange(MainFrame.PANELNAME.CREATE2);
 			}
 		});
@@ -153,6 +160,13 @@ public class CreateId_1 extends JPanel implements ItemListener {
 	public void itemStateChanged(ItemEvent e) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void reset() {
+		
+	    // Reset all components to their initial state here
+	    buttonGroup.clearSelection(); // Clear radio button selection
+	    bt_next.setEnabled(false);   // Disable the "Next" button
 	}
 
 }

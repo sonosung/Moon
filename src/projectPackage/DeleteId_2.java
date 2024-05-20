@@ -59,14 +59,6 @@ public class DeleteId_2 extends JPanel {
 		bt_home.setBounds(390, 470, 500, 50);
 		panel.add(bt_home);
 		
-//		JPanel panel_1 = new JPanel();
-//		panel_1.setOpaque(false);
-//		panel_1.setBorder(new LineBorder(new Color(255, 0, 0)));
-//		panel_1.setBackground(new Color(224, 255, 255));
-//		panel_1.setBounds(346, 75, 587, 512);
-//		panel.add(panel_1);
-		
-
 		this.setVisible(false);
 	}
 }

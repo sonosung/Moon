@@ -38,16 +38,16 @@ public class DeleteId_1 extends JPanel {
 	 * Create the panel.
 	 */
 	private JTextField tf_pw;
-//	private JPasswordField JPwFiled;
+	private JPasswordField JPwFiled;
 	private UserInfo_DAO dao;
 
 	ArrayList<UserInfoVo> list_Id;
-	ArrayList<UserInfoVo> delete_id;
-	private int user_no;
-	
-	
+	private LoginEventListener listener;
 
-	
+	public void addLoginEventListener(LoginEventListener listener) {
+		this.listener = listener;
+	}
+
 	public DeleteId_1(MainFrame mainFrame) {
 
 		this.mainFrame = mainFrame;
@@ -55,6 +55,8 @@ public class DeleteId_1 extends JPanel {
 		this.setPreferredSize(new Dimension(1280, 800 - 150));
 		this.setBackground(bg);
 		setLayout(null);
+
+		this.dao = new UserInfo_DAO(); // DAO 객체 초기화
 
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.BLACK);
@@ -75,111 +77,40 @@ public class DeleteId_1 extends JPanel {
 		lb_typePw.setFont(new Font("나눔고딕", Font.BOLD, 12));
 		lb_typePw.setBounds(490, 230, 300, 30);
 		panel.add(lb_typePw);
-
-		tf_pw = new JTextField();
-		tf_pw.setDropMode(DropMode.INSERT);
-		tf_pw.setHorizontalAlignment(SwingConstants.CENTER);
-		tf_pw.setColumns(125);
-		tf_pw.setBounds(390, 260, 500, 30);
-		panel.add(tf_pw);
-
+		
+		JPwFiled = new JPasswordField();
+		JPwFiled.setBorder(new EmptyBorder(0, 10, 0, 0));
+		JPwFiled.setHorizontalAlignment(SwingConstants.CENTER);
+		JPwFiled.setEchoChar('*');
+		JPwFiled.setBounds(389, 260, 501, 30);
+		panel.add(JPwFiled);
+		
 		JButton bt_deleteConfirm = new JButton("");
 		bt_deleteConfirm.setIcon(new ImageIcon(DeleteId_1.class.getResource("/image/seungho/bt_delete_small.png")));
-
-		// 회원탈퇴 버튼을 클릭시 데이터베이스에서 회원정보가 삭제되며, DeletId_2 클래스 화면으로 이동.
 		bt_deleteConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-//				String inId = Session.getInstance().getUserId();
-				String pw = tf_pw.getText();
+				//JPasswordField에 입력되는 값은 Char 타입이기 때문에, 스트링으로 타입캐스팅을 해줘야한다.
+				String pw = new String(JPwFiled.getPassword());
 				
-				dao = new UserInfo_DAO(); //UserInfo_DVO 클래스의 인스턴스 생성.
-				list_Id = dao.Login(inId); //입력한 아이디를 사용하여 DAO가 접근해여 얻은 사용자의 ID를 가져옴.
-				
-				dao = new UserInfo_DAO();
-				System.out.println("여기까지 됨.");
-				delete_id = dao.DeleteId(inId, pw); // DAO 클래스 출력값 호출
-				
-				if (delete_id.size() != 0) {
-					for (int i = 0; i < delete_id.size(); i++) {
-						UserInfoVo data = (UserInfoVo) delete_id.get(i);
-						
-						String gpwd = data.getUserPw();
-						
-						if (String.valueOf(pw).equals(gpwd)) {
-							System.out.println("회원탈퇴가 완료되었습니다.");
-							System.out.println("탈퇴완료 화면으로 이동.");
-							tf_pw.setText("");
-							mainFrame.PageChange(MainFrame.PANELNAME.DELETE2);
-							
-						} else {
-							System.out.println("비밀번호가 일치하지 않습니다.");
-							JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.", "회원탈퇴 실패", 1);
-							tf_pw.setText("");
-						}
-					}
+				String userId = Session.getInstance().getUserId(); // 현재 세션에서 사용자 ID 가져오기
 
+				System.out.println("userId : " + userId);
+
+				boolean success = dao.deleteUser(userId, pw); // DAO에서 회원탈퇴 처리
+
+				if (success) {
+					JOptionPane.showMessageDialog(null, "회원탈퇴가 성공적으로 완료되었습니다.", "회원탈퇴 성공",
+							JOptionPane.INFORMATION_MESSAGE);
+					mainFrame.PageChange(MainFrame.PANELNAME.MAIN); // 메인 화면으로 전환
+					Session.getInstance().resetSession();
+					mainFrame.switchToTopPanel();
 				} else {
-					System.out.println("비밀번호가 일치하지 않습니다.");
-					JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.", "회원탈퇴 실패", 1);
-					tf_pw.setText("");
+					JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.", "회원탈퇴 실패", JOptionPane.ERROR_MESSAGE);
+					tf_pw.setText(""); // 비밀번호 필드 초기화
 				}
-
 			}
-			
 		});
 
-//		JPwFiled = new JPasswordField();
-//		JPwFiled.setBorder(new EmptyBorder(0, 10, 0, 0));
-//		JPwFiled.setHorizontalAlignment(SwingConstants.CENTER);
-//		JPwFiled.setEchoChar('*');
-//		JPwFiled.setBounds(389, 260, 501, 30);
-//		panel.add(JPwFiled);
-		
-//		// 회원탈퇴 버튼을 클릭시 데이터베이스에서 회원정보가 삭제되며, DeletId_2 클래스 화면으로 이동.
-//		bt_deleteConfirm.addActionListener(new ActionListener() {
-//			public void actionPerformed(ActionEvent e) {
-//
-//				System.out.println("DB에 해당 아이디의 비밀번호와 일치하는지 확인");
-//
-//				String inPw = new String(JPwFiled.getPassword());
-//				dao = new UserInfo_DAO();
-//				Delete = dao.Delete(inPw); // DAO 클래스 출력값 호출
-//				System.out.println(inPw);//정상 출력됨.
-//				
-//				System.out.println(Delete);
-//
-//				if (Delete.size() > 0) {
-//					for (int i = 0; i < Delete.size(); i++) {
-//						UserInfoVo data = (UserInfoVo) Delete.get(i);
-//						String gpwd = data.getUserPw();
-//						
-//						System.out.println("여기까지는 안옴.");
-//
-//						char[] pw = (JPwFiled.getPassword());
-//
-//						System.out.println (gpwd);
-//
-//						if (String.valueOf(pw).equals(gpwd)) {
-//
-//							JPopupMenu popupMenu = new JPopupMenu();
-//							popupMenu.addKeyListener(new KeyAdapter() {
-//								@Override
-//								public void keyPressed(KeyEvent e) {
-//									JOptionPane.showMessageDialog(null, "정말 탈퇴 하시겠습니까?." , "회원탈퇴", 1);
-//								}
-//							});
-//							System.out.println("회원탈퇴가 완료되었습니다.");
-//
-//							mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
-//								};
-//						} 
-//				}else {
-//					JOptionPane.showMessageDialog(null, "아이디나 패스워드가 올바르지 않습니다.", "로그인 실패", 1);
-//					System.out.println("회원탈퇴가 실패됬습니다.");
-//					JPwFiled.setText("");
-//			}
-//			}
-//		});
 		bt_deleteConfirm.setFont(new Font("나눔고딕", Font.PLAIN, 12));
 		bt_deleteConfirm.setBounds(390, 470, 245, 50);
 		panel.add(bt_deleteConfirm);
@@ -200,9 +131,5 @@ public class DeleteId_1 extends JPanel {
 		this.setVisible(false);
 	}
 
-	public void find_user_no(int user_no) {
-		// TODO Auto-generated method stub
-		this.user_no = user_no;
-		System.out.println("삭제할 유저 넘버 표시하기 " + user_no);
-	}
 }
+

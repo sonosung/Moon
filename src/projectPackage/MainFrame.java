@@ -239,6 +239,8 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		String userId = event.getUserId();
 		int userNo = event.getUserNo();
 		System.out.println(userId + "님 환영합니다. 사용자 번호: " + userNo);
+		Session.getInstance().setUserId(userId);
+		System.out.println("userId : " + userId);
 		((AnCont3) panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit3(userNo);
 		
 	}

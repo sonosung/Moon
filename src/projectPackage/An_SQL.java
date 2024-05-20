@@ -216,7 +216,7 @@ public class An_SQL {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, key[3]);
 				pstmt.setInt(2, seat_size.get(i));   // 시트넘버 어떻게 가져오지
-				pstmt.setInt(3, /*user_no*/ 30);  //문승호 Id
+				pstmt.setInt(3, user_no);  //문승호 Id
 				this.user_no = user_no;
 				ResultSet rs = pstmt.executeQuery();
 				System.out.println("쿼리문 확인 : " + key[3] + " 시트 사이즈 겟 확인 " + seat_size.get(i));
@@ -239,7 +239,7 @@ public class An_SQL {
 					+ " WHERE t.SCHEDULE_NO = ?  AND t.user_no = ? " ;
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, key[3]);
-			pstmt.setInt(2, /*user_no*/30);  // 문승호 Id
+			pstmt.setInt(2, user_no);  // 문승호 Id
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				loding.add(rs.getString("SEAT_NO"));
@@ -264,7 +264,7 @@ public class An_SQL {
 					+ " WHERE t.SCHEDULE_NO = ?  AND t.user_no = ? " ;
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, key[3]);
-			pstmt.setInt(2, /*user_no*/30);  //문승호 Id
+			pstmt.setInt(2, user_no);  //문승호 Id
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
 				loding2[0] = rs.getString("MOVIE_NAME");
