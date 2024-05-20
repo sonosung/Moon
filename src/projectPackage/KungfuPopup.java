@@ -64,17 +64,13 @@ public class KungfuPopup extends JFrame {
         contentPane.add(imageLabel);
         
         JButton btnNewButton = new JButton("");
-//<<<<<<< HEAD
-//        btnNewButton.setBorderPainted(false);
-        btnNewButton.setIcon(new ImageIcon(KungfuPopup.class.getResource("/image/button/reserve.png")));
-//=======
+        btnNewButton.setBorderPainted(false);
+        btnNewButton.setIcon(new ImageIcon(KungfuPopup.class.getResource("/image/button/ok.png")));
         btnNewButton.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         		dispose();
         	}
         });
-        btnNewButton.setIcon(new ImageIcon(KungfuPopup.class.getResource("/image/button/ok.png")));
-//>>>>>>> refs/remotes/origin/sanghwan
         btnNewButton.setBounds(73, 306, 110, 42);
         contentPane.add(btnNewButton);
     }
