@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import java.awt.Font;
+import javax.swing.SwingConstants;
 
 public class An_zzz extends JPanel {
 	private MainFrame mainFrame;
@@ -31,19 +32,22 @@ public class An_zzz extends JPanel {
 		panel.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("내 예매");
-		lblNewLabel.setFont(new Font("굴림", Font.PLAIN, 26));
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
 		lblNewLabel.setForeground(new Color(255, 255, 255));
-		lblNewLabel.setBounds(67, 275, 272, 193);
+		lblNewLabel.setBounds(502, 80, 275, 50);
 		panel.add(lblNewLabel);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
-		lblNewLabel_1.setFont(new Font("굴림", Font.PLAIN, 26));
-		lblNewLabel_1.setBounds(692, 250, 576, 60);
+		lblNewLabel_1.setFont(new Font("나눔고딕", Font.BOLD, 25));
+		lblNewLabel_1.setBounds(390, 230, 500, 60);
 		panel.add(lblNewLabel_1);
+		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		lblNewLabel_2.setForeground(new Color(255, 255, 255));
-		lblNewLabel_2.setFont(new Font("굴림", Font.PLAIN, 26));
-		lblNewLabel_2.setBounds(692, 350, 563, 60);
+		lblNewLabel_2.setFont(new Font("나눔고딕", Font.BOLD, 25));
+		lblNewLabel_2.setBounds(390, 350, 500, 60);
 		panel.add(lblNewLabel_2);
 		
 		lblNewLabel_3.setForeground(new Color(255, 255, 255));

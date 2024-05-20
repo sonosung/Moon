@@ -88,185 +88,75 @@ public class UserInfo_DAO {
 		return list_Id;
 	}
 
-//	public ArrayList<UserInfoVo> Delete(String inPw) {
-//		String sql = "Delete FROM USER_INFO ";
-//		ArrayList<UserInfoVo> list_Pw = new ArrayList<UserInfoVo>();
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			if (inPw != null) {
-//				sql += " WHERE USER_PW='" + inPw + "'"; // ID로 필터링
-//
-//				// g
-//				System.out.println("SQL : " + sql);
-//
-//				rs = stmt.executeQuery(sql); // 쿼리 실행
-//				rs.last();
-//				System.out.println("rs.getRow() : " + rs.getRow());
-//
-//				PreparedStatement pstmt = con.prepareStatement(sql);
-//				{
-//					System.out.println(pstmt);
-//					pstmt.setString(1, rs.getString("USER_PW"));
-//					int result = pstmt.executeUpdate();
-//					if (result != 0) {
-//						System.out.println("회원탈퇴가 성공적으로 완료되었습니다.");
-//					} else {
-//						System.out.println("비밀번호가 올바르지 않습니다.");
-//					}
-//				}
-//
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//		return list_Pw;
-//	}
-
-//	// g
-//	public ArrayList<UserInfoVo> DeleteId(String inId, String inPw) {
-//		ArrayList<UserInfoVo> delete_id = new ArrayList<>();
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			// 1. 해당 아이디와 비밀번호가 일치하는 사용자의 USER_NO 가져오기
-//			String getUserNoQuery = "SELECT USER_NO FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?";
-//			PreparedStatement getUserNoStmt = con.prepareStatement(getUserNoQuery);
-//			getUserNoStmt.setString(1, inId);
-//			System.out.println("inId의 값 : " + inId);
-//			String inId2 = Session.getInstance().getUserId();
-//			System.out.println("inId2의 값 : " + inId2);
-//			getUserNoStmt.setString(2, inPw);
-//			ResultSet rs = getUserNoStmt.executeQuery();
-//
-//			int userNo = Session.getInstance().getUserNo();
-//			if (rs.next()) {
-//				userNo = rs.getInt("USER_NO");
-//			}
-//
-//			if (userNo != 0) {
-//				// 2. 해당 사용자의 티켓 정보 삭제
-//				String deleteTicketQuery = "DELETE FROM TICKET WHERE USER_NO = ?";
-//				PreparedStatement deleteTicketStmt = con.prepareStatement(deleteTicketQuery);
-//				deleteTicketStmt.setInt(1, userNo);
-//				deleteTicketStmt.executeUpdate();
-//				System.out.println("quary : " + deleteTicketQuery);
-//				System.out.println(userNo);
-//
-//				// 3. 부모 테이블(USER_INFO)에서 해당 아이디와 비밀번호가 일치하는 사용자 삭제
-//				String deleteUserQuery = "DELETE FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?";
-//				PreparedStatement deleteUserStmt = con.prepareStatement(deleteUserQuery);
-//				deleteUserStmt.setString(1, inId);
-//				deleteUserStmt.setString(2, inPw);
-//				int rowsDeleted = deleteUserStmt.executeUpdate();
-//
-//				if (rowsDeleted > 0) {
-//					System.out.println("회원탈퇴가 완료되었습니다.");
-//				} else {
-//					System.out.println("아이디나 비밀번호가 일치하지 않습니다.");
-//					JOptionPane.showMessageDialog(null, "아이디나 비밀번호가 일치하지 않습니다.", "회원탈퇴 실패", 1);
-//				}
-//			} else {
-//				System.out.println("해당 아이디와 비밀번호를 가진 사용자가 존재하지 않습니다.");
-//				JOptionPane.showMessageDialog(null, "해당 아이디와 비밀번호를 가진 사용자가 존재하지 않습니다.", "회원탈퇴 실패", 1);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return delete_id;
-//	}
-	 public boolean deleteUser(String inId, String inPw) {
-	        boolean success = false; // 성공 여부를 추적하는 변수
-	        try {
-	            connDB(); // 데이터베이스 연결 메소드
-
-	            // 사용자 존재 및 비밀번호 일치 확인
-	            String getUserNoQuery = "SELECT USER_NO FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?";
-	            PreparedStatement getUserNoStmt = con.prepareStatement(getUserNoQuery);
-	            getUserNoStmt.setString(1, inId);
-	            getUserNoStmt.setString(2, inPw);
-	            ResultSet rs = getUserNoStmt.executeQuery();
-
-	            if (rs.next()) { // 일치하는 사용자가 있으면
-	                int userNo = rs.getInt("USER_NO");
-
-	                // 사용자 티켓 데이터 삭제 (옵션, 필요에 따라)
-	                String deleteTicketQuery = "DELETE FROM TICKET WHERE USER_NO = ?";
-	                PreparedStatement deleteTicketStmt = con.prepareStatement(deleteTicketQuery);
-	                deleteTicketStmt.setInt(1, userNo);
-	                deleteTicketStmt.executeUpdate();
-
-	                // 사용자 정보 삭제
-	                String deleteUserQuery = "DELETE FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?";
-	                PreparedStatement deleteUserStmt = con.prepareStatement(deleteUserQuery);
-	                deleteUserStmt.setString(1, inId);
-	                deleteUserStmt.setString(2, inPw);
-	                int rowsDeleted = deleteUserStmt.executeUpdate();
-
-	                if (rowsDeleted > 0) {
-	                    success = true;
-	                    System.out.println("회원탈퇴가 완료되었습니다.");
-	                } else {
-	                    System.out.println("아이디나 비밀번호가 일치하지 않습니다.");
-	                }
-	            } else {
-	                System.out.println("해당 아이디와 비밀번호를 가진 사용자가 존재하지 않습니다.");
-	            }
-	        } catch (SQLException e) {
-	            System.err.println("SQL Error: " + e.getMessage());
-	            e.printStackTrace();
-	        } catch (Exception e) {
-	            System.err.println("Error: " + e.getMessage());
-	            e.printStackTrace();
-	        } finally {
-	            try {
-	                if (rs != null) rs.close();
-	                if (stmt != null) stmt.close();
-	                if (con != null) con.close();
-	            } catch (SQLException ex) {
-	                ex.printStackTrace();
-	            }
-	        }
-	        return success;
-	    }
-
-	
-	// g
-	public UserInfoVo getUserInfo(String userId) {
-		UserInfoVo userInfo = null;
-		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
-
+	public boolean deleteUser(String inId, String inPw) {
+		boolean success = false; // 성공 여부를 추적하는 변수
 		try {
-			connDB(); // 데이터베이스 연결
-			PreparedStatement pstmt = con.prepareStatement(sql);
-			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			rs = pstmt.executeQuery();
+			connDB(); // 데이터베이스 연결 메소드
 
-			if (rs.next()) {
-				int userNo = rs.getInt("user_no");
-				String userName = rs.getString("user_name");
-				String userEmail = rs.getString("user_email");
-				String userPhone = rs.getString("user_phone");
-				int ticketNo = rs.getInt("ticket_no");
+			// 사용자 존재 및 비밀번호 일치 확인
+			String getUserNoQuery = "SELECT USER_NO FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?";
+			PreparedStatement getUserNoStmt = con.prepareStatement(getUserNoQuery);
+			getUserNoStmt.setString(1, inId);
+			getUserNoStmt.setString(2, inPw);
+			ResultSet rs = getUserNoStmt.executeQuery();
 
-				userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
+			if (rs.next()) { // 일치하는 사용자가 있으면
+				int userNo = rs.getInt("USER_NO");
+
+				// 사용자 티켓 데이터 삭제 (옵션, 필요에 따라)
+				String deleteTicketQuery = "DELETE FROM TICKET WHERE USER_NO = ?";
+				PreparedStatement deleteTicketStmt = con.prepareStatement(deleteTicketQuery);
+				deleteTicketStmt.setInt(1, userNo);
+				deleteTicketStmt.executeUpdate();
+
+				// 사용자 정보 삭제
+				String deleteUserQuery = "DELETE FROM USER_INFO WHERE USER_ID = ? AND USER_PW = ?";
+				PreparedStatement deleteUserStmt = con.prepareStatement(deleteUserQuery);
+				deleteUserStmt.setString(1, inId);
+				deleteUserStmt.setString(2, inPw);
+				int rowsDeleted = deleteUserStmt.executeUpdate();
+
+				if (rowsDeleted > 0) {
+					success = true;
+					System.out.println("회원탈퇴가 완료되었습니다.");
+				} else {
+					System.out.println("아이디나 비밀번호가 일치하지 않습니다.");
+				}
+			} else {
+				System.out.println("해당 아이디와 비밀번호를 가진 사용자가 존재하지 않습니다.");
 			}
-		} catch (Exception e) {
+		} catch (SQLException e) {
+			System.err.println("SQL Error: " + e.getMessage());
 			e.printStackTrace();
+		} catch (Exception e) {
+			System.err.println("Error: " + e.getMessage());
+			e.printStackTrace();
+		} finally {
+			try {
+				if (rs != null)
+					rs.close();
+				if (stmt != null)
+					stmt.close();
+				if (con != null)
+					con.close();
+			} catch (SQLException ex) {
+				ex.printStackTrace();
+			}
 		}
-
-		return userInfo;
+		return success;
 	}
 
-//	public ArrayList<UserInfoVo> myPage(String userId) {
-//		String sql = "SELECT user_no, user_name, user_id, user_pw, user_email, user_phone, ticket_no, seat " 
-//				   + "FROM USER_INFO ";
-////				   + "WHERE user_no=?";
-//		ArrayList<UserInfoVo> list_Info = new ArrayList<UserInfoVo>();
+//	public ArrayList<UserInfoVo> myPage(int user_No) {
+//		String sql = "SELECT USER_NO FROM USER_INFO";
+//		ArrayList<UserInfoVo> Loged_User = new ArrayList<UserInfoVo>();
+//		
+//		int userNo = 0;
+//		Session.getInstance().setUserNo(userNo);
+//		
 //		try {
 //			connDB(); // 데이터베이스 연결
-//			if (userId != null) {
-//				sql += " WHERE user_id='" + userId + "'"; // ID로 필터링
+//			if (user_No != 0) {
+//				sql += " WHERE USER_ID='" + user_No + "'"; // user_No로 필터링
 //			}
 //			System.out.println("SQL : " + sql);
 //
@@ -280,119 +170,15 @@ public class UserInfo_DAO {
 //				System.out.println(rs.getRow() + " rows selected...");
 //				rs.previous();
 //				while (rs.next()) {
-//					int userNo = rs.getInt("user_no");
-//					String userName = rs.getString("user_name");
-//					String userID = rs.getString("user_id");
-//					String userPw = rs.getString("user_pw");
-//					String userEmail = rs.getString("user_email");
-//					String userPhone = rs.getString("user_phone");
-//					int ticketNo = rs.getInt("ticket_no");
-//					String seat = rs.getString("seat");
-//
-//					UserInfoVo data = new UserInfoVo(userNo, userName, userID, userPw, userEmail, userPhone, ticketNo, seat);
-//					list_Info.add(data); // 검색 결과를 리스트에 추가.
-//				}
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return list_Info;
-//	}
-
-//	public ArrayList<UserInfoVo> myPage(String user_ID) {
-//		String sql = "SELECT * FROM USER_INFO";
-//		ArrayList<UserInfoVo> list_Info = new ArrayList<UserInfoVo>();
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			if (user_ID != null) {
-//				sql += " WHERE USER_ID='" + user_ID + "'"; // ID로 필터링
-//			}
-//			System.out.println("SQL : " + sql);
-//
-//			rs = stmt.executeQuery(sql); // 쿼리 실행
-//			rs.last();
-//			System.out.println("rs.getRow() : " + rs.getRow());
-//
-//			if (rs.getRow() == 0) {
-//				System.out.println("0 row selected...");
-//			} else {
-//				System.out.println(rs.getRow() + " rows selected...");
-//				rs.previous();
-//				while (rs.next()) {
-//					int userNo = rs.getInt("user_no");
-//					String userName = rs.getString("user_name");
-//					String userID = rs.getString("USER_ID");
-//					String userPw = rs.getString("USER_PW");
-//					String userEmail = rs.getString("user_email");
-//					String userPhone = rs.getString("user_phone");
-//					int ticketNo = rs.getInt("ticket_no");
-//					String seat = rs.getString("seat");
-//
-//					UserInfoVo data = new UserInfoVo(userNo, userName, userID, userPw, userEmail, userPhone, ticketNo,
-//							seat);
-//					list_Info.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
-//				}
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return list_Info;
-//	}
-
-//	public ArrayList<UserInfoVo> DeleteId(String inPw) {
-//		ArrayList<UserInfoVo> delete_id = new ArrayList<>();
-//		try {
-//			connDB(); // 데이터베이스 연결
-//
-//			// 1. 자식 테이블의 데이터 삭제 또는 업데이트
-//			String childTableQuery = "DELETE FROM TICKET WHERE USER_NO IN (SELECT USER_NO FROM USER_INFO WHERE USER_PW = ?)";
-//			PreparedStatement childStmt = con.prepareStatement(childTableQuery);
-//			childStmt.setString(1, inPw);
-//			childStmt.executeUpdate();
-//
-//			// 2. 부모 테이블(USER_INFO) 데이터 삭제
-//			String parentTableQuery = "DELETE FROM USER_INFO WHERE USER_PW = ?";
-//			PreparedStatement parentStmt = con.prepareStatement(parentTableQuery);
-//			parentStmt.setString(1, inPw);
-//			int rowsDeleted = parentStmt.executeUpdate();
-//
-//			if (rowsDeleted > 0) {
-//				System.out.println("회원탈퇴가 완료되었습니다.");
-//			} else {
-//				System.out.println("비밀번호가 일치하지 않습니다.");
-//				JOptionPane.showMessageDialog(null, "비밀번호가 일치하지 않습니다.", "회원탈퇴 실패", 1);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return delete_id;
-//	}
-}
-
-//	public ArrayList<UserInfoVo> DeleteId(String inPw) {
-//		String sql = "DELETE FROM USER_INFO";
-//		ArrayList<UserInfoVo> delete_id = new ArrayList<UserInfoVo>();
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			if (inPw != null) {
-//				sql += " WHERE USER_PW='" + inPw + "'"; // PW로 필터링
-//			}
-//			System.out.println("SQL : " + sql);
-//
-//			rs = stmt.executeQuery(sql); // 쿼리 실행
-//			rs.last();
-//			System.out.println("rs.getRow() : " + rs.getRow());
-//
-//			if (rs.getRow() == 0) {
-//				System.out.println("0 row selected...");
-//			} else {
-//				System.out.println(rs.getRow() + " rows selected...");
-//				rs.previous();
-//				while (rs.next()) {
-//					int userNo = rs.getInt("user_no");
+////					int iuserNo = rs.getInt("USER_NO");
+////					String userName = rs.getString("USER_NAME");
+////					String userId = rs.getString("USER_ID");
+////					String userPw = rs.getString("USER_PW");
+////					String userEmail = rs.getString("USER_EMAIL");
+////					String userPhone = rs.getString("USER_PHONE");
+////					int ticketNo = rs.getInt("TICKET_NO");
+////					String seat = rs.getString("SEAT");
+//					int iuserNo = rs.getInt("user_no");
 //					String userName = rs.getString("user_name");
 //					String userId = rs.getString("USER_ID");
 //					String userPw = rs.getString("USER_PW");
@@ -401,54 +187,131 @@ public class UserInfo_DAO {
 //					int ticketNo = rs.getInt("ticket_no");
 //					String seat = rs.getString("seat");
 //
-//					UserInfoVo data = new UserInfoVo(userNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
+//					UserInfoVo data = new UserInfoVo(iuserNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
 //							seat);
-//					delete_id.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
+//					Loged_User.add(data); // 검색 결과를 리스트에 추가.
 //				}
 //			}
 //		} catch (Exception e) {
 //			e.printStackTrace();
 //		}
 //
-//		return delete_id;
+//		return Loged_User;
+//
 //	}
 
-//public ArrayList<UserInfoVo> User_no(List<Integer> user_No) {
-//	String sql = "SELECT USER_NO FROM USER_INFO";
-//	ArrayList<UserInfoVo> Loged_User = new ArrayList<UserInfoVo>();
-//	try {
-//		connDB(); // 데이터베이스 연결
-//		if (user_No != null) {
-//			sql += " WHERE USER_NO='" + user_No + "'"; // ID로 필터링
-//		}
-//		System.out.println("SQL : " + sql);
+	// g
+//	public UserInfoVo getUserInfo(String userId) {
+//		UserInfoVo userInfo = null;
+//		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
 //
-//		rs = stmt.executeQuery(sql); // 쿼리 실행
-//		rs.last();
-//		System.out.println("rs.getRow() : " + rs.getRow());
+//		try {
+//			connDB(); // 데이터베이스 연결
+//			PreparedStatement pstmt = con.prepareStatement(sql);
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, userId);
+//			rs = pstmt.executeQuery();
 //
-//		if (rs.getRow() == 0) {
-//			System.out.println("0 row selected...");
-//		} else {
-//			System.out.println(rs.getRow() + " rows selected...");
-//			rs.previous();
-//			while (rs.next()) {
+//			if (rs.next()) {
 //				int userNo = rs.getInt("user_no");
 //				String userName = rs.getString("user_name");
-//				String userId = rs.getString("USER_ID");
-//				String userPw = rs.getString("USER_PW");
 //				String userEmail = rs.getString("user_email");
 //				String userPhone = rs.getString("user_phone");
 //				int ticketNo = rs.getInt("ticket_no");
-//				String seat = rs.getString("seat");
 //
-//				UserInfoVo data = new UserInfoVo(userNo, userName, userId, userPw, userEmail, userPhone, ticketNo, seat);
-//				Loged_User.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
+//				userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
 //			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
 //		}
-//	} catch (Exception e) {
-//		e.printStackTrace();
-//	}
 //
-//	return Loged_User;
-//}
+//		return userInfo;
+//	}
+
+//	public UserInfoVo myPage(String userId) {
+//		UserInfoVo userInfo = null;
+//		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
+//
+//		try {
+//			connDB(); // 데이터베이스 연결
+//			PreparedStatement pstmt = con.prepareStatement(sql);
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, userId);
+//			rs = pstmt.executeQuery();
+//
+//			if (rs.next()) {
+//				int userNo = rs.getInt("user_no");
+//				String userName = rs.getString("user_name");
+//				String userEmail = rs.getString("user_email");
+//				String userPhone = rs.getString("user_phone");
+//				int ticketNo = rs.getInt("ticket_no");
+//
+//				userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return userInfo;
+//	}
+	
+	public UserInfoVo getUserInfo(String userId) {
+	    // 데이터베이스에서 사용자 정보를 가져오는 코드를 작성
+	    // 예시로는 사용자 ID를 기반으로 데이터베이스 쿼리를 실행하여 사용자 정보를 가져온다고 가정합니다.
+	    UserInfoVo userInfo = null;
+	    String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
+
+	    try {
+	        connDB(); // 데이터베이스 연결
+	        PreparedStatement pstmt = con.prepareStatement(sql);
+	        pstmt.setString(1, userId);
+	        ResultSet rs = pstmt.executeQuery();
+
+	        if (rs.next()) {
+	            int userNo = rs.getInt("user_no");
+	            String userName = rs.getString("user_name");
+	            String userEmail = rs.getString("user_email");
+	            String userPhone = rs.getString("user_phone");
+	            int ticketNo = rs.getInt("ticket_no");
+
+	            userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+
+	    return userInfo;
+	}
+
+	public ArrayList<UserInfoVo> myPage(String userId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+//	public UserInfoVo getUserInfo(String userId) {
+//		UserInfoVo userInfo = null;
+//		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
+//
+//		try {
+//			connDB(); // 데이터베이스 연결
+//			PreparedStatement pstmt = con.prepareStatement(sql);
+//			pstmt = con.prepareStatement(sql);
+//			pstmt.setString(1, userId);
+//			rs = pstmt.executeQuery();
+//
+//			if (rs.next()) {
+//				int userNo = rs.getInt("user_no");
+//				String userName = rs.getString("user_name");
+//				String userEmail = rs.getString("user_email");
+//				String userPhone = rs.getString("user_phone");
+//				int ticketNo = rs.getInt("ticket_no");
+//
+//				userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return userInfo;
+//	}
+}

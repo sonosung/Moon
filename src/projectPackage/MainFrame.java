@@ -20,6 +20,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 	private JPanel MainPane;
 	private JPanel TopPanel;
 	private JPanel TopPanel_2;
+	private String userId;
 
 	// MainFrame 클래스 내부에서 사용할 참조변수 선언.
 	private Login loginPanel;
@@ -69,7 +70,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		JPanel PCreateId_3 = new CreateId_3(this);
 		JPanel ContentPanel10 = new BirdRichard(this);
 //	    JPanel ContentPanel11 = new JinsungPanelT(this); //사용하지 않는 클래스.
-		JPanel ContentPanel12 = new MyPage(this);
+		JPanel ContentPanel12 = new MyPage(this, userId);
 		JPanel ContentPanel13 = new DeleteId_1(this);
 		JPanel ContentPanel14 = new DeleteId_2(this);
 		JPanel ContentPanel15 = new An_zzz(this);
