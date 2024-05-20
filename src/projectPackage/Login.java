@@ -52,6 +52,7 @@ public class Login extends JPanel {
 		panel.setLayout(null);
 
 		JLabel lb_login = new JLabel();
+		lb_login.setText("로그인");
 		lb_login.setForeground(Color.WHITE);
 		lb_login.setHorizontalAlignment(SwingConstants.CENTER);
 		lb_login.setFont(new Font("여기어때 잘난체 고딕 TTF", Font.PLAIN, 25));
@@ -139,6 +140,31 @@ public class Login extends JPanel {
 
 		});
 		panel.add(bt_login);
+		
+		JButton bt_join = new JButton("");
+		bt_join.setIcon(new ImageIcon(Login.class.getResource("/image/seungho/bt_join.png")));
+		bt_join.setFont(new Font("나눔고딕", Font.BOLD, 13));
+		bt_join.setBounds(390, 470, 500, 50);
+		bt_join.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+
+				System.out.println("회원가입 화면으로 이동"); // 버튼 클릭 확인용.
+				mainFrame.PageChange(MainFrame.PANELNAME.CREATE1);
+			}
+		});
+		panel.add(bt_join);
+		
+		JLabel lb_noId_1 = new JLabel("패스워드");
+		lb_noId_1.setForeground(Color.WHITE);
+		lb_noId_1.setFont(new Font("나눔고딕", Font.BOLD, 12));
+		lb_noId_1.setBounds(390, 210, 160, 15);
+		panel.add(lb_noId_1);
+		
+		JLabel lb_noId_2 = new JLabel("아이디");
+		lb_noId_2.setForeground(Color.WHITE);
+		lb_noId_2.setFont(new Font("나눔고딕", Font.BOLD, 12));
+		lb_noId_2.setBounds(390, 150, 160, 15);
+		panel.add(lb_noId_2);
 
 		this.setVisible(false);
 	}
@@ -147,5 +173,4 @@ public class Login extends JPanel {
 		mainFrame.switchToTopPanel2();
 		
 	}
-
 }
