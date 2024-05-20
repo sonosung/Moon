@@ -236,12 +236,25 @@ public class MainFrame extends JFrame implements LoginEventListener {
 	public void loginSuccessful(LoginEvent event) {
 		// 로그인 클래스에서 로그인 성공시, loginSuccessful 메소드를 호출.
 		System.out.println("로그인 클래스에서 로그인 성공하여, 메인프레임의 loginSuccessful 메소드를 호출.");
+		
+		//현재 로그인된 사용자의 아이디와 user_no를 가져옴.
 		String userId = event.getUserId();
 		int userNo = event.getUserNo();
 		System.out.println(userId + "님 환영합니다. 사용자 번호: " + userNo);
+		
+		//세션 클래스에 현재 입력된 사용자의 아이디 호출.
 		Session.getInstance().setUserId(userId);
 		System.out.println("userId : " + userId);
+		
+		showUserInfo();
+		
+		
 		((AnCont3) panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit3(userNo);
+		
+	}
+
+	private void showUserInfo() {
+		// TODO Auto-generated method stub
 		
 	}
 

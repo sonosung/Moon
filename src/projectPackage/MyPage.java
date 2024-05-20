@@ -157,6 +157,19 @@ public class MyPage extends JPanel {
 			}
 		});
 		panel.add(bt_delete_myPage);
+		
+		//예매확인 버튼.
+	      JButton btnNewButtonS = new JButton("");
+	      btnNewButtonS.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/search.png")));
+	      btnNewButtonS.setBounds(462, 498, 110, 40);
+	      add(btnNewButtonS);
+
+	      btnNewButtonS.addActionListener(new ActionListener() {
+	         @Override
+	         public void actionPerformed(ActionEvent e) {
+	            An_zzz_Go();
+	         }
+	      });
 
 		this.setVisible(false);
 
@@ -173,5 +186,11 @@ public class MyPage extends JPanel {
         tf_myTicket.setText(Integer.toString(userInfo.getTicketNo()));
     }
 
+	  private void An_zzz_Go() {
+	      String[] jinsung = mainFrame.ansql.Yes();
+	      mainFrame.Set_jinsung(jinsung);
+	      mainFrame.PageChange(MainFrame.PANELNAME.YES);
+	      this.setVisible(false);
+	   }
 	
 }
