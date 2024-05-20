@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -34,26 +35,25 @@ public class MyPage extends JPanel {
 	private JTextField tf_user_name;
 	private JTextField tf_user_phone;
 	private JTextField tf_user_email;
-	
+
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String user = "C##MOON";
-	private String password = "MOON1234";
+	private String user = "C##MSH";
+	private String password = "MSH1234";
 	private Connection con;
 	private Statement stmt;
 	private ResultSet rs;
 
-
 	// g
 	private UserInfo_DAO dao;
 
-	public MyPage(MainFrame mainFrame,  String userId) {
+	public MyPage(MainFrame mainFrame, String userId) {
 
 		// g
 		dao = new UserInfo_DAO();
-		
+
 		UserInfo_DAO dao = new UserInfo_DAO(); // DAO 인스턴스 생성
-        ArrayList<UserInfoVo> userInfoList = dao.Login(userId);
+		ArrayList<UserInfoVo> userInfoList = dao.Login(userId);
 
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
@@ -177,7 +177,7 @@ public class MyPage extends JPanel {
 
 		// 예매확인 버튼.
 		JButton btnNewButtonS = new JButton("");
-		btnNewButtonS.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/search.png")));
+//		btnNewButtonS.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/search.png")));
 		btnNewButtonS.setBounds(790, 388, 100, 30);
 		panel.add(btnNewButtonS);
 
@@ -189,19 +189,18 @@ public class MyPage extends JPanel {
 		});
 
 		this.setVisible(false);
-	
-	if (!userInfoList.isEmpty()) {
-        UserInfoVo userInfo = userInfoList.get(0); // 첫 번째 사용자 정보만 사용
 
-        // 사용자 정보를 각각의 JTextField에 설정
-        tf_user_name.setText(userInfo.getUserName());
-        tf_user_id.setText(userInfo.getUserId());
-        tf_user_email.setText(userInfo.getUserEmail());
-        tf_user_phone.setText(userInfo.getUserPhone());
-        tf_myTicket.setText(Integer.toString(userInfo.getTicketNo()));
-    }
+		if (!userInfoList.isEmpty()) {
+			UserInfoVo userInfo = userInfoList.get(0); // 첫 번째 사용자 정보만 사용
+
+			// 사용자 정보를 각각의 JTextField에 설정
+			tf_user_name.setText(userInfo.getUserName());
+			tf_user_id.setText(userInfo.getUserId());
+			tf_user_email.setText(userInfo.getUserEmail());
+			tf_user_phone.setText(userInfo.getUserPhone());
+			tf_myTicket.setText(Integer.toString(userInfo.getTicketNo()));
+		}
 	}
-
 
 //	public void showUserInfo(String userId) {
 //		// DAO를 사용하여 사용자 정보를 가져옴
@@ -249,7 +248,7 @@ public class MyPage extends JPanel {
 		}
 
 	}
-	
+
 	private Connection connDB() {
 		try {
 			Class.forName(driver); // JDBC 드라이버 로드
@@ -262,18 +261,60 @@ public class MyPage extends JPanel {
 		}
 		return con;
 	}
-	
+
+//	public ArrayList<UserInfoVo> myPage(String userId) {
+//		String sql = "SELECT * FROM USER_INFO";
+//		ArrayList<UserInfoVo> list_Info = new ArrayList<UserInfoVo>();
+//		try {
+//			connDB(); // 데이터베이스 연결
+//			if (userId != null) {
+//				sql += " WHERE USER_ID='" + userId + "'"; // ID로 필터링
+//			}
+//			System.out.println("SQL : " + sql);
+//
+//			rs = stmt.executeQuery(sql); // 쿼리 실행
+//			rs.last();
+//			System.out.println("rs.getRow() : " + rs.getRow());
+//
+//			if (rs.getRow() == 0) {
+//				System.out.println("0 row selected...");
+//			} else {
+//				System.out.println(rs.getRow() + " rows selected...");
+//				rs.previous();
+//				while (rs.next()) {
+//					int userNo = rs.getInt("user_no");
+//					String userName = rs.getString("user_name");
+//					String userID = rs.getString("USER_ID");
+//					String userPw = rs.getString("USER_PW");
+//					String userEmail = rs.getString("user_email");
+//					String userPhone = rs.getString("user_phone");
+//					int ticketNo = rs.getInt("ticket_no");
+//					String seat = rs.getString("seat");
+//
+//					UserInfoVo data = new UserInfoVo(userNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
+//							seat);
+//					list_Info.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
+//				}
+//			}
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
+//
+//		return list_Info;
+//	}
+
+	// g
 	public ArrayList<UserInfoVo> myPage(String userId) {
-		String sql = "SELECT * FROM USER_INFO";
+		// 로그인한 사용자의 정보만 필터링하기 위해 WHERE 조건에 userId 추가
+		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
 		ArrayList<UserInfoVo> list_Info = new ArrayList<UserInfoVo>();
 		try {
 			connDB(); // 데이터베이스 연결
-			if (userId != null) {
-				sql += " WHERE USER_ID='" + userId + "'"; // ID로 필터링
-			}
-			System.out.println("SQL : " + sql);
+			// SQL문에 userId를 바인딩
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, userId);
 
-			rs = stmt.executeQuery(sql); // 쿼리 실행
+			rs = pstmt.executeQuery(); // 쿼리 실행
 			rs.last();
 			System.out.println("rs.getRow() : " + rs.getRow());
 
@@ -281,11 +322,10 @@ public class MyPage extends JPanel {
 				System.out.println("0 row selected...");
 			} else {
 				System.out.println(rs.getRow() + " rows selected...");
-				rs.previous();
+				rs.beforeFirst(); // 커서를 첫 번째 레코드 이전으로 이동
 				while (rs.next()) {
 					int userNo = rs.getInt("user_no");
 					String userName = rs.getString("user_name");
-					String userID = rs.getString("USER_ID");
 					String userPw = rs.getString("USER_PW");
 					String userEmail = rs.getString("user_email");
 					String userPhone = rs.getString("user_phone");
@@ -294,7 +334,7 @@ public class MyPage extends JPanel {
 
 					UserInfoVo data = new UserInfoVo(userNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
 							seat);
-					list_Info.add(data); // 검색 결과를 리스트에 추가. Login 클래스의 105행으로!
+					list_Info.add(data); // 검색 결과를 리스트에 추가
 				}
 			}
 		} catch (Exception e) {
@@ -304,28 +344,3 @@ public class MyPage extends JPanel {
 		return list_Info;
 	}
 }
-
-//		UserInfo_DAO dao = new UserInfo_DAO(); // DAO 인스턴스 생성
-////		Session.getInstance().setUserNo(userNo);
-////		String userId = new String(Session.getInstance().setUserId(userId));
-//		String userId = Session.getInstance().getUserId();
-//		
-//		UserInfoVo userInfoList = dao.myPage(userId); // 사용자 정보 가져오기
-//
-////		if (!userInfoList.isEmpty()) {
-////			UserInfoVo userInfo = userInfoList.get(0); // 첫 번째 사용자 정보만 사용
-//		if (userInfoList.size() != 0) {
-//			for (int i = 0; i < userInfoList.size(); i++) {
-//				// DAO 클래스에서 가져온 정보를 UserInfoVo 클래스에 저장.
-//				UserInfoVo data = (UserInfoVo) userInfoList.get(i);
-//				
-////
-////	            // 사용자 정보를 각각의 JTextField에 설정
-//				tf_user_name.setText(data.getUserName());
-//				tf_user_id.setText(data.getUserId());
-//				tf_user_email.setText(data.getUserEmail());
-//				tf_user_phone.setText(data.getUserPhone());
-//				tf_myTicket.setText(Integer.toString(data.getTicketNo()));
-//			}
-//		}
-//	}

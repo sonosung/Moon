@@ -27,7 +27,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 
-	An_SQL ansql = new An_SQL();
+//	An_SQL ansql = new An_SQL();
 
 	public enum PANELNAME {
 		MAIN, TICKETING, SELECT, PAYMENT, TICKET, LOGIN, CREATE1, CREATE2, CREATE3, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1,
@@ -60,7 +60,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 
 		// 생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
-		JPanel ContentPanel2 = new AnCont5_1panel(this); //나중에 꼭 해제하기.
+//		JPanel ContentPanel2 = new AnCont5_1panel(this); //나중에 꼭 해제하기.
 		JPanel ContentPanel3 = new AnCont2(this);
 		JPanel ContentPanel4 = new AnCont3(this);
 		JPanel ContentPanel5 = new AnCont4(this);
@@ -80,7 +80,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 
 		// 생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
-		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2); //나중에 꼭 해제하기.
+//		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2); //나중에 꼭 해제하기.
 		panelMap.put(MainFrame.PANELNAME.SELECT, ContentPanel3);
 		panelMap.put(MainFrame.PANELNAME.PAYMENT, ContentPanel4);
 		panelMap.put(MainFrame.PANELNAME.TICKET, ContentPanel5);
@@ -105,7 +105,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 		centerPanel.add(ContentPanel);
-		centerPanel.add(ContentPanel2);
+//		centerPanel.add(ContentPanel2); //나중에 꼭 해제하기
 		centerPanel.add(ContentPanel3);
 		centerPanel.add(ContentPanel4);
 		centerPanel.add(ContentPanel5);
@@ -255,7 +255,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		Session.getInstance().setUserId(userId);
 		System.out.println("userId : " + userId);
 		
-		showUserInfo();
+//		showUserInfo();
 		
 		
 		((AnCont3) panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit3(userNo);
@@ -264,11 +264,6 @@ public class MainFrame extends JFrame implements LoginEventListener {
 	
 	public void Set_jinsung(String[] Yes) {
 		((An_zzz) panelMap.get(MainFrame.PANELNAME.YES)).Page_jin(Yes);
-	}
-
-	private void showUserInfo() {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

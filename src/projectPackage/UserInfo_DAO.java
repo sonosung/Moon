@@ -9,8 +9,8 @@ import javax.swing.JOptionPane;
 public class UserInfo_DAO {
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String user = "C##MOON";
-	private String password = "MOON1234";
+	private String user = "C##MSH";
+	private String password = "MSH1234";
 	private Connection con;
 	private Statement stmt;
 	private ResultSet rs;

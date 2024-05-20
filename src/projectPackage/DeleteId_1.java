@@ -122,6 +122,7 @@ public class DeleteId_1 extends JPanel {
 		bt_cancel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
+				JPwFiled.setText("");
 			}
 		});
 		bt_cancel.setFont(new Font("굴림", Font.PLAIN, 12));
