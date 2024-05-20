@@ -52,12 +52,25 @@ public class AnCont5_1panel extends JPanel {
 		btnNewButton.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/back.png")));
 		btnNewButton.setBounds(262, 498, 110, 40);
 		add(btnNewButton);
+		
+		// 여기서부터
+//		JButton btnNewButtonS = new JButton("");
+//		btnNewButtonS.setIcon(new ImageIcon(AnCont5_1panel.class.getResource("/image/button/search.png")));
+//		btnNewButtonS.setBounds(462, 498, 110, 40);
+//		add(btnNewButtonS);
+//
+//		btnNewButtonS.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				An_zzz_Go();
+//			}
+//		});
 
+		// 여기까지 시험중
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MainGo();
-				setVisible(false);
+				MainGo();	
 			}
 		});
 
@@ -255,4 +268,12 @@ public class AnCont5_1panel extends JPanel {
 		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 		this.setVisible(false);
 	}
+	
+//	private void An_zzz_Go() {
+//		String[] jinsung = mainFrame.ansql.Yes();
+//		mainFrame.Set_jinsung(jinsung);
+//		mainFrame.PageChange(MainFrame.PANELNAME.YES);
+//		this.setVisible(false);
+//	}
+	
 }

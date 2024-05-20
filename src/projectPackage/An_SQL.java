@@ -281,6 +281,35 @@ public class An_SQL {
 		return loding2;
 	}
 	
+	public String[] Yes() {
+		String[] jinsung = new String[4];
+		try {
+			String sql = "" +"SELECT t.SEAT_NO , m.SCHEDULE_TIME , m2.MOVIE_NAME , m3.MOVIEHOUSE_NAME ,l.LOCAL_NAME  FROM ticket t "
+					+ " JOIN MOVIESCHEDULE m ON m.SCHEDULE_NO  = t.SCHEDULE_NO "
+					+ " JOIN MOVIE m2 ON m2.movie_no = m.MOVIE_NO "
+					+ " JOIN MOVIEHOUSE m3 ON m3.MOVIEHOUSE_NO = m.MOVIEHOUSE_NO "
+					+ " JOIN LOCAL l ON l.LOCAL_NO  = m3.LOCAL_NO "
+					+ " WHERE t.user_no = ? " ;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, /*user_no*/24);  //이진규 Id
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				jinsung[0] = rs.getString("MOVIE_NAME");
+				jinsung[1] = rs.getString("MOVIEHOUSE_NAME");
+				jinsung[2] = rs.getString("LOCAL_NAME");
+				jinsung[3] = rs.getString("SCHEDULE_TIME");
+			}
+			rs.close();
+			pstmt.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			exit();
+		}	
+		for(int i = 0; i< 4; i++) {
+		}
+		return jinsung;
+	}
+	
 	public void exit() {
 		if (conn != null) {
 			try {

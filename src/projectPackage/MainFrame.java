@@ -30,7 +30,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 
 	public enum PANELNAME {
 		MAIN, TICKETING, SELECT, PAYMENT, TICKET, LOGIN, CREATE1, CREATE2, CREATE3, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1,
-		DELETE2 
+		DELETE2 ,YES
 	};
 
 	public static void main(String[] args) {
@@ -72,6 +72,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		JPanel ContentPanel12 = new MyPage(this);
 		JPanel ContentPanel13 = new DeleteId_1(this);
 		JPanel ContentPanel14 = new DeleteId_2(this);
+		JPanel ContentPanel15 = new An_zzz(this);
 
 
 		ContentPanel.setVisible(true);
@@ -90,7 +91,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		panelMap.put(MainFrame.PANELNAME.MYPAGE, ContentPanel12);
 		panelMap.put(MainFrame.PANELNAME.DELETE1, ContentPanel13);
 		panelMap.put(MainFrame.PANELNAME.DELETE2, ContentPanel14);
-
+		panelMap.put(MainFrame.PANELNAME.YES, ContentPanel15);
 		// Main판넬 설정
 		setBounds(100, 100, 1280, 800);
 		MainPane = new JPanel();
@@ -115,6 +116,9 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		centerPanel.add(ContentPanel12);
 		centerPanel.add(ContentPanel13);
 		centerPanel.add(ContentPanel14);
+		centerPanel.add(ContentPanel15);
+
+		
 
 
 		MainPane.add(centerPanel, BorderLayout.CENTER);
@@ -152,6 +156,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		    centerPanel.add(panelMap.get(MainFrame.PANELNAME.MYPAGE));
 		    centerPanel.add(panelMap.get(MainFrame.PANELNAME.DELETE1));
 		    centerPanel.add(panelMap.get(MainFrame.PANELNAME.DELETE2));
+		    centerPanel.add(panelMap.get(MainFrame.PANELNAME.YES));
 		    this.getContentPane().add(centerPanel, BorderLayout.CENTER); 
 		    this.revalidate(); 
 		    this.repaint();
@@ -208,6 +213,9 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		case DELETE2:
 			panelMap.get(MainFrame.PANELNAME.DELETE2).setVisible(true);
 			break;
+		case YES:
+			panelMap.get(MainFrame.PANELNAME.YES).setVisible(true);
+			break;
 		}
 	}
 
@@ -251,6 +259,10 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		
 		((AnCont3) panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit3(userNo);
 		
+	}
+	
+	public void Set_jinsung(String[] Yes) {
+		((An_zzz) panelMap.get(MainFrame.PANELNAME.YES)).Page_jin(Yes);
 	}
 
 	private void showUserInfo() {
