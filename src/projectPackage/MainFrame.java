@@ -26,7 +26,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 
-	An_SQL ansql = new An_SQL();//나중에 꼭 해제하기.
+	An_SQL ansql = new An_SQL();
 
 	public enum PANELNAME {
 		MAIN, TICKETING, SELECT, PAYMENT, TICKET, LOGIN, CREATE1, CREATE2, CREATE3, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1,
@@ -153,8 +153,8 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		    centerPanel.add(panelMap.get(MainFrame.PANELNAME.DELETE1));
 		    centerPanel.add(panelMap.get(MainFrame.PANELNAME.DELETE2));
 		    this.getContentPane().add(centerPanel, BorderLayout.CENTER); 
-//		    this.revalidate(); 
-//		    this.repaint();
+		    this.revalidate(); 
+		    this.repaint();
 		}
 	
 
@@ -230,6 +230,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 	public void Set_SeatValue5(String[] loding2) {
 		((AnCont4) panelMap.get(MainFrame.PANELNAME.TICKET)).PageInit5(loding2);
 	}
+	
 
 	@Override
 	public void loginSuccessful(LoginEvent event) {
@@ -239,6 +240,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		int userNo = event.getUserNo();
 		System.out.println(userId + "님 환영합니다. 사용자 번호: " + userNo);
 		((AnCont3) panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit3(userNo);
+		
 	}
 
 }
