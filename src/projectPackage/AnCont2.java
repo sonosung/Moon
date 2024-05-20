@@ -789,8 +789,12 @@ public class AnCont2 extends JPanel {
 		if(D6 % 2 == 1) {
 			select_seat.add(24);
 		}
+		if(0 < select_seat.size()) {
 		mainFrame.Set_SeatValue2(select_seat);
         mainFrame.PageChange(MainFrame.PANELNAME.PAYMENT); 
         this.setVisible(false);
+		}else {
+			
+		}
     }
 }

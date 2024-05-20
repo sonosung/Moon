@@ -22,7 +22,11 @@ public class AnCont3 extends JPanel {
 	String select_movie[] = new String[4];
 	JPanel panel_2 = new JPanel();
 	private int user_no;
-	
+	JRadioButton radioButton1 = new JRadioButton("신용카드");
+	JRadioButton radioButton2 = new JRadioButton("토스페이");
+	JRadioButton radioButton3 = new JRadioButton("카카오페이");
+	int radio = 0;
+	 
 	public AnCont3(MainFrame mainFrame) {
 		this.mainFrame = mainFrame;
 		this.setSize(1280,800-150);
@@ -38,26 +42,47 @@ public class AnCont3 extends JPanel {
         ButtonGroup buttonGroup = new ButtonGroup(); // 라디오 버튼 그룹 생성
 
         // 라디오 버튼 추가
-        JRadioButton radioButton1 = new JRadioButton("신용카드");
+ //       JRadioButton radioButton1 = new JRadioButton("신용카드");
         radioButton1.setForeground(new Color(255, 255, 255));
         radioButton1.setBackground(new Color(0, 0, 0));
         radioButton1.setBounds(400, 350, 121, 23);
         panel.add(radioButton1); 
         buttonGroup.add(radioButton1); 
+        
+        radioButton1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                radio++;
+            }
+        });
 
-        JRadioButton radioButton2 = new JRadioButton("토스페이");
+ //       JRadioButton radioButton2 = new JRadioButton("토스페이");
         radioButton2.setForeground(new Color(255, 255, 255));
         radioButton2.setBackground(new Color(0, 0, 0));
         radioButton2.setBounds(550, 350, 121, 23);
         panel.add(radioButton2); 
         buttonGroup.add(radioButton2); 
+        
+        radioButton2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                radio++;
+            }
+        });
 
-        JRadioButton radioButton3 = new JRadioButton("카카오페이");
+  //      JRadioButton radioButton3 = new JRadioButton("카카오페이");
         radioButton3.setBackground(new Color(0, 0, 0));
         radioButton3.setForeground(new Color(255, 255, 255));
         radioButton3.setBounds(700, 350, 121, 23);
         panel.add(radioButton3); 
         buttonGroup.add(radioButton3); 
+        
+        radioButton3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                radio++;
+            }
+        });
 		
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(245, 20, 790, 550);
@@ -171,6 +196,7 @@ public class AnCont3 extends JPanel {
 	
 	
 	private void openAnCont4Panel() {
+		if(0 < radio) {
 		mainFrame.ansql.seat_size_set(select_seat);
 		mainFrame.ansql.update(user_no);
 		mainFrame.ansql.loding();
@@ -179,7 +205,9 @@ public class AnCont3 extends JPanel {
 		mainFrame.Set_SeatValue4(mainFrame.ansql.loding);
         mainFrame.PageChange(MainFrame.PANELNAME.TICKET); 
         this.setVisible(false);
-    }
+		}else {}
+	}
+	
 	
 	private void openAnCont2Panel() {
         mainFrame.PageChange(MainFrame.PANELNAME.SELECT); 

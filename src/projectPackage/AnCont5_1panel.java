@@ -33,7 +33,9 @@ public class AnCont5_1panel extends JPanel {
 	private HashMap<Integer, String> HouseMap;
 	private HashMap<Integer, String> TimeMap;
 	String select_movie[] = new String[4];
-	
+	JList<String> list2 = new JList<String>();
+	JList<String> list3 = new JList<String>();
+	JList<String> list4 = new JList<String>();
 	JLabel lblNewLabel = new JLabel("");
 	int key[] = new int[4];
 
@@ -75,21 +77,21 @@ public class AnCont5_1panel extends JPanel {
 		scrollPane.setBounds(264, 205, 233, 270);
 		lblNewLabel.add(scrollPane);
 		
-		JList<String> list2 = new JList<String>();
+//		JList<String> list2 = new JList<String>();
 		list2.setCellRenderer(new MyCellRenderer());
 		list2.setBounds(300, 0, 270, 225);
 		JScrollPane scrollPane2 = new JScrollPane(list2);
 		scrollPane2.setBounds(503, 205, 110, 270);
 		lblNewLabel.add(scrollPane2);	
 		
-		JList<String> list3 = new JList<String>();
+//		JList<String> list3 = new JList<String>();
 		list3.setCellRenderer(new MyCellRenderer());
 		list3.setBounds(300, 0, 270, 225);
 		JScrollPane scrollPane3 = new JScrollPane(list3);
 		scrollPane3.setBounds(617, 205, 110, 270);
 		lblNewLabel.add(scrollPane3);	
 		
-		JList<String> list4 = new JList<String>();
+//		JList<String> list4 = new JList<String>();
 		list4.setCellRenderer(new MyCellRenderer());
 		list4.setBounds(300, 0, 270, 225);
 		JScrollPane scrollPane4 = new JScrollPane(list4);
@@ -123,8 +125,6 @@ public class AnCont5_1panel extends JPanel {
 				
 				Vector<String> Localname = new Vector<>(LocalMap.values());
 				list2.setListData(Localname);
-
-
 				}
 		});	
 		
@@ -210,7 +210,7 @@ public class AnCont5_1panel extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				openAnCont2Panel();
-				setVisible(false);
+//				setVisible(false);
 			}
 		});
 }
@@ -241,13 +241,16 @@ public class AnCont5_1panel extends JPanel {
 	}
 
 	private void openAnCont2Panel() {
+		if((String)list2.getSelectedValue()!=null && (String)list3.getSelectedValue()!=null && (String)list4.getSelectedValue()!=null) {
 		List<Integer> seat_no = mainFrame.ansql.seat_no();	
 		mainFrame.Set_SeatValue(seat_no);
 		mainFrame.Set_movie(select_movie);
 		mainFrame.PageChange(MainFrame.PANELNAME.SELECT);
 		this.setVisible(false);
+		} else {
+			
+		}
 	}
-
 	private void MainGo() {
 		mainFrame.PageChange(MainFrame.PANELNAME.MAIN);
 		this.setVisible(false);
