@@ -17,6 +17,8 @@ public class An_SQL {
 	int key[]=new int[4];
 	List<Integer> seat_no = new ArrayList<>();
 	List<Integer> seat_size = new ArrayList<>();
+	List<String> loding = new ArrayList<>();
+	private int user_no;
 	
 	public void An_SQL1() {
 		try {
@@ -214,7 +216,8 @@ public class An_SQL {
 				PreparedStatement pstmt = conn.prepareStatement(sql);
 				pstmt.setInt(1, key[3]);
 				pstmt.setInt(2, seat_size.get(i));   // 시트넘버 어떻게 가져오지
-				pstmt.setInt(3,user_no);  //유저 넘버 어떻게 할거
+				pstmt.setInt(3, /*user_no*/ 30);  //문승호 Id
+				this.user_no = user_no;
 				ResultSet rs = pstmt.executeQuery();
 				System.out.println("쿼리문 확인 : " + key[3] + " 시트 사이즈 겟 확인 " + seat_size.get(i));
 				rs.close();
@@ -225,7 +228,59 @@ public class An_SQL {
 			}
 		}
 	}
+	
+	public List<String> loding(){
+		try {
+			String sql = "" +"SELECT t.SEAT_NO , m.SCHEDULE_TIME , m2.MOVIE_NAME , m3.MOVIEHOUSE_NAME ,l.LOCAL_NAME  FROM ticket t "
+					+ " JOIN MOVIESCHEDULE m ON m.SCHEDULE_NO  = t.SCHEDULE_NO "
+					+ " JOIN MOVIE m2 ON m2.movie_no = m.MOVIE_NO "
+					+ " JOIN MOVIEHOUSE m3 ON m3.MOVIEHOUSE_NO = m.MOVIEHOUSE_NO "
+					+ " JOIN LOCAL l ON l.LOCAL_NO  = m3.LOCAL_NO "
+					+ " WHERE t.SCHEDULE_NO = ?  AND t.user_no = ? " ;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, key[3]);
+			pstmt.setInt(2, /*user_no*/30);  // 문승호 Id
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				loding.add(rs.getString("SEAT_NO"));
+			}
+			rs.close();
+			pstmt.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			exit();
+		}	
+		return loding;
+	}
 		
+	public String[] loding2() {
+		 String[] loding2 = new String[4];
+		try {
+			String sql = "" +"SELECT t.SEAT_NO , m.SCHEDULE_TIME , m2.MOVIE_NAME , m3.MOVIEHOUSE_NAME ,l.LOCAL_NAME  FROM ticket t "
+					+ " JOIN MOVIESCHEDULE m ON m.SCHEDULE_NO  = t.SCHEDULE_NO "
+					+ " JOIN MOVIE m2 ON m2.movie_no = m.MOVIE_NO "
+					+ " JOIN MOVIEHOUSE m3 ON m3.MOVIEHOUSE_NO = m.MOVIEHOUSE_NO "
+					+ " JOIN LOCAL l ON l.LOCAL_NO  = m3.LOCAL_NO "
+					+ " WHERE t.SCHEDULE_NO = ?  AND t.user_no = ? " ;
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, key[3]);
+			pstmt.setInt(2, /*user_no*/30);  //문승호 Id
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				loding2[0] = rs.getString("MOVIE_NAME");
+				loding2[1] = rs.getString("MOVIEHOUSE_NAME");
+				loding2[2] = rs.getString("LOCAL_NAME");
+				loding2[3] = rs.getString("SCHEDULE_TIME");
+			}
+			rs.close();
+			pstmt.close();
+		}catch (SQLException e) {
+			e.printStackTrace();
+			exit();
+		}	
+		return loding2;
+	}
+	
 	public void exit() {
 		if (conn != null) {
 			try {

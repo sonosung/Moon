@@ -173,6 +173,10 @@ public class AnCont3 extends JPanel {
 	private void openAnCont4Panel() {
 		mainFrame.ansql.seat_size_set(select_seat);
 		mainFrame.ansql.update(user_no);
+		mainFrame.ansql.loding();
+		mainFrame.ansql.loding2();
+		mainFrame.Set_SeatValue5(mainFrame.ansql.loding2());
+		mainFrame.Set_SeatValue4(mainFrame.ansql.loding);
         mainFrame.PageChange(MainFrame.PANELNAME.TICKET); 
         this.setVisible(false);
     }

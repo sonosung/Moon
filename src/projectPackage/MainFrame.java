@@ -30,7 +30,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 
 	public enum PANELNAME {
 		MAIN, TICKETING, SELECT, PAYMENT, TICKET, LOGIN, CREATE1, CREATE2, CREATE3, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1,
-		DELETE2
+		DELETE2 
 	};
 
 	public static void main(String[] args) {
@@ -73,6 +73,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		JPanel ContentPanel13 = new DeleteId_1(this);
 		JPanel ContentPanel14 = new DeleteId_2(this);
 
+
 		ContentPanel.setVisible(true);
 
 		// 생성된 판넬 Map 자료 구조에 넣기
@@ -114,6 +115,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		centerPanel.add(ContentPanel12);
 		centerPanel.add(ContentPanel13);
 		centerPanel.add(ContentPanel14);
+
 
 		MainPane.add(centerPanel, BorderLayout.CENTER);
 	}
@@ -219,6 +221,14 @@ public class MainFrame extends JFrame implements LoginEventListener {
 
 	public void Set_SeatValue2(List<Integer> select_seat) {
 		((AnCont3) panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit2(select_seat);
+	}
+	
+	public void Set_SeatValue4(List<String> loding) {
+		((AnCont4) panelMap.get(MainFrame.PANELNAME.TICKET)).PageInit4(loding);
+	}
+	
+	public void Set_SeatValue5(String[] loding2) {
+		((AnCont4) panelMap.get(MainFrame.PANELNAME.TICKET)).PageInit5(loding2);
 	}
 
 	@Override
