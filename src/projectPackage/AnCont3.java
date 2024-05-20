@@ -94,10 +94,6 @@ public class AnCont3 extends JPanel {
 		panel_1.add(panel_2);
 		panel_2.setLayout(null);
 		
-
-//        this.setVisible(false);  
-		
-		
 		JLabel lblNewLabel = new JLabel("");
 		lblNewLabel.setIcon(new ImageIcon(AnCont3.class.getResource("/anSH_img/style_65e936963ad32.png")));
 		lblNewLabel.setBounds(12, 10, 130, 185);
