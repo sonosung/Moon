@@ -8,9 +8,9 @@ import javax.swing.JOptionPane;
 
 public class UserInfo_DAO {
 	private String driver = "oracle.jdbc.driver.OracleDriver";
-	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
-	private String user = "C##MSH";
-	private String password = "MSH1234";
+	private String url = "jdbc:oracle:thin:@14.42.124.21:1521:xe";
+	private String user = "C##MOON";
+	private String password = "MOON1234";
 	private Connection con;
 	private Statement stmt;
 	private ResultSet rs;
@@ -145,115 +145,6 @@ public class UserInfo_DAO {
 		}
 		return success;
 	}
-
-//	public ArrayList<UserInfoVo> myPage(int user_No) {
-//		String sql = "SELECT USER_NO FROM USER_INFO";
-//		ArrayList<UserInfoVo> Loged_User = new ArrayList<UserInfoVo>();
-//		
-//		int userNo = 0;
-//		Session.getInstance().setUserNo(userNo);
-//		
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			if (user_No != 0) {
-//				sql += " WHERE USER_ID='" + user_No + "'"; // user_No로 필터링
-//			}
-//			System.out.println("SQL : " + sql);
-//
-//			rs = stmt.executeQuery(sql); // 쿼리 실행
-//			rs.last();
-//			System.out.println("rs.getRow() : " + rs.getRow());
-//
-//			if (rs.getRow() == 0) {
-//				System.out.println("0 row selected...");
-//			} else {
-//				System.out.println(rs.getRow() + " rows selected...");
-//				rs.previous();
-//				while (rs.next()) {
-////					int iuserNo = rs.getInt("USER_NO");
-////					String userName = rs.getString("USER_NAME");
-////					String userId = rs.getString("USER_ID");
-////					String userPw = rs.getString("USER_PW");
-////					String userEmail = rs.getString("USER_EMAIL");
-////					String userPhone = rs.getString("USER_PHONE");
-////					int ticketNo = rs.getInt("TICKET_NO");
-////					String seat = rs.getString("SEAT");
-//					int iuserNo = rs.getInt("user_no");
-//					String userName = rs.getString("user_name");
-//					String userId = rs.getString("USER_ID");
-//					String userPw = rs.getString("USER_PW");
-//					String userEmail = rs.getString("user_email");
-//					String userPhone = rs.getString("user_phone");
-//					int ticketNo = rs.getInt("ticket_no");
-//					String seat = rs.getString("seat");
-//
-//					UserInfoVo data = new UserInfoVo(iuserNo, userName, userId, userPw, userEmail, userPhone, ticketNo,
-//							seat);
-//					Loged_User.add(data); // 검색 결과를 리스트에 추가.
-//				}
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return Loged_User;
-//
-//	}
-
-	// g
-//	public UserInfoVo getUserInfo(String userId) {
-//		UserInfoVo userInfo = null;
-//		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
-//
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			PreparedStatement pstmt = con.prepareStatement(sql);
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setString(1, userId);
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next()) {
-//				int userNo = rs.getInt("user_no");
-//				String userName = rs.getString("user_name");
-//				String userEmail = rs.getString("user_email");
-//				String userPhone = rs.getString("user_phone");
-//				int ticketNo = rs.getInt("ticket_no");
-//
-//				userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return userInfo;
-//	}
-
-//	public UserInfoVo myPage(String userId) {
-//		UserInfoVo userInfo = null;
-//		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
-//
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			PreparedStatement pstmt = con.prepareStatement(sql);
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setString(1, userId);
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next()) {
-//				int userNo = rs.getInt("user_no");
-//				String userName = rs.getString("user_name");
-//				String userEmail = rs.getString("user_email");
-//				String userPhone = rs.getString("user_phone");
-//				int ticketNo = rs.getInt("ticket_no");
-//
-//				userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return userInfo;
-//	}
 	
 	public UserInfoVo getUserInfo(String userId) {
 	    // 데이터베이스에서 사용자 정보를 가져오는 코드를 작성
@@ -288,30 +179,4 @@ public class UserInfo_DAO {
 		return null;
 	}
 
-//	public UserInfoVo getUserInfo(String userId) {
-//		UserInfoVo userInfo = null;
-//		String sql = "SELECT * FROM USER_INFO WHERE USER_ID = ?";
-//
-//		try {
-//			connDB(); // 데이터베이스 연결
-//			PreparedStatement pstmt = con.prepareStatement(sql);
-//			pstmt = con.prepareStatement(sql);
-//			pstmt.setString(1, userId);
-//			rs = pstmt.executeQuery();
-//
-//			if (rs.next()) {
-//				int userNo = rs.getInt("user_no");
-//				String userName = rs.getString("user_name");
-//				String userEmail = rs.getString("user_email");
-//				String userPhone = rs.getString("user_phone");
-//				int ticketNo = rs.getInt("ticket_no");
-//
-//				userInfo = new UserInfoVo(userNo, userName, userId, null, userEmail, userPhone, ticketNo, null);
-//			}
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//		}
-//
-//		return userInfo;
-//	}
 }

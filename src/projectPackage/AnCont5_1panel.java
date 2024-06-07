@@ -43,6 +43,7 @@ public class AnCont5_1panel extends JPanel {
 	 * Create the panel.
 	 */
 	public AnCont5_1panel(MainFrame mainFrame) {
+		
 		this.mainFrame = mainFrame;
 		this.setSize(1280, 800 - 150);
 		this.setPreferredSize(new Dimension(1280, 800 - 150));

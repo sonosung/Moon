@@ -70,6 +70,7 @@ public class An_SQL {
 	public HashMap<Integer, String> Allsearch() {
 	HashMap<Integer, String> LocalMap = new HashMap<>();
 	try {
+		System.out.println("영화 선택");
 		String sql = "" +
 		        "SELECT m2.MOVIE_NAME, t.THEATER_NAME, m3.MOVIEHOUSE_NAME, l.LOCAL_NAME, " +
 		        "       m.SCHEDULE_NO, m.MOVIE_NO, m.THEATER_NO, SCHEDULE_TIME, l.LOCAL_NO, m3.MOVIEHOUSE_NO " +
@@ -81,7 +82,9 @@ public class An_SQL {
 		        "WHERE m.MOVIE_NO = ?";
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
+		//지역 리스트 불러오기 테스트
 		pstmt.setInt(1, key[0]);
+//		pstmt.setInt(1, selectedMovieNo);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			int LocalNo = rs.getInt("LOCAL_NO");
@@ -106,6 +109,7 @@ public class An_SQL {
 	public HashMap<Integer, String> Allsearch2() {
 	HashMap<Integer, String> HouseMap = new HashMap<>();
 	try {
+		System.out.println("지점 리스트");
 		String sql = "" +
 		        "SELECT m2.MOVIE_NAME, t.THEATER_NAME, m3.MOVIEHOUSE_NAME, l.LOCAL_NAME, " +
 		        "       m.SCHEDULE_NO, m.MOVIE_NO, m.THEATER_NO, SCHEDULE_TIME, l.LOCAL_NO, m3.MOVIEHOUSE_NO " +

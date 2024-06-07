@@ -90,7 +90,6 @@ public class UserInfoVo {
 	private String userPhone;
 	private int ticketNo;
 	private String seat;
-//	private String udata;
 
 	public UserInfoVo(int userNo, String userName, String userId, String userPw, String userEmail, String userPhone, int ticketNo, String seat) {
 		
@@ -164,16 +163,4 @@ public class UserInfoVo {
 		this.seat = seat;
 	}
 	
-//	public void displayUserInfo(String udata) {
-//		this.udata = udata;
-//		
-//        System.out.println("사용자 정보:");
-//        System.out.println("사용자 번호: " + userNo);
-//        System.out.println("사용자 이름: " + userName);
-//        System.out.println("사용자 ID: " + userId);
-//        System.out.println("사용자 이메일: " + userEmail);
-//        System.out.println("사용자 전화번호: " + userPhone);
-//        System.out.println("티켓 번호: " + ticketNo);
-//        System.out.println("좌석: " + seat);
-//    }
 }

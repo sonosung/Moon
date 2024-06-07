@@ -1,4 +1,4 @@
-package projectPackage;
+package trashBin;
 
 public class AuthVo 
 {

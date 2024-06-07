@@ -402,7 +402,7 @@ public class CreateId_2 extends JPanel {
 				}
 
 				// 비밀번호 검증: 영어, 숫자, 특수기호 포함
-				if (!uPw.matches("^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$")) {
+				if (!uPw.matches("[A-Za-z\\d$@$!%*#?&]{8,}$")) {
 					JOptionPane.showMessageDialog(null, "비밀번호는 영어, 숫자, 특수기호를 포함하여 8자 이상 입력해야 합니다.", "입력 오류",
 							JOptionPane.ERROR_MESSAGE);
 					return;

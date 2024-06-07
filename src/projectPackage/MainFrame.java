@@ -21,13 +21,14 @@ public class MainFrame extends JFrame implements LoginEventListener {
 	private JPanel TopPanel;
 	private JPanel TopPanel_2;
 	private String userId;
+//	private An_SQL ansql;
 
 	// MainFrame 클래스 내부에서 사용할 참조변수 선언.
 	private Login loginPanel;
 	
 	private HashMap<MainFrame.PANELNAME, JPanel> panelMap;
 
-//	An_SQL ansql = new An_SQL();
+	An_SQL ansql = new An_SQL(); //승호 실험
 
 	public enum PANELNAME {
 		MAIN, TICKETING, SELECT, PAYMENT, TICKET, LOGIN, CREATE1, CREATE2, CREATE3, BIRD, PAGE1, PAGE2, MYPAGE, DELETE1,
@@ -53,6 +54,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		TopPanel = new TopPanel(this);
 		TopPanel_2 = new TopPanel_2(this);
 		lblWelcome = new JLabel();
+		ansql = new An_SQL();  //승호 실험
 
 		// 로그인 클래스의 이벤트 처리를 위해 로그인패널 생설, 이벤트 리스너 등록.
 		loginPanel = new Login(this);
@@ -60,7 +62,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 
 		// 생성 판넬 관리
 		JPanel ContentPanel = new OhtanisPanel(this);
-//		JPanel ContentPanel2 = new AnCont5_1panel(this); //나중에 꼭 해제하기.
+		JPanel ContentPanel2 = new AnCont5_1panel(this);
 		JPanel ContentPanel3 = new AnCont2(this);
 		JPanel ContentPanel4 = new AnCont3(this);
 		JPanel ContentPanel5 = new AnCont4(this);
@@ -80,7 +82,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 
 		// 생성된 판넬 Map 자료 구조에 넣기
 		panelMap.put(MainFrame.PANELNAME.MAIN, ContentPanel);
-//		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2); //나중에 꼭 해제하기.
+		panelMap.put(MainFrame.PANELNAME.TICKETING, ContentPanel2);
 		panelMap.put(MainFrame.PANELNAME.SELECT, ContentPanel3);
 		panelMap.put(MainFrame.PANELNAME.PAYMENT, ContentPanel4);
 		panelMap.put(MainFrame.PANELNAME.TICKET, ContentPanel5);
@@ -93,6 +95,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		panelMap.put(MainFrame.PANELNAME.DELETE1, ContentPanel13);
 		panelMap.put(MainFrame.PANELNAME.DELETE2, ContentPanel14);
 		panelMap.put(MainFrame.PANELNAME.YES, ContentPanel15);
+		
 		// Main판넬 설정
 		setBounds(100, 100, 1280, 800);
 		MainPane = new JPanel();
@@ -105,7 +108,7 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		JPanel centerPanel = new JPanel();
 		centerPanel.setLayout(new BoxLayout(centerPanel, BoxLayout.Y_AXIS));
 		centerPanel.add(ContentPanel);
-//		centerPanel.add(ContentPanel2); //나중에 꼭 해제하기
+		centerPanel.add(ContentPanel2);
 		centerPanel.add(ContentPanel3);
 		centerPanel.add(ContentPanel4);
 		centerPanel.add(ContentPanel5);
@@ -255,7 +258,8 @@ public class MainFrame extends JFrame implements LoginEventListener {
 		Session.getInstance().setUserId(userId);
 		System.out.println("userId : " + userId);
 		
-//		showUserInfo();
+		An_SQL an_sql = new An_SQL();
+	    an_sql.An_SQL1();
 		
 		
 		((AnCont3) panelMap.get(MainFrame.PANELNAME.PAYMENT)).PageInit3(userNo);
