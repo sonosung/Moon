@@ -84,7 +84,6 @@ public class An_SQL {
 		PreparedStatement pstmt = conn.prepareStatement(sql);
 		//지역 리스트 불러오기 테스트
 		pstmt.setInt(1, key[0]);
-//		pstmt.setInt(1, selectedMovieNo);
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			int LocalNo = rs.getInt("LOCAL_NO");
